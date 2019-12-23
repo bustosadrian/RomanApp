@@ -13,8 +13,32 @@ namespace PlainUWP.ViewModels.Budget
         public BudgetViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+        }
+
+        public void Load(Entities.Budget budget)
+        {
             Expenses = new ObservableCollection<ExpenseViewModel>();
             Guests = new ObservableCollection<GuestViewModel>();
+
+            if(budget != null)
+            {
+                Expenses = new ObservableCollection<ExpenseViewModel>(
+                    budget.Expenses.Select(x => new ExpenseViewModel()
+                    {
+                        Label = x.Label,
+                        Amount = x.Amount,
+                    }).ToList());
+
+                Guests = new ObservableCollection<GuestViewModel>(
+                    budget.Guests.Select(x => new GuestViewModel()
+                    {
+                        Label = x.Label,
+                        Amount = x.Amount,
+                    }).ToList());
+
+                OnPropertyChanged("ShowGuests");
+                OnPropertyChanged("ShowExpenses");
+            }
         }
 
         private async void NewItem()
@@ -129,7 +153,7 @@ namespace PlainUWP.ViewModels.Budget
         {
             get
             {
-                return Expenses.Any();
+                return Expenses != null & Expenses.Any();
             }
         }
 
@@ -137,7 +161,7 @@ namespace PlainUWP.ViewModels.Budget
         {
             get
             {
-                return Guests.Any();
+                return Guests != null && Guests.Any();
             }
         }
 

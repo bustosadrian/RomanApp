@@ -28,5 +28,23 @@ namespace PlainUWP.Pages.Budget
             this.InitializeComponent();
             DataContext = new BudgetViewModel(new NavigationService());
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.Load(e.Parameter as Entities.Budget);
+        }
+
+        #region Properties
+
+        private BudgetViewModel ViewModel
+        {
+            get
+            {
+                return (BudgetViewModel)DataContext;
+            }
+        }
+
+        #endregion
+
     }
 }

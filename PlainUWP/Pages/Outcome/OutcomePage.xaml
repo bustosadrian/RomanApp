@@ -80,7 +80,7 @@
         </Grid>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Margin="0 0 20 20">
-            <Button Content="Add item" 
+            <Button Content="Back" 
                     Margin="0 0 0 10"
                     Command="{Binding BackCommand}" />
         </StackPanel>

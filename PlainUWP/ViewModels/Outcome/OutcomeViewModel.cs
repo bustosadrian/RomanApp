@@ -11,12 +11,13 @@ namespace PlainUWP.ViewModels.Outcome
         public OutcomeViewModel(INavigationService navigationService) 
             : base(navigationService)
         {
-            Creditors = new ObservableCollection<GuestViewModel>();
-            Debtors = new ObservableCollection<GuestViewModel>();
         }
 
         public void Load(Entities.Budget budget)
         {
+            Creditors = new ObservableCollection<GuestViewModel>();
+            Debtors = new ObservableCollection<GuestViewModel>();
+
             _budget = budget;
 
             decimal total = 0;
