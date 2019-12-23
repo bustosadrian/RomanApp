@@ -2,6 +2,14 @@
     x:Class="PlainUWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:PlainUWP.Converters"
     xmlns:local="using:PlainUWP">
 
+    <Application.Resources>
+        <c:BooleanToVisibilityConverter x:Key="c_bv" />
+        <c:BooleanToVisibilityConverter x:Key="c_bv_i" IsInverse="True" />
+        <c:DecimalConverter x:Key="c_d" />
+        <c:CountConverter x:Key="c_count" />
+    </Application.Resources>
+    
 </Application>
