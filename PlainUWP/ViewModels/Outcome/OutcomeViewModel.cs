@@ -1,6 +1,8 @@
 ﻿using PlainUWP.Pages.Budget;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PlainUWP.ViewModels.Outcome
 {
@@ -11,6 +13,7 @@ namespace PlainUWP.ViewModels.Outcome
         public OutcomeViewModel(INavigationService navigationService) 
             : base(navigationService)
         {
+
         }
 
         public void Load(Entities.Budget budget)
@@ -59,22 +62,21 @@ namespace PlainUWP.ViewModels.Outcome
                 o.Debt = o.Amount - share;
             }
 
-            foreach(var o in guests)
-            {
-                switch (o.Status)
-                {
-                    case GuestStatus.CREDITOR:
-                        Creditors.Add(o);
-                        break;
-                    case GuestStatus.DEBTOR:
-                        Debtors.Add(o);
-                        break;
-                }
-            }
+            Creditors = new ObservableCollection<GuestViewModel>(
+                guests.Where(x => x.Status == GuestStatus.CREDITOR).ToList());
+            Debtors = new ObservableCollection<GuestViewModel>(
+                guests.Where(x => x.Status == GuestStatus.DEBTOR).ToList());
 
             Total = total;
             Share = share;
+            Expenses = expensesTotal;
         }
+
+        private void Restart()
+        {
+            _navigationService.NavigateTo(typeof(BudgetPage));
+        }
+
 
         private void Back()
         {
@@ -82,6 +84,19 @@ namespace PlainUWP.ViewModels.Outcome
         }
 
         #region Commands
+
+        private DelegateCommand _restartCommand;
+        public DelegateCommand RestartCommand
+        {
+            get
+            {
+                if (_restartCommand == null)
+                {
+                    _restartCommand = new DelegateCommand(Restart);
+                }
+                return _restartCommand;
+            }
+        }
 
         private DelegateCommand _backCommand;
         public DelegateCommand BackCommand
@@ -125,6 +140,20 @@ namespace PlainUWP.ViewModels.Outcome
             {
                 _share = value;
                 OnPropertyChanged("Share");
+            }
+        }
+
+        private decimal _expenses;
+        public decimal Expenses
+        {
+            get
+            {
+                return _expenses;
+            }
+            set
+            {
+                _expenses = value;
+                OnPropertyChanged("Expenses");
             }
         }
 

@@ -17,8 +17,7 @@ namespace PlainUWP.ViewModels.Budget
 
         public void Load(Entities.Budget budget)
         {
-            Expenses = new ObservableCollection<ExpenseViewModel>();
-            Guests = new ObservableCollection<GuestViewModel>();
+            Restart();
 
             if(budget != null)
             {
@@ -39,6 +38,12 @@ namespace PlainUWP.ViewModels.Budget
                 OnPropertyChanged("ShowGuests");
                 OnPropertyChanged("ShowExpenses");
             }
+        }
+
+        private void Restart()
+        {
+            Expenses = new ObservableCollection<ExpenseViewModel>();
+            Guests = new ObservableCollection<GuestViewModel>();
         }
 
         private async void NewItem()
@@ -91,6 +96,19 @@ namespace PlainUWP.ViewModels.Budget
 
         #region Commands
 
+        private DelegateCommand _restartCommand;
+        public DelegateCommand RestartCommand
+        {
+            get
+            {
+                if (_restartCommand == null)
+                {
+                    _restartCommand = new DelegateCommand(Restart);
+                }
+                return _restartCommand;
+            }
+        }
+
         private DelegateCommand _newItemCommand;
         public DelegateCommand NewItemCommand
         {
@@ -132,6 +150,7 @@ namespace PlainUWP.ViewModels.Budget
             {
                 _expenses = value;
                 OnPropertyChanged("Expenses");
+                OnPropertyChanged("ShowExpenses");
             }
         }
 
@@ -146,6 +165,7 @@ namespace PlainUWP.ViewModels.Budget
             {
                 _guests = value;
                 OnPropertyChanged("Guests");
+                OnPropertyChanged("ShowGuests");
             }
         }
 
@@ -153,7 +173,7 @@ namespace PlainUWP.ViewModels.Budget
         {
             get
             {
-                return Expenses != null & Expenses.Any();
+                return Expenses != null && Expenses.Any();
             }
         }
 

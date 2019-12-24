@@ -14,6 +14,22 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="5 5 5 20"
+              Visibility="{Binding ShowExpenses, Converter={StaticResource c_bv}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="Expenses" 
+                       FontSize="32" FontWeight="Bold" />
+                </StackPanel>
+                <Grid Grid.Row="1" Margin="5 0 5 0">
+                    <local:Items ItemsSource="{Binding Expenses}" />
+                </Grid>
+            </Grid>
+
             <Grid Grid.Row="1" Margin="5"
               Visibility="{Binding ShowGuests, Converter={StaticResource c_bv}}">
                 <Grid.RowDefinitions>
@@ -31,6 +47,10 @@
         </Grid>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Margin="0 0 20 20">
+            <Button Content="Restart" 
+                    Margin="0 0 0 10"
+                    Command="{Binding RestartCommand}" />
+            
             <Button Content="Add item" 
                     Margin="0 0 0 10"
                     Command="{Binding NewItemCommand}" />

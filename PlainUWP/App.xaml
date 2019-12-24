@@ -10,6 +10,7 @@
         <c:BooleanToVisibilityConverter x:Key="c_bv_i" IsInverse="True" />
         <c:DecimalConverter x:Key="c_d" />
         <c:CountConverter x:Key="c_count" />
+        <c:AnyToVisibilityConverter x:Key="c_av" />
     </Application.Resources>
     
 </Application>
