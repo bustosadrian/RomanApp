@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Controller;
+using RomanApp.Controller.Entities;
 using RomanApp.Controller.Offline.States;
 using System;
 
@@ -6,6 +7,8 @@ namespace RomanApp.Controller.Offline
 {
     public class RoomHandler : Reedoo.NET.Controller.RoomHandler
     {
+        public const string LOCKER_BUDGET = "budget";
+
         public RoomHandler(IServiceProvider serviceProvider) 
             : base(serviceProvider)
         {
@@ -13,6 +16,11 @@ namespace RomanApp.Controller.Offline
         }
 
         #region Overriden
+
+        public override void OnBuild()
+        {
+            Locker.Add(LOCKER_BUDGET, new Budget());
+        }
 
         public override ActionResult Init()
         {

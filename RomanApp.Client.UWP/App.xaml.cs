@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿
+using Microsoft.Extensions.DependencyInjection;
+using Reedoo.API.UWP;
+using Reedoo.NET.Client.Extensions.Bindings.Local;
+using Reedoo.NET.Controller.Builder;
+using Reedoo.NET.Utils.Commons;
+using RomanApp.Controller;
+using RomanApp.Messages.Output;
+using Serilog;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace RomanApp.Client.UWP
@@ -22,6 +21,14 @@ namespace RomanApp.Client.UWP
     /// </summary>
     sealed partial class App : Application
     {
+        private ServiceCollection _services;
+
+        private ServiceProvider _serviceProvider;
+
+        private ICommonHandlerBuilder _handlerBuilder;
+
+        private UWPClient _uwpClient;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -57,6 +64,18 @@ namespace RomanApp.Client.UWP
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+                LoadDependencies();
+
+                LoadClient(_serviceProvider);
+
+                _uwpClient
+                    .LocalBinding(_handlerBuilder)
+
+                    .Application("RomanApp")
+                    .Room("Room1")
+                    .Bind();
+
             }
 
             if (e.PrelaunchActivated == false)
@@ -95,6 +114,48 @@ namespace RomanApp.Client.UWP
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void LoadClient(ServiceProvider serviceProvider)
+        {
+            _handlerBuilder = new Startup().GetBuilder(_serviceProvider);
+            Reedoo.NET.Client.Builder.ClientBuilder builder =
+                new Reedoo.NET.Client.Builder.ClientBuilder(serviceProvider);
+            builder.AddAssembly(GetType().Assembly);
+            builder.NewApp("RomanApp")
+                .AddAssembly(GetType().Assembly)
+                .AddAssembly(typeof(GuestMessage).Assembly)
+                .Add();
+
+            _uwpClient = builder.BuildUWPClient();
+            //_uwpClient.CredentialArrived += UWPClient_CredentialArrived;
+        }
+
+        void LoadDependencies()
+        {
+            _services = new ServiceCollection();
+            ConfigureServices();
+            ConfigureLogging();
+
+            _serviceProvider = _services.BuildServiceProvider();
+        }
+
+        void ConfigureServices()
+        {
+            _services.AddSingleton(typeof(IHandlerBuilder), x => new HandlerBuilder(x));
+        }
+
+        void ConfigureLogging()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Debug()
+                .CreateLogger();
+
+            _services.AddLogging(configure =>
+            {
+                configure.AddSerilog();
+            });
         }
     }
 }

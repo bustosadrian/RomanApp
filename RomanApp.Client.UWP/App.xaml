@@ -2,6 +2,15 @@
     x:Class="RomanApp.Client.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:RomanApp.Client.UWP.Converters"
     xmlns:local="using:RomanApp.Client.UWP">
+
+    <Application.Resources>
+        <c:BooleanToVisibilityConverter x:Key="c_bv" />
+        <c:BooleanToVisibilityConverter x:Key="c_bv_i" IsInverse="True" />
+        <c:DecimalConverter x:Key="c_d" />
+        <c:CountConverter x:Key="c_count" />
+        <c:AnyToVisibilityConverter x:Key="c_av" />
+    </Application.Resources>
 
 </Application>

@@ -3,7 +3,7 @@ using System;
 
 namespace RomanApp.Controller.Offline.States
 {
-    public class BudgetState : BaseState
+    public class EventState : BaseState
     {
         public override void Brief(IMember member)
         {

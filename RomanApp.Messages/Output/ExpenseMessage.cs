@@ -5,8 +5,8 @@ namespace RomanApp.Messages.Output
 {
     [Serializable]
     [Message(Key = KEY)]
-    public class GuestMessage : ItemMessage
+    public class ExpenseMessage : ItemMessage
     {
-        private const string KEY = "RomanApp.Guest";
+        private const string KEY = "RomanApp.Expense";
     }
 }

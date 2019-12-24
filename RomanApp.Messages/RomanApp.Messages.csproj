@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.Messages\Reedoo.NET.Messages.csproj" />
+  </ItemGroup>
+
 </Project>

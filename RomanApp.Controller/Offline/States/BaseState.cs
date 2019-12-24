@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages.Output;
+using RomanApp.Controller.Entities;
 using RomanApp.Controller.Offline.MemberStates;
 
 namespace RomanApp.Controller.Offline.States
@@ -19,10 +20,21 @@ namespace RomanApp.Controller.Offline.States
         {
             BaseMemberState retval = null;
 
-            retval = new BudgetMemberState();
+            retval = new BudgetState();
 
             return retval;
         }
 
+        #region Locker
+
+        public Budget Budget
+        {
+            get
+            {
+                return RoomLocker.Get<Budget>(RoomHandler.LOCKER_BUDGET);
+            }
+        }
+
+        #endregion
     }
 }
