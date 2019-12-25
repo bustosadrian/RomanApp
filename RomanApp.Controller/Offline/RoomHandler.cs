@@ -9,6 +9,8 @@ namespace RomanApp.Controller.Offline
     {
         public const string LOCKER_BUDGET = "budget";
 
+        public const string LOCKER_BUDGET_OUTCOME = "budget_outcome";
+
         public RoomHandler(IServiceProvider serviceProvider) 
             : base(serviceProvider)
         {

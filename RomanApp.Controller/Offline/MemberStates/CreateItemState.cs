@@ -6,18 +6,13 @@ using RomanApp.Messages.Input;
 namespace RomanApp.Controller.Offline.MemberStates
 {
     [ControllerState(Key = KEY)]
-    public class CreateItemState : BaseMemberState
+    public class CreateItemState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Create.Item";
 
         public override void Brief()
         {
 
-        }
-
-        private void GoBack()
-        {
-            ChangeState(typeof(BudgetState));
         }
 
         #region Messages
@@ -30,7 +25,10 @@ namespace RomanApp.Controller.Offline.MemberStates
                 Label = message.Name,
                 Amount = message.Amount,
             });
-            GoBack();
+
+            CalculateBudget();
+
+            GoToBudget();
         }
 
         [Reader]
@@ -41,13 +39,20 @@ namespace RomanApp.Controller.Offline.MemberStates
                 Label = message.Name,
                 Amount = message.Amount,
             });
-            GoBack();
+            GoToBudget();
         }
 
         [Reader]
         public void Read(CancelMessage message)
         {
-            GoBack();
+            GoToBudget();
+        }
+
+        [Reader]
+        public override void Read(ResetMessage message)
+        {
+            base.Read(message);
+            GoToBudget();
         }
 
         #endregion

@@ -10,4 +10,8 @@
     <ProjectReference Include="..\RomanApp.Messages\RomanApp.Messages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Offline\Actions\" />
+  </ItemGroup>
+
 </Project>

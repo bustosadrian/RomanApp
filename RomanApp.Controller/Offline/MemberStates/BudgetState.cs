@@ -1,12 +1,13 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Controller.Entities;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Output;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
     [ControllerState(Key = KEY)]
-    public class BudgetState : BaseMemberState
+    public class BudgetState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Budget";
 
@@ -40,12 +41,25 @@ namespace RomanApp.Controller.Offline.MemberStates
             }
         }
 
-        #region Properties
+        #region Messages
 
         [Reader]
         public void Read(NewItemMessage message)
         {
             ChangeState(typeof(CreateItemState));
+        }
+
+        [Reader]
+        public override void Read(ResetMessage message)
+        {
+            base.Read(message);
+            Queue(new ClearMessage());
+        }
+
+        [Reader]
+        public void Read(CalculateMessage message)
+        {
+            ChangeState(typeof(OutcomeState));
         }
 
         #endregion

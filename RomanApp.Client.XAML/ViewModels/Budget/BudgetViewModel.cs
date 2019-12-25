@@ -9,6 +9,11 @@ namespace RomanApp.Client.XAML.ViewModels.Budget
     {
         public BudgetViewModel()
         {
+            Clear();
+        }
+
+        private void Clear()
+        {
             Guests = new ObservableCollection<GuestViewModel>();
 
             Expenses = new ObservableCollection<ExpenseViewModel>();
@@ -17,6 +22,16 @@ namespace RomanApp.Client.XAML.ViewModels.Budget
         private void NewItem()
         {
             Send(new NewItemMessage());
+        }
+
+        private void Reset()
+        {
+            Send(new ResetMessage());
+        }
+
+        private void Calculate()
+        {
+            Send(new CalculateMessage());
         }
 
         #region Messages
@@ -45,6 +60,13 @@ namespace RomanApp.Client.XAML.ViewModels.Budget
             return true;
         }
 
+        [Reader]
+        public bool Read(ClearMessage message)
+        {
+            Clear();
+            return true;
+        }
+
         #endregion
 
         #region Commands
@@ -59,6 +81,32 @@ namespace RomanApp.Client.XAML.ViewModels.Budget
                     _newItemCommand = new DelegateCommand(NewItem);
                 }
                 return _newItemCommand;
+            }
+        }
+
+        private DelegateCommand _resetCommand;
+        public DelegateCommand  ResetCommand
+        {
+            get
+            {
+                if (_resetCommand == null)
+                {
+                    _resetCommand = new DelegateCommand(Reset);
+                }
+                return _resetCommand;
+            }
+        }
+
+        private DelegateCommand _calculateCommand;
+        public DelegateCommand CalculateCommand
+        {
+            get
+            {
+                if (_calculateCommand == null)
+                {
+                    _calculateCommand = new DelegateCommand(Calculate);
+                }
+                return _calculateCommand;
             }
         }
 

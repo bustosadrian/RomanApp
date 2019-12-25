@@ -47,17 +47,17 @@
         </Grid>
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom"
                     Margin="0 0 20 20">
-            <!--<Button Content="Restart" 
+            <Button Content="Reset" 
                     Margin="0 0 0 10"
-                    Command="{Binding RestartCommand}" />-->
+                    Command="{Binding ResetCommand}" />
 
             <Button Content="Add item" 
                     Margin="0 0 0 10"
                     Command="{Binding NewItemCommand}" />
 
-            <!--<Button Content="Calculate" 
+            <Button Content="Calculate" 
                     Margin="0 0 0 10"
-                    Command="{Binding CalculateCommand}" />-->
+                    Command="{Binding CalculateCommand}" />
         </StackPanel>
     </Grid>
 </Page>

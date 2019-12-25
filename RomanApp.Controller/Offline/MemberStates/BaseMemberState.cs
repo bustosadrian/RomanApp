@@ -16,6 +16,18 @@ namespace RomanApp.Controller.Offline.MemberStates
             }
         }
 
+        protected BudgetOutcome BudgetOutcome
+        {
+            get
+            {
+                return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+            }
+            set
+            {
+                RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
+            }
+        }
+
         #endregion
 
     }

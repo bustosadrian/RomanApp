@@ -113,6 +113,12 @@
     <Compile Include="Views\CreateItem\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Outcome\GuestsList.xaml.cs">
+      <DependentUpon>GuestsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Outcome\OutcomeView.xaml.cs">
+      <DependentUpon>OutcomeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -148,6 +154,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreateItem\CreateItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Outcome\GuestsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Outcome\OutcomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
