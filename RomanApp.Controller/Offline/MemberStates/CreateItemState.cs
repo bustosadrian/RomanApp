@@ -1,4 +1,5 @@
-﻿using Reedoo.NET.Controller;
+﻿using Microsoft.Extensions.Logging;
+using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Controller.Entities;
 using RomanApp.Messages.Input;
@@ -12,7 +13,7 @@ namespace RomanApp.Controller.Offline.MemberStates
 
         public override void Brief()
         {
-
+            base.Brief();
         }
 
         #region Messages
@@ -20,11 +21,13 @@ namespace RomanApp.Controller.Offline.MemberStates
         [Reader]
         public void Read(AddGuestMessage message)
         {
-            Budget.Add(new Guest()
+            Guest guest = new Guest()
             {
                 Label = message.Name,
                 Amount = message.Amount,
-            });
+            };
+            Budget.Add(guest);
+            Logger?.LogInformation("Guest \"{0}\" -> {1}", guest.Label, guest.Amount);
 
             CalculateBudget();
 
@@ -34,11 +37,16 @@ namespace RomanApp.Controller.Offline.MemberStates
         [Reader]
         public void Read(AddExpenseMessage message)
         {
-            Budget.Add(new Expense()
+            Expense expense = new Expense()
             {
                 Label = message.Name,
                 Amount = message.Amount,
-            });
+            };
+            Budget.Add(expense);
+            Logger?.LogInformation("Expense \"{0}\" -> {1}", expense.Label, expense.Amount);
+
+            CalculateBudget();
+
             GoToBudget();
         }
 

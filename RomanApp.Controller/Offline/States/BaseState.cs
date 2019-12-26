@@ -1,7 +1,10 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages.Output;
 using RomanApp.Controller.Entities;
+using RomanApp.Controller.Offline.Gate;
 using RomanApp.Controller.Offline.MemberStates;
+using RomanApp.Messages.Output;
+using System;
 
 namespace RomanApp.Controller.Offline.States
 {
@@ -11,19 +14,33 @@ namespace RomanApp.Controller.Offline.States
         {
             AlienTicket retval = null;
 
-            retval = new MemberTicket(passport, CreateMember());
+            //retval = new MemberTicket(passport, CreateMember());
+            retval = new GateTicket(passport, typeof(LoginGate));
 
             return retval;
         }
 
-        public override MemberState OnJoined(IMember member)
+        public override Type OnJoined(IMember member)
         {
-            BaseMemberState retval = null;
+            return typeof(BudgetState);
+        }
 
-            retval = new BudgetState();
+        public override MemberTicket OnJoined(Passport passport, TrespasserId trespasserId)
+        {
+            MemberTicket retval = null;
+
+            LoginId loginId = (LoginId)trespasserId;
+
+            IMember member = CreateMember();
+            member.Locker.Add(RoomHandler.LOCKER_MEMBER_NAME, loginId.Name);
+            retval = new MemberTicket(passport, member);
 
             return retval;
         }
+
+        #region Overriden
+
+        #endregion
 
         #region Locker
 

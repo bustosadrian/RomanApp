@@ -5,7 +5,6 @@ namespace RomanApp.Controller.Offline.MemberStates
 {
     public abstract class BaseMemberState : MemberState
     {
-
         #region Locker
 
         protected Budget Budget

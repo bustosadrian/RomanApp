@@ -13,6 +13,8 @@ namespace RomanApp.Controller.Offline.MemberStates
 
         public override void Brief()
         {
+            base.Brief();
+
             BriefGuests();
             BriefExpenses();
         }

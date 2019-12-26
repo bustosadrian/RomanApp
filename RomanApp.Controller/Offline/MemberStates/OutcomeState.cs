@@ -14,6 +14,8 @@ namespace RomanApp.Controller.Offline.MemberStates
 
         public override void Brief()
         {
+            base.Brief();
+
             OutcomeMessage message = new OutcomeMessage();
 
             message.Total = BudgetOutcome.Total;
