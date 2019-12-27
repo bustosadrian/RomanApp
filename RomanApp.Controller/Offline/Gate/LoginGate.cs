@@ -4,7 +4,7 @@ using RomanApp.Messages.Input;
 
 namespace RomanApp.Controller.Offline.Gate
 {
-    [ControllerState(Key = KEY)]
+    [ApplicationState(Key = KEY)]
     public class LoginGate : TrespasserState
     {
         private const string KEY = "RomanApp.Offline.Gate.Login";

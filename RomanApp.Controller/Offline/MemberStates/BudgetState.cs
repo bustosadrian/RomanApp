@@ -6,7 +6,7 @@ using RomanApp.Messages.Output;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
-    [ControllerState(Key = KEY)]
+    [ApplicationState(Key = KEY)]
     public class BudgetState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Budget";

@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
-    [ControllerState(Key = KEY)]
+    [ApplicationState(Key = KEY)]
     public class OutcomeState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Outcome";

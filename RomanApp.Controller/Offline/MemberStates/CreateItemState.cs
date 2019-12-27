@@ -6,7 +6,7 @@ using RomanApp.Messages.Input;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
-    [ControllerState(Key = KEY)]
+    [ApplicationState(Key = KEY)]
     public class CreateItemState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Create.Item";
