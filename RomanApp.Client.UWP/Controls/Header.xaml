@@ -22,11 +22,13 @@
 
         <Grid Grid.Column="1" Padding="0 0 20 0">
             <Grid HorizontalAlignment="Right">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding Username, ElementName=Self}" 
+                <Button Command="{Binding LogOutCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Username, ElementName=Self}" 
                                Padding="0 0 5 0"/>
-                    <SymbolIcon Symbol="Contact" />
-                </StackPanel>
+                        <SymbolIcon Symbol="Contact" />
+                    </StackPanel>
+                </Button>
             </Grid>
         </Grid>
     </Grid>

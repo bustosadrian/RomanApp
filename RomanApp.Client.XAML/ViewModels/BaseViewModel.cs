@@ -3,6 +3,7 @@ using Reedoo.NET.Messages.Input;
 using Reedoo.NET.Messages.Output;
 using Reedoo.NET.Messages.Output.Validation;
 using Reedoo.NET.XAML;
+using RomanApp.Messages.Input;
 using RomanApp.Messages.Output;
 using System.ComponentModel;
 using System.Text;
@@ -14,6 +15,11 @@ namespace RomanApp.Client.XAML.ViewModels
         public virtual void Send(InputMessage message)
         {
             Bus.Send(message);
+        }
+
+        protected void LogOut()
+        {
+            Send(new LogOutMessage());
         }
 
         #region Bus
@@ -43,6 +49,23 @@ namespace RomanApp.Client.XAML.ViewModels
                 Name = message.Name,
             };
             return true;
+        }
+
+        #endregion
+
+        #region Commands
+
+        private DelegateCommand _logOutCommand;
+        public DelegateCommand LogOutCommand
+        {
+            get
+            {
+                if (_logOutCommand == null)
+                {
+                    _logOutCommand = new DelegateCommand(LogOut);
+                }
+                return _logOutCommand;
+            }
         }
 
         #endregion

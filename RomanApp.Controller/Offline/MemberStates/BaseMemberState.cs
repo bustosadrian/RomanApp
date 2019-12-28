@@ -1,10 +1,23 @@
 ﻿using Reedoo.NET.Controller;
+using Reedoo.NET.Messages;
 using RomanApp.Controller.Entities;
+using RomanApp.Messages.Input;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
     public abstract class BaseMemberState : MemberState
     {
+
+        #region Messages
+
+        [Reader]
+        public void Read(LogOutMessage message)
+        {
+            Evict(null);
+        }
+
+        #endregion
+
         #region Locker
 
         protected Budget Budget
