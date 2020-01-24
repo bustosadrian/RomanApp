@@ -22,6 +22,48 @@
                 <TextBlock Text="CREATE" 
                            FontSize="48" />
             </Grid>
+
+            <Grid Grid.Row="1" Width="300"
+                  VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"
+                          Margin="0 0 0 20">
+                        <TextBox  Text="{Binding EventName,Mode=TwoWay}"
+                                  PlaceholderText="Type the event name" />
+                    </Grid>
+
+                    <Grid Grid.Row="1" Visibility="{Binding ShowAccessSection, Converter={StaticResource c_bv}}"
+                          Margin="0 0 0 20">
+                        <StackPanel Orientation="Vertical">
+                            <RadioButton IsChecked="{Binding Path=IsPrivate, Mode=TwoWay}"
+                                         GroupName="EventAccess"
+                                         Content="Private" />
+                            <StackPanel>
+                                <RadioButton IsChecked="{Binding Path=IsPublic, Mode=TwoWay}"
+                                         GroupName="EventAccess"
+                                         Content="Public" />
+                                <Grid Margin="30 0 0 0">
+                                    <TextBox Text="{Binding EventPassword,Mode=TwoWay}"
+                                             PlaceholderText="Password"
+                                             IsEnabled="{Binding IsPublicSectionEnabled}" />
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Button Content="Create"
+                                HorizontalAlignment="Center"
+                                Command="{Binding CreateCommand}" />
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

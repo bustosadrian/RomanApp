@@ -98,6 +98,7 @@
     <Compile Include="Controls\BackButton.xaml.cs">
       <DependentUpon>BackButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Controls\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
