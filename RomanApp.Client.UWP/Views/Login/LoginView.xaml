@@ -33,9 +33,9 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Content="Submit" 
+                <Button Content="Next" 
                         Command="{Binding SubmitCommand}"
-                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Grid>
         </Grid>
     </Grid>

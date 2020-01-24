@@ -18,6 +18,12 @@ namespace RomanApp.Controller.Offline
             private set;
         }
 
+        public Share Share
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

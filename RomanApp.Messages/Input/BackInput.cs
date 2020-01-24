@@ -5,8 +5,8 @@ using System;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
-    public class BackMessage : InputMessage
+    [Message(KEY)]
+    public class BackInput : InputMessage
     {
         private const string KEY = "RomanApp.Back";
     }

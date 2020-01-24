@@ -5,6 +5,8 @@ using Reedoo.NET.Client.Extensions.Bindings.Local;
 using Reedoo.NET.Controller.Builder;
 using Reedoo.NET.Utils.Commons;
 using RomanApp.Controller;
+using RomanApp.Home.Controller;
+using RomanApp.Messages.Input;
 using RomanApp.Messages.Output;
 using Serilog;
 using System;
@@ -73,7 +75,7 @@ namespace RomanApp.Client.UWP
                     .LocalBinding(_handlerBuilder)
 
                     .Application("RomanApp")
-                    .Room("Room1")
+                    .Room("Home")
                     .Bind();
 
             }
@@ -118,13 +120,15 @@ namespace RomanApp.Client.UWP
 
         private void LoadClient(ServiceProvider serviceProvider)
         {
-            _handlerBuilder = new Startup().GetBuilder(_serviceProvider);
+            _handlerBuilder = new Bootstrap().GetBuilder(_serviceProvider);
+
+
             Reedoo.NET.Client.Builder.ClientBuilder builder =
                 new Reedoo.NET.Client.Builder.ClientBuilder(serviceProvider);
             builder.AddAssembly(GetType().Assembly);
             builder.NewApp("RomanApp")
                 .AddAssembly(GetType().Assembly)
-                .AddAssembly(typeof(GuestMessage).Assembly)
+                .AddAssembly(typeof(BackInput).Assembly)
                 .Add();
 
             _uwpClient = builder.BuildUWPClient();

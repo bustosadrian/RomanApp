@@ -1,8 +1,10 @@
 ﻿using Reedoo.NET.Messages;
+using System;
 
 namespace RomanApp.Messages.Input
 {
-    [Message(Key = KEY)]
+    [Serializable]
+    [Message(KEY)]
     public class AddExpenseMessage : AddItemMessage
     {
         private const string KEY = "RomanApp.Add.Expense";

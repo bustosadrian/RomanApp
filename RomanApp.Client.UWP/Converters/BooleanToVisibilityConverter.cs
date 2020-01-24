@@ -16,7 +16,7 @@ namespace RomanApp.Client.UWP.Converters
             else if (value is bool?)
             {
                 var nullable = (bool?)value;
-                flag = nullable.HasValue ? nullable.Value : false;
+                flag = nullable ?? false;
             }
 
             if (IsInverse)

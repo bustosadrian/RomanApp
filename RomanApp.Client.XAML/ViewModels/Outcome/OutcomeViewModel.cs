@@ -16,7 +16,7 @@ namespace RomanApp.Client.XAML.ViewModels.Outcome
 
         private void Back()
         {
-            Send(new BackMessage());
+            Send(new BackInput());
         }
 
         #region Messages

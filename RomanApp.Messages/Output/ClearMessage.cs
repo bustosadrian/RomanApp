@@ -5,7 +5,7 @@ using System;
 namespace RomanApp.Messages.Output
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class ClearMessage : OutputMessage
     {
         private const string KEY = "RomanApp.Clear";

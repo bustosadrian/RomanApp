@@ -7,7 +7,7 @@ using System.Text;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class ResetMessage : InputMessage
     {
         private const string KEY = "RomanApp.Restart";

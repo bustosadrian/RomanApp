@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace RomanApp.Messages.Output
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class OutcomeMessage : OutputMessage
     {
         private const string KEY = "RomanApp.Outcome";

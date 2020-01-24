@@ -7,7 +7,7 @@ using System.Text;
 namespace RomanApp.Messages.Output
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class ProfileMessage : OutputMessage
     {
         private const string KEY = "RomanApp.Profile";

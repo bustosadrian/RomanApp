@@ -7,7 +7,7 @@ using System.Text;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class CancelMessage : InputMessage
     {
         private const string KEY = "RomanApp.Cancel";

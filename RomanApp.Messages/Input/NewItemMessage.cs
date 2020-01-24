@@ -5,7 +5,7 @@ using System;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class NewItemMessage : InputMessage
     {
         private const string KEY = "RomanApp.New.Item";

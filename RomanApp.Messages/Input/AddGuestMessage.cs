@@ -4,7 +4,7 @@ using System;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class AddGuestMessage : AddItemMessage
     {
         private const string KEY = "RomanApp.Add.Guest";

@@ -4,7 +4,7 @@ using RomanApp.Messages.Input;
 
 namespace RomanApp.Controller.Offline.Gate
 {
-    [ApplicationState(Key = KEY)]
+    [ApplicationState(KEY)]
     public class LoginGate : TrespasserState
     {
         private const string KEY = "RomanApp.Offline.Gate.Login";
@@ -19,10 +19,8 @@ namespace RomanApp.Controller.Offline.Gate
         [Reader]
         public void Read(LoginMessage message)
         {
-            GrantAccess(new LoginId(message.Name)
-            {
-
-            });
+            LoginId loginId = new LoginId(message.Name);
+            ChangeState(typeof(ShareGate), loginId);
         }
 
         #endregion

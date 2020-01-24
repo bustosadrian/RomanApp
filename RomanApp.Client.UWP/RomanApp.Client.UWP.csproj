@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BackButton.xaml.cs">
+      <DependentUpon>BackButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,13 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
+    <Compile Include="ViewModels\Home\Help\HelpViewModel.cs" />
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Home\Menu\MenuViewModel.cs" />
+    <Compile Include="ViewModels\Login\ShareViewModel.cs" />
     <Compile Include="Views\Budget\BudgetView.xaml.cs">
       <DependentUpon>BudgetView.xaml</DependentUpon>
     </Compile>
@@ -119,8 +129,20 @@
     <Compile Include="Views\CreateItem\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Home\Create\CreateView.xaml.cs">
+      <DependentUpon>CreateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Help\HelpView.xaml.cs">
+      <DependentUpon>HelpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Menu\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\ShareView.xaml.cs">
+      <DependentUpon>ShareView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Outcome\GuestsList.xaml.cs">
       <DependentUpon>GuestsList.xaml</DependentUpon>
@@ -150,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\BackButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Header.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,7 +200,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Home\Create\CreateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Help\HelpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home\Menu\MenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login\ShareView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +272,14 @@
     <ProjectReference Include="..\RomanApp.Controller\RomanApp.Controller.csproj">
       <Project>{a951420d-0c83-4afd-b952-8e02de6c3fb2}</Project>
       <Name>RomanApp.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanApp.Core.Controller\RomanApp.Core.Controller.csproj">
+      <Project>{4149f51a-e11f-4feb-a287-4c4233cd7d88}</Project>
+      <Name>RomanApp.Core.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanApp.Home.Controller\RomanApp.Home.Controller.csproj">
+      <Project>{d44582b4-2840-4dee-931b-1098813063b4}</Project>
+      <Name>RomanApp.Home.Controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\RomanApp.Messages\RomanApp.Messages.csproj">
       <Project>{630f9ef7-9eb4-4822-8cf9-93d59e901b5d}</Project>

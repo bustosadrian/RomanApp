@@ -8,7 +8,7 @@ using System.Text;
 namespace RomanApp.Messages.Input
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class LoginMessage : InputMessage
     {
         private const string KEY = "RomanApp.Login";

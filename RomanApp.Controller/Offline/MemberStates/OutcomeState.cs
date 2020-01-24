@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace RomanApp.Controller.Offline.MemberStates
 {
-    [ApplicationState(Key = KEY)]
+    [ApplicationState(KEY)]
     public class OutcomeState : OfflineState
     {
         private const string KEY = "RomanApp.Offline.Outcome";
@@ -57,9 +57,25 @@ namespace RomanApp.Controller.Offline.MemberStates
         }
 
         [Reader]
-        public void Read(BackMessage message)
+        public void Read(BackInput message)
         {
             GoToBudget();
+        }
+
+        #endregion
+
+        #region Locker
+
+        protected BudgetOutcome BudgetOutcome
+        {
+            get
+            {
+                return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+            }
+            set
+            {
+                RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
+            }
         }
 
         #endregion

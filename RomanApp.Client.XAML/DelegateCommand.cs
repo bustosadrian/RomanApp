@@ -32,9 +32,7 @@ namespace RomanApp.Client.XAML
 
         public void RaiseCanExecuteChanged()
         {
-            var tmpHandle = CanExecuteChanged;
-            if (tmpHandle != null)
-                tmpHandle(this, new EventArgs());
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
 
         public event EventHandler CanExecuteChanged;
@@ -70,9 +68,7 @@ namespace RomanApp.Client.XAML
 
         public void RaiseCanExecuteChanged()
         {
-            var tmpHandle = CanExecuteChanged;
-            if (tmpHandle != null)
-                tmpHandle(this, new EventArgs());
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
 
         public event EventHandler CanExecuteChanged;
@@ -110,9 +106,7 @@ namespace RomanApp.Client.XAML
 
         public void RaiseCanExecuteChanged()
         {
-            EventHandler tmpHandle = CanExecuteChanged;
-            if (tmpHandle != null)
-                tmpHandle(this, new EventArgs());
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
     }
 
@@ -148,9 +142,7 @@ namespace RomanApp.Client.XAML
 
         public void RaiseCanExecuteChanged()
         {
-            EventHandler tmpHandle = CanExecuteChanged;
-            if (tmpHandle != null)
-                tmpHandle(this, new EventArgs());
+            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
     }
 }

@@ -4,7 +4,7 @@ using System;
 namespace RomanApp.Messages.Output
 {
     [Serializable]
-    [Message(Key = KEY)]
+    [Message(KEY)]
     public class ExpenseMessage : ItemMessage
     {
         private const string KEY = "RomanApp.Expense";
