@@ -1,11 +1,12 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages.Output;
+using RomanApp.Core.Controller;
 using RomanApp.Home.Controller.MemberStates.Menu;
 using System;
 
 namespace RomanApp.Home.Controller.RoomStates
 {
-    public class HomeState : RoomState
+    public class HomeState : RomanAppRoomState
     {
         public override void Brief(IMember member)
         {

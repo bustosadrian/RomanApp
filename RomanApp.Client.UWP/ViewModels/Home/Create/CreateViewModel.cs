@@ -26,7 +26,7 @@ namespace RomanApp.Client.UWP.ViewModels.Home.Create
         #region Messages
 
         [Reader]
-        public bool Read(CreateEventSetup message)
+        public bool Read(CreateEventBriefingOutput message)
         {
             ShowAccessSection = message.IsAccessEnabled;
             return true;

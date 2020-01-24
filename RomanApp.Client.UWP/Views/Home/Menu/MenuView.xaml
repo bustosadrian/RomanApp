@@ -25,12 +25,18 @@
 
             <Button Grid.Row="1" 
                     HorizontalAlignment="Center"
-                    Content="Resume" 
-                    Margin="0 0 0 10" />
+                    IsEnabled="{Binding IsResumeEnabled}"
+                    Margin="0 0 0 10">
+                <TextBlock>
+                    <Run Text="Resume" />
+                    <Run Text="{Binding CurrentEventName}" />
+                </TextBlock>
+            </Button>
 
             <Button Grid.Row="2" 
                     HorizontalAlignment="Center"
                     Content="Join" 
+                    Visibility="{Binding IsRemoteAccessEnabled, Converter={StaticResource c_bv}}"
                     Margin="0 0 0 10" />
 
             <Button Grid.Row="3" 

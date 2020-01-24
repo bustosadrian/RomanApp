@@ -1,20 +1,24 @@
 ﻿using Reedoo.NET.Messages;
 using Reedoo.NET.Messages.Output;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Messages.Home.Output
 {
     [Serializable]
     [Message(KEY)]
-    public class CreateEventSetup : OutputMessage
+    public class MenuBriefingOutput : OutputMessage
     {
-        private const string KEY = "RomanApp.Home.Create.Event.Setup";
+        private const string KEY = "RomanApp.Home.Menu.Briefing";
 
         #region Properties
 
-        public bool IsAccessEnabled
+        public bool RemoteAccessEnabled
+        {
+            get;
+            set;
+        }
+
+        public string CurrentEventName
         {
             get;
             set;

@@ -3,6 +3,7 @@ using Reedoo.NET.Messages;
 using RomanApp.Home.Controller.MemberStates.Create;
 using RomanApp.Home.Controller.MemberStates.Help;
 using RomanApp.Messages.Home.Input;
+using RomanApp.Messages.Home.Output;
 
 namespace RomanApp.Home.Controller.MemberStates.Menu
 {
@@ -13,7 +14,15 @@ namespace RomanApp.Home.Controller.MemberStates.Menu
 
         public override void Brief()
         {
-
+            MenuBriefingOutput briefing = new MenuBriefingOutput()
+            {
+                RemoteAccessEnabled = false,
+            };
+            if(CurrentEvent != null)
+            {
+                briefing.CurrentEventName = CurrentEvent.Name;
+            }
+            Queue(briefing);
         }
 
         #region Messages

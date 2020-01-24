@@ -1,9 +1,9 @@
 ﻿using Reedoo.NET.Controller;
+using Reedoo.NET.Messages;
+using RomanApp.Core.Controller.Entities;
 using RomanApp.Home.Controller.MemberStates.Menu;
+using RomanApp.Messages.Home.Input;
 using RomanApp.Messages.Home.Output;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Home.Controller.MemberStates.Create
 {
@@ -15,8 +15,8 @@ namespace RomanApp.Home.Controller.MemberStates.Create
 
         public override void Brief()
         {
-            Queue(new CreateEventSetup() {
-                IsAccessEnabled = true,
+            Queue(new CreateEventBriefingOutput() {
+                IsAccessEnabled = false,
             });
         }
 
@@ -24,5 +24,21 @@ namespace RomanApp.Home.Controller.MemberStates.Create
         {
             ChangeState(typeof(MenuMemberState));
         }
+
+        private void CreateEvent(CreateEventFormInput form)
+        {
+            Event e = EventService.Create(form.Name);
+            CurrentEvent = e;
+        }
+
+        #region Messages
+
+        [Reader]
+        public void Read(CreateEventFormInput message)
+        {
+            CreateEvent(message);
+        }
+
+        #endregion
     }
 }
