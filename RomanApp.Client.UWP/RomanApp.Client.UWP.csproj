@@ -116,6 +116,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\Event\EventViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\SheetViewModel.cs" />
     <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
     <Compile Include="ViewModels\Home\Help\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
@@ -129,6 +131,9 @@
     </Compile>
     <Compile Include="Views\CreateItem\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\SheetView.xaml.cs">
+      <DependentUpon>SheetView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\Create\CreateView.xaml.cs">
       <DependentUpon>CreateView.xaml</DependentUpon>
@@ -198,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreateItem\CreateItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\SheetView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

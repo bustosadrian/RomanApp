@@ -6,11 +6,16 @@ using System;
 
 namespace RomanApp.Home.Controller.RoomStates
 {
-    public class HomeState : RomanAppRoomState
+    public class HomeState : RomanAppRoomState, IRomanAppRoomState
     {
         public override void Brief(IMember member)
         {
             
+        }
+
+        public void OnExit(IMember member)
+        {
+            ChangeMemberState(member, typeof(MenuMemberState));
         }
 
         public override AlienTicket OnJoined(Passport passport)

@@ -19,6 +19,7 @@ namespace RomanApp.Home.Controller
             retval.EnableLocalBinding(true).Set();
 
             retval.NewApp("RomanApp")
+                .AddAssembly(typeof(RomanAppRoomHandler).Assembly)
                 .AddAssembly(GetType().Assembly)
                 .AddAssembly(typeof(BackInput).Assembly)
                 .NewRoomDefinition(RoomType.Home).SetHandlerType(typeof(HomeRoomHandler)).Add()

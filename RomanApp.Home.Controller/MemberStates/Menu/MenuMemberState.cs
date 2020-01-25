@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Core.Controller.MemberStates.Sheet;
 using RomanApp.Home.Controller.MemberStates.Create;
 using RomanApp.Home.Controller.MemberStates.Help;
 using RomanApp.Messages.Home.Input;
@@ -36,7 +37,7 @@ namespace RomanApp.Home.Controller.MemberStates.Menu
         [Reader]
         public void Read(ResumeEventInput message)
         {
-
+            ChangeState(typeof(SheetMemberState));
         }
 
         [Reader]

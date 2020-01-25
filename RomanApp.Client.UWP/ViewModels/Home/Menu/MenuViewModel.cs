@@ -31,6 +31,11 @@ namespace RomanApp.Client.UWP.ViewModels.Home.Menu
             Send(new HelpInput());
         }
 
+        private void GoToResumeEvent()
+        {
+            Send(new ResumeEventInput());
+        }
+
         #region Commands
 
         private DelegateCommand _helpCommand;
@@ -56,6 +61,19 @@ namespace RomanApp.Client.UWP.ViewModels.Home.Menu
                     _createCommand = new DelegateCommand(GoToCreate);
                 }
                 return _createCommand;
+            }
+        }
+
+        private DelegateCommand _resumeEventCommand;
+        public DelegateCommand ResumeEventCommand
+        {
+            get
+            {
+                if (_resumeEventCommand == null)
+                {
+                    _resumeEventCommand = new DelegateCommand(GoToResumeEvent);
+                }
+                return _resumeEventCommand;
             }
         }
 

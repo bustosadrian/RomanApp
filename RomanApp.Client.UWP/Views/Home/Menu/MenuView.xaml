@@ -26,6 +26,7 @@
             <Button Grid.Row="1" 
                     HorizontalAlignment="Center"
                     IsEnabled="{Binding IsResumeEnabled}"
+                    Command="{Binding ResumeEventCommand}"
                     Margin="0 0 0 10">
                 <TextBlock>
                     <Run Text="Resume" />
