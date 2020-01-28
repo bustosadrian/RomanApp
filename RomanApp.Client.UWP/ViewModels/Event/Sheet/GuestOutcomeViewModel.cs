@@ -1,6 +1,7 @@
-﻿using RomanApp.Messages.Event.Output.Sheet;
+﻿using Reedoo.NET.Messages;
+using RomanApp.Messages.Event.Output.Sheet;
 
-namespace RomanApp.Client.UWP.ViewModels.Event
+namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
     public class GuestOutcomeViewModel : EmbeddedViewModel
     {
@@ -20,6 +21,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event
 
         #region Properties
 
+        [Reader]
         public bool Read(GuestOutcomeOutput message)
         {
             bool retval = false;

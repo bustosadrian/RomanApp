@@ -98,6 +98,7 @@
     <Compile Include="Controls\BackButton.xaml.cs">
       <DependentUpon>BackButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\AbsConverter.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Controls\Header.xaml.cs">
       <DependentUpon>Header.xaml</DependentUpon>
@@ -118,7 +119,7 @@
     <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
-    <Compile Include="ViewModels\Event\GuestOutcomeViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\GuestOutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemFormViewModel.cs" />
@@ -141,6 +142,9 @@
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\AddItemForm.xaml.cs">
       <DependentUpon>AddItemForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\Controls\GuestOutcomeList.xaml.cs">
+      <DependentUpon>GuestOutcomeList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\Items.xaml.cs">
       <DependentUpon>Items.xaml</DependentUpon>
@@ -226,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Event\Sheet\Controls\AddItemForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\Controls\GuestOutcomeList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

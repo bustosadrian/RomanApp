@@ -7,8 +7,103 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
-    
-    
+    d:DesignWidth="400"
+    x:Name="Self">
 
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0"
+          HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" 
+                   FontSize="18" FontWeight="Bold"
+                   Text="Total:" />
+        <TextBlock Grid.Row="0" Grid.Column="1" 
+                   FontSize="18"
+                   HorizontalAlignment="Right"
+                   Text="{Binding Total}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   FontSize="18" FontWeight="Bold"
+                   Text="Expenses:" />
+        <TextBlock Grid.Row="1" Grid.Column="1" 
+                   FontSize="18"
+                   HorizontalAlignment="Right"
+                   Text="{Binding ExpensesTotal}" />
+
+        <TextBlock Grid.Row="2" Grid.Column="0" 
+                   FontSize="18" FontWeight="Bold"
+                   Text="Share:" />
+        <TextBlock Grid.Row="2" Grid.Column="1" 
+                   FontSize="18"
+                   HorizontalAlignment="Right"
+                   Text="{Binding Share}" />
+    </Grid>
+
+    <Grid Grid.Row="1" Visibility="{Binding IsEmpty, Converter={StaticResource c_bv_i}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" 
+              Visibility="{Binding Debtors, Converter={StaticResource c_av}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Text="Who owes?" />
+            <local:GuestOutcomeList Grid.Row="1" 
+                                    ItemsSource="{Binding Debtors}" 
+                                    Foreground="DarkRed" />
+        </Grid>
+
+        <Grid Grid.Row="1" 
+              Visibility="{Binding Creditors, Converter={StaticResource c_av}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Text="Who collects?" />
+            <local:GuestOutcomeList Grid.Row="1" 
+                                    ItemsSource="{Binding Creditors}" 
+                                    Foreground="DarkGreen" />
+        </Grid>
+
+        <Grid Grid.Row="2" 
+              Visibility="{Binding Evens, Converter={StaticResource c_av}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Text="Who's even?" />
+            <local:GuestOutcomeList Grid.Row="1" 
+                                    ItemsSource="{Binding Evens}" />
+        </Grid>
+
+    </Grid>
+
+    <Grid Grid.Row="1" 
+          Visibility="{Binding IsEmpty, Converter={StaticResource c_bv}}">
+        <TextBlock Text="Nobody ows anything to anybody" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Grid>
 </Grid>

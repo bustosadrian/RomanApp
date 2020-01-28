@@ -107,48 +107,66 @@ namespace RomanApp.Core.Controller.Services
             List<GuestOutcome> evens = new List<GuestOutcome>();
             retval = new Outcome()
             {
+                IsEmpty = false,
                 Creditors = creditors,
                 Debtors = debtors,
                 Evens = evens,
             };
 
-            retval.ExpensesTotal = e.Expenses.Sum(x => x.Share.Amount);
-            retval.Total = retval.ExpensesTotal;
-
-            List<GuestOutcome> all = new List<GuestOutcome>();
-            foreach(var o in e.Guests)
+            try
             {
-                retval.Total += o.Share.Amount;
-                all.Add(new GuestOutcome()
+                if(e.Guests.Count() < 2)
                 {
-                    Id = o.Id,
-                    Name = o.Name,
-                    Amount = o.Share.Amount,
-                });
+                    throw new EmptyOutcomeException();
+                }
+
+                retval.ExpensesTotal = e.Expenses.Sum(x => x.Share.Amount);
+                retval.Total = retval.ExpensesTotal;
+
+                List<GuestOutcome> all = new List<GuestOutcome>();
+                foreach (var o in e.Guests)
+                {
+                    retval.Total += o.Share.Amount;
+                    all.Add(new GuestOutcome()
+                    {
+                        Id = o.Id,
+                        Name = o.Name,
+                        Amount = o.Share.Amount,
+                    });
+                }
+
+                if (retval.Total == 0)
+                {
+                    throw new EmptyOutcomeException();
+                }
+
+                retval.Share = retval.Total / all.Count;
+
+                foreach (var o in all)
+                {
+                    o.Debt = o.Amount - retval.Share;
+                    if (o.Debt > 0)
+                    {
+                        creditors.Add(o);
+                    }
+                    else if (o.Debt < 0)
+                    {
+                        debtors.Add(o);
+                    }
+                    else if (o.Debt == 0)
+                    {
+                        evens.Add(o);
+                    }
+                }
+
+                if (!debtors.Any())
+                {
+                    throw new EmptyOutcomeException();
+                }
             }
-
-            if(retval.Total == 0)
+            catch (EmptyOutcomeException)
             {
-                throw new OutcomeTotalZeroException();
-            }
-
-            retval.Share = retval.Total / all.Count;
-
-            foreach (var o in all)
-            {
-                o.Debt = o.Amount - retval.Share;
-                if (o.Debt > 0)
-                {
-                    creditors.Add(o);
-                }
-                else if (o.Debt < 0)
-                {
-                    debtors.Add(o);
-                }
-                else if (o.Debt == 0)
-                {
-                    evens.Add(o);
-                }
+                retval.IsEmpty = true;
             }
 
             return retval;

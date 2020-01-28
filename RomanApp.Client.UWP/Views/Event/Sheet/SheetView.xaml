@@ -43,6 +43,9 @@
                         </Grid.ColumnDefinitions>
                         
                         <vc:Overview Grid.Column="0" Margin="10" />
+
+                        <vc:Outcome DataContext="{Binding OutcomeViewModel}"
+                                    Grid.Column="1" Margin="10" />
                     </Grid>
                 </Grid>
             </Grid>

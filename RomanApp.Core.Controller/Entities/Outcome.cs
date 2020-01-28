@@ -6,6 +6,12 @@ namespace RomanApp.Core.Controller.Entities
     {
         #region Properties
 
+        public bool IsEmpty
+        {
+            get;
+            set;
+        }
+
         public decimal Total
         {
             get;

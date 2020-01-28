@@ -13,6 +13,12 @@ namespace RomanApp.Messages.Event.Output.Sheet
 
         #region Properties
 
+        public bool IsEmpty
+        {
+            get;
+            set;
+        }
+
         public decimal Total
         {
             get;

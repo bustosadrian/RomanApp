@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="RomanApp.Client.UWP.Views.Event.Sheet.Controls.Items"
+    x:Class="RomanApp.Client.UWP.Views.Event.Sheet.Controls.GuestOutcomeList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:RomanApp.Client.UWP.Views.Event.Sheet.Controls"
@@ -19,23 +19,13 @@
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <SymbolIcon Grid.Column="0" Symbol="Contact"
-                                    VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="1" Text="{Binding Label}"
-                                    VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="2" Text="{Binding Amount}"
-                                    VerticalAlignment="Center" />
-                        <Grid Grid.Column="3"
-                              Margin="10 0 0 0">
-                            <StackPanel>
-                                <Button Command="{Binding RemoveCommand}">
-                                    <SymbolIcon Symbol="Delete" />
-                                </Button>
-                            </StackPanel>
-                        </Grid>
+                        <SymbolIcon Grid.Column="0" Symbol="Contact"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Name}" 
+                                   Foreground="{Binding Foreground, ElementName=Self}" />
+                        <TextBlock Grid.Column="2" Text="{Binding Debt, Converter={StaticResource c_abs}}"
+                                   Foreground="{Binding Foreground, ElementName=Self}" />
                     </Grid>
                     <Border BorderThickness=".5" 
                             BorderBrush="Gray" VerticalAlignment="Bottom"/>

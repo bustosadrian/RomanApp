@@ -1,8 +1,9 @@
-﻿using RomanApp.Messages.Event.Output;
+﻿using RomanApp.Messages.Event.Input.Sheet;
+using RomanApp.Messages.Event.Output;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
-    public class ItemViewModel : EmbeddedViewModel
+    public abstract class ItemViewModel : EmbeddedViewModel
     {
         public ItemViewModel(BaseViewModel parent)
             : base(parent)
@@ -14,6 +15,33 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         {
             Amount = message.Amount;
         }
+
+        private void OnRemove()
+        {
+            RemoveItemInput message = CreateRemoveInput();
+            message.ItemId = Id;
+            Send(message);
+        }
+
+        protected abstract RemoveItemInput CreateRemoveInput();
+
+        #region Commands
+
+        private DelegateCommand _removeCommand;
+        public DelegateCommand RemoveCommand
+        {
+            get
+            {
+                if(_removeCommand == null)
+                {
+                    _removeCommand = new DelegateCommand(OnRemove);
+                }
+
+                return _removeCommand;
+            }
+        }
+
+        #endregion
 
         #region Properties
 

@@ -12,6 +12,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         public SheetViewModel()
         {
             ItemFormViewModel = new ItemFormViewModel(this);
+            OutcomeViewModel = new OutcomeViewModel(this);
         }
 
         #region Messages
@@ -40,6 +41,30 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         public bool Read(ExpenseOutput message)
         {
             Expenses.Add(new ExpenseViewModel(this, message));
+            return true;
+        }
+
+        [Reader]
+        public bool Read(RemoveGuestOutput message)
+        {
+            GuestViewModel o = Guests.SingleOrDefault(x => x.Id == message.ItemId);
+            if(o != null)
+            {
+                Guests.Remove(o);
+            }
+
+            return true;
+        }
+
+        [Reader]
+        public bool Read(RemoveExpenseOutput message)
+        {
+            ExpenseViewModel o = Expenses.SingleOrDefault(x => x.Id == message.ItemId);
+            if (o != null)
+            {
+                Expenses.Remove(o);
+            }
+
             return true;
         }
 
@@ -105,6 +130,21 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 _itemFormViewModel = value;
                 OnPropertyChanged("ItemFormViewModel");
+            }
+        }
+
+        private OutcomeViewModel _outcomeViewModel;
+        [Embedded]
+        public OutcomeViewModel OutcomeViewModel
+        {
+            get
+            {
+                return _outcomeViewModel;
+            }
+            set
+            {
+                _outcomeViewModel = value;
+                OnPropertyChanged("OutcomeViewModel");
             }
         }
 

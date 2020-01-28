@@ -8,7 +8,7 @@ namespace RomanApp.Messages.Event.Output.Sheet
     [Message(KEY)]
     public class GuestOutcomeOutput : OutputMessage
     {
-        private const string KEY = "RomanApp.Event.Sheet.Output.Guest";
+        private const string KEY = "RomanApp.Event.Sheet.Outcome.Guest";
 
         #region Properties
 

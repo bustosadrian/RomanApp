@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Messages;
+using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output.Sheet;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
@@ -18,6 +19,10 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             Label = message.Name;
         }
 
+        protected override RemoveItemInput CreateRemoveInput()
+        {
+            return new RemoveGuestInput();
+        }
 
         #region Messages
 

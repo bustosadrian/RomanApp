@@ -1,7 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Core.Controller.Entities;
-using RomanApp.Core.Controller.Services.Exceptions;
 using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output;
 using RomanApp.Messages.Event.Output.Sheet;
@@ -49,6 +48,32 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             QueueExpense(entity);
         }
 
+        [Reader]
+        public void Read(RemoveGuestInput message)
+        {
+            if (EventService.RemoveGuest(CurrentEvent, message.ItemId))
+            {
+                Queue(new RemoveGuestOutput()
+                {
+                    ItemId = message.ItemId,
+                });
+                QueueOutcome();
+            }
+        }
+
+        [Reader]
+        public void Read(RemoveExpenseInput message)
+        {
+            if (EventService.RemoveExpense(CurrentEvent, message.ItemId))
+            {
+                Queue(new RemoveExpenseOutput()
+                {
+                    ItemId = message.ItemId,
+                });
+                QueueOutcome();
+            }
+        }
+
         #endregion
 
         #region Queue
@@ -61,7 +86,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 Guests = CurrentEvent.Guests.Select(x => Map(x)).ToList(),
                 Expenses = CurrentEvent.Expenses.Select(x => Map(x)).ToList(),
                 Outcome = Map(EventService.Calculate(CurrentEvent)),
-            };
+        };
             Queue(briefing);
         }
 
@@ -101,15 +126,8 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
 
         private void QueueOutcome()
         {
-            try
-            {
-                Outcome outcome = EventService.Calculate(CurrentEvent);
-                Queue(Map(outcome));
-            }
-            catch (OutcomeTotalZeroException)
-            {
-
-            }
+            Outcome outcome = EventService.Calculate(CurrentEvent);
+            Queue(Map(outcome));
         }
 
         #endregion
@@ -150,13 +168,14 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
 
             retval = new OutcomeOutput
             {
+                IsEmpty = entity.IsEmpty,
                 Total = entity.Total,
                 ExpensesTotal = entity.ExpensesTotal,
                 Share = entity.Share,
             };
             retval.Creditors = entity.Creditors.Select(x => Map(x)).ToList();
-            retval.Debtors = entity.Creditors.Select(x => Map(x)).ToList();
-            retval.Creditors = entity.Creditors.Select(x => Map(x)).ToList();
+            retval.Debtors = entity.Debtors.Select(x => Map(x)).ToList();
+            retval.Evens = entity.Evens.Select(x => Map(x)).ToList();
 
             return retval;
         }

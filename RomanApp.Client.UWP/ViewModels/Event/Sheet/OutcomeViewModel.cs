@@ -1,5 +1,8 @@
 ﻿using Reedoo.NET.Messages;
+using Reedoo.NET.Utils.Reflect;
 using RomanApp.Messages.Event.Output.Sheet;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
@@ -13,9 +16,19 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         private void Map(OutcomeOutput message)
         {
+            IsEmpty = message.IsEmpty;
             Total = message.Total;
             ExpensesTotal = message.ExpensesTotal;
             Share = message.Share;
+
+            Creditors = new ObservableCollection<GuestOutcomeViewModel>( 
+                message.Creditors.Select(x => new  GuestOutcomeViewModel(this, x)).ToList());
+
+            Debtors = new ObservableCollection<GuestOutcomeViewModel>(
+                message.Debtors.Select(x => new GuestOutcomeViewModel(this, x)).ToList());
+
+            Evens = new ObservableCollection<GuestOutcomeViewModel>(
+                message.Evens.Select(x => new GuestOutcomeViewModel(this, x)).ToList());
         }
 
         #region Messages
@@ -30,6 +43,20 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         #endregion
 
         #region Properties
+
+        private bool _isEmpty;
+        public bool IsEmpty
+        {
+            get
+            {
+                return _isEmpty;
+            }
+            set
+            {
+                _isEmpty = value;
+                OnPropertyChanged("IsEmpty");
+            }
+        }
 
         private decimal _total;
         public decimal Total
@@ -71,6 +98,51 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 _share = value;
                 OnPropertyChanged("Share");
+            }
+        }
+
+        private ObservableCollection<GuestOutcomeViewModel> _creditors;
+        [Embedded]
+        public ObservableCollection<GuestOutcomeViewModel> Creditors
+        {
+            get
+            {
+                return _creditors;
+            }
+            set
+            {
+                _creditors = value;
+                OnPropertyChanged("Creditors");
+            }
+        }
+
+        private ObservableCollection<GuestOutcomeViewModel> _debtors;
+        [Embedded]
+        public ObservableCollection<GuestOutcomeViewModel> Debtors
+        {
+            get
+            {
+                return _debtors;
+            }
+            set
+            {
+                _debtors = value;
+                OnPropertyChanged("Debtors");
+            }
+        }
+
+        private ObservableCollection<GuestOutcomeViewModel> _evens;
+        [Embedded]
+        public ObservableCollection<GuestOutcomeViewModel> Evens
+        {
+            get
+            {
+                return _evens;
+            }
+            set
+            {
+                _evens = value;
+                OnPropertyChanged("Evens");
             }
         }
 

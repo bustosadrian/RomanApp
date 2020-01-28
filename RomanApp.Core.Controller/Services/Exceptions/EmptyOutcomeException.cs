@@ -1,6 +1,6 @@
 ﻿namespace RomanApp.Core.Controller.Services.Exceptions
 {
-    public class OutcomeTotalZeroException : EventServiceException
+    public class EmptyOutcomeException : EventServiceException
     {
 
     }
