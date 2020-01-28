@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using RomanApp.Core.Controller.Entities;
 
-namespace RomanApp.Core.Controller.Service
+namespace RomanApp.Core.Controller.Services
 {
     public class EventService : IEventService
     {
@@ -12,10 +12,14 @@ namespace RomanApp.Core.Controller.Service
         {
             Event retval = null;
 
-            retval = new Event();
-            retval.Id = Guid.NewGuid().ToString();
-            retval.DateCreated = DateTimeOffset.Now;
-            retval.Name = name;
+            retval = new Event
+            {
+                Id = Guid.NewGuid().ToString(),
+                DateCreated = DateTimeOffset.Now,
+                Name = name,
+                Guests = new List<Guest>(),
+                Expenses = new List<Expense>(),
+            };
 
             return retval;
         }
@@ -24,10 +28,12 @@ namespace RomanApp.Core.Controller.Service
         {
             Expense retval = null;
 
-            retval = new Expense();
-            retval.Id = Guid.NewGuid().ToString();
-            retval.Label = label;
-            retval.Share = CreateShare(amount, description);
+            retval = new Expense
+            {
+                Id = Guid.NewGuid().ToString(),
+                Label = label,
+                Share = CreateShare(amount, description)
+            };
 
             e.Expenses.Add(retval);
 
@@ -38,10 +44,12 @@ namespace RomanApp.Core.Controller.Service
         {
             Guest retval = null;
 
-            retval = new Guest();
-            retval.Id = Guid.NewGuid().ToString();
-            retval.Name = name;
-            retval.Share = CreateShare(amount, description);
+            retval = new Guest
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = name,
+                Share = CreateShare(amount, description)
+            };
 
             e.Guests.Add(retval);
 
@@ -79,10 +87,12 @@ namespace RomanApp.Core.Controller.Service
         {
             Share retval = null;
 
-            retval = new Share();
-            retval.Id = Guid.NewGuid().ToString();
-            retval.Amount = amount;
-            retval.Description = description;
+            retval = new Share
+            {
+                Id = Guid.NewGuid().ToString(),
+                Amount = amount,
+                Description = description
+            };
 
             return retval;
         }

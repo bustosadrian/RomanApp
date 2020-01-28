@@ -1,6 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using RomanApp.Core.Controller.Entities;
-using RomanApp.Core.Controller.Service;
+using RomanApp.Core.Controller.Services;
 
 namespace RomanApp.Core.Controller
 {

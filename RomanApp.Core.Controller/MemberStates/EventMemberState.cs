@@ -1,4 +1,6 @@
 ﻿using Reedoo.NET.Messages;
+using RomanApp.Core.Controller.Entities;
+using RomanApp.Messages.Event.Output;
 using RomanApp.Messages.Input;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,24 @@ namespace RomanApp.Core.Controller.MemberStates
         public void Read(BackInput message)
         {
             OnBack();
+        }
+
+        #endregion
+
+        #region Mapping
+
+        protected ShareOutput Map(Share entity)
+        {
+            ShareOutput retval = null;
+
+            retval = new ShareOutput()
+            {
+                Id = entity.Id,
+                Description = entity.Description,
+                Amount = entity.Amount,
+            };
+
+            return retval;
         }
 
         #endregion

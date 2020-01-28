@@ -1,6 +1,6 @@
 ﻿using RomanApp.Core.Controller.Entities;
 
-namespace RomanApp.Core.Controller.Service
+namespace RomanApp.Core.Controller.Services
 {
     public interface IEventService
     {

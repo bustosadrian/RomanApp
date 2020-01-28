@@ -1,20 +1,24 @@
 ﻿using Reedoo.NET.Messages;
-using Reedoo.NET.Messages.Output;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Messages.Event.Output
 {
+
     [Serializable]
     [Message(KEY)]
-    public class SheetBriefingOutput : OutputMessage
+    public class ShareOutput : BaseEntityOutput
     {
-        private const string KEY = "RomanApp.Event.Sheet.Briefing";
+        private const string KEY = "RomanApp.Event.Share";
 
         #region Properties
 
-        public string EventName
+        public decimal Amount
+        {
+            get;
+            set;
+        }
+
+        public string Description
         {
             get;
             set;
