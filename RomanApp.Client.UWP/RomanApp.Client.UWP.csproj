@@ -118,10 +118,12 @@
     <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
+    <Compile Include="ViewModels\Event\GuestOutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemFormViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\OutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\SheetViewModel.cs" />
     <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
     <Compile Include="ViewModels\Home\Help\HelpViewModel.cs" />
@@ -142,6 +144,12 @@
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\Items.xaml.cs">
       <DependentUpon>Items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\Controls\Outcome.xaml.cs">
+      <DependentUpon>Outcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\Controls\Overview.xaml.cs">
+      <DependentUpon>Overview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Event\Sheet\SheetView.xaml.cs">
       <DependentUpon>SheetView.xaml</DependentUpon>
@@ -222,6 +230,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Event\Sheet\Controls\Items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\Controls\Outcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\Controls\Overview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,36 +1,36 @@
 ﻿using Reedoo.NET.Messages;
+using Reedoo.NET.Messages.Output;
 using System;
-using System.Collections.Generic;
 
 namespace RomanApp.Messages.Event.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class SheetBriefingOutput : BaseEntityOutput
+    public class GuestOutcomeOutput : OutputMessage
     {
-        private const string KEY = "RomanApp.Event.Sheet.Briefing";
+        private const string KEY = "RomanApp.Event.Sheet.Output.Guest";
 
         #region Properties
 
-        public string EventName
+        public string Id
         {
             get;
             set;
         }
 
-        public List<GuestOutput> Guests
+        public string Name
         {
             get;
             set;
         }
 
-        public List<ExpenseOutput> Expenses
+        public decimal Amount
         {
             get;
             set;
         }
 
-        public OutcomeOutput Outcome
+        public decimal Debt
         {
             get;
             set;

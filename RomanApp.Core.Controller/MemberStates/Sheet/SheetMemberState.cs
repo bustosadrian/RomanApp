@@ -1,6 +1,7 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Core.Controller.Entities;
+using RomanApp.Core.Controller.Services.Exceptions;
 using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output;
 using RomanApp.Messages.Event.Output.Sheet;
@@ -59,6 +60,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 EventName = CurrentEvent.Name,
                 Guests = CurrentEvent.Guests.Select(x => Map(x)).ToList(),
                 Expenses = CurrentEvent.Expenses.Select(x => Map(x)).ToList(),
+                Outcome = Map(EventService.Calculate(CurrentEvent)),
             };
             Queue(briefing);
         }
@@ -77,6 +79,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 },
             };
             Queue(output);
+            QueueOutcome();
         }
 
         private void QueueExpense(Expense entity)
@@ -93,8 +96,21 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 },
             };
             Queue(output);
+            QueueOutcome();
         }
 
+        private void QueueOutcome()
+        {
+            try
+            {
+                Outcome outcome = EventService.Calculate(CurrentEvent);
+                Queue(Map(outcome));
+            }
+            catch (OutcomeTotalZeroException)
+            {
+
+            }
+        }
 
         #endregion
 
@@ -123,6 +139,38 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 Id = entity.Id,
                 Label = entity.Label,
                 Share = Map(entity.Share),
+            };
+
+            return retval;
+        }
+
+        private OutcomeOutput Map(Outcome entity)
+        {
+            OutcomeOutput retval = null;
+
+            retval = new OutcomeOutput
+            {
+                Total = entity.Total,
+                ExpensesTotal = entity.ExpensesTotal,
+                Share = entity.Share,
+            };
+            retval.Creditors = entity.Creditors.Select(x => Map(x)).ToList();
+            retval.Debtors = entity.Creditors.Select(x => Map(x)).ToList();
+            retval.Creditors = entity.Creditors.Select(x => Map(x)).ToList();
+
+            return retval;
+        }
+
+        private GuestOutcomeOutput Map(GuestOutcome entity)
+        {
+            GuestOutcomeOutput retval = null;
+
+            retval = new GuestOutcomeOutput()
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Amount = entity.Amount,
+                Debt = entity.Debt,
             };
 
             return retval;

@@ -31,40 +31,19 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Width="600">
-                        <vc:AddItemForm DataContext="{Binding ItemFormViewModel}" />
+                    <Grid Grid.Row="0" Background="LightGray" Padding="10">
+                        <vc:AddItemForm DataContext="{Binding ItemFormViewModel}" 
+                                        Width="600" />
                     </Grid>
 
-                    <StackPanel Grid.Row="1" Margin="5">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" 
-                                       Text="Guests" FontSize="32" 
-                                       FontWeight="Bold" />
-
-                            <vc:Items Grid.Row="1" 
-                                      ItemsSource="{Binding Guests}" 
-                                      Margin="5" />
-                        </Grid>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Row="0" 
-                                       Text="Expense" FontSize="32" 
-                                       FontWeight="Bold" />
-
-                            <vc:Items Grid.Row="1" 
-                                      ItemsSource="{Binding Expenses}" 
-                                      Margin="5" />
-                        </Grid>
-                    </StackPanel>
+                    <Grid Grid.Row="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <vc:Overview Grid.Column="0" Margin="10" />
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

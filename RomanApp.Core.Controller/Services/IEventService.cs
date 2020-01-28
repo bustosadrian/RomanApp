@@ -14,5 +14,6 @@ namespace RomanApp.Core.Controller.Services
 
         bool RemoveExpense(Event e, string id);
 
+        Outcome Calculate(Event e);
     }
 }
