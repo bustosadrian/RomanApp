@@ -45,7 +45,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 return _amount;
             }
-            zset
+            set
             {
                 _amount = value;
                 OnPropertyChanged("Amount");

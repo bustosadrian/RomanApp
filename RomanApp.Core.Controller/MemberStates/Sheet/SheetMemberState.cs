@@ -87,6 +87,14 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
         [Reader]
         public void Read(MyContributionInput message)
         {
+            Share share = new Share()
+            {
+                Amount = message.Amount,
+                Description = message.Description,
+            };
+            EventService.UpdateGuestShare(CurrentEvent, MemberGuest, share);
+            QueueGuest(MemberGuest);
+            QueueOutcome();
         }
 
         #endregion

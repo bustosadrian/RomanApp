@@ -57,7 +57,7 @@ namespace RomanApp.Core.Controller.Services
             return retval;
         }
 
-        public Share ChangeGuestShare(Event e, Guest guest, Share share)
+        public Share UpdateGuestShare(Event e, Guest guest, Share share)
         {
             Share retval = null;
 
@@ -138,7 +138,7 @@ namespace RomanApp.Core.Controller.Services
                 retval.Total = retval.ExpensesTotal;
 
                 List<GuestOutcome> all = new List<GuestOutcome>();
-                foreach (var o in e.Guests)
+                foreach (var o in e.Guests.Where(x => x.Share != null))
                 {
                     retval.Total += o.Share.Amount;
                     all.Add(new GuestOutcome()

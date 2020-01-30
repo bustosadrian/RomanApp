@@ -10,7 +10,7 @@ namespace RomanApp.Core.Controller.Services
 
         Expense AddExpense(Event e, string label, decimal amount, string description);
 
-        Share ChangeGuestShare(Event e, Guest guest, Share share);
+        Share UpdateGuestShare(Event e, Guest guest, Share share);
 
         bool RemoveGuest(Event e, string id);
 
