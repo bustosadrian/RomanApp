@@ -53,6 +53,14 @@ namespace RomanApp.Core.Controller.MemberStates
             }
         }
 
+        public Guest MemberGuest
+        {
+            get
+            {
+                return Member.Locker.Get<Guest>(RomanAppRoomHandler.LOCKER_MEMBER_GUEST);
+            }
+        }
+
         #endregion
     }
 }

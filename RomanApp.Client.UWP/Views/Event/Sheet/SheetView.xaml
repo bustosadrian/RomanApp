@@ -31,9 +31,18 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Grid Grid.Row="0" Background="LightGray" Padding="10">
-                        <vc:AddItemForm DataContext="{Binding ItemFormViewModel}" 
+                    <Grid Grid.Row="0" Background="LightGray" Padding="10"
+                          Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <vc:AddItemForm Grid.Row="0" DataContext="{Binding ItemFormViewModel}" 
                                         Width="600" />
+                        <Button Grid.Row="1" Content="Submit"
+                                Margin="10"
+                                HorizontalAlignment="Center"
+                                Command="{Binding AddItemCommand}" />
                     </Grid>
 
                     <Grid Grid.Row="1" Margin="5">
@@ -50,5 +59,19 @@
                 </Grid>
             </Grid>
         </Grid>
+        <StackPanel Orientation="Vertical"
+                    Margin="0 0 20 20"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom">
+            <Button Padding="10" Margin="0 0 0 5"
+                    Visibility="{Binding IsSelfContributionEnabled, Converter={StaticResource c_bv}}"
+                    Command="{Binding ChangeMyContributtionCommand}">
+                <SymbolIcon Symbol="Edit" />
+            </Button>
+            <Button Padding="10" Margin="0 0 0 5"
+                    Command="{Binding CreateItemCommand}">
+                <SymbolIcon Symbol="Add" />
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

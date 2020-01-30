@@ -36,6 +36,12 @@ namespace RomanApp.Messages.Event.Output.Sheet
             set;
         }
 
+        public bool HasIdentity
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

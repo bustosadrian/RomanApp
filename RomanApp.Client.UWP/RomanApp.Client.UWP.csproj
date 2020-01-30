@@ -119,11 +119,13 @@
     <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
+    <Compile Include="ViewModels\Event\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestOutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemFormViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\MyContributionViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\OutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\SheetViewModel.cs" />
     <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
@@ -140,6 +142,12 @@
     <Compile Include="Views\CreateItem\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Event\Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\Controls\AddItemDialog.xaml.cs">
+      <DependentUpon>AddItemDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Event\Sheet\Controls\AddItemForm.xaml.cs">
       <DependentUpon>AddItemForm.xaml</DependentUpon>
     </Compile>
@@ -148,6 +156,9 @@
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\Items.xaml.cs">
       <DependentUpon>Items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\Sheet\Controls\MyContributionDialog.xaml.cs">
+      <DependentUpon>MyContributionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\Outcome.xaml.cs">
       <DependentUpon>Outcome.xaml</DependentUpon>
@@ -229,6 +240,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Event\Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\Controls\AddItemDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Event\Sheet\Controls\AddItemForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Event\Sheet\Controls\Items.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\Sheet\Controls\MyContributionDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

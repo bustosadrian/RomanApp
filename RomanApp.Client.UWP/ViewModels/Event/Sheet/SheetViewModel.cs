@@ -1,8 +1,13 @@
-﻿using Reedoo.NET.Messages;
+﻿using System;
+using Reedoo.NET.Messages;
 using Reedoo.NET.Utils.Reflect;
+using RomanApp.Client.UWP.Views.Event.Sheet.Controls;
 using RomanApp.Messages.Event.Output.Sheet;
 using System.Collections.ObjectModel;
 using System.Linq;
+using RomanApp.Messages.Event.Input.Sheet;
+using Windows.UI.Xaml.Controls;
+using System.Threading.Tasks;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
@@ -11,8 +16,50 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         public SheetViewModel()
         {
-            ItemFormViewModel = new ItemFormViewModel(this);
+            ItemFormViewModel = new ItemFormViewModel();
             OutcomeViewModel = new OutcomeViewModel(this);
+        }
+
+        private async void OnCreateItem()
+        {
+            AddItemDialog dialog = new AddItemDialog();
+            ItemFormViewModel vm = new ItemFormViewModel();
+            dialog.DataContext = vm;
+            ContentDialogResult result = await dialog.ShowAsync();
+            if(result == ContentDialogResult.Primary)
+            {
+                AddItem(vm);
+            }
+        }
+
+        private void OnAddItem()
+        {
+            AddItem(ItemFormViewModel);
+        }
+
+        private void OnChangeMyContribution()
+        {
+            Send(new ChangeMyContributionInput());
+        }
+
+        private void AddItem(ItemFormViewModel vm)
+        {
+            if (vm.IsGuest)
+            {
+                Send(new AddGuestInput()
+                {
+                    Label = vm.Label,
+                    Amount = vm.Amount,
+                });
+            }
+            else if (vm.IsExpense)
+            {
+                Send(new AddExpenseInput()
+                {
+                    Label = vm.Label,
+                    Amount = vm.Amount,
+                });
+            }
         }
 
         #region Messages
@@ -26,6 +73,8 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
             Expenses = new ObservableCollection<ExpenseViewModel>(
                 message.Expenses.Select(x => new ExpenseViewModel(this, x)));
+
+            IsSelfContributionEnabled = message.HasIdentity;
 
             return true;
         }
@@ -66,6 +115,67 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             }
 
             return true;
+        }
+
+        [Reader]
+        public bool Read(YourContributionOutput message)
+        {
+            MyContributionDialog dialog = new MyContributionDialog();
+            MyContributionViewModel vm = new MyContributionViewModel(this)
+            {
+                Amount = message.Amount,
+            };
+
+            dialog.DataContext = vm;
+            dialog.ShowAsync();
+
+            return true;
+        }
+
+        #endregion
+
+        #region Commands
+
+        private DelegateCommand _createItemCommand;
+        public DelegateCommand CreateItemCommand
+        {
+            get
+            {
+                if(_createItemCommand == null)
+                {
+                    _createItemCommand = new DelegateCommand(OnCreateItem);
+                }
+                return _createItemCommand;
+            }
+        }
+
+        private DelegateCommand _addItemCommand;
+        public DelegateCommand AddItemCommand
+        {
+            get
+            {
+                if (_addItemCommand == null)
+                {
+                    _addItemCommand = new DelegateCommand(OnAddItem);
+                }
+
+                return _addItemCommand;
+            }
+        }
+
+        private DelegateCommand _changeMyContributtionCommand;
+        public DelegateCommand ChangeMyContributtionCommand
+        {
+            get
+            {
+                if (_changeMyContributtionCommand == null)
+                {
+                    _changeMyContributtionCommand =
+                        new DelegateCommand(OnChangeMyContribution);
+                }
+
+                return _changeMyContributtionCommand;
+            }
         }
 
         #endregion
@@ -119,7 +229,6 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         }
 
         private ItemFormViewModel _itemFormViewModel;
-        [Embedded]
         public ItemFormViewModel ItemFormViewModel
         {
             get
@@ -145,6 +254,20 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 _outcomeViewModel = value;
                 OnPropertyChanged("OutcomeViewModel");
+            }
+        }
+
+        private bool _isSelfContributionEnabled;
+        public bool IsSelfContributionEnabled
+        {
+            get
+            {
+                return _isSelfContributionEnabled;
+            }
+            set
+            {
+                _isSelfContributionEnabled = value;
+                OnPropertyChanged("IsSelfContributionEnabled");
             }
         }
 

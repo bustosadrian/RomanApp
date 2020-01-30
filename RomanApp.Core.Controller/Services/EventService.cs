@@ -57,6 +57,20 @@ namespace RomanApp.Core.Controller.Services
             return retval;
         }
 
+        public Share ChangeGuestShare(Event e, Guest guest, Share share)
+        {
+            Share retval = null;
+
+            int indexOf = e.Guests.IndexOf(guest);
+            if(indexOf != -1)
+            {
+                retval = CreateShare(share.Amount, share.Description);
+                e.Guests[indexOf].Share = retval;
+            }
+
+            return retval;
+        }
+
         public bool RemoveExpense(Event e, string id)
         {
             bool retval = false;

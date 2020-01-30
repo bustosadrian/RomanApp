@@ -10,6 +10,8 @@ namespace RomanApp.Core.Controller
 
         public const string LOCKER_ROOM_CURRENT_EVENT = "current_event";
 
+        public const string LOCKER_MEMBER_GUEST = "member_guest";
+
         public RomanAppRoomHandler(IServiceProvider serviceProvider) 
             : base(serviceProvider)
         {

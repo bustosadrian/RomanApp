@@ -7,6 +7,6 @@ namespace RomanApp.Messages.Event.Input.Sheet
     [Message(KEY)]
     public class RemoveExpenseInput : RemoveItemInput
     {
-        private const string KEY = "RomanApp.Event.Sheet.Remove.Expense";
+        private const string KEY = "RomanApp.Event.Sheet.Remove.Expense..Output";
     }
 }

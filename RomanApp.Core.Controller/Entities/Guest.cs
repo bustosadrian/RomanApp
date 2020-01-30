@@ -1,4 +1,6 @@
-﻿namespace RomanApp.Core.Controller.Entities
+﻿using Reedoo.NET.Controller;
+
+namespace RomanApp.Core.Controller.Entities
 {
     public class Guest : BaseEntity
     {
@@ -11,6 +13,12 @@
         }
 
         public Share Share
+        {
+            get;
+            set;
+        }
+
+        public IMember Member
         {
             get;
             set;

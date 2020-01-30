@@ -74,6 +74,21 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             }
         }
 
+        [Reader]
+        public void Read(ChangeMyContributionInput message)
+        {
+            YourContributionOutput yourContribution = new YourContributionOutput
+            {
+                Amount = MemberGuest?.Share?.Amount ?? 0
+            };
+            Queue(yourContribution);
+        }
+
+        [Reader]
+        public void Read(MyContributionInput message)
+        {
+        }
+
         #endregion
 
         #region Queue
@@ -86,8 +101,10 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 Guests = CurrentEvent.Guests.Select(x => Map(x)).ToList(),
                 Expenses = CurrentEvent.Expenses.Select(x => Map(x)).ToList(),
                 Outcome = Map(EventService.Calculate(CurrentEvent)),
-        };
+                HasIdentity = MemberGuest != null,
+            };
             Queue(briefing);
+            QueueOutcome();
         }
 
         private void QueueGuest(Guest entity)

@@ -2,49 +2,14 @@
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
-    public class ItemFormViewModel : EmbeddedViewModel
+    public class ItemFormViewModel : BaseViewModel
     {
-        public ItemFormViewModel(BaseViewModel parent) 
-            : base(parent)
+        public ItemFormViewModel()
         {
             IsGuest = true;
         }
 
-
-        private void OnAddItem()
-        {
-            if (IsGuest)
-            {
-                Send(new AddGuestInput() {
-                    Label = Label,
-                    Amount = Amount,
-                });
-            }
-            else if(IsExpense)
-            {
-                Send(new AddExpenseInput()
-                {
-                    Label = Label,
-                    Amount = Amount,
-                });
-            }
-        }
-
         #region Commadns
-
-        private DelegateCommand _addItemCommand;
-        public DelegateCommand AddItemCommand
-        {
-            get
-            {
-                if(_addItemCommand == null)
-                {
-                    _addItemCommand = new DelegateCommand(OnAddItem);
-                }
-
-                return _addItemCommand;
-            }
-        }
 
         #endregion
 
