@@ -13,7 +13,12 @@
     <ItemsControl ItemsSource="{Binding ItemsSource, ElementName=Self}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <StackPanel Margin="10">
+                <Grid Margin="10">
+                    <Border Background="LightGreen"
+                            Padding="10"
+                            Visibility="{Binding IsHighlighted, Converter={StaticResource c_bv}}"/>
+
+
                     <Grid Padding="0 0 0 10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50" />
@@ -32,11 +37,13 @@
                               Margin="10 0 0 0">
                             <StackPanel Orientation="Horizontal">
                                 <Button Command="{Binding EditCommand}"
-                                        Margin="0 0 10 0">
+                                        Margin="0 0 10 0"
+                                        Visibility="{Binding CanEdit, Converter={StaticResource c_bv}}">
                                     <SymbolIcon Symbol="Edit" />
                                 </Button>
 
-                                <Button Command="{Binding RemoveCommand}">
+                                <Button Command="{Binding RemoveCommand}"
+                                        Visibility="{Binding CanRemove, Converter={StaticResource c_bv}}">
                                     <SymbolIcon Symbol="Delete" />
                                 </Button>
                             </StackPanel>
@@ -44,7 +51,7 @@
                     </Grid>
                     <Border BorderThickness=".5" 
                             BorderBrush="Gray" VerticalAlignment="Bottom"/>
-                </StackPanel>
+                </Grid>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

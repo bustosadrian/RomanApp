@@ -8,24 +8,8 @@ namespace RomanApp.Messages.Event.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class ExpenseOutput : BaseEntityOutput
+    public class ExpenseOutput : ItemOutput
     {
-        private const string KEY = "RomanApp.Event.Sheet.Expense";
-
-        #region Properties
-
-        public string Label
-        {
-            get;
-            set;
-        }
-
-        public ShareOutput Share
-        {
-            get;
-            set;
-        }
-
-        #endregion
+        private const string KEY = "RomanApp.Event.Sheet.Expense.Output";
     }
 }

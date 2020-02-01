@@ -9,7 +9,7 @@ namespace RomanApp.Messages.Event.Output
     {
         #region Properties
 
-        public string Id
+        public string EntityId   
         {
             get;
             set;

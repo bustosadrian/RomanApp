@@ -48,7 +48,7 @@ namespace RomanApp.Core.Controller.Services
             retval = new Guest
             {
                 Id = Guid.NewGuid().ToString(),
-                Name = name,
+                Label = name,
                 Share = CreateShare(amount, description)
             };
 
@@ -158,7 +158,7 @@ namespace RomanApp.Core.Controller.Services
                     all.Add(new GuestOutcome()
                     {
                         Id = o.Id,
-                        Name = o.Name,
+                        Name = o.Label,
                         Amount = o.Share.Amount,
                     });
                 }

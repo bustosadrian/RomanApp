@@ -1,12 +1,14 @@
-﻿using Reedoo.NET.Controller;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RomanApp.Core.Controller.Entities
 {
-    public class Guest : Item
+    public class MemberProfile
     {
         #region Properties
 
-        public IMember Member
+        public bool IsAdmin
         {
             get;
             set;

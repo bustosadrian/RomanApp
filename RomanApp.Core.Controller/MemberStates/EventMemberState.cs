@@ -33,7 +33,7 @@ namespace RomanApp.Core.Controller.MemberStates
 
             retval = new ShareOutput()
             {
-                Id = entity.Id,
+                EntityId = entity.Id,
                 Description = entity.Description,
                 Amount = entity.Amount,
             };
@@ -58,6 +58,14 @@ namespace RomanApp.Core.Controller.MemberStates
             get
             {
                 return Member.Locker.Get<Guest>(RomanAppRoomHandler.LOCKER_MEMBER_GUEST);
+            }
+        }
+
+        public MemberProfile MemberProfile
+        {
+            get
+            {
+                return Member.Locker.Get<MemberProfile>(RomanAppRoomHandler.LOCKER_MEMBER_PROFILE);
             }
         }
 

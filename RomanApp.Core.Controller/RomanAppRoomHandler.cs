@@ -12,6 +12,8 @@ namespace RomanApp.Core.Controller
 
         public const string LOCKER_MEMBER_GUEST = "member_guest";
 
+        public const string LOCKER_MEMBER_PROFILE = "member_profile";
+
         public RomanAppRoomHandler(IServiceProvider serviceProvider) 
             : base(serviceProvider)
         {

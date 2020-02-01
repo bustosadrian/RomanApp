@@ -94,7 +94,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             OthersContributionOutput output = new OthersContributionOutput
             {
                 Amount = entity?.Share?.Amount ?? 0,
-                GuestName = entity.Name,
+                GuestName = entity.Label,
                 IsSelf = message.ItemId == MemberGuest?.Id,
             };
             _editingItemId = message.ItemId;
@@ -171,6 +171,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 Expenses = CurrentEvent.Expenses.Select(x => Map(x)).ToList(),
                 Outcome = Map(EventService.Calculate(CurrentEvent)),
                 HasIdentity = MemberGuest != null,
+                IsAdmin = MemberProfile.IsAdmin,
             };
             Queue(briefing);
             QueueOutcome();
@@ -178,35 +179,13 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
 
         private void QueueGuest(Guest entity)
         {
-            GuestOutput output = new GuestOutput()
-            {
-                Id = entity.Id,
-                Name = entity.Name,
-                Share = new ShareOutput()
-                {
-                    Id = entity.Share.Id,
-                    Amount = entity.Share.Amount,
-                    Description = entity.Share.Description,
-                },
-            };
-            Queue(output);
+            Queue(Map(entity));
             QueueOutcome();
         }
 
         private void QueueExpense(Expense entity)
         {
-            ExpenseOutput output = new ExpenseOutput()
-            {
-                Id = entity.Id,
-                Label = entity.Label,
-                Share = new ShareOutput()
-                {
-                    Id = entity.Share.Id,
-                    Amount = entity.Share.Amount,
-                    Description = entity.Share.Description,
-                },
-            };
-            Queue(output);
+            Queue(Map(entity));
             QueueOutcome();
         }
 
@@ -220,16 +199,28 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
 
         #region Mapping
 
+        private void Map(Item entity, ItemOutput message)
+        {
+            message.EntityId = entity.Id;
+            message.Label = entity.Label;
+            message.Share = new ShareOutput()
+            {
+                EntityId = entity.Share.Id,
+                Amount = entity.Share.Amount,
+                Description = entity.Share.Description,
+            };
+        }
+
+
         private GuestOutput Map(Guest entity)
         {
             GuestOutput retval = null;
 
             retval = new GuestOutput()
             {
-                Id = entity.Id,
-                Name = entity.Name,
-                Share = Map(entity.Share),
+                IsSelf = entity.Id == MemberGuest?.Id,
             };
+            Map(entity, retval);
 
             return retval;
         }
@@ -238,12 +229,8 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
         {
             ExpenseOutput retval = null;
 
-            retval = new ExpenseOutput()
-            {
-                Id = entity.Id,
-                Label = entity.Label,
-                Share = Map(entity.Share),
-            };
+            retval = new ExpenseOutput();
+            Map(entity, retval);
 
             return retval;
         }

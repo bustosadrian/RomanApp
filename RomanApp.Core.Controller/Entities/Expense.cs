@@ -1,20 +1,8 @@
 ﻿namespace RomanApp.Core.Controller.Entities
 {
-    public class Expense : BaseEntity
+    public class Expense : Item
     {
         #region Properties
-
-        public string Label
-        {
-            get;
-            set;
-        }
-
-        public Share Share
-        {
-            get;
-            set;
-        }
 
         #endregion
     }

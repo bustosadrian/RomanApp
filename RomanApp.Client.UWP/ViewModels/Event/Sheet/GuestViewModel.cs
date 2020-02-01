@@ -6,17 +6,24 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
     public class GuestViewModel : ItemViewModel
     {
-        public GuestViewModel(BaseViewModel parent, GuestOutput guest)
-            : base(parent)
+        private bool _isSelf;
+        public GuestViewModel(BaseViewModel parent, GuestOutput message, bool isAdmin)
+            : base(parent, message, isAdmin)
         {
-            Map(guest);
+
         }
 
-        protected void Map(GuestOutput message)
+        protected override void Map(ItemOutput message)
         {
-            base.Map(message.Share);
-            Id = message.Id;
-            Label = message.Name;
+            base.Map(message);
+            GuestOutput guestOutput = (GuestOutput)message;
+            _isSelf = guestOutput.IsSelf;
+            IsHighlighted = _isSelf;
+            if (_isSelf)
+            {
+                CanEdit = false;
+                CanRemove = false;
+            }
         }
 
         protected override RemoveItemInput CreateRemoveInput()
@@ -29,23 +36,5 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             return new ChangeOthersContributionInput();
         }
         
-        #region Messages
-
-        [Reader]
-        //TODO GuestOutput and ExpenseOutput should inherit
-        public bool Read(GuestOutput message)
-        {
-            bool retval = false;
-
-            if (message.Id.Equals(Id))
-            {
-                Map(message);
-                retval = true;
-            }
-
-            return retval;
-        }
-
-        #endregion
     }
 }

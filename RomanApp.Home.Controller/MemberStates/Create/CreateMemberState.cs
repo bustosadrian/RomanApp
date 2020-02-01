@@ -31,8 +31,19 @@ namespace RomanApp.Home.Controller.MemberStates.Create
         {
             Event e = EventService.Create(form.Name);
             CurrentEvent = e;
+            MockItems();
             //ChangeState(typeof(SheetMemberState));
             ChangeState(typeof(LoginMemberState));
+        }
+
+        private void MockItems()
+        {
+            EventService.AddGuest(CurrentEvent, "Juan", 0, null);
+            EventService.AddGuest(CurrentEvent, "Daniel", 0, null);
+            EventService.AddGuest(CurrentEvent, "Mariano", 400, null);
+
+            EventService.AddExpense(CurrentEvent, "Parrilla", 2000, null);
+            EventService.AddExpense(CurrentEvent, "Cancha", 1500, null);
         }
 
         #region Messages

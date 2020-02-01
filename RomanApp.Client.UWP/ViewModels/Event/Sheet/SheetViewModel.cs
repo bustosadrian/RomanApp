@@ -13,6 +13,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
     public class SheetViewModel : EventViewModel
     {
+        private bool _isAdmin;
 
         public SheetViewModel()
         {
@@ -78,14 +79,21 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         [Reader]
         public bool Read(SheetBriefingOutput message)
         {
+            _isAdmin = message.IsAdmin;
             EventName = message.EventName;
+            CanAddItems = _isAdmin;
+
             Guests = new ObservableCollection<GuestViewModel>(
-                message.Guests.Select(x => new GuestViewModel(this, x)));
+                message.Guests
+                    .OrderByDescending(x => x.IsSelf)
+                    .Select(x => new GuestViewModel(this, x, _isAdmin)));
 
             Expenses = new ObservableCollection<ExpenseViewModel>(
-                message.Expenses.Select(x => new ExpenseViewModel(this, x)));
+                message.Expenses.Select(x => new ExpenseViewModel(this, x, _isAdmin)));
 
             IsSelfContributionEnabled = message.HasIdentity;
+
+            
 
             return true;
         }
@@ -93,14 +101,14 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         [Reader]
         public bool Read(GuestOutput message)
         {
-            Guests.Add(new GuestViewModel(this, message));
+            Guests.Add(new GuestViewModel(this, message, _isAdmin));
             return true;
         }
 
         [Reader]
         public bool Read(ExpenseOutput message)
         {
-            Expenses.Add(new ExpenseViewModel(this, message));
+            Expenses.Add(new ExpenseViewModel(this, message, _isAdmin));
             return true;
         }
 
@@ -174,7 +182,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 if(_createItemCommand == null)
                 {
-                    _createItemCommand = new DelegateCommand(OnCreateItem);
+                    _createItemCommand = new DelegateCommand(OnCreateItem, () => CanAddItems);
                 }
                 return _createItemCommand;
             }
@@ -299,6 +307,21 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 _isSelfContributionEnabled = value;
                 OnPropertyChanged("IsSelfContributionEnabled");
+            }
+        }
+
+        private bool _canAddItems;
+        public bool CanAddItems
+        {
+            get
+            {
+                return _canAddItems;
+            }
+            set
+            {
+                _canAddItems = value;
+                OnPropertyChanged("CanAddItems");
+                CreateItemCommand.RaiseCanExecuteChanged();
             }
         }
 

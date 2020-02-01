@@ -1,22 +1,29 @@
 ﻿using Reedoo.NET.Messages;
-using RomanApp.Client.UWP.Views.Event.Sheet.Controls;
 using RomanApp.Messages.Event.Input.Sheet;
-using RomanApp.Messages.Event.Output;
 using RomanApp.Messages.Event.Output.Sheet;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
     public abstract class ItemViewModel : EmbeddedViewModel
     {
-        public ItemViewModel(BaseViewModel parent)
+        private bool _isAdmin;
+
+        public ItemViewModel(BaseViewModel parent, ItemOutput message, 
+            bool isAdmin)
             : base(parent)
         {
+            _isAdmin = isAdmin;
+            CanEdit = _isAdmin;
+            CanRemove = _isAdmin;
 
+            Map(message);
         }
 
-        protected void Map(ShareOutput message)
+        protected virtual void Map(ItemOutput message)
         {
-            Amount = message.Amount;
+            Id = message.EntityId;
+            Label = message.Label;
+            Amount = message.Share?.Amount ?? 0;
         }
 
         private void OnRemove()
@@ -39,6 +46,20 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         #region Messages
 
+        [Reader]
+        public bool Read(ItemOutput message)
+        {
+            bool retval = false;
+
+            if (message.EntityId.Equals(Id))
+            {
+                Map(message);
+                retval = true;
+            }
+
+            return retval;
+        }
+
         #endregion
 
         #region Commands
@@ -50,7 +71,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 if(_removeCommand == null)
                 {
-                    _removeCommand = new DelegateCommand(OnRemove);
+                    _removeCommand = new DelegateCommand(OnRemove, () => CanRemove);
                 }
 
                 return _removeCommand;
@@ -64,7 +85,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 if (_editCommand == null)
                 {
-                    _editCommand = new DelegateCommand(OnEdit);
+                    _editCommand = new DelegateCommand(OnEdit, () => CanEdit);
                 }
 
                 return _editCommand;
@@ -115,6 +136,50 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 _amount = value;
                 OnPropertyChanged("Amount");
+            }
+        }
+
+        public bool _canEdit;
+        public bool CanEdit
+        {
+            get
+            {
+                return _canEdit;
+            }
+            set
+            {
+                _canEdit = value;
+                OnPropertyChanged("CanEdit");
+                EditCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        public bool _canRemove;
+        public bool CanRemove
+        {
+            get
+            {
+                return _canRemove;
+            }
+            set
+            {
+                _canRemove = value;
+                OnPropertyChanged("CanRemove");
+                RemoveCommand.RaiseCanExecuteChanged();
+            }
+        }
+
+        private bool _isHighlighted;
+        public bool IsHighlighted
+        {
+            get
+            {
+                return _isHighlighted;
+            }
+            set
+            {
+                _isHighlighted = value;
+                OnPropertyChanged("IsHighlighted");
             }
         }
 

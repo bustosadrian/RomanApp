@@ -42,6 +42,12 @@ namespace RomanApp.Messages.Event.Output.Sheet
             set;
         }
 
+        public bool IsAdmin
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

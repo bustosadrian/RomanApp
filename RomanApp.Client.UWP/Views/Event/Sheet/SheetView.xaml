@@ -69,6 +69,7 @@
                 <SymbolIcon Symbol="Edit" />
             </Button>
             <Button Padding="10" Margin="0 0 0 5"
+                    Visibility="{Binding CanAddItems, Converter={StaticResource c_bv}}"
                     Command="{Binding CreateItemCommand}">
                 <SymbolIcon Symbol="Add" />
             </Button>

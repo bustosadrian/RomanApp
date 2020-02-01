@@ -27,6 +27,11 @@ namespace RomanApp.Home.Controller.MemberStates.Login
         {
             Guest guest = EventService.AddGuest(CurrentEvent, message.Name, 0, null);
             Member.Locker.Add(RomanAppRoomHandler.LOCKER_MEMBER_GUEST, guest);
+            MemberProfile profile = new MemberProfile()
+            {
+                IsAdmin = true,
+            };
+            Member.Locker.Add(RomanAppRoomHandler.LOCKER_MEMBER_PROFILE, profile);
             ChangeState(typeof(SheetMemberState));
         }
 

@@ -5,19 +5,13 @@ namespace RomanApp.Messages.Event.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class GuestOutput : BaseEntityOutput
+    public class GuestOutput : ItemOutput
     {
-        private const string KEY = "RomanApp.Event.Sheet.Guest";
+        private const string KEY = "RomanApp.Event.Sheet.Guest.Output";
 
         #region Properties
 
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public ShareOutput Share
+        public bool IsSelf
         {
             get;
             set;

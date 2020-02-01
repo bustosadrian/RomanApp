@@ -39,27 +39,6 @@ namespace RomanApp.Home.Controller.RoomStates
             return retval;
         }
 
-        //public override AlienTicket OnJoined(Passport passport)
-        //{
-        //    return WriteAlienTicket(passport);
-        //}
-
-        public override MemberTicket OnJoined(Passport passport, TrespasserId trespasserId)
-        {
-            MemberTicket retval = null;
-
-            LoginId loginId = (LoginId)trespasserId;
-
-            Guest guest = EventService.AddGuest(CurrentEvent, loginId.Name, 0, null);
-
-            IMember member = CreateMember(passport);
-            member.Locker.Add(RomanAppRoomHandler.LOCKER_MEMBER_GUEST, guest);
-            retval = new MemberTicket(passport, member);
-
-
-            return retval;
-        }
-
         public override Type OnJoined(IMember member)
         {
             return typeof(MenuMemberState);
