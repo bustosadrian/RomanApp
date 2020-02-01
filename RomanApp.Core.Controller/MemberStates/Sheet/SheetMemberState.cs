@@ -14,6 +14,8 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
     {
         private const string KEY = "RomanApp.Event.Sheet";
 
+        private string _othersGuestId = null;
+
         public override void Brief()
         {
             QueueBriefing();
@@ -77,11 +79,26 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
         [Reader]
         public void Read(ChangeMyContributionInput message)
         {
-            YourContributionOutput yourContribution = new YourContributionOutput
+            YourContributionOutput output = new YourContributionOutput
             {
                 Amount = MemberGuest?.Share?.Amount ?? 0
             };
-            Queue(yourContribution);
+            Queue(output);
+        }
+
+        [Reader]
+        public void Read(ChangeOthersContributionInput message)
+        {
+            Guest guest = CurrentEvent.Guests.SingleOrDefault(x => x.Id == message.ItemId);
+            //TODO cool for MethodValidation
+            OthersContributionOutput output = new OthersContributionOutput
+            {
+                Amount = guest?.Share?.Amount ?? 0,
+                GuestName = guest.Name,
+                IsSelf = message.ItemId == MemberGuest?.Id,
+            };
+            _othersGuestId = message.ItemId;
+            Queue(output);
         }
 
         [Reader]
@@ -94,6 +111,21 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             };
             EventService.UpdateGuestShare(CurrentEvent, MemberGuest, share);
             QueueGuest(MemberGuest);
+            QueueOutcome();
+        }
+
+        [Reader]
+        public void Read(OthersContributionInput message)
+        {
+            Share share = new Share()
+            {
+                Amount = message.Amount,
+                Description = message.Description,
+            };
+            //TODO cool for MethodValidation
+            Guest guest = CurrentEvent.Guests.SingleOrDefault(x => x.Id == _othersGuestId);
+            EventService.UpdateGuestShare(CurrentEvent, guest, share);
+            QueueGuest(guest);
             QueueOutcome();
         }
 

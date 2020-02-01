@@ -1,8 +1,11 @@
-﻿using Reedoo.NET.Messages.Input;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RomanApp.Messages.Event.Input.Sheet
 {
-    public abstract class RemoveItemInput : InputMessage
+    [Serializable]
+    public abstract class ChangeItemAmountInput : ChangeContributionInput
     {
         #region Properties
 

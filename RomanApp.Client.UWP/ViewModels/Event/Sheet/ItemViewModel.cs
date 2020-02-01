@@ -1,5 +1,8 @@
-﻿using RomanApp.Messages.Event.Input.Sheet;
+﻿using Reedoo.NET.Messages;
+using RomanApp.Client.UWP.Views.Event.Sheet.Controls;
+using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output;
+using RomanApp.Messages.Event.Output.Sheet;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {
@@ -23,7 +26,18 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             Send(message);
         }
 
+        private void OnEdit()
+        {
+            Send(CreateChangeContributionInput());
+        }
+
         protected abstract RemoveItemInput CreateRemoveInput();
+
+        protected abstract ChangeContributionInput CreateChangeContributionInput();
+
+        #region Messages
+
+        #endregion
 
         #region Commands
 
@@ -38,6 +52,20 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
                 }
 
                 return _removeCommand;
+            }
+        }
+
+        private DelegateCommand _editCommand;
+        public DelegateCommand EditCommand
+        {
+            get
+            {
+                if (_editCommand == null)
+                {
+                    _editCommand = new DelegateCommand(OnEdit);
+                }
+
+                return _editCommand;
             }
         }
 

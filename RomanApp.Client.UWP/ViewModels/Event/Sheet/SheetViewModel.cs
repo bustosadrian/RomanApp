@@ -62,6 +62,17 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             }
         }
 
+        private void ShowItemAmountDialog(ContributionOutput message,
+            ItemAmountViewModel vm)
+        {
+            ItemAmountDialog dialog = new ItemAmountDialog();
+            vm.Amount = message.Amount;
+
+            dialog.DataContext = vm;
+            dialog.ShowAsync();
+        }
+
+
         #region Messages
 
         [Reader]
@@ -120,14 +131,24 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         [Reader]
         public bool Read(YourContributionOutput message)
         {
-            MyContributionDialog dialog = new MyContributionDialog();
-            MyContributionViewModel vm = new MyContributionViewModel(this)
-            {
-                Amount = message.Amount,
-            };
+            ShowItemAmountDialog(message, new SelfContributionViewModel(this));
 
-            dialog.DataContext = vm;
-            dialog.ShowAsync();
+            return true;
+        }
+
+        [Reader]
+        public bool Read(OthersContributionOutput message)
+        {
+            ItemAmountViewModel vm = null;
+            if (message.IsSelf)
+            {
+                vm = new SelfContributionViewModel(this);
+            }
+            else
+            {
+                vm = new OthersContributionViewModel(this, message.GuestName);
+            }
+            ShowItemAmountDialog(message, vm);
 
             return true;
         }

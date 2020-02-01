@@ -30,7 +30,12 @@
                                     VerticalAlignment="Center" />
                         <Grid Grid.Column="3"
                               Margin="10 0 0 0">
-                            <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Command="{Binding EditCommand}"
+                                        Margin="0 0 10 0">
+                                    <SymbolIcon Symbol="Edit" />
+                                </Button>
+
                                 <Button Command="{Binding RemoveCommand}">
                                     <SymbolIcon Symbol="Delete" />
                                 </Button>

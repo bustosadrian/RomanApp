@@ -5,20 +5,10 @@ namespace RomanApp.Messages.Event.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class YourContributionOutput : RemoveItemOutput
+    public class YourContributionOutput : ContributionOutput
     {
 
-        private const string KEY = "RomanApp.Event.Sheet.Your.Contribution";
-
-        #region Properties
-
-        public decimal Amount
-        {
-            get;
-            set;
-        }
-
-        #endregion
+        private const string KEY = "RomanApp.Event.Sheet.Your.Contribution.Output";
 
     }
 }

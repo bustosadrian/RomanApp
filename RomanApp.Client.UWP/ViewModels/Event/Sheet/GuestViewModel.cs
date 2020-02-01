@@ -24,9 +24,18 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             return new RemoveGuestInput();
         }
 
+        protected override ChangeContributionInput CreateChangeContributionInput()
+        {
+            return new ChangeOthersContributionInput()
+            {
+                ItemId = Id,
+            };
+        }
+        
         #region Messages
 
         [Reader]
+        //TODO GuestOutput and ExpenseOutput should inherit
         public bool Read(GuestOutput message)
         {
             bool retval = false;

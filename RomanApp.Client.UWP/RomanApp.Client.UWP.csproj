@@ -120,13 +120,15 @@
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
     <Compile Include="ViewModels\Event\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\OthersContributionViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestOutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemFormViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ItemViewModel.cs" />
-    <Compile Include="ViewModels\Event\Sheet\MyContributionViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\ItemAmountViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\OutcomeViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\SelfContributionViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\SheetViewModel.cs" />
     <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
     <Compile Include="ViewModels\Home\Help\HelpViewModel.cs" />
@@ -157,8 +159,8 @@
     <Compile Include="Views\Event\Sheet\Controls\Items.xaml.cs">
       <DependentUpon>Items.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Event\Sheet\Controls\MyContributionDialog.xaml.cs">
-      <DependentUpon>MyContributionDialog.xaml</DependentUpon>
+    <Compile Include="Views\Event\Sheet\Controls\ItemAmountDialog.xaml.cs">
+      <DependentUpon>ItemAmountDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Event\Sheet\Controls\Outcome.xaml.cs">
       <DependentUpon>Outcome.xaml</DependentUpon>
@@ -260,7 +262,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Event\Sheet\Controls\MyContributionDialog.xaml">
+    <Page Include="Views\Event\Sheet\Controls\ItemAmountDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

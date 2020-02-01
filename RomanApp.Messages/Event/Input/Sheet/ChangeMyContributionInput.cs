@@ -7,7 +7,7 @@ namespace RomanApp.Messages.Event.Input.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class ChangeMyContributionInput : AddItemInput
+    public class ChangeMyContributionInput : ChangeContributionInput
     {
         private const string KEY = "RomanApp.Event.Sheet.Change.My.Contribution";
 
