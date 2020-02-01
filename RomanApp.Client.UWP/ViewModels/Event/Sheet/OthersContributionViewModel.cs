@@ -11,7 +11,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         protected override UpdateContributionInput CreateUpdateContributionInput()
         {
-            return new OthersContributionInput();
+            return new UpdateOthersContributionInput();
         }
     }
 }

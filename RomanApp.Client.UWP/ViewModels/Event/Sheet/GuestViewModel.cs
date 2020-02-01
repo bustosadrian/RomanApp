@@ -24,12 +24,9 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             return new RemoveGuestInput();
         }
 
-        protected override ChangeContributionInput CreateChangeContributionInput()
+        protected override ChangeItemAmountInput CreateChangeContributionInput()
         {
-            return new ChangeOthersContributionInput()
-            {
-                ItemId = Id,
-            };
+            return new ChangeOthersContributionInput();
         }
         
         #region Messages

@@ -24,9 +24,9 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             return new RemoveExpenseInput();
         }
 
-        protected override ChangeContributionInput CreateChangeContributionInput()
+        protected override ChangeItemAmountInput CreateChangeContributionInput()
         {
-            throw new System.NotImplementedException();
+            return new ChangeExpenseAmountInput();
         }
 
         #region Messages

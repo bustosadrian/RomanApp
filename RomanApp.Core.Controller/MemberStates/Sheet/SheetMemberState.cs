@@ -14,7 +14,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
     {
         private const string KEY = "RomanApp.Event.Sheet";
 
-        private string _othersGuestId = null;
+        private string _editingItemId = null;
 
         public override void Brief()
         {
@@ -77,9 +77,9 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
         }
 
         [Reader]
-        public void Read(ChangeMyContributionInput message)
+        public void Read(ChangeSelfContributionInput message)
         {
-            YourContributionOutput output = new YourContributionOutput
+            SelfContributionOutput output = new SelfContributionOutput
             {
                 Amount = MemberGuest?.Share?.Amount ?? 0
             };
@@ -89,33 +89,47 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
         [Reader]
         public void Read(ChangeOthersContributionInput message)
         {
-            Guest guest = CurrentEvent.Guests.SingleOrDefault(x => x.Id == message.ItemId);
+            Guest entity = CurrentEvent.Guests.SingleOrDefault(x => x.Id == message.ItemId);
             //TODO cool for MethodValidation
             OthersContributionOutput output = new OthersContributionOutput
             {
-                Amount = guest?.Share?.Amount ?? 0,
-                GuestName = guest.Name,
+                Amount = entity?.Share?.Amount ?? 0,
+                GuestName = entity.Name,
                 IsSelf = message.ItemId == MemberGuest?.Id,
             };
-            _othersGuestId = message.ItemId;
+            _editingItemId = message.ItemId;
             Queue(output);
         }
 
         [Reader]
-        public void Read(MyContributionInput message)
+        public void Read(ChangeExpenseAmountInput message)
+        {
+            Expense entity = CurrentEvent.Expenses.SingleOrDefault(x => x.Id == message.ItemId);
+            //TODO cool for MethodValidation
+            ExpenseAmountOutput output = new ExpenseAmountOutput
+            {
+                Amount = entity?.Share?.Amount ?? 0,
+                ExpenseLabel = entity.Label,
+            };
+            _editingItemId = message.ItemId;
+            Queue(output);
+        }
+
+        [Reader]
+        public void Read(UpdateSelfContributionInput message)
         {
             Share share = new Share()
             {
                 Amount = message.Amount,
                 Description = message.Description,
             };
-            EventService.UpdateGuestShare(CurrentEvent, MemberGuest, share);
+            EventService.UpdateGuestContribution(CurrentEvent, MemberGuest, share);
             QueueGuest(MemberGuest);
             QueueOutcome();
         }
 
         [Reader]
-        public void Read(OthersContributionInput message)
+        public void Read(UpdateOthersContributionInput message)
         {
             Share share = new Share()
             {
@@ -123,9 +137,24 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 Description = message.Description,
             };
             //TODO cool for MethodValidation
-            Guest guest = CurrentEvent.Guests.SingleOrDefault(x => x.Id == _othersGuestId);
-            EventService.UpdateGuestShare(CurrentEvent, guest, share);
+            Guest guest = CurrentEvent.Guests.SingleOrDefault(x => x.Id == _editingItemId);
+            EventService.UpdateGuestContribution(CurrentEvent, guest, share);
             QueueGuest(guest);
+            QueueOutcome();
+        }
+
+        [Reader]
+        public void Read(UpdateExpenseAmountInput message)
+        {
+            Share share = new Share()
+            {
+                Amount = message.Amount,
+                Description = message.Description,
+            };
+            //TODO cool for MethodValidation
+            Expense expense = CurrentEvent.Expenses.SingleOrDefault(x => x.Id == _editingItemId);
+            EventService.UpdateExpenseAmount(CurrentEvent, expense, share);
+            QueueExpense(expense);
             QueueOutcome();
         }
 

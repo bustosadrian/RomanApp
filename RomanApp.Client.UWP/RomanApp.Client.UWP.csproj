@@ -120,6 +120,7 @@
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
     <Compile Include="ViewModels\Event\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Event\Sheet\ExpenseAmountViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\OthersContributionViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\GuestOutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseViewModel.cs" />

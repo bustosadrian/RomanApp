@@ -28,12 +28,14 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         private void OnEdit()
         {
-            Send(CreateChangeContributionInput());
+            ChangeItemAmountInput message = CreateChangeContributionInput();
+            message.ItemId = Id;
+            Send(message);
         }
 
         protected abstract RemoveItemInput CreateRemoveInput();
 
-        protected abstract ChangeContributionInput CreateChangeContributionInput();
+        protected abstract ChangeItemAmountInput CreateChangeContributionInput();
 
         #region Messages
 

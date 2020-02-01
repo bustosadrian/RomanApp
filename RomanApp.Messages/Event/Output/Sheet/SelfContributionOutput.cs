@@ -5,10 +5,10 @@ namespace RomanApp.Messages.Event.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class YourContributionOutput : ContributionOutput
+    public class SelfContributionOutput : ContributionOutput
     {
 
-        private const string KEY = "RomanApp.Event.Sheet.Your.Contribution.Output";
+        private const string KEY = "RomanApp.Event.Sheet.Self.Contribution.Output";
 
     }
 }

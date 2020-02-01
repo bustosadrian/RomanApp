@@ -39,7 +39,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 
         private void OnChangeMyContribution()
         {
-            Send(new ChangeMyContributionInput());
+            Send(new ChangeSelfContributionInput());
         }
 
         private void AddItem(ItemFormViewModel vm)
@@ -129,7 +129,7 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         }
 
         [Reader]
-        public bool Read(YourContributionOutput message)
+        public bool Read(SelfContributionOutput message)
         {
             ShowItemAmountDialog(message, new SelfContributionViewModel(this));
 
@@ -148,6 +148,16 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             {
                 vm = new OthersContributionViewModel(this, message.GuestName);
             }
+            ShowItemAmountDialog(message, vm);
+
+            return true;
+        }
+
+        [Reader]
+        public bool Read(ExpenseAmountOutput message)
+        {
+            ItemAmountViewModel vm = null;
+            vm = new ExpenseAmountViewModel(this, message.ExpenseLabel);
             ShowItemAmountDialog(message, vm);
 
             return true;

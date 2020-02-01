@@ -7,6 +7,6 @@ namespace RomanApp.Messages.Event.Input.Sheet
     [Message(KEY)]
     public class ChangeOthersContributionInput : ChangeItemAmountInput
     {
-        private const string KEY = "RomanApp.Event.Sheet.Change.Others.Contribution";
+        private const string KEY = "RomanApp.Event.Sheet.Change.Others.Contribution.Input";
     }
 }
