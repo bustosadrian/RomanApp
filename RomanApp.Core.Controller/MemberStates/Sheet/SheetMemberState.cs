@@ -26,6 +26,11 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             RomanAppRoomState.OnExit(Member);
         }
 
+        private Outcome CalculateOutcome()
+        {
+            return EventService.Calculate(CurrentEvent);
+        }
+
         #region Messages
 
         [Reader]
@@ -169,7 +174,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
                 EventName = CurrentEvent.Name,
                 Guests = CurrentEvent.Guests.Select(x => Map(x)).ToList(),
                 Expenses = CurrentEvent.Expenses.Select(x => Map(x)).ToList(),
-                Outcome = Map(EventService.Calculate(CurrentEvent)),
+                Outcome = Map(CalculateOutcome()),
                 HasIdentity = MemberGuest != null,
                 IsAdmin = MemberProfile.IsAdmin,
             };
@@ -191,8 +196,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
 
         private void QueueOutcome()
         {
-            Outcome outcome = EventService.Calculate(CurrentEvent);
-            Queue(Map(outcome));
+            Queue(Map(CalculateOutcome()));
         }
 
         #endregion

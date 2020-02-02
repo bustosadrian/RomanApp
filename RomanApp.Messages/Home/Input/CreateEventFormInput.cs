@@ -32,6 +32,12 @@ namespace RomanApp.Messages.Home.Input
             set;
         }
 
+        public bool IsUseRoundFigures
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

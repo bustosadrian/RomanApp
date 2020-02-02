@@ -19,6 +19,7 @@ namespace RomanApp.Client.UWP.ViewModels.Home.Create
                 Name = EventName,
                 EventAccess = IsPrivate ? EventAccess.Private : EventAccess.Public,
                 Password = EventPassword,
+                IsUseRoundFigures = IsUseRoundFigures,
             };
             Send(form);
         }
@@ -135,6 +136,20 @@ namespace RomanApp.Client.UWP.ViewModels.Home.Create
             {
                 _eventPassword = value;
                 OnPropertyChanged("EventPassword");
+            }
+        }
+
+        private bool _isUseRoundFigures;
+        public bool IsUseRoundFigures
+        {
+            get
+            {
+                return _isUseRoundFigures;
+            }
+            set
+            {
+                _isUseRoundFigures = value;
+                OnPropertyChanged("IsUseRoundFigures");
             }
         }
 

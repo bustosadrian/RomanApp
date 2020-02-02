@@ -30,6 +30,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0"
@@ -38,8 +39,8 @@
                                   PlaceholderText="Type the event name" />
                     </Grid>
 
-                    <Grid Grid.Row="1" Visibility="{Binding ShowAccessSection, Converter={StaticResource c_bv}}"
-                          Margin="0 0 0 20">
+                    <!-- ACCESS -->
+                    <Grid Grid.Row="1" Visibility="{Binding ShowAccessSection, Converter={StaticResource c_bv}}">
                         <StackPanel Orientation="Vertical">
                             <RadioButton IsChecked="{Binding Path=IsPrivate, Mode=TwoWay}"
                                          GroupName="EventAccess"
@@ -57,7 +58,17 @@
                         </StackPanel>
                     </Grid>
 
+                    <!-- PROPERTIES -->
                     <Grid Grid.Row="2">
+                        <StackPanel HorizontalAlignment="Center">
+                            <CheckBox Content="Use round figures" 
+                                      IsChecked="{Binding IsUseRoundFigures, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </Grid>
+
+
+                    <Grid Grid.Row="3"
+                          Margin="0 20 0 0">
                         <Button Content="Create"
                                 HorizontalAlignment="Center"
                                 Command="{Binding CreateCommand}" />

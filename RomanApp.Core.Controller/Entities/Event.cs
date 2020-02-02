@@ -31,6 +31,12 @@ namespace RomanApp.Core.Controller.Entities
             set;
         }
 
+        public bool IsWholeNumbers
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

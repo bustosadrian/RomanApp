@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using RomanApp.Core.Controller.Entities;
 using RomanApp.Core.Controller.Services.Exceptions;
+using RomanApp.Core.Controller.Utils;
 
 namespace RomanApp.Core.Controller.Services
 {
@@ -185,7 +186,14 @@ namespace RomanApp.Core.Controller.Services
                     {
                         evens.Add(o);
                     }
+                    o.Debt = Math.Abs(o.Debt);
                 }
+
+                Round(retval.Share, (List<GuestOutcome>)retval.Creditors, e.IsWholeNumbers);
+                Round(retval.Share, (List<GuestOutcome>)retval.Debtors, e.IsWholeNumbers);
+                //Round(retval.Share, (List<GuestOutcome>)retval.Evens, e.IsWholeNumbers);
+
+                retval.Share = retval.Share.RoundCents(e.IsWholeNumbers);
 
                 if (!debtors.Any())
                 {
@@ -199,5 +207,30 @@ namespace RomanApp.Core.Controller.Services
 
             return retval;
         }
+
+        private void Round(decimal share, List<GuestOutcome> guests, bool wholeNumbers)
+        {
+            Round(share, 0, guests, wholeNumbers);
+        }
+
+        private void Round(decimal share, decimal expenses, List<GuestOutcome> guests, bool wholeNumbers)
+        {
+            decimal total = guests.Sum(x => x.Debt) + expenses;
+            if (guests.Any())
+            {
+                decimal roundedTotal = 0;
+                foreach (var o in guests)
+                {
+                    o.Debt = o.Debt.RoundCents(wholeNumbers);
+                    roundedTotal += o.Debt;
+                }
+                decimal residual = total - roundedTotal;
+                int it = new Random().Next(0, guests.Count);
+                guests[it].Debt += residual;
+                guests[it].Debt = guests[it].Debt.RoundCents(wholeNumbers);
+            }
+
+        }
+
     }
 }

@@ -30,6 +30,7 @@ namespace RomanApp.Home.Controller.MemberStates.Create
         private void CreateEvent(CreateEventFormInput form)
         {
             Event e = EventService.Create(form.Name);
+            e.IsWholeNumbers = form.IsUseRoundFigures;
             CurrentEvent = e;
             MockItems();
             //ChangeState(typeof(SheetMemberState));
@@ -40,10 +41,10 @@ namespace RomanApp.Home.Controller.MemberStates.Create
         {
             EventService.AddGuest(CurrentEvent, "Juan", 0, null);
             EventService.AddGuest(CurrentEvent, "Daniel", 0, null);
-            EventService.AddGuest(CurrentEvent, "Mariano", 400, null);
+            EventService.AddGuest(CurrentEvent, "Mike", 1500, null);
 
-            EventService.AddExpense(CurrentEvent, "Parrilla", 2000, null);
-            EventService.AddExpense(CurrentEvent, "Cancha", 1500, null);
+            EventService.AddExpense(CurrentEvent, "Parrilla", 100, null);
+            //EventService.AddExpense(CurrentEvent, "Cancha", 1500, null);
         }
 
         #region Messages
