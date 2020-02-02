@@ -27,10 +27,13 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <SymbolIcon Grid.Column="0" Symbol="Contact"
+                        <SymbolIcon Grid.Column="0" Symbol="{Binding Symbol, ElementName=Self}"
                                     VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="1" Text="{Binding Label}"
+                        <HyperlinkButton Grid.Column="1"
+                                         Command="{Binding ViewDetailsCommand}">
+                            <TextBlock Text="{Binding Label}"
                                     VerticalAlignment="Center" />
+                        </HyperlinkButton>
                         <TextBlock Grid.Column="2" Text="{Binding Amount, Converter={StaticResource c_m}}"
                                     VerticalAlignment="Center" />
                         <Grid Grid.Column="3"

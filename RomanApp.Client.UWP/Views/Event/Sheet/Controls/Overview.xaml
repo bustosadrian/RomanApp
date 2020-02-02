@@ -16,10 +16,11 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" 
-                   Text="Guests" FontSize="24" 
+                   Text="Guests" FontSize="24"
                    FontWeight="Bold" />
 
         <local:Items Grid.Row="1" 
+                     Symbol="Contact"
                      ItemsSource="{Binding Guests}" 
                      Margin="5" />
     </Grid>
@@ -35,8 +36,9 @@
                    FontWeight="Bold" />
 
         <local:Items Grid.Row="1" 
-                  ItemsSource="{Binding Expenses}" 
-                  Margin="5" />
+                     Symbol="Pictures"
+                     ItemsSource="{Binding Expenses}" 
+                     Margin="5" />
     </Grid>
 
 </StackPanel>

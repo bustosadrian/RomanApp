@@ -37,6 +37,15 @@ namespace RomanApp.Client.UWP.Views.Event.Sheet.Controls
             set { SetValue(ItemsSourceProperty, value); }
         }
 
+        public static readonly DependencyProperty SymbolProperty =
+            DependencyProperty.Register("Symbol", typeof(Symbol),
+                typeof(Items), new PropertyMetadata(null));
+        public Symbol Symbol
+        {
+            get { return (Symbol)GetValue(SymbolProperty); }
+            set { SetValue(SymbolProperty, value); }
+        }
+        
         #endregion  
     }
 }

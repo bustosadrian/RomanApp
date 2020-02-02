@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Messages;
+using RomanApp.Messages.Event.Input;
 using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output.Sheet;
 
@@ -20,6 +21,11 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         protected override ChangeItemAmountInput CreateChangeContributionInput()
         {
             return new ChangeExpenseAmountInput();
+        }
+
+        protected override ViewItemDetailsInput CreateViewItemDetailsInput()
+        {
+            return new ViewExpenseDetailsInput();
         }
     }
 }

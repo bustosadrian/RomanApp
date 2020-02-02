@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Messages;
+using RomanApp.Messages.Event.Input;
 using RomanApp.Messages.Event.Input.Sheet;
 using RomanApp.Messages.Event.Output.Sheet;
 
@@ -40,9 +41,18 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             Send(message);
         }
 
+        private void OnViewDetails()
+        {
+            ViewItemDetailsInput message = CreateViewItemDetailsInput();
+            message.EntityId = Id;
+            Send(message);
+        }
+
         protected abstract RemoveItemInput CreateRemoveInput();
 
         protected abstract ChangeItemAmountInput CreateChangeContributionInput();
+
+        protected abstract ViewItemDetailsInput CreateViewItemDetailsInput();
 
         #region Messages
 
@@ -89,6 +99,19 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
                 }
 
                 return _editCommand;
+            }
+        }
+
+        private DelegateCommand _viewDetailsCommand;
+        public DelegateCommand ViewDetailsCommand
+        {
+            get
+            {
+                if(_viewDetailsCommand == null)
+                {
+                    _viewDetailsCommand = new DelegateCommand(OnViewDetails);
+                }
+                return _viewDetailsCommand;
             }
         }
 

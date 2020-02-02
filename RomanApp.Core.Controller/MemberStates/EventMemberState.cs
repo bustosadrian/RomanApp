@@ -1,10 +1,9 @@
 ﻿using Reedoo.NET.Messages;
 using RomanApp.Core.Controller.Entities;
+using RomanApp.Core.Controller.MemberStates.ItemDetails;
+using RomanApp.Messages.Event.Input;
 using RomanApp.Messages.Event.Output;
 using RomanApp.Messages.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Core.Controller.MemberStates
 {
@@ -21,6 +20,18 @@ namespace RomanApp.Core.Controller.MemberStates
         public void Read(BackInput message)
         {
             OnBack();
+        }
+
+        [Reader]
+        public void Read(ViewGuestDetailsInput message)
+        {
+            ChangeState(typeof(GuestDetailsMemberState), message.EntityId);
+        }
+
+        [Reader]
+        public void Read(ViewExpenseDetailsInput message)
+        {
+            ChangeState(typeof(ExpenseDetailsMemberState), message.EntityId);
         }
 
         #endregion

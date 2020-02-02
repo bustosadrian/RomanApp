@@ -121,6 +121,8 @@
     <Compile Include="ViewModels\DelegateCommand.cs" />
     <Compile Include="ViewModels\EmbeddedViewModel.cs" />
     <Compile Include="ViewModels\Event\EventViewModel.cs" />
+    <Compile Include="ViewModels\Event\ItemDetails\ExpenseDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Event\ItemDetails\ItemDetailsViewModel.cs" />
     <Compile Include="ViewModels\Event\Login\LoginViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\ExpenseAmountViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\OthersContributionViewModel.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="ViewModels\Event\Sheet\OutcomeViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\SelfContributionViewModel.cs" />
     <Compile Include="ViewModels\Event\Sheet\SheetViewModel.cs" />
+    <Compile Include="ViewModels\Event\ItemDetails\GuestDetailsViewModel.cs" />
     <Compile Include="ViewModels\Home\Create\CreateViewModel.cs" />
     <Compile Include="ViewModels\Home\Help\HelpViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
@@ -146,6 +149,15 @@
     </Compile>
     <Compile Include="Views\CreateItem\CreateItemView.xaml.cs">
       <DependentUpon>CreateItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\ItemDetails\Controls\ItemContent.xaml.cs">
+      <DependentUpon>ItemContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\ItemDetails\ExpenseDetailsView.xaml.cs">
+      <DependentUpon>ExpenseDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Event\ItemDetails\GuestDetailsView.xaml.cs">
+      <DependentUpon>GuestDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Event\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -242,6 +254,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CreateItem\CreateItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\ItemDetails\Controls\ItemContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\ItemDetails\ExpenseDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Event\ItemDetails\GuestDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

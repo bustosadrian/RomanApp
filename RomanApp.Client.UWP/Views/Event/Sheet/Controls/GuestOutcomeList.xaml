@@ -24,7 +24,7 @@
                         <SymbolIcon Grid.Column="0" Symbol="Contact"/>
                         <TextBlock Grid.Column="1" Text="{Binding Name}" 
                                    Foreground="{Binding Foreground, ElementName=Self}" />
-                        <TextBlock Grid.Column="2" Text="{Binding Debt, Converter={StaticResource c_abs}}"
+                        <TextBlock Grid.Column="2" Text="{Binding Debt, Converter={StaticResource c_m}}"
                                    Foreground="{Binding Foreground, ElementName=Self}" />
                     </Grid>
                     <Border BorderThickness=".5" 
