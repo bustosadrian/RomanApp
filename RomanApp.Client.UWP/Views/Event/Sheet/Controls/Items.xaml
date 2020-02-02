@@ -31,7 +31,7 @@
                                     VerticalAlignment="Center" />
                         <TextBlock Grid.Column="1" Text="{Binding Label}"
                                     VerticalAlignment="Center" />
-                        <TextBlock Grid.Column="2" Text="{Binding Amount}"
+                        <TextBlock Grid.Column="2" Text="{Binding Amount, Converter={StaticResource c_m}}"
                                     VerticalAlignment="Center" />
                         <Grid Grid.Column="3"
                               Margin="10 0 0 0">

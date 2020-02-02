@@ -13,6 +13,8 @@
         <c:AnyToVisibilityConverter x:Key="c_av" />
         <c:EnumBooleanConverter x:Key="c_eb" />
         <c:AbsConverter x:Key="c_abs" />
+        <c:StringFormatConverter x:Key="c_sformat" />
+        <c:MoneyConverter x:Key="c_m" />
     </Application.Resources>
 
 </Application>

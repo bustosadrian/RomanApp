@@ -110,7 +110,9 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\CountConverter.cs" />
     <Compile Include="Converters\DecimalConverter.cs" />
+    <Compile Include="Converters\MoneyConverter.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
