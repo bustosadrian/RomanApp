@@ -63,16 +63,22 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
             }
         }
 
-        private void ShowItemAmountDialog(ContributionOutput message,
-            ItemAmountViewModel vm)
+        private async void ChangeItemAmount(ItemAmountViewModel vm,
+            UpdateContributionInput message)
         {
-            ItemAmountDialog dialog = new ItemAmountDialog();
-            vm.Amount = message.Amount;
+            ItemAmountDialog dialog = new ItemAmountDialog()
+            {
+                DataContext = vm,
+            };
 
-            dialog.DataContext = vm;
-            dialog.ShowAsync();
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                message.Amount = vm.Amount;
+                Send(message);
+            }
         }
-
 
         #region Messages
 
@@ -139,7 +145,11 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         [Reader]
         public bool Read(SelfContributionOutput message)
         {
-            ShowItemAmountDialog(message, new SelfContributionViewModel(this));
+            ChangeItemAmount(
+                new SelfContributionViewModel(this){
+                    Amount = message.Amount,
+                },
+                new UpdateSelfContributionInput());
 
             return true;
         }
@@ -148,15 +158,20 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         public bool Read(OthersContributionOutput message)
         {
             ItemAmountViewModel vm = null;
+            UpdateContributionInput inputMessage = null;
             if (message.IsSelf)
             {
                 vm = new SelfContributionViewModel(this);
+                inputMessage = new UpdateSelfContributionInput();
             }
             else
             {
                 vm = new OthersContributionViewModel(this, message.GuestName);
+                inputMessage = new UpdateOthersContributionInput();
             }
-            ShowItemAmountDialog(message, vm);
+            vm.Amount = message.Amount;
+
+            ChangeItemAmount(vm, inputMessage);
 
             return true;
         }
@@ -164,9 +179,9 @@ namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
         [Reader]
         public bool Read(ExpenseAmountOutput message)
         {
-            ItemAmountViewModel vm = null;
-            vm = new ExpenseAmountViewModel(this, message.ExpenseLabel);
-            ShowItemAmountDialog(message, vm);
+            ChangeItemAmount(
+                new ExpenseAmountViewModel(this, message.ExpenseLabel) { Amount = message.Amount },
+                new UpdateExpenseAmountInput());
 
             return true;
         }

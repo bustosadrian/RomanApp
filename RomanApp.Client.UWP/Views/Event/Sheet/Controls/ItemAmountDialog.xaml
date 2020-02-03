@@ -9,8 +9,7 @@
     Title="{Binding Title}"
     PrimaryButtonText="Ok"
     DefaultButton="Primary"
-    SecondaryButtonText="Cancel"
-    PrimaryButtonCommand="{Binding SubmitCommand}">
+    SecondaryButtonText="Cancel">
 
     <Grid>
         <Grid.RowDefinitions>
