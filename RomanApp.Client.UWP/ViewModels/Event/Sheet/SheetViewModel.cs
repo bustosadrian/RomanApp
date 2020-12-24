@@ -8,6 +8,7 @@ using System.Linq;
 using RomanApp.Messages.Event.Input.Sheet;
 using Windows.UI.Xaml.Controls;
 using System.Threading.Tasks;
+using Reedoo.NET.Client.Messages;
 
 namespace RomanApp.Client.UWP.ViewModels.Event.Sheet
 {

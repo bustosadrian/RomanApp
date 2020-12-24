@@ -1,5 +1,5 @@
-﻿using Reedoo.NET.Messages;
-using Reedoo.NET.Utils.Reflect;
+﻿using Reedoo.NET.Client.Messages;
+using Reedoo.NET.Messages;
 using RomanApp.Messages.Event.Output.Sheet;
 using System.Collections.ObjectModel;
 using System.Linq;
