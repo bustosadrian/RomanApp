@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="RomanApp.Client.UWP.Views.Settings.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" 
+                       Text="Use whole numbers:" />
+            <CheckBox  Grid.Column="1" 
+                       IsChecked="{Binding IsUseWholeNumbers, Mode=TwoWay}" />
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="0 30 0 0">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Back" Command="{Binding BackCommand}" 
+                        Margin="0 0 15 0" />
+                <Button Content="Save"  Command="{Binding SaveCommand}" 
+                        Margin="0 0 15 0" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

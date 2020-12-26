@@ -1,0 +1,54 @@
+﻿<ContentDialog
+    x:Class="RomanApp.Client.UWP.Views.Sheet.Dialogs.AddEditItemDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Reedoo.API.UWP.Converters"
+    mc:Ignorable="d"
+    Title="Add..">
+
+    <ContentDialog.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="c_btv" />
+    </ContentDialog.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" 
+                     Text="{Binding Name,Mode=TwoWay}"/>
+            <TextBox Grid.Column="1" 
+                     Text="{Binding Amount,Mode=TwoWay, Converter={StaticResource c_d}}"/>
+        </Grid>
+
+        <Grid Grid.Row="1" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" x:Name="btnDelete"
+                    Visibility="{Binding IsDeleteEnabled, Converter={StaticResource c_btv}}"
+                    Click="btnDelete_Click"
+                    Content="Delete" Width="100" Margin="5,0"/>
+            <Button Grid.Row="0" x:Name="btnCancel"
+                    Click="btnCancel_Click"
+                    Grid.Column="1" Content="Cancel" Width="100" Margin="5,0" />
+            <Button Grid.Row="0" x:Name="btnSave" 
+                    Click="btnSave_Click"
+                    Grid.Column="2" Content="Save" Width="100" Margin="5,0" />
+        </Grid>
+    </Grid>
+</ContentDialog>

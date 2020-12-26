@@ -34,7 +34,7 @@ namespace RomanApp.Controller.Offline.States
             LoginId loginId = (LoginId)trespasserId;
 
             IMember member = CreateMember(passport);
-            member.Locker.Add(RoomHandler.LOCKER_MEMBER_NAME, loginId.Name);
+            //member.Locker.Add(RoomHandler.LOCKER_MEMBER_NAME, loginId.Name);
             retval = new MemberTicket(passport, member);
 
             AddGuest(loginId.Name, loginId.Share.Amount);
@@ -153,7 +153,8 @@ namespace RomanApp.Controller.Offline.States
         {
             get
             {
-                return RoomLocker.Get<Budget>(RoomHandler.LOCKER_BUDGET);
+                //return RoomLocker.Get<Budget>(LockerKeys.);
+                return null;
             }
         }
 
@@ -161,11 +162,12 @@ namespace RomanApp.Controller.Offline.States
         {
             get
             {
-                return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+                //return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+                return null;
             }
             set
             {
-                RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
+                //RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
             }
         }
 

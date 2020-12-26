@@ -9,10 +9,10 @@ namespace RomanApp.Controller.Offline.MemberStates
     {
         public override void Brief()
         {
-            Queue(new ProfileMessage()
-            {
-                Name = Member.Locker.Get<string>(RoomHandler.LOCKER_MEMBER_NAME),
-            });
+            //Queue(new ProfileMessage()
+            //{
+            //    Name = Member.Locker.Get<string>(RoomHandler.LOCKER_MEMBER_NAME),
+            //});
         }
 
         protected void AddGuest(string name, decimal amount)
@@ -51,7 +51,8 @@ namespace RomanApp.Controller.Offline.MemberStates
         {
             get
             {
-                return RoomLocker.Get<Budget>(RoomHandler.LOCKER_BUDGET);
+                //return RoomLocker.Get<Budget>(RoomHandler.LOCKER_BUDGET);
+                return null;
             }
         }
 

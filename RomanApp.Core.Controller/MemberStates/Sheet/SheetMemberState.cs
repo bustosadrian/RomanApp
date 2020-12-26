@@ -39,7 +39,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             Guest entity = EventService.AddGuest(
                 CurrentEvent, message.Label, 
                 message.Amount, 
-                message.Description);
+                message.Name);
 
             QueueGuest(entity);
         }
@@ -50,7 +50,7 @@ namespace RomanApp.Core.Controller.MemberStates.Sheet
             Expense entity = EventService.AddExpense(
                 CurrentEvent, message.Label,
                 message.Amount,
-                message.Description);
+                message.Name);
 
             QueueExpense(entity);
         }

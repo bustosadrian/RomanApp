@@ -70,11 +70,12 @@ namespace RomanApp.Controller.Offline.MemberStates
         {
             get
             {
-                return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+                //return RoomLocker.Get<BudgetOutcome>(RoomHandler.LOCKER_BUDGET_OUTCOME);
+                return null;
             }
             set
             {
-                RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
+                //RoomLocker.Add(RoomHandler.LOCKER_BUDGET_OUTCOME, value);
             }
         }
 

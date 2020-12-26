@@ -22,7 +22,7 @@ namespace RomanApp.Messages.Event.Input.Sheet
             set;
         }
 
-        public string Description
+        public string Name
         {
             get;
             set;

@@ -101,6 +101,9 @@
     <Compile Include="Controls\BackButton.xaml.cs">
       <DependentUpon>BackButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\YesNoDialog.xaml.cs">
+      <DependentUpon>YesNoDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\AbsConverter.cs" />
     <Compile Include="Converters\EnumBooleanConverter.cs" />
     <Compile Include="Controls\Header.xaml.cs">
@@ -144,6 +147,9 @@
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\Home\Menu\MenuViewModel.cs" />
     <Compile Include="ViewModels\Login\ShareViewModel.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Sheet\Embeddeds\ItemRowViewModel.cs" />
+    <Compile Include="ViewModels\Sheet\SheetViewModel.cs" />
     <Compile Include="Views\Budget\BudgetView.xaml.cs">
       <DependentUpon>BudgetView.xaml</DependentUpon>
     </Compile>
@@ -210,6 +216,21 @@
     <Compile Include="Views\Outcome\OutcomeView.xaml.cs">
       <DependentUpon>OutcomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sheet\Dialogs\AddEditItemDialog.xaml.cs">
+      <DependentUpon>AddEditItemDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sheet\Utils\ItemsList.xaml.cs">
+      <DependentUpon>ItemsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sheet\SheetView.xaml.cs">
+      <DependentUpon>SheetView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sheet\Utils\OutcomeGuestsList.xaml.cs">
+      <DependentUpon>OutcomeGuestsList.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -241,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ValidationMessages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\YesNoDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -336,6 +361,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Settings\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sheet\Dialogs\AddEditItemDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sheet\Utils\ItemsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sheet\SheetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sheet\Utils\OutcomeGuestsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
@@ -378,6 +423,10 @@
     <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.XAML\Reedoo.NET.XAML.csproj">
       <Project>{c298a972-c37a-4a9c-bc4b-cb0b24e31751}</Project>
       <Name>Reedoo.NET.XAML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RomanApp.Client.ViewModel\RomanApp.Client.ViewModel.csproj">
+      <Project>{2316ad27-ee34-4678-9dac-1d1c99069470}</Project>
+      <Name>RomanApp.Client.ViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\RomanApp.Client.XAML\RomanApp.Client.XAML.csproj">
       <Project>{ffd3eb6b-2256-4c67-9540-be7bf283741f}</Project>

@@ -8,6 +8,6 @@ namespace RomanApp.Messages.Input
     [Message(KEY)]
     public class BackInput : InputMessage
     {
-        private const string KEY = "RomanApp.Back";
+        private const string KEY = "RomanApp.Input.Back";
     }
 }
