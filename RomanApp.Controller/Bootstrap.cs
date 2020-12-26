@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Reedoo.NET.Controller.Builder;
 using Reedoo.NET.Controller.Extensions.Binding.Local;
-using RomanApp.Messages.Output;
+using RomanApp.Messages.Input;
 
 namespace RomanApp.Controller
 {
@@ -19,7 +19,7 @@ namespace RomanApp.Controller
 
             retval.NewApp("RomanApp")
                 .AddAssembly(GetType().Assembly)
-                .AddAssembly(typeof(GuestMessage).Assembly)
+                .AddAssembly(typeof(BackInput).Assembly)
                 .NewRoomDefinition(EventType.Offline).SetHandlerType(typeof(RomanAppRoomHandler)).Add()
                 .NewRoom().SetId(ROOM_ID).SetRoomType(EventType.Offline).SetName(ROOM_ID).Add()
 

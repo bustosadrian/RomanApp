@@ -1,10 +1,8 @@
-﻿using System;
-using RomanApp.Client.UWP.Views.Event.Sheet.Controls;
-using RomanApp.Client.UWP.Views.Sheet.Dialogs;
+﻿using RomanApp.Client.UWP.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
-using Windows.UI.Xaml.Controls;
+using System;
 using Windows.UI.Xaml.Input;
 
 namespace RomanApp.Client.UWP.ViewModels.Sheet.Embeddeds
