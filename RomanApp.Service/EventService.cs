@@ -134,7 +134,7 @@ namespace RomanApp.Service
             List<GuestOutcome> evens = new List<GuestOutcome>();
             retval = new Outcome()
             {
-                IsEmpty = false,
+                Result = OutcomeResult.Ready,
                 Creditors = creditors,
                 Debtors = debtors,
                 Evens = evens,
@@ -144,7 +144,7 @@ namespace RomanApp.Service
             {
                 if(e.Guests.Count() < 2)
                 {
-                    throw new EmptyOutcomeException();
+                    throw new OutcomeAnavailableException(OutcomeResult.NotEnoughGuests);
                 }
 
                 retval.TotalExpenses = e.Expenses.Sum(x => x.Share.Amount);
@@ -164,7 +164,7 @@ namespace RomanApp.Service
 
                 if (retval.Total == 0)
                 {
-                    throw new EmptyOutcomeException();
+                    throw new OutcomeAnavailableException(OutcomeResult.NoTotal);
                 }
 
                 retval.Share = retval.Total / all.Count;
@@ -195,12 +195,12 @@ namespace RomanApp.Service
 
                 if (!debtors.Any())
                 {
-                    throw new EmptyOutcomeException();
+                    throw new OutcomeAnavailableException(OutcomeResult.NoDebtors);
                 }
             }
-            catch (EmptyOutcomeException)
+            catch (OutcomeAnavailableException ex)
             {
-                retval.IsEmpty = true;
+                retval.Result = ex.Result;
             }
 
             return retval;

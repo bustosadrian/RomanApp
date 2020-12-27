@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Controller.MemberStates.Parameters;
 using RomanApp.Messages;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Sheet;
@@ -27,6 +28,8 @@ namespace RomanApp.Controller.MemberStates
 
         public override void Brief()
         {
+            QueueOutcomeAvailable();
+            QueueItemsCount();
             QueueClearAll();
             QueueGuests();
             QueueExpenses();
@@ -47,6 +50,15 @@ namespace RomanApp.Controller.MemberStates
             QueueClearExpenses();
         }
 
+        private void QueueOutcomeAvailable()
+        {
+            Queue(new OutcomeResultOutput()
+            {
+                Value = (RomanApp.Messages.Output.Sheet.Outcome.OutcomeResult)
+                Enum.Parse(typeof(RomanApp.Messages.Output.Sheet.Outcome.OutcomeResult), _outcome.Result.ToString()),
+            });
+        }
+
         private void QueueClearGuests()
         {
             Queue(new ClearGuestsOutput());
@@ -57,7 +69,14 @@ namespace RomanApp.Controller.MemberStates
             Queue(new ClearExpensesOutput());
         }
 
-
+        private void QueueItemsCount()
+        {
+            Queue(new ItemsCountOutput()
+            {
+                GuestsCounts = CurrentEvent.Guests.Count(),
+                ExpensesCount = CurrentEvent.Expenses.Count(),
+            });
+        }
 
         private void QueueGuests()
         {
@@ -137,6 +156,15 @@ namespace RomanApp.Controller.MemberStates
         }
 
         [Reader]
+        public void Action(GoToHelpInput message)
+        {
+            ChangeState(typeof(HelpMemberState), new HelpParameters()
+            {
+                Topic = HelpTopic.Overview,
+            });
+        }
+
+        [Reader]
         public void Action(AddItemInput message)
         {
             Item item = null;
@@ -150,6 +178,8 @@ namespace RomanApp.Controller.MemberStates
                     break;
             }
             CalculateOutcome();
+            QueueItemsCount();
+            QueueOutcomeAvailable();
             Queue(ToItemOutput(item, message.Type));
             QueueOutcomeSummary();
             QueueOutcomeGuests();
@@ -172,6 +202,8 @@ namespace RomanApp.Controller.MemberStates
             if(item != null)
             {
                 CalculateOutcome();
+                QueueItemsCount();
+                QueueOutcomeAvailable();
                 Queue(ToItemOutput(item, message.Type));
                 QueueOutcomeSummary();
                 QueueOutcomeGuests();
@@ -194,6 +226,8 @@ namespace RomanApp.Controller.MemberStates
             if (removed)
             {
                 CalculateOutcome();
+                QueueItemsCount();
+                QueueOutcomeAvailable();
                 Queue(new RemoveItemOutput()
                 {
                     Id = message.ItemId,

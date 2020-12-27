@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Messages;
 using Reedoo.NET.Messages.Input;
+using Reedoo.NET.Messages.Validations;
 using System;
 
 namespace RomanApp.Messages.Input.Sheet
@@ -18,12 +19,15 @@ namespace RomanApp.Messages.Input.Sheet
             set;
         }
 
+        [Required]
         public string Name
         {
             get;
             set;
         }
 
+        [Required]
+        [Range(GreaterThan = -1, ValidationMessage = "Must be greater or equal than zero")]
         public decimal Amount
         {
             get;

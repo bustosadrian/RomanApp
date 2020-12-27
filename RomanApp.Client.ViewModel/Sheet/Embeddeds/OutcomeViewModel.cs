@@ -18,6 +18,31 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         #region Messages
 
         [Reader]
+        public bool Read(OutcomeResultOutput message)
+        {
+            IsAvailable = false;
+            NoTotal = false;
+            NotEnoughtGuests = false;
+            NoDebtors = false;
+            switch (message.Value)
+            {
+                case OutcomeResult.NotEnoughGuests:
+                    NotEnoughtGuests = true;
+                    break;
+                case OutcomeResult.NoTotal:
+                    NoTotal = true;
+                    break;
+                case OutcomeResult.NoDebtors:
+                    NoDebtors = true;
+                    break;
+                case OutcomeResult.Ready:
+                    IsAvailable = true;
+                    break;
+            }
+            return true;
+        }
+
+        [Reader]
         public bool Read(OutcomeSummaryOutput message)
         {
             Total = message.Total;
@@ -41,6 +66,63 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         #endregion
 
         #region Properties
+
+        private bool _isAvailable;
+        public bool IsAvailable
+        {
+            get
+            {
+                return _isAvailable;
+            }
+            set
+            {
+                _isAvailable = value;
+                OnPropertyChanged(nameof(IsAvailable));
+            }
+        }
+
+        private bool _notEnoughtGuests;
+        public bool NotEnoughtGuests
+        {
+            get
+            {
+                return _notEnoughtGuests;
+            }
+            set
+            {
+                _notEnoughtGuests = value;
+                OnPropertyChanged(nameof(NotEnoughtGuests));
+            }
+        }
+
+        private bool _notTotal;
+        public bool NoTotal
+        {
+            get
+            {
+                return _notTotal;
+            }
+            set
+            {
+                _notTotal = value;
+                OnPropertyChanged(nameof(NoTotal));
+            }
+        }
+
+        private bool _notDebtors;
+        public bool NoDebtors
+        {
+            get
+            {
+                return _notDebtors;
+            }
+            set
+            {
+                _notDebtors = value;
+                OnPropertyChanged(nameof(NoDebtors));
+            }
+        }
+
 
         private decimal _total;
         public decimal Total

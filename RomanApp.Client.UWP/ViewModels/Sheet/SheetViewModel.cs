@@ -1,4 +1,6 @@
-﻿using RomanApp.Client.UWP.Dialogs;
+﻿using Reedoo.NET.Client.Messages;
+using RomanApp.Client.UWP.Dialogs;
+using RomanApp.Client.UWP.ViewModels.Components;
 using RomanApp.Client.UWP.ViewModels.Sheet.Embeddeds;
 using RomanApp.Client.UWP.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
@@ -21,6 +23,11 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 OnGoToSettings();
             };
 
+            GoToHelpCommand = new XamlUICommand();
+            ((XamlUICommand)GoToHelpCommand).ExecuteRequested += (s, e) => {
+                OnGoToHelp();
+            };
+
             NewItemCommand = new XamlUICommand();
             ((XamlUICommand)NewItemCommand).ExecuteRequested += (s, e) => { 
                 OnNewItem(Enum.Parse<ItemType>(e.Parameter.ToString())); 
@@ -30,6 +37,8 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
             ((XamlUICommand)ResetCommand).ExecuteRequested += (s, e) => {
                 OnReset();
             };
+
+            Validations = new ValidationsViewModel(this);
         }
 
         protected override BaseItemRowViewModel NewItemRow()
@@ -64,5 +73,24 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 Reset();
             }
         }
+
+        #region Components
+
+        private ValidationsViewModel _validations;
+        [Embedded]
+        public ValidationsViewModel Validations
+        {
+            get
+            {
+                return _validations;
+            }
+            set
+            {
+                _validations = value;
+                OnPropertyChanged(nameof(Validations));
+            }
+        }
+
+        #endregion
     }
 }

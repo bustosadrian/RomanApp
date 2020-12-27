@@ -5,8 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:c="using:RomanApp.Client.UWP.Views.Sheet.Utils"
+    xmlns:converters="using:RomanApp.Client.UWP.Converters"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="c_bv" />
+        <converters:BooleanToVisibilityConverter x:Key="c_bvi" IsInverse="True" />
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -26,8 +32,16 @@
             <!-- LEFT -->
             <!-- ***********************************-->
             <StackPanel Grid.Column="0" Margin="30">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Guests:" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
+                    <TextBlock Text="{Binding GuestsCount}" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
+                </StackPanel>
                 <c:ItemsList ItemsSource="{Binding Guests}" 
                          Icon="&#xE77B;" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Expenses:" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
+                    <TextBlock Text="{Binding ExpensesCount}" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
+                </StackPanel>
                 <c:ItemsList ItemsSource="{Binding Expenses}" 
                      Icon="&#xE8C7;" />
                 <StackPanel Orientation="Horizontal">
@@ -41,7 +55,17 @@
             <!-- RIGHT -->
             <!-- ***********************************-->
             <Grid Grid.Column="1" Margin="30">
-                <Grid>
+                <Grid  Visibility="{Binding Path=Outcome.IsAvailable, Converter={StaticResource c_bvi}}">
+                    <TextBlock Text="No total" 
+                               Visibility="{Binding Path=Outcome.NoTotal, Converter={StaticResource c_bv}}"/>
+
+                    <TextBlock Text="Not enough guests" 
+                               Visibility="{Binding Path=Outcome.NotEnoughtGuests, Converter={StaticResource c_bv}}"/>
+
+                    <TextBlock Text="Nobody owes anything" 
+                               Visibility="{Binding Path=Outcome.NoDebtors, Converter={StaticResource c_bv}}"/>
+                </Grid>
+                <Grid Visibility="{Binding Path=Outcome.IsAvailable, Converter={StaticResource c_bv}}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -101,6 +125,7 @@
             </Grid>
         </Grid>
 
+        
         <!-- NAVIGATION -->
         <Grid Grid.Row="1" Margin="50">
             <StackPanel Orientation="Horizontal">
@@ -108,6 +133,9 @@
                         Margin="0 0 15 0" />
 
                 <Button Content="Reset" Command="{Binding ResetCommand}" 
+                        Margin="0 0 15 0" />
+
+                <Button Content="Help" Command="{Binding GoToHelpCommand}" 
                         Margin="0 0 15 0" />
             </StackPanel>
         </Grid>

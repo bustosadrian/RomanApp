@@ -29,6 +29,11 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             Send(new GoToSettingsInput());
         }
 
+        protected void OnGoToHelp()
+        {
+            Send(new GoToHelpInput());
+        }
+
         protected void Reset()
         {
             Send(new ResetSheetInput());
@@ -75,9 +80,23 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             protected set;
         }
 
+        public ICommand GoToHelpCommand
+        {
+            get;
+            protected set;
+        }
+
         #endregion
 
         #region Messages
+
+        [Reader]
+        public bool Read(ItemsCountOutput message)
+        {
+            GuestsCount = message.GuestsCounts;
+            ExpensesCount = message.ExpensesCount;
+            return true;
+        }
 
         [Reader]
         public bool Read(ClearGuestsOutput message)
@@ -138,6 +157,34 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
         #endregion
 
         #region Properties
+
+        private int _guestsCount;
+        public int GuestsCount
+        {
+            get
+            {
+                return _guestsCount;
+            }
+            set
+            {
+                _guestsCount = value;
+                OnPropertyChanged(nameof(GuestsCount));
+            }
+        }
+
+        private int _expensesCount;
+        public int ExpensesCount
+        {
+            get
+            {
+                return _expensesCount;
+            }
+            set
+            {
+                _expensesCount = value;
+                OnPropertyChanged(nameof(ExpensesCount));
+            }
+        }
 
         private ObservableCollection<BaseItemRowViewModel> _guests;
         [Embedded]

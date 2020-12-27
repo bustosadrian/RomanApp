@@ -8,4 +8,8 @@
     <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.Messages\Reedoo.NET.Messages.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validations\" />
+  </ItemGroup>
+
 </Project>

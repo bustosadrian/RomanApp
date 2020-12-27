@@ -6,7 +6,7 @@ namespace RomanApp.Service.Entities
     {
         #region Properties
 
-        public bool IsEmpty
+        public OutcomeResult Result
         {
             get;
             set;
