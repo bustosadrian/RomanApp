@@ -9,9 +9,11 @@ using Serilog;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Reedoo.NET.Storage.SQLite.Builder;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Reedoo.NET.Messages.Output;
 
 namespace RomanApp.Client.UWP
 {
@@ -24,7 +26,7 @@ namespace RomanApp.Client.UWP
 
         private ServiceProvider _serviceProvider;
 
-        private ICommonHandlerBuilder _handlerBuilder;
+        private IHandlerBuilder _handlerBuilder;
 
         private UWPClient _uwpClient;
 
@@ -73,7 +75,11 @@ namespace RomanApp.Client.UWP
 
                     .Application("RomanApp")
                     .Room(RomanApp.Controller.Bootstrap.ROOM_ID)
-                    .Bind();
+                    .Bind(new Credential()
+                    {
+                        Id = "5d1e406f-5d13-4ce3-a74e-80c480e8c07e",
+                        RoomId = "Room1",
+                    });
 
             }
 
@@ -118,7 +124,9 @@ namespace RomanApp.Client.UWP
         private void LoadClient(ServiceProvider serviceProvider)
         {
             _handlerBuilder = new RomanApp.Controller.Bootstrap().GetBuilder(_serviceProvider);
-
+            _handlerBuilder.SQLiteStorage("sqlite")
+                .Location(Windows.Storage.ApplicationData.Current.LocalFolder.Path)
+                .Add();
 
             Reedoo.NET.Client.Builder.ClientBuilder builder =
                 new Reedoo.NET.Client.Builder.ClientBuilder(serviceProvider);

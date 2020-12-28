@@ -1,6 +1,7 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Controller.MemberStates.Parameters;
+using RomanApp.Controller.Model.Event;
 using RomanApp.Messages;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Sheet;
@@ -26,6 +27,13 @@ namespace RomanApp.Controller.MemberStates
             CalculateOutcome();
         }
 
+        public override void OnRestore()
+        {
+            base.OnRestore();
+
+            CalculateOutcome();
+        }
+
         public override void Brief()
         {
             QueueOutcomeAvailable();
@@ -39,7 +47,7 @@ namespace RomanApp.Controller.MemberStates
 
         private void CalculateOutcome()
         {
-            _outcome = EventService.Calculate(CurrentEvent, RoomSettings.UseWholeNumbers);
+            _outcome = EventService.Calculate(null, RoomSettings.UseWholeNumbers);
         }
 
         #region Queues
@@ -116,7 +124,7 @@ namespace RomanApp.Controller.MemberStates
                
         #region Mappers
 
-        private ItemOutput ToItemOutput(Item entity, ItemType type)
+        private ItemOutput ToItemOutput(ItemModel entity, ItemType type)
         {
             ItemOutput retval = null;
 
@@ -125,7 +133,7 @@ namespace RomanApp.Controller.MemberStates
                 Id = entity.Id,
                 Type = type,
                 Name = entity.Name,
-                Amount = entity.Share.Amount,
+                Amount = entity.Amount,
             };
 
             return retval;
@@ -167,14 +175,16 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(AddItemInput message)
         {
-            Item item = null;
+            ItemModel item = null;
             switch (message.Type)
             {
                 case ItemType.Guest:
-                    item = EventService.AddGuest(CurrentEvent, message.Name, message.Amount);
+                    item = new GuestModel(EventService.AddGuest(CurrentEvent.Id, null, message.Name, message.Amount));
+                    CurrentEvent.Guests.Add((GuestModel)item);
                     break;
                 case ItemType.Expense:
-                    item = EventService.AddExpense(CurrentEvent, message.Name, message.Amount);
+                    item = new ExpenseModel(EventService.AddExpense(CurrentEvent.Id, null, message.Name, message.Amount));
+                    CurrentEvent.Expenses.Add((ExpenseModel)item);
                     break;
             }
             CalculateOutcome();
@@ -189,22 +199,27 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(EditItemInput message)
         {
-            Item item = null;
+            ItemModel modelItem = null;
+            Item updatedItem = null;
             switch (message.Type)
             {
                 case ItemType.Guest:
-                    item = EventService.UpdateGuest(CurrentEvent, message.ItemId, message.Name, message.Amount);
+                    modelItem = CurrentEvent.Guests.Single(x => x.Id == message.ItemId);
+                    updatedItem = EventService.UpdateGuest(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                    modelItem.Map(updatedItem);
                     break;
                 case ItemType.Expense:
-                    item = EventService.UpdateExpense(CurrentEvent, message.ItemId, message.Name, message.Amount);
+                    modelItem = CurrentEvent.Expenses.Single(x => x.Id == message.ItemId);
+                    updatedItem = EventService.UpdateExpense(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                    modelItem.Map(updatedItem);
                     break;
             }
-            if(item != null)
+            if(modelItem != null)
             {
                 CalculateOutcome();
                 QueueItemsCount();
                 QueueOutcomeAvailable();
-                Queue(ToItemOutput(item, message.Type));
+                Queue(ToItemOutput(modelItem, message.Type));
                 QueueOutcomeSummary();
                 QueueOutcomeGuests();
             }
@@ -213,14 +228,24 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(RemoveItemInput message)
         {
+            ItemModel modelItem = null;
             bool removed = false;
             switch (message.Type)
             {   
                 case ItemType.Guest:
-                    removed = EventService.RemoveGuest(CurrentEvent, message.ItemId);
+                    modelItem = CurrentEvent.Guests.Single(x => x.Id == message.ItemId);
+                    if (removed = EventService.RemoveGuest(CurrentEvent.Id, modelItem.Id))
+                    {
+                        CurrentEvent.Guests.Remove((GuestModel)modelItem);
+                    }
+
                     break;
                 case ItemType.Expense:
-                    removed = EventService.RemoveExpense(CurrentEvent, message.ItemId);
+                    modelItem = CurrentEvent.Expenses.Single(x => x.Id == message.ItemId);
+                    if(removed = EventService.RemoveExpense(CurrentEvent.Id, modelItem.Id))
+                    {
+                        CurrentEvent.Expenses.Remove((ExpenseModel)modelItem);
+                    }
                     break;
             }
             if (removed)
@@ -241,7 +266,8 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(ResetSheetInput message)
         {
-            CurrentEvent = EventService.Create();
+            var newEvent = EventService.Create();
+            CurrentEvent.Map(newEvent);
             CalculateOutcome();
             Brief();
         }

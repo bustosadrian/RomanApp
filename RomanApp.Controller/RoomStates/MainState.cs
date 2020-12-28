@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Controller;
+using RomanApp.Controller.Model.Event;
 
 namespace RomanApp.Controller.RoomStates
 {
@@ -11,19 +12,28 @@ namespace RomanApp.Controller.RoomStates
 
         public override void OnLoad()
         {
-            CurrentEvent = EventService.Create();
-            
-            MockItems();
+            CurrentEvent = new EventModel(EventService.Create());
         }
 
-        private void MockItems()
+        public override void OnRestore()
         {
-            EventService.AddGuest(CurrentEvent, "Juan", 0);
-            EventService.AddGuest(CurrentEvent, "Daniel", 0);
-            EventService.AddGuest(CurrentEvent, "Mike", 1500);
+            base.OnRestore();
 
-            EventService.AddExpense(CurrentEvent, "Parrilla", 100);
-            //EventService.AddExpense(CurrentEvent, "Cancha", 1500, null);
+            EventService.Create();
+            PopulateCurrentEvent();
+        }
+
+        private void PopulateCurrentEvent() 
+        { 
+            foreach(var o in CurrentEvent.Guests)
+            {
+                EventService.AddGuest(CurrentEvent.Id, o.Id, o.Name, o.Amount);
+            }
+
+            foreach (var o in CurrentEvent.Expenses)
+            {
+                EventService.AddExpense(CurrentEvent.Id, o.Id, o.Name, o.Amount);
+            }
         }
     }
 }

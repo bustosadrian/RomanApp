@@ -9,123 +9,110 @@ namespace RomanApp.Service
 {
     public class EventService : IEventService
     {
+        private Event _event;
+
         public Event Create()
         {
-            Event retval = null;
+            _event = null;
 
-            retval = new Event
+            _event = new Event
             {
                 Id = Guid.NewGuid().ToString(),
-                DateCreated = DateTimeOffset.Now,
+                DateCreated = DateTime.Now,
                 Guests = new List<Guest>(),
                 Expenses = new List<Expense>(),
             };
 
-            return retval;
+            return _event;
         }
 
-        public Guest AddGuest(Event e, string name, decimal amount)
+        public Guest AddGuest(string eventId, string id, string name, decimal amount)
         {
             Guest retval = null;
 
             retval = new Guest
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = id ?? Guid.NewGuid().ToString(),
                 Name = name,
-                Share = CreateShare(amount, null)
+                Amount = amount,
             };
 
-            e.Guests.Add(retval);
+            _event.Guests.Add(retval);
 
             return retval;
         }
 
-        public Expense AddExpense(Event e, string label, decimal amount)
+        public Expense AddExpense(string eventId, string id, string label, decimal amount)
         {
             Expense retval = null;
 
             retval = new Expense
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = id ?? Guid.NewGuid().ToString(),
                 Name = label,
-                Share = CreateShare(amount, null)
+                Amount = amount,
             };
 
-            e.Expenses.Add(retval);
+            _event.Expenses.Add(retval);
 
             return retval;
         }
 
-        public Guest UpdateGuest(Event e, string id, string name, decimal amount)
+        public Guest UpdateGuest(string eventId, string id, string name, decimal amount)
         {
             Guest retval = null;
 
-            retval = e.Guests.SingleOrDefault(x => x.Id.Equals(id));
-            if(retval != null)
-            {
-                retval.Name = name;
-                retval.Share.Amount = amount;
-            }
-
-            return retval;
-        }
-
-        public Expense UpdateExpense(Event e, string id, string name, decimal amount)
-        {
-            Expense retval = null;
-
-            retval = e.Expenses.SingleOrDefault(x => x.Id.Equals(id));
+            retval = _event.Guests.SingleOrDefault(x => x.Id.Equals(id));
             if (retval != null)
             {
                 retval.Name = name;
-                retval.Share.Amount = amount;
+                retval.Amount = amount;
             }
 
             return retval;
         }
 
-        public bool RemoveExpense(Event e, string id)
+        public Expense UpdateExpense(string eventId, string id, string name, decimal amount)
         {
-            bool retval = false;
+            Expense retval = null;
 
-            Expense o = e.Expenses.FirstOrDefault(x => x.Id == id);
-            if(o != null)
+            retval = _event.Expenses.SingleOrDefault(x => x.Id.Equals(id));
+            if (retval != null)
             {
-                retval = e.Expenses.Remove(o);
+                retval.Name = name;
+                retval.Amount = amount;
             }
 
             return retval;
         }
 
-        public bool RemoveGuest(Event e, string id)
+        public bool RemoveExpense(string eventId, string id)
         {
             bool retval = false;
 
-            Guest o = e.Guests.FirstOrDefault(x => x.Id == id);
+            Expense o = _event.Expenses.FirstOrDefault(x => x.Id == id);
             if (o != null)
             {
-                retval = e.Guests.Remove(o);
+                retval = _event.Expenses.Remove(o);
             }
 
             return retval;
         }
 
-
-        private Share CreateShare(decimal amount, string description)
+        public bool RemoveGuest(string eventId, string id)
         {
-            Share retval = null;
+            bool retval = false;
 
-            retval = new Share
+            Guest o = _event.Guests.FirstOrDefault(x => x.Id == id);
+            if (o != null)
             {
-                Id = Guid.NewGuid().ToString(),
-                Amount = amount,
-                Description = description
-            };
+                retval = _event.Guests.Remove(o);
+            }
 
             return retval;
         }
 
-        public Outcome Calculate(Event e, bool useWholeNumbers)
+        public Outcome Calculate(string eventId, bool useWholeNumbers)
         {
             Outcome retval = null;
 
@@ -142,23 +129,23 @@ namespace RomanApp.Service
 
             try
             {
-                if(e.Guests.Count() < 2)
+                if (_event.Guests.Count() < 2)
                 {
                     throw new OutcomeAnavailableException(OutcomeResult.NotEnoughGuests);
                 }
 
-                retval.TotalExpenses = e.Expenses.Sum(x => x.Share.Amount);
+                retval.TotalExpenses = _event.Expenses.Sum(x => x.Amount);
                 retval.Total = retval.TotalExpenses;
 
                 List<GuestOutcome> all = new List<GuestOutcome>();
-                foreach (var o in e.Guests.Where(x => x.Share != null))
+                foreach (var o in _event.Guests)
                 {
-                    retval.Total += o.Share.Amount;
+                    retval.Total += o.Amount;
                     all.Add(new GuestOutcome()
                     {
                         Id = o.Id,
                         Name = o.Name,
-                        Amount = o.Share.Amount,
+                        Amount = o.Amount,
                     });
                 }
 
@@ -227,7 +214,6 @@ namespace RomanApp.Service
                 guests[it].Debt += residual;
                 guests[it].Debt = guests[it].Debt.RoundCents(wholeNumbers);
             }
-
         }
 
     }

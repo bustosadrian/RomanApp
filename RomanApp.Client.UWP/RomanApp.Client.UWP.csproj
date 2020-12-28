@@ -226,6 +226,10 @@
       <Project>{9956f129-c95d-4ffc-aec2-2f1cd77e9cfc}</Project>
       <Name>Reedoo.NET.Messages</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.Storage.SQLite\Reedoo.NET.Storage.SQLite.csproj">
+      <Project>{c9a79f5b-0c65-4cc5-a0bf-16ef57ecf9bc}</Project>
+      <Name>Reedoo.NET.Storage.SQLite</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.Utils\Reedoo.NET.Utils.csproj">
       <Project>{8682c97e-8a61-4714-a3c3-f42e3b2558d3}</Project>
       <Name>Reedoo.NET.Utils</Name>

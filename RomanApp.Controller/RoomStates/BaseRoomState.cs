@@ -1,6 +1,8 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages.Output;
 using RomanApp.Controller.MemberStates;
+using RomanApp.Controller.Model;
+using RomanApp.Controller.Model.Event;
 using RomanApp.Service;
 using RomanApp.Service.Entities;
 using System;
@@ -26,11 +28,11 @@ namespace RomanApp.Controller.RoomStates
 
         #region Room Locker
 
-        public RoomSettings RoomSettings
+        public RoomSettingsModel RoomSettings
         {
             get
             {
-                return RoomLocker.Get<RoomSettings>(LockerKeys.ROOM_SETTINGS);
+                return RoomLocker.Get<RoomSettingsModel>(LockerKeys.ROOM_SETTINGS);
             }
         }
 
@@ -42,11 +44,11 @@ namespace RomanApp.Controller.RoomStates
             }
         }
 
-        public Event CurrentEvent
+        public EventModel CurrentEvent
         {
             get
             {
-                return RoomLocker.Get<Event>(LockerKeys.ROOM_CURRENT_EVENT);
+                return RoomLocker.Get<EventModel>(LockerKeys.ROOM_CURRENT_EVENT);
             }
             set
             {

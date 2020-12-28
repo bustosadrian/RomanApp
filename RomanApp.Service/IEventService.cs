@@ -6,18 +6,18 @@ namespace RomanApp.Service
     {
         Event Create();
 
-        Guest AddGuest(Event e, string name, decimal amount);
+        Guest AddGuest(string eventId, string id, string name, decimal amount);
 
-        Expense AddExpense(Event e, string label, decimal amount);
+        Expense AddExpense(string eventId, string id, string label, decimal amount);
 
-        Guest UpdateGuest(Event e, string id, string name, decimal amount);
+        Guest UpdateGuest(string eventId, string id, string name, decimal amount);
 
-        Expense UpdateExpense(Event e, string id, string name, decimal amount);
+        Expense UpdateExpense(string eventId, string id, string name, decimal amount);
 
-        bool RemoveGuest(Event e, string id);
+        bool RemoveGuest(string eventId, string id);
 
-        bool RemoveExpense(Event e, string id);
+        bool RemoveExpense(string eventId, string id);
 
-        Outcome Calculate(Event e, bool useWholeNumbers);
+        Outcome Calculate(string eventId, bool useWholeNumbers);
     }
 }

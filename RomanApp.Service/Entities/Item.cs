@@ -12,7 +12,7 @@ namespace RomanApp.Service.Entities
             set;
         }
 
-        public Share Share
+        public decimal Amount
         {
             get;
             set;

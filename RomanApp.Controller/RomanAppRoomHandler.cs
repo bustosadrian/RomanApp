@@ -1,4 +1,5 @@
 ﻿using Reedoo.NET.Controller;
+using RomanApp.Controller.Model;
 using RomanApp.Controller.RoomStates;
 using RomanApp.Service;
 using System;
@@ -27,7 +28,7 @@ namespace RomanApp.Controller
 
         public override void OnStart()
         {
-            Locker.Add(LockerKeys.ROOM_SETTINGS, new RoomSettings()
+            Locker.Add(LockerKeys.ROOM_SETTINGS, new RoomSettingsModel()
             {
                 UseWholeNumbers = true,
             });
@@ -37,11 +38,11 @@ namespace RomanApp.Controller
 
         #region Room Locker
 
-        public RoomSettings RoomSettings
+        public RoomSettingsModel RoomSettings
         {
             get
             {
-                return Locker.Get<RoomSettings>(LockerKeys.ROOM_SETTINGS);
+                return Locker.Get<RoomSettingsModel>(LockerKeys.ROOM_SETTINGS);
             }
         }
 

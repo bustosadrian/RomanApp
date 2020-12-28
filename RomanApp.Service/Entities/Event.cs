@@ -13,7 +13,7 @@ namespace RomanApp.Service.Entities
             set;
         }
 
-        public DateTimeOffset DateCreated
+        public DateTime DateCreated
         {
             get;
             set;
