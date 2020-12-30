@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Commons;
 using RomanApp.Controller.MemberStates.Parameters;
 using RomanApp.Messages;
 using RomanApp.Messages.Input;
@@ -7,11 +8,9 @@ using RomanApp.Messages.Output.Help;
 
 namespace RomanApp.Controller.MemberStates
 {
-    [ApplicationState(KEY)]
+    [ApplicationState(StatesKeys.HELP)]
     public class HelpMemberState : BaseMemberState
     {
-        private const string KEY = "RomanApp.Help";
-
         private HelpTopic _topic;
 
         public override void OnLoad(object parameters)

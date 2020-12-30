@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:RomanApp.Client.Mobile.Resx"
+             mc:Ignorable="d"
+             xmlns:u="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Utils"
+             x:Class="RomanApp.Client.Mobile.Views.Sheet.SheetView">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- SHEET -->
+            <Grid Grid.Row="0" VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <!--<ColumnDefinition Width="*" />-->
+                </Grid.ColumnDefinitions>
+
+                <!-- ***********************************-->
+                <!-- LEFT -->
+                <!-- ***********************************-->
+                <StackLayout Grid.Column="0" Margin="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{x:Static resources:AppResources.Sheet_Guests}" 
+                               Style="{StaticResource ItemsHeader}"
+                               FontAttributes="Bold" FontSize="20" Margin="0,0,15,0" />
+                        <Label Text="{Binding GuestsCount}" FontAttributes="Bold" FontSize="20" Margin="0,0,15,0" />
+                    </StackLayout>
+                    <ListView ItemsSource="{Binding Guests}" 
+                              ItemTemplate="{StaticResource template_item}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Expenses:" FontAttributes="Bold" FontSize="20" Margin="0,0,15,0" />
+                        <Label Text="{Binding ExpensesCount}" FontAttributes="Bold" FontSize="20" Margin="0,0,15,0" />
+                    </StackLayout>
+                    <ListView ItemsSource="{Binding Expenses}" 
+                              ItemTemplate="{StaticResource template_item}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Add guest" Command="{Binding NewGuestCommand}" CommandParameter="Guest" />
+                        <Button Text="Add expense" Command="{Binding NewExpenseCommand}" CommandParameter="Expense" />
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- ***********************************-->
+                <!-- RIGHT -->
+                <!-- ***********************************-->
+                <!--<Grid Grid.Column="1" Margin="30">
+                    <Grid IsVisible="{Binding Path=Outcome.IsAvailable, Converter={StaticResource c_n}}">
+                        <Label Text="No total" 
+                               IsVisible="{Binding Path=Outcome.NoTotal}"/>
+
+                        <Label Text="Not enough guests" 
+                               IsVisible="{Binding Path=Outcome.NotEnoughtGuests}"/>
+
+                        <Label Text="Nobody owes anything" 
+                               IsVisible="{Binding Path=Outcome.NoDebtors}"/>
+                    </Grid>
+                    <Grid IsVisible="{Binding Path=Outcome.IsAvailable}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        --><!-- HEADER --><!--
+                        <Grid Grid.Row="0" VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" 
+                                   Text="Total:" 
+                                   FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                            <Label Grid.Row="0" Grid.Column="1" 
+                                   Text="{Binding Path=Outcome.Total}" />
+
+                            <Label Grid.Row="1" Grid.Column="0" 
+                                   Text="Total expenses:" 
+                                   FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                            <Label Grid.Row="1" Grid.Column="1" 
+                                   Text="{Binding Path=Outcome.TotalExpenses}" />
+
+                            <Label Grid.Row="2" Grid.Column="0" 
+                                   Text="Share:" 
+                                   FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                            <Label Grid.Row="2" Grid.Column="1" 
+                                   Text="{Binding Path=Outcome.Share}" />
+                        </Grid>
+
+                        --><!-- DETAILS --><!--
+                        <Grid Grid.Row="1"  
+                              Margin="30" VerticalOptions="Start">
+                            <StackLayout VerticalOptions="Start">
+                                <Label Text="Debtors" 
+                                       FontAttributes="Bold" FontSize="20"/>
+                                <u:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Debtors}" />
+
+                                <Label Text="Creditors" 
+                                       FontAttributes="Bold" FontSize="20"/>
+                                <u:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Creditors}" />
+
+                                <Label Text="Even" 
+                                       FontAttributes="Bold" FontSize="20"/>
+                                <u:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Evens}" />
+                            </StackLayout>
+                        </Grid>
+                    </Grid>
+                </Grid>-->
+            </Grid>
+
+            <!-- NAVIGATION -->
+            <Grid Grid.Row="1" Margin="50">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Settings" Command="{Binding GoToSettingsCommand}" 
+                        Margin="0,0,15,0" />
+
+                    <Button Text="Reset" Command="{Binding ResetCommand}" 
+                        Margin="0,0,15,0" />
+
+                    <Button Text="Help" Command="{Binding GoToHelpCommand}" 
+                        Margin="0,0,15,0" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RomanApp.Client.Mobile.Views.Sheet.Dialogs.AddEditItem">
+  <ContentView.Content>
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid HorizontalOptions="Center"
+                  Margin="0,0,0,30">
+                <Label Text="Add guest" 
+                       FontSize="32" FontAttributes="Bold" />
+            </Grid>
+
+            <Grid Grid.Row="1" VerticalOptions="Start"
+                  HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="What's his/her name?" 
+                           HorizontalOptions="Center"/>
+                    <Entry Grid.Column="0" 
+                           HorizontalTextAlignment="Center"
+                           Placeholder="Name"
+                           Text="{Binding Name,Mode=TwoWay}"/>
+                    <Label Text="How much did he/she chip in?" 
+                           Margin="0,15,0,0"
+                           HorizontalOptions="Center"/>
+                    <Entry Grid.Column="1" 
+                           Keyboard="Numeric"
+                           Placeholder="Amount"
+                           HorizontalTextAlignment="Center"
+                           Text="{Binding Amount,Mode=TwoWay}"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

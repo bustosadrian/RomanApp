@@ -1,16 +1,15 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Commons;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Settings;
 using RomanApp.Messages.Output.Settings;
 
 namespace RomanApp.Controller.MemberStates
 {
-    [ApplicationState(KEY)]
+    [ApplicationState(StatesKeys.SETTINGS)]
     public class SettingsMemberState : BaseMemberState
     {
-        private const string KEY = "RomanApp.Settings";
-
         public override void Brief()
         {
             QueueSettings();

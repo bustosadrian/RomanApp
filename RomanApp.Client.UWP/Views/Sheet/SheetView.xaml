@@ -45,8 +45,8 @@
                 <c:ItemsList ItemsSource="{Binding Expenses}" 
                      Icon="&#xE8C7;" />
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="Add guest" Command="{Binding NewItemCommand}" CommandParameter="Guest" />
-                    <Button Content="Add expense" Command="{Binding NewItemCommand}" CommandParameter="Expense" />
+                    <Button Content="Add guest" Command="{Binding NewGuestCommand}" />
+                    <Button Content="Add expense" Command="{Binding NewExpenseCommand}" />
                 </StackPanel>
             </StackPanel>
 

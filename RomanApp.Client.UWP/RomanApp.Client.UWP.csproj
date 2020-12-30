@@ -242,6 +242,10 @@
       <Project>{2316ad27-ee34-4678-9dac-1d1c99069470}</Project>
       <Name>RomanApp.Client.ViewModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RomanApp.Commons\RomanApp.Commons.csproj">
+      <Project>{6FAAFCC4-FA07-4F37-97A7-0C7475CA63E0}</Project>
+      <Name>RomanApp.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RomanApp.Controller\RomanApp.Controller.csproj">
       <Project>{a951420d-0c83-4afd-b952-8e02de6c3fb2}</Project>
       <Name>RomanApp.Controller</Name>

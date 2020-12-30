@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
+using RomanApp.Commons;
 using RomanApp.Controller.MemberStates.Parameters;
 using RomanApp.Controller.Model.Event;
 using RomanApp.Messages;
@@ -13,11 +14,9 @@ using System.Linq;
 
 namespace RomanApp.Controller.MemberStates
 {
-    [ApplicationState(KEY)]
+    [ApplicationState(StatesKeys.SHEET)]
     public class SheetMemberState : BaseMemberState
     {
-        private const string KEY = "RomanApp.Sheet";
-
         private Outcome _outcome;
 
         public override void OnLoad()

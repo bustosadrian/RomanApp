@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RomanApp.Client.Mobile.Views.Settings.SettingsView">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" 
+                       Text="Use whole numbers:" />
+                <CheckBox  Grid.Column="1" 
+                           IsChecked="{Binding IsUseWholeNumbers, Mode=TwoWay}" />
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,30,0,0">
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Back" Command="{Binding BackCommand}" 
+                            Margin="0,0,15,0" />
+                    <Button Text="Save"  Command="{Binding SaveCommand}" 
+                            Margin="0,0,15,0" />
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

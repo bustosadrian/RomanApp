@@ -3,25 +3,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Reedoo.API.UWP;
 using Reedoo.NET.Client.Extensions.Bindings.Local;
 using Reedoo.NET.Controller.Builder;
-using Reedoo.NET.Utils.Commons;
+using Reedoo.NET.Messages.Output;
+using Reedoo.NET.Storage.SQLite.Builder;
 using RomanApp.Messages.Input;
 using Serilog;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Reedoo.NET.Storage.SQLite.Builder;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using Reedoo.NET.Messages.Output;
 
 namespace RomanApp.Client.UWP
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
     sealed partial class App : Application
     {
+        private const string APP_NAME = "RomanApp";
+
         private ServiceCollection _services;
 
         private ServiceProvider _serviceProvider;
@@ -30,10 +28,6 @@ namespace RomanApp.Client.UWP
 
         private UWPClient _uwpClient;
 
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
         public App()
         {
             this.InitializeComponent();
@@ -131,7 +125,7 @@ namespace RomanApp.Client.UWP
             Reedoo.NET.Client.Builder.ClientBuilder builder =
                 new Reedoo.NET.Client.Builder.ClientBuilder(serviceProvider);
             builder.AddAssembly(GetType().Assembly);
-            builder.NewApp("RomanApp")
+            builder.NewApp(APP_NAME)
                 .AddAssembly(GetType().Assembly)
                 .AddAssembly(typeof(BackInput).Assembly)
                 .Add();

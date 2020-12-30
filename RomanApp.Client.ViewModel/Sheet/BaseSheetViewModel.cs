@@ -24,6 +24,8 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
 
         protected abstract BaseItemRowViewModel NewItemRow();
 
+        protected abstract void OnNewItem(ItemType itemType);
+
         protected void OnGoToSettings()
         {
             Send(new GoToSettingsInput());
@@ -32,6 +34,15 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
         protected void OnGoToHelp()
         {
             Send(new GoToHelpInput());
+        }
+
+        protected void OnNewGuest()
+        {
+            OnNewItem(ItemType.Guest);
+        }
+        protected void OnNewExpense()
+        {
+            OnNewItem(ItemType.Expense);
         }
 
         protected void Reset()
@@ -62,7 +73,13 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
 
         #region Commands
 
-        public ICommand NewItemCommand
+        public ICommand NewGuestCommand
+        {
+            get;
+            protected set;
+        }
+
+        public ICommand NewExpenseCommand
         {
             get;
             protected set;

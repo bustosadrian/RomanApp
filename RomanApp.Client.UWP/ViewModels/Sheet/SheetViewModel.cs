@@ -28,9 +28,14 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 OnGoToHelp();
             };
 
-            NewItemCommand = new XamlUICommand();
-            ((XamlUICommand)NewItemCommand).ExecuteRequested += (s, e) => { 
-                OnNewItem(Enum.Parse<ItemType>(e.Parameter.ToString())); 
+            NewGuestCommand = new XamlUICommand();
+            ((XamlUICommand)NewGuestCommand).ExecuteRequested += (s, e) => { 
+                OnNewGuest(); 
+            };
+
+            NewExpenseCommand = new XamlUICommand();
+            ((XamlUICommand)NewExpenseCommand).ExecuteRequested += (s, e) => {
+                OnNewExpense();
             };
 
             ResetCommand = new XamlUICommand();
@@ -46,7 +51,7 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
             return new ItemRowViewModel(this);
         }
 
-        private async void OnNewItem(ItemType itemType)
+        protected override async void OnNewItem(ItemType itemType)
         {
             AddEditItemViewModel vm = new AddEditItemViewModel(itemType, false);
             AddEditItemDialog dialog = new AddEditItemDialog()
