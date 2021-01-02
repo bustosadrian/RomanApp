@@ -6,19 +6,19 @@ namespace RomanApp.Messages.Output.Sheet
 {
     [Serializable]
     [Message(KEY)]
-    public class ItemsCountOutput : OutputMessage
+    public class ItemsAmountOutput : OutputMessage
     {
-        private const string KEY = "RomanApp.Sheet.Output.Items.Count";
+        private const string KEY = "RomanApp.Sheet.Output.Items.Amount";
 
         #region Properties
-        
-        public int GuestsCounts
+
+        public decimal GuestsAmount
         {
             get;
             set;
         }
 
-        public int ExpensesCount
+        public decimal ExpensesAmount
         {
             get;
             set;

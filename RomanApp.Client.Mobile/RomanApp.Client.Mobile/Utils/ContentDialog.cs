@@ -13,6 +13,8 @@ namespace RomanApp.Client.Mobile.Utils
         private Grid _mainGrid;
         private Grid _toolbarGrid;
 
+        private TaskCompletionSource<object> _task;
+
         public ContentDialog()
         {
             _buttons = new List<ContentDialogButton>();
@@ -24,22 +26,24 @@ namespace RomanApp.Client.Mobile.Utils
             _buttons.Add(button);
         }
 
-        public Task<object> ShowAsync()
+        public void Show()
         {
-            var task = new TaskCompletionSource<object>();
-
-            CreateContent(task);
+            CreateContent();
 
             var page = new ContentPage();
             page.Title = Title;
             page.Content = _mainGrid;
 
             Navigation.PushModalAsync(page);
-
-            return task.Task;
         }
 
-        private void CreateContent(TaskCompletionSource<object> task)
+        public Task<object> Wait()
+        {
+            _task = new TaskCompletionSource<object>();
+            return _task.Task;
+        }
+
+        private void CreateContent()
         {
             _mainGrid = new Grid
             {
@@ -69,12 +73,12 @@ namespace RomanApp.Client.Mobile.Utils
             };
 
             _mainGrid.Children.Add(_toolbarGrid, 0, 1);
-            CreateButtons(task);
+            CreateButtons();
 
             _mainGrid.Children.Add(Content, 0, 0);
         }
 
-        private void CreateButtons(TaskCompletionSource<object> task)
+        private void CreateButtons()
         {
             int column = 0;
             foreach(var o in _buttons)
@@ -85,8 +89,11 @@ namespace RomanApp.Client.Mobile.Utils
                 };
                 button.Clicked += async (s, e) =>
                 {
-                    await Navigation.PopModalAsync();
-                    task.SetResult(o.Result);
+                    if (o.CloseDialog)
+                    {
+                        await Navigation.PopModalAsync();
+                    }
+                    _task.SetResult(o.Result);
                 };
 
                 o.Button = button;
@@ -139,6 +146,12 @@ namespace RomanApp.Client.Mobile.Utils
         }
 
         internal Button Button
+        {
+            get;
+            set;
+        }
+
+        internal bool CloseDialog
         {
             get;
             set;

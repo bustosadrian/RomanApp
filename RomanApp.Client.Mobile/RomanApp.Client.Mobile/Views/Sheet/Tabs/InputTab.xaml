@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
+             xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             mc:Ignorable="d"
+             Title="{x:Static res:Views.Sheet_Tab_Input_Title}"
+             x:Class="RomanApp.Client.Mobile.Views.Sheet.Tabs.InputTab">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView VerticalScrollBarVisibility="Always"
+                    BackgroundColor="Blue">
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <c:ItemsCard Grid.Row="0"  
+                             ItemsSource="{Binding Guests}" 
+                             ItemSelectedCommand="{Binding EditItemCommand}"
+                             AddItemCommand="{Binding NewGuestCommand}"
+                             TypeName="{x:Static res:Views.Sheet_Card_Header_Guests}"
+                             TotalCount="{Binding GuestsCount}"
+                             TotalAmount="{Binding GuestsAmount}"/>
+
+
+                <c:ItemsCard Grid.Row="1"  
+                             ItemsSource="{Binding Expenses}" 
+                             ItemSelectedCommand="{Binding EditItemCommand}"
+                             AddItemCommand="{Binding NewExpenseCommand}"
+                             TypeName="{x:Static res:Views.Sheet_Card_Header_Expenses}"
+                             TotalCount="{Binding ExpensesCount}"
+                             TotalAmount="{Binding ExpensesAmount}"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

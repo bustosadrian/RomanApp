@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+       xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+       mc:Ignorable="d"
+       x:Class="RomanApp.Client.Mobile.Views.Sheet.Controls.ItemsCard"
+       x:Name="Self">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       VerticalOptions="Center"
+                       Text="{Binding TypeName, Source={x:Reference Self}}" />
+                <Label Grid.Column="1" 
+                       VerticalOptions="Center"
+                       Text="{Binding TotalCount, Source={x:Reference Self}}" />
+
+                <Button Grid.Column="2"
+                        VerticalOptions="Center"
+                        Text="+"
+                        Command="{Binding AddItemCommand, Source={x:Reference Self}}" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
+                      SelectedCommand="{Binding ItemSelectedCommand, Source={x:Reference Self}}">
+                <c:Repeat.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="0,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0"
+                                   VerticalOptions="Center"
+                                   Margin="0,0,10,0"
+                                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+                            
+                            <Label Grid.Column="1"  
+                                   VerticalOptions="Center"
+                                   Margin="0,0,10,0"
+                                   Text="{Binding Amount}" />
+                        </Grid>
+                    </DataTemplate>
+                </c:Repeat.ItemTemplate>
+            </c:Repeat>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Text="{x:Static res:Views.Sheet_Card_Footer_Label}" />
+                <Label Grid.Column="1" 
+                       Text="{Binding TotalAmount, Source={x:Reference Self}}" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Frame>

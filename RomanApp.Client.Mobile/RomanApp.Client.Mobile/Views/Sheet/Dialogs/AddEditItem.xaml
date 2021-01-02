@@ -3,8 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+             xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Dialogs"
+             xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Dialogs.AddEditItem">
+
+    <ContentView.Resources>
+        <l:HeaderLabelConverter x:Key="c_h_add" IsEditing="False" />
+        <l:HeaderLabelConverter x:Key="c_h_edit" IsEditing="True" />
+        <l:AmountLabelConverter x:Key="c_a" />
+    </ContentView.Resources>
+    
   <ContentView.Content>
         <Grid Margin="30">
             <Grid.RowDefinitions>
@@ -14,20 +24,27 @@
 
             <Grid HorizontalOptions="Center"
                   Margin="0,0,0,30">
-                <Label Text="Add guest" 
+                <Label Text="{Binding ItemType, Converter={StaticResource c_h_add}}"
+                       IsVisible="{Binding IsEditing, Converter={StaticResource c_n}}"
+                       FontSize="32" FontAttributes="Bold" />
+                <Label Text="{Binding ItemType, Converter={StaticResource c_h_edit}}"
+                       IsVisible="{Binding IsEditing}"
                        FontSize="32" FontAttributes="Bold" />
             </Grid>
 
             <Grid Grid.Row="1" VerticalOptions="Start"
                   HorizontalOptions="Center">
                 <StackLayout Orientation="Vertical">
-                    <Label Text="What's his/her name?" 
+                    <c:Repeat ItemsSource="{Binding NameValidationErrors}"
+                              ItemTemplate="{StaticResource template_validation_message}"/>
+                    <Label Text="{x:Static res:Views.Sheet_Input_Dialog_Add_Edit_Name}" 
                            HorizontalOptions="Center"/>
                     <Entry Grid.Column="0" 
                            HorizontalTextAlignment="Center"
-                           Placeholder="Name"
                            Text="{Binding Name,Mode=TwoWay}"/>
-                    <Label Text="How much did he/she chip in?" 
+                    <c:Repeat ItemsSource="{Binding AmountValidationErrors}"
+                              ItemTemplate="{StaticResource template_validation_message}"/>
+                    <Label Text="{Binding ItemType, Converter={StaticResource c_a}}" 
                            Margin="0,15,0,0"
                            HorizontalOptions="Center"/>
                     <Entry Grid.Column="1" 

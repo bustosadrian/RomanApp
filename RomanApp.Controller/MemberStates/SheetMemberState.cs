@@ -37,6 +37,7 @@ namespace RomanApp.Controller.MemberStates
         {
             QueueOutcomeAvailable();
             QueueItemsCount();
+            QueueItemsAmount();
             QueueClearAll();
             QueueGuests();
             QueueExpenses();
@@ -85,6 +86,17 @@ namespace RomanApp.Controller.MemberStates
             });
         }
 
+        private void QueueItemsAmount()
+        {
+            Queue(new ItemsAmountOutput()
+            {
+                GuestsAmount = CurrentEvent.Guests.Sum(x => x.Amount),
+                ExpensesAmount = CurrentEvent.Expenses.Sum(x => x.Amount),
+            });
+        }
+
+        
+
         private void QueueGuests()
         {
             foreach (var o in CurrentEvent.Guests)
@@ -108,6 +120,11 @@ namespace RomanApp.Controller.MemberStates
                 TotalExpenses = _outcome.TotalExpenses,
                 Share = _outcome.Share,
             });
+        }
+
+        private void QueueItemSaved()
+        {
+            Queue(new ItemSavedOutput());
         }
 
         private void QueueOutcomeGuests()
@@ -188,10 +205,12 @@ namespace RomanApp.Controller.MemberStates
             }
             CalculateOutcome();
             QueueItemsCount();
+            QueueItemsAmount();
             QueueOutcomeAvailable();
             Queue(ToItemOutput(item, message.Type));
             QueueOutcomeSummary();
             QueueOutcomeGuests();
+            QueueItemSaved();
         }
 
 
@@ -217,10 +236,12 @@ namespace RomanApp.Controller.MemberStates
             {
                 CalculateOutcome();
                 QueueItemsCount();
+                QueueItemsAmount();
                 QueueOutcomeAvailable();
                 Queue(ToItemOutput(modelItem, message.Type));
                 QueueOutcomeSummary();
                 QueueOutcomeGuests();
+                QueueItemSaved();
             }
         }
 
@@ -251,6 +272,7 @@ namespace RomanApp.Controller.MemberStates
             {
                 CalculateOutcome();
                 QueueItemsCount();
+                QueueItemsAmount();
                 QueueOutcomeAvailable();
                 Queue(new RemoveItemOutput()
                 {

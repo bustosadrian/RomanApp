@@ -1,6 +1,5 @@
-﻿using Reedoo.NET.Client.Messages;
-using RomanApp.Client.Mobile.Utils;
-using RomanApp.Client.Mobile.ViewModels.Components;
+﻿using Reedoo.NET.Messages;
+using Reedoo.NET.Messages.Output;
 using RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs;
 using RomanApp.Client.Mobile.ViewModels.Sheet.Embeddeds;
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
@@ -8,12 +7,17 @@ using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
+using RomanApp.Messages.Input.Sheet;
+using RomanApp.Messages.Output.Sheet;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace RomanApp.Client.Mobile.ViewModels.Sheet
 {
     public class SheetViewModel : BaseSheetViewModel
     {
+        private AddEditItemDialog _addEditItemDialog;
+
         public SheetViewModel()
             : base()
         {
@@ -27,7 +31,28 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
 
             ResetCommand = new Command(OnReset);
 
-            Validations = new ValidationsViewModel(this);
+            EditItemCommand = new Command(OnItemSelected);
+        }
+
+        private void Edit(AddEditItemViewModel viewModel)
+        {
+            EditItemInput message = new EditItemInput()
+            {
+                ItemId = viewModel.Id,
+                Type = viewModel.ItemType,
+                Name = viewModel.Name,
+                Amount = viewModel.Amount,
+            };
+            Send(message);
+        }
+
+        private void Delete(AddEditItemViewModel viewModel)
+        {
+            Send(new RemoveItemInput()
+            {
+                ItemId = viewModel.Id,
+                Type = viewModel.ItemType,
+            });
         }
 
         protected override BaseItemRowViewModel NewItemRow()
@@ -35,17 +60,31 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
             return new ItemRowViewModel(this);
         }
 
-        protected override async void OnNewItem(ItemType itemType)
+        protected override void OnNewItem(ItemType itemType)
         {
-            AddEditItemDialog dialog = new AddEditItemDialog(itemType, false);
-            var result = await dialog.ShowAsync();
+            _addEditItemDialog = new AddEditItemDialog(itemType, false);
+            _addEditItemDialog.Show();
+            WaitForNewItemResult();
+        }
+
+        private async void CloseAddEditItemDialog()
+        {
+            await Navigation.PopModalAsync();
+
+            _addEditItemDialog = null;
+        }
+
+        private async void WaitForNewItemResult()
+        {
+            var result = await _addEditItemDialog.Wait();
 
             switch (result)
             {
                 case AddEditItemResult.Ok:
-                    AddItem(dialog.ViewModel);
+                    AddItem(_addEditItemDialog.ViewModel);
                     break;
-                default:
+                case AddEditItemResult.Cancel:
+                    CloseAddEditItemDialog();
                     break;
             }
         }
@@ -59,21 +98,77 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
             }
         }
 
+        private void OnItemSelected(object parameter)
+        {
+            var item = (ItemRowViewModel)parameter;
+            _addEditItemDialog = new AddEditItemDialog(item.Id, item.Type, true, item.Name, item.Amount);
+            _addEditItemDialog.Show();
+            WaitForEditItemResult();
+        }
+
+        private async void WaitForEditItemResult()
+        {
+            var result = await _addEditItemDialog.Wait();
+
+            switch (result)
+            {
+                case AddEditItemResult.Ok:
+                    Edit(_addEditItemDialog.ViewModel);
+                    break;
+                case AddEditItemResult.Delete:
+                    Delete(_addEditItemDialog.ViewModel);
+                    CloseAddEditItemDialog();
+                    break;
+                case AddEditItemResult.Cancel:
+                    CloseAddEditItemDialog();
+                    break;
+            }
+        }
+
+        #region Commands
+
+        public ICommand EditItemCommand
+        {
+            get;
+            protected set;
+        }
+
+        #endregion
+
+        #region Messages
+
+        [Reader]
+        public bool Read(ValidationErrors message)
+        {
+            if (_addEditItemDialog?.ViewModel.ProcessValidationErrors(message.Errors) == true)
+            {
+                WaitForNewItemResult();
+                return true;
+            }
+            return true;
+        }
+
+        [Reader]
+        public bool Read(ItemSavedOutput message)
+        {
+            CloseAddEditItemDialog();
+
+            return true;
+        }
+
+        #endregion
 
         #region Components
 
-        private ValidationsViewModel _validations;
-        [Embedded]
-        public ValidationsViewModel Validations
+        #endregion
+
+        #region Properties
+
+        private INavigation Navigation
         {
             get
             {
-                return _validations;
-            }
-            set
-            {
-                _validations = value;
-                OnPropertyChanged(nameof(Validations));
+                return Application.Current.MainPage.Navigation;
             }
         }
 

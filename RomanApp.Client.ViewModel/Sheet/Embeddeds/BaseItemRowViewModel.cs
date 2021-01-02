@@ -1,8 +1,10 @@
 ﻿using Reedoo.NET.Messages;
+using Reedoo.NET.Messages.Output;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Messages;
 using RomanApp.Messages.Input.Sheet;
 using RomanApp.Messages.Output.Sheet;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
@@ -69,6 +71,18 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         #endregion
 
         #region Messages
+
+        [Reader]
+        public virtual bool Read(ValidationErrors message)
+        {
+            return false;
+        }
+
+        [Reader]
+        public virtual bool Read(ItemSavedOutput message)
+        {
+            return false;
+        }
 
         [Reader]
         public bool Read(ItemOutput message)

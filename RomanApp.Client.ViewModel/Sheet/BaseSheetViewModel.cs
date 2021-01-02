@@ -106,12 +106,21 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
         #endregion
 
         #region Messages
+        
 
         [Reader]
         public bool Read(ItemsCountOutput message)
         {
             GuestsCount = message.GuestsCounts;
             ExpensesCount = message.ExpensesCount;
+            return true;
+        }
+
+        [Reader]
+        public bool Read(ItemsAmountOutput message)
+        {
+            GuestsAmount = message.GuestsAmount;
+            ExpensesAmount = message.ExpensesAmount;
             return true;
         }
 
@@ -128,7 +137,6 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             Expenses.Clear();
             return true;
         }
-
 
         [Reader]
         public bool Read(ItemOutput message)
@@ -200,6 +208,34 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             {
                 _expensesCount = value;
                 OnPropertyChanged(nameof(ExpensesCount));
+            }
+        }
+
+        private decimal _guestsAmount;
+        public decimal GuestsAmount
+        {
+            get
+            {
+                return _guestsAmount;
+            }
+            set
+            {
+                _guestsAmount = value;
+                OnPropertyChanged(nameof(GuestsAmount));
+            }
+        }
+
+        private decimal _expensesAmount;
+        public decimal ExpensesAmount
+        {
+            get
+            {
+                return _expensesAmount;
+            }
+            set
+            {
+                _expensesAmount = value;
+                OnPropertyChanged(nameof(ExpensesAmount));
             }
         }
 

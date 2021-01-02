@@ -8,9 +8,12 @@
              x:Class="RomanApp.Client.Mobile.App">
     <Application.Resources>
         <converter:NegateConverter x:Key="c_n" />
+        <converter:MaxLengthConverter x:Key="c_max" />
 
 
 
         <ResourceDictionary Source="Templates/Item.xaml" />
+
+        <ResourceDictionary Source="Templates/ValidationMessage.xaml" />
     </Application.Resources>
 </Application>

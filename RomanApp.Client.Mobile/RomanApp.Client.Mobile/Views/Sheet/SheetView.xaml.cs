@@ -9,7 +9,7 @@ namespace RomanApp.Client.Mobile.Views.Sheet
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [ClientView(StatesKeys.SHEET, typeof(SheetViewModel))]
-    public partial class SheetView : ContentPage
+    public partial class SheetView : TabbedPage
     {
         public SheetView()
         {

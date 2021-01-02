@@ -2,24 +2,21 @@
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Messages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
 {
     public class AddEditItemDialog : ContentDialog
     {
         public AddEditItemDialog(ItemType itemType, bool isDeleteEnabled)
-            : this(itemType, isDeleteEnabled, null, 0)
+            : this(null, itemType, isDeleteEnabled, null, 0)
         {
 
         }
 
-        public AddEditItemDialog(ItemType itemType, bool isDeleteEnabled, string name, decimal amount)
+        public AddEditItemDialog(string id, ItemType itemType, bool isEditing, string name, decimal amount)
             : base()
         {
-            ViewModel = new AddEditItemViewModel(itemType, isDeleteEnabled)
+            ViewModel = new AddEditItemViewModel(id, itemType, isEditing)
             {
                 Name = name,
                 Amount = amount,
@@ -30,12 +27,12 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
                 BindingContext = ViewModel,
             };
 
-            if (isDeleteEnabled)
+            if (isEditing)
             {
                 AddButton(new ContentDialogButton() { Text = "Delete", Result = AddEditItemResult.Delete });
             }
             AddButton(new ContentDialogButton() { Text = "Cancel", Result = AddEditItemResult.Cancel });
-            AddButton(new ContentDialogButton() { Text = "Ok", Result = AddEditItemResult.Ok });
+            AddButton(new ContentDialogButton() { Text = "Ok", Result = AddEditItemResult.Ok, CloseDialog = false });
         }
 
         #region Properties
