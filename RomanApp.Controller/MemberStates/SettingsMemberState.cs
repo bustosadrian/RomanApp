@@ -43,8 +43,10 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(SaveSettingsInput message)
         {
-            RoomSettings.UseWholeNumbers = message.UseWholeNumbers;
-            Back();
+            if (message.UseWholeNumberSet)
+            {
+                RoomSettings.UseWholeNumbers = message.UseWholeNumbers;
+            }
         }
 
         #endregion

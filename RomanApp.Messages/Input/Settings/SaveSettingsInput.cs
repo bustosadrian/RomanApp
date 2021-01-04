@@ -12,6 +12,12 @@ namespace RomanApp.Messages.Input.Settings
 
         #region Properties
 
+        public bool UseWholeNumberSet
+        {
+            get;
+            set;
+        }
+
         public bool UseWholeNumbers
         {
             get;

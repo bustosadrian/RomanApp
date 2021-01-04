@@ -43,6 +43,7 @@ namespace RomanApp.Controller.MemberStates
             QueueExpenses();
             QueueOutcomeSummary();
             QueueOutcomeGuests();
+            QueueEnableReset();
         }
 
         private void CalculateOutcome()
@@ -136,8 +137,27 @@ namespace RomanApp.Controller.MemberStates
             Queue(list);
         }
 
+        private void QueueEnableReset()
+        {
+            bool resetEnabled = false;
+            if (CurrentEvent.Guests.Any())
+            {
+                resetEnabled = true;
+            }
+
+            if (CurrentEvent.Expenses.Any())
+            {
+                resetEnabled = true;
+            }
+
+            Queue(new EnableResetOutput()
+            {
+                ResetEnabled = resetEnabled,
+            });
+        }
+
         #endregion
-               
+
         #region Mappers
 
         private ItemOutput ToItemOutput(ItemModel entity, ItemType type)
@@ -211,6 +231,7 @@ namespace RomanApp.Controller.MemberStates
             QueueOutcomeSummary();
             QueueOutcomeGuests();
             QueueItemSaved();
+            QueueEnableReset();
         }
 
 
@@ -281,6 +302,7 @@ namespace RomanApp.Controller.MemberStates
                 });
                 QueueOutcomeSummary();
                 QueueOutcomeGuests();
+                QueueEnableReset();
             }
         }
 

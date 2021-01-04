@@ -1,7 +1,147 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <Style x:Key="ItemsHeader" TargetType="Label">
-        <Setter Property="TextColor" Value="Red" />
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+                    xmlns:sheet_controls="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls">
+
+    
+    <DataTemplate x:Key="template_item">
+        <Grid Padding="2">
+            <Grid.Resources>
+                <Style ApplyToDerivedTypes="True" TargetType="Label">
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="Margin" Value="0,0,10,0" />
+                    <Setter Property="FontSize" Value="Small" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+
+            <Label Grid.Column="1"  
+                   Text="{Binding Amount}" />
+        </Grid>
+    </DataTemplate>
+
+    
+    <!-- ItemsCard-->
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardStyle" TargetType="sheet_controls:ItemsCard">
+        <Setter Property="CornerRadius" Value="5" />
     </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardContentStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="10" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardHeaderStyle" TargetType="Grid">
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardHeaderLabelStyle" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardAddButtonStyle" TargetType="c:IconButton">
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardItemsStyle" TargetType="c:IconButton">
+        <Setter Property="Padding" Value="10,0,10,0" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardFooterStyle" TargetType="Grid">
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardFooterLabelStyle" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardEmptyStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="20" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardEmptyLabelStyle" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+
+    <!-- Outcome Summary -->
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryStyle" TargetType="Frame">
+        <Setter Property="BorderColor" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryConceptStyle" BasedOn="{StaticResource OutcomeSummaryLabel}" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryValueStyle" BasedOn="{StaticResource OutcomeSummaryLabel}" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="End" />
+        <Setter Property="HorizontalOptions" Value="End" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <!-- Outcome Details -->
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeDetailsStyle" TargetType="Grid">
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeDetailsCardHeaderStyle" TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="Margin" Value="0,0,5,0" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+    <DataTemplate x:Key="template_outcome_item">
+        <Grid Padding="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style ApplyToDerivedTypes="True" TargetType="Label">
+                    <Setter Property="VerticalOptions" Value="Center" />
+                    <Setter Property="Margin" Value="0,0,10,0" />
+                    <Setter Property="FontSize" Value="Small" />
+                </Style>
+            </Grid.Resources>
+
+            <Label Grid.Column="0"
+                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+
+            <Label Grid.Column="1"  
+                   Text="{Binding Amount}" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- Outcome Unavailable -->
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeUnavailableStyle" TargetType="Grid">
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeUnavailableMessage" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeUnavailableIcon" TargetType="c:Icon" BasedOn="{StaticResource OutcomeUnavailableMessage}">
+        <Setter Property="FontSize" Value="Header" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeUnavailableVerbiage" TargetType="Label" BasedOn="{StaticResource OutcomeUnavailableMessage}">
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+
 </ResourceDictionary>

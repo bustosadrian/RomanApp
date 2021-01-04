@@ -58,6 +58,14 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             Creditors = new ObservableCollection<OutcomeGuestViewModel>(message.Creditors.Select(x => new OutcomeGuestViewModel(x)));
             Evens = new ObservableCollection<OutcomeGuestViewModel>(message.Evens.Select(x => new OutcomeGuestViewModel(x)));
 
+            DebtorsCount = Debtors.Count();
+            CreditorsCount = Creditors.Count();
+            EvensCount = Evens.Count();
+
+            IsShowDebtors = DebtorsCount > 0;
+            IsShowCreditors = CreditorsCount > 0;
+            IsShowEvens = EvensCount > 0;
+
             return true;
         }
 
@@ -209,6 +217,91 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _evens = value;
                 OnPropertyChanged(nameof(Evens));
+            }
+        }
+
+        private bool _isShowDebtors;
+        public bool IsShowDebtors
+        {
+            get
+            {
+                return _isShowDebtors;
+            }
+            set
+            {
+                _isShowDebtors = value;
+                OnPropertyChanged(nameof(IsShowDebtors));
+            }
+        }
+
+        private bool _isShowCreditors;
+        public bool IsShowCreditors
+        {
+            get
+            {
+                return _isShowCreditors;
+            }
+            set
+            {
+                _isShowCreditors = value;
+                OnPropertyChanged(nameof(IsShowCreditors));
+            }
+        }
+
+        private bool _isShowEvens;
+        public bool IsShowEvens
+        {
+            get
+            {
+                return _isShowEvens;
+            }
+            set
+            {
+                _isShowEvens = value;
+                OnPropertyChanged(nameof(IsShowEvens));
+            }
+        }
+
+
+        private int _debtorsCount;
+        public int DebtorsCount
+        {
+            get
+            {
+                return _debtorsCount;
+            }
+            set
+            {
+                _debtorsCount = value;
+                OnPropertyChanged(nameof(DebtorsCount));
+            }
+        }
+
+        private int _creditorsCount;
+        public int CreditorsCount
+        {
+            get
+            {
+                return _creditorsCount;
+            }
+            set
+            {
+                _creditorsCount = value;
+                OnPropertyChanged(nameof(CreditorsCount));
+            }
+        }
+
+        private int _evensCount;
+        public int EvensCount
+        {
+            get
+            {
+                return _evensCount;
+            }
+            set
+            {
+                _evensCount = value;
+                OnPropertyChanged(nameof(EvensCount));
             }
         }
 

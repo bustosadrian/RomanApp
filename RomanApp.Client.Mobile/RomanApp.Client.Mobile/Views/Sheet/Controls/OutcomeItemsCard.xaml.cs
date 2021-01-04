@@ -35,7 +35,7 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Controls
         }
 
         public static readonly BindableProperty CountProperty = BindableProperty.Create(nameof(Count),
-                typeof(int), typeof(ItemsCard), 0);
+                typeof(int), typeof(OutcomeItemsCard), 0);
 
         public int Count
         {

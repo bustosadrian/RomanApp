@@ -1,19 +1,14 @@
 ﻿using Reedoo.NET.Messages;
 using Reedoo.NET.Messages.Output;
-using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Messages;
-using RomanApp.Messages.Input.Sheet;
 using RomanApp.Messages.Output.Sheet;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
 {
-    public abstract class BaseItemRowViewModel : EmbeddedViewModel
+    public class ItemRowViewModel : BaseViewModel
     {
 
-        public BaseItemRowViewModel(BusViewModel parent)
-            : base(parent)
+        public ItemRowViewModel()
         {
 
         }
@@ -38,37 +33,6 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
 
             return retval;
         }
-
-        protected void Edit(AddEditItemViewModel viewModel)
-        {
-            EditItemInput message = new EditItemInput()
-            {
-                ItemId = Id,
-                Type = Type,
-                Name = viewModel.Name,
-                Amount = viewModel.Amount,
-            };
-            Send(message);
-        }
-
-        protected void Delete()
-        {
-            Send(new RemoveItemInput()
-            {
-                ItemId = Id,
-                Type = Type,
-            });
-        }
-
-        #region Commands
-
-        public ICommand EditCommand
-        {
-            get;
-            protected set;
-        }
-
-        #endregion
 
         #region Messages
 

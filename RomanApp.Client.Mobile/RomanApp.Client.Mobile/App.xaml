@@ -7,13 +7,42 @@
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.App">
     <Application.Resources>
+        <!-- Converters -->
         <converter:NegateConverter x:Key="c_n" />
         <converter:MaxLengthConverter x:Key="c_max" />
+        <converter:AnyVisibleConverter x:Key="c_av" />
+        <converter:AnyVisibleConverter x:Key="c_avi" IsInverse="True" />
+        <converter:AddConverter x:Key="c_add" />
+        <converter:IconConverter x:Key="c_i_f" Result="Font" />
+        <converter:IconConverter x:Key="c_i_ff" Result="FontFamily" />
 
 
+        <!-- Fonts -->
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeBrands">
+            <On Platform="Android" Value="FontAwesome5Brands.otf#Regular" />
+            <On Platform="iOS" Value="FontAwesome5Brands-Regular" />
+            <!--<On Platform="UWP" Value="/Assets/FontAwesome5Brands.otf#Font Awesome 5 Brands" />-->
+        </OnPlatform>
 
-        <ResourceDictionary Source="Templates/Item.xaml" />
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolid">
+            <On Platform="Android" Value="FontAwesome5Solid.otf#Regular" />
+            <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+            <!--<On Platform="UWP" Value="/Assets/FontAwesome5Solid.otf#Font Awesome 5 Free" />-->
+        </OnPlatform>
 
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegular">
+            <On Platform="Android" Value="FontAwesome5Regular.otf#Regular" />
+            <On Platform="iOS" Value="FontAwesome5Free-Regular" />
+            <!--<On Platform="UWP" Value="/Assets/FontAwesome5Regular.otf#Font Awesome 5 Free" />-->
+        </OnPlatform>
+
+
+        <!-- Styles -->
+        <ResourceDictionary Source="Styles/Pallete.xaml" />
+        <ResourceDictionary Source="Styles/Global.xaml" />
+
+        <!-- Templates -->
         <ResourceDictionary Source="Templates/ValidationMessage.xaml" />
+
     </Application.Resources>
 </Application>

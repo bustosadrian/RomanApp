@@ -1,9 +1,15 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
+     
+        protected virtual void ChangeCanExecute(ICommand command)
+        {
+
+        }
 
         #region INotifyPropertyChanged Members
 

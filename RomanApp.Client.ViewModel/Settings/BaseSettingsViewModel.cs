@@ -14,10 +14,11 @@ namespace RomanApp.Client.ViewModel.Settings
             Send(new BackInput());
         }
 
-        protected void OnSave()
+        private void SaveWholeNumbers()
         {
             Send(new SaveSettingsInput()
             {
+                UseWholeNumberSet = true,
                 UseWholeNumbers = IsUseWholeNumbers,
             });
         }
@@ -25,12 +26,6 @@ namespace RomanApp.Client.ViewModel.Settings
         #region Command
 
         public ICommand BackCommand
-        {
-            get;
-            protected set;
-        }
-
-        public ICommand SaveCommand
         {
             get;
             protected set;
@@ -44,7 +39,8 @@ namespace RomanApp.Client.ViewModel.Settings
         [Reader]
         public bool Read(SettingsOutput message)
         {
-            IsUseWholeNumbers = message.UseWholeNumbers;
+            _isUseWholeNumbers = message.UseWholeNumbers;
+            OnPropertyChanged(nameof(IsUseWholeNumbers));
 
             return true;
         }
@@ -62,8 +58,13 @@ namespace RomanApp.Client.ViewModel.Settings
             }
             set
             {
+                bool changed = _isUseWholeNumbers != value;
                 _isUseWholeNumbers = value;
                 OnPropertyChanged(nameof(IsUseWholeNumbers));
+                if (changed)
+                {
+                    SaveWholeNumbers();
+                }
             }
         }
 

@@ -4,77 +4,113 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+       xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
        xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+       xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
        mc:Ignorable="d"
+       Margin="0" Padding="0"
        x:Class="RomanApp.Client.Mobile.Views.Sheet.Controls.ItemsCard"
+       BorderColor="{DynamicResource main-color-dark}"
        x:Name="Self">
-    <Grid>
+
+    <Frame.Resources>
+        <l:TypeNameToEmptyMessageConverter x:Key="c_tem" />
+        <l:TypeNameToItemNameConverter x:Key="c_tn" />
+
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </Frame.Resources>
+
+    <Grid Style="{StaticResource ItemsCardContentStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <!-- HEADER -->
+        <Grid Grid.Row="0"
+              Style="{StaticResource ItemsCardHeaderStyle}">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.Resources>
+                        <Style ApplyToDerivedTypes="True" TargetType="Label" BasedOn="{StaticResource ItemsCardHeaderLabelStyle}" />
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0"
-                       VerticalOptions="Center"
-                       Text="{Binding TypeName, Source={x:Reference Self}}" />
-                <Label Grid.Column="1" 
-                       VerticalOptions="Center"
-                       Text="{Binding TotalCount, Source={x:Reference Self}}" />
+                    <c:Icon Grid.Column="0"
+                            Value="{Binding Icon, Source={x:Reference Self}}" />
+                    <Label Grid.Column="1"
+                           Text="{Binding ItemType, Source={x:Reference Self}, Converter={StaticResource c_tn}}" />
+                    <Label Grid.Column="2" 
+                           Text="{Binding TotalCount, Source={x:Reference Self}}" />
 
-                <Button Grid.Column="2"
-                        VerticalOptions="Center"
-                        Text="+"
-                        Command="{Binding AddItemCommand, Source={x:Reference Self}}" />
+                    <c:IconButton Grid.Column="3"
+                                  Style="{StaticResource ItemsCardAddButtonStyle}"
+                                  VerticalOptions="Start" HorizontalOptions="End"
+                                  Value="Plus"
+                                  Command="{Binding AddItemCommand, Source={x:Reference Self}}" />
+                </Grid>
+
+                <c:Separator Grid.Row="1" />
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
-                      SelectedCommand="{Binding ItemSelectedCommand, Source={x:Reference Self}}">
-                <c:Repeat.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="0,0,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+        <!-- ITEMS -->
+        <Grid Grid.Row="1"
+              IsVisible="{Binding IsEmpty, Source={x:Reference Self}, Converter={StaticResource c_n}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0"
-                                   VerticalOptions="Center"
-                                   Margin="0,0,10,0"
-                                   Text="{Binding Name, Converter={StaticResource c_max}}" />
-                            
-                            <Label Grid.Column="1"  
-                                   VerticalOptions="Center"
-                                   Margin="0,0,10,0"
-                                   Text="{Binding Amount}" />
-                        </Grid>
-                    </DataTemplate>
-                </c:Repeat.ItemTemplate>
-            </c:Repeat>
+            <!-- ITEMS -->
+            <c:Repeat Grid.Row="0" 
+                      Style="{StaticResource ItemsCardItemsStyle}"
+                      ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
+                      SelectedCommand="{Binding ItemSelectedCommand, Source={x:Reference Self}}"
+                      ItemTemplate="{StaticResource template_item}" />
+
+            <!-- FOOTER -->
+            <Grid Grid.Row="1" Style="{StaticResource ItemsCardFooterStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <c:Separator Grid.Row="0" />
+
+                <Grid Grid.Row="1" Padding="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Label" BasedOn="{StaticResource ItemsCardFooterLabelStyle}" />
+                    </Grid.Resources>
+                    <Label Grid.Column="0"
+                            Text="{x:Static res:Views.Sheet_Card_Footer_Label}" />
+                    <Label Grid.Column="1" 
+                            Text="{Binding TotalAmount, Source={x:Reference Self}}" />
+                </Grid>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="2">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1"
+              Style="{StaticResource ItemsCardEmptyStyle}"
+              IsVisible="{Binding IsEmpty, Source={x:Reference Self}}">
+            <Grid.Resources>
+                <Style ApplyToDerivedTypes="True" TargetType="Label" BasedOn="{StaticResource ItemsCardEmptyLabelStyle}" />
+            </Grid.Resources>
 
-                <Label Grid.Column="0"
-                       Text="{x:Static res:Views.Sheet_Card_Footer_Label}" />
-                <Label Grid.Column="1" 
-                       Text="{Binding TotalAmount, Source={x:Reference Self}}" />
-            </Grid>
+            <Label Text="{Binding ItemType, Source={x:Reference Self}, Converter={StaticResource c_tem}}" />
         </Grid>
     </Grid>
 </Frame>

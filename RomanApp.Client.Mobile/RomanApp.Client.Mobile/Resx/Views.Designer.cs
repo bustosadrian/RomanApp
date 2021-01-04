@@ -61,6 +61,51 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string Settings_General_Title {
+            get {
+                return ResourceManager.GetString("Settings.General.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use whole numbers.
+        /// </summary>
+        internal static string Settings_General_Whole {
+            get {
+                return ResourceManager.GetString("Settings.General.Whole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings_Title {
+            get {
+                return ResourceManager.GetString("Settings.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No expenses added.
+        /// </summary>
+        internal static string Sheet_Card_Empty_Expenses {
+            get {
+                return ResourceManager.GetString("Sheet.Card.Empty.Expenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No guests added.
+        /// </summary>
+        internal static string Sheet_Card_Empty_Guests {
+            get {
+                return ResourceManager.GetString("Sheet.Card.Empty.Guests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Expenses.
         /// </summary>
         internal static string Sheet_Card_Expenses_Header {
@@ -93,6 +138,42 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Card_Header_Guests {
             get {
                 return ResourceManager.GetString("Sheet.Card.Header.Guests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string Sheet_Dialog_Reset_Action_No {
+            get {
+                return ResourceManager.GetString("Sheet.Dialog.Reset.Action.No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Sheet_Dialog_Reset_Action_Yes {
+            get {
+                return ResourceManager.GetString("Sheet.Dialog.Reset.Action.Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string Sheet_Dialog_Reset_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Dialog.Reset.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to reset the sheet?.
+        /// </summary>
+        internal static string Sheet_Dialog_Reset_Verbiage {
+            get {
+                return ResourceManager.GetString("Sheet.Dialog.Reset.Verbiage", resourceCulture);
             }
         }
         
@@ -156,6 +237,33 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Input_Dialog_Edit_Header_Guest {
             get {
                 return ResourceManager.GetString("Sheet.Input.Dialog.Edit.Header.Guest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string Sheet_Navigation_Help {
+            get {
+                return ResourceManager.GetString("Sheet.Navigation.Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string Sheet_Navigation_Reset {
+            get {
+                return ResourceManager.GetString("Sheet.Navigation.Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Sheet_Navigation_Settings {
+            get {
+                return ResourceManager.GetString("Sheet.Navigation.Settings", resourceCulture);
             }
         }
         
@@ -232,7 +340,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not enought guests.
+        ///   Looks up a localized string similar to Not enough guests.
         /// </summary>
         internal static string Sheet_Outcome_Unavailable_No_Guests {
             get {
@@ -241,7 +349,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total contributed is 0.
+        ///   Looks up a localized string similar to Total contributed must be greater than 0.
         /// </summary>
         internal static string Sheet_Outcome_Unavailable_No_Total {
             get {

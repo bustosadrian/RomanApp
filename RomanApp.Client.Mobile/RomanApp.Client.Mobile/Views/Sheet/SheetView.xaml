@@ -5,9 +5,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:t="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Tabs"
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.SheetView"
+             BackgroundColor="{DynamicResource main-color-light}"
              Title="{x:Static res:Views.Sheet_Title}">
+
+    <TabbedPage.Resources>
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </TabbedPage.Resources>
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Priority="0"
+                     Command="{Binding ResetCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}"
+                                 Glyph="{x:Static f:FontAwesomeIcons.Eraser}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+
+        <ToolbarItem Text="{x:Static res:Views.Sheet_Navigation_Settings}"
+                     Order="Secondary" Priority="0"
+                     Command="{Binding GoToSettingsCommand}" />
+        <ToolbarItem Text="{x:Static res:Views.Sheet_Navigation_Help}"
+                     Order="Secondary" Priority="1"
+                     Command="{Binding GoToHelpCommand}" />
+    </TabbedPage.ToolbarItems>
+
 
     <t:InputTab />
 

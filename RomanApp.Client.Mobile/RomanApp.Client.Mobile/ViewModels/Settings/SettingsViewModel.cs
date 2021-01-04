@@ -8,8 +8,6 @@ namespace RomanApp.Client.Mobile.ViewModels.Settings
         public SettingsViewModel()
         {
             BackCommand = new Command(OnBack);
-
-            SaveCommand = new Command(OnSave);
         }
     }
 }

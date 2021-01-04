@@ -7,10 +7,16 @@
        xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
        mc:Ignorable="d"
        x:Class="RomanApp.Client.Mobile.Views.Sheet.Controls.OutcomeItemsCard"
-       x:Name="Self"
-       BorderColor="Red">
+       BorderColor="{DynamicResource main-color-dark}"
+       x:Name="Self">
+
+    <Frame.Resources>
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </Frame.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -21,38 +27,22 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderStyle}" />
+                </Grid.Resources>
 
                 <Label Grid.Column="0"
-                       VerticalOptions="Center"
                        Text="{Binding GroupName, Source={x:Reference Self}}" />
                 <Label Grid.Column="1" 
-                       VerticalOptions="Center"
                        Text="{Binding Count, Source={x:Reference Self}}" />
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}">
-                <c:Repeat.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="0,0,0,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+        <c:Separator Grid.Row="1" />
 
-                            <Label Grid.Column="0"
-                                   VerticalOptions="Center"
-                                   Margin="0,0,10,0"
-                                   Text="{Binding Name, Converter={StaticResource c_max}}" />
-
-                            <Label Grid.Column="1"  
-                                   VerticalOptions="Center"
-                                   Margin="0,0,10,0"
-                                   Text="{Binding Amount}" />
-                        </Grid>
-                    </DataTemplate>
-                </c:Repeat.ItemTemplate>
+        <Grid Grid.Row="2">
+            <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
+                      ItemTemplate="{StaticResource template_outcome_item}">
             </c:Repeat>
         </Grid>
     </Grid>

@@ -17,14 +17,14 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
     {
         public BaseSheetViewModel()
         {
-            Guests = new ObservableCollection<BaseItemRowViewModel>();
-            Expenses = new ObservableCollection<BaseItemRowViewModel>();
+            Guests = new ObservableCollection<ItemRowViewModel>();
+            Expenses = new ObservableCollection<ItemRowViewModel>();
             Outcome = new OutcomeViewModel(this);
         }
 
-        protected abstract BaseItemRowViewModel NewItemRow();
 
         protected abstract void OnNewItem(ItemType itemType);
+
 
         protected void OnGoToSettings()
         {
@@ -50,22 +50,41 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             Send(new ResetSheetInput());
         }
 
-        protected void AddItem(AddEditItemViewModel viewModel)
+        protected void SaveItem(AddEditItemViewModel viewModel)
         {
-            AddItemInput message = new AddItemInput()
+            AddItemInput message = null;
+            if (viewModel.IsEditing)
             {
-                Type = viewModel.ItemType,
-                Name = viewModel.Name,
-                Amount = viewModel.Amount,
-            };
+                message = new EditItemInput()
+                {
+                    ItemId = viewModel.Id,
+                };
+            }
+            else
+            {
+                message = new AddItemInput();
+            }
+            message.Type = viewModel.ItemType;
+            message.Name = viewModel.Name;
+            message.Amount = viewModel.Amount;
+
             Send(message);
         }
 
-        private BaseItemRowViewModel ToItemViewModel(ItemOutput item)
+        protected void Delete(AddEditItemViewModel viewModel)
         {
-            BaseItemRowViewModel retval = null;
+            Send(new RemoveItemInput()
+            {
+                ItemId = viewModel.Id,
+                Type = viewModel.ItemType,
+            });
+        }
 
-            retval = NewItemRow();
+        private ItemRowViewModel ToItemViewModel(ItemOutput item)
+        {
+            ItemRowViewModel retval = null;
+
+            retval = new ItemRowViewModel();
             retval.Map(item);
 
             return retval;
@@ -179,6 +198,14 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             return true;
         }
 
+        [Reader]
+        public bool Read(EnableResetOutput message)
+        {
+            IsResetEnabled = message.ResetEnabled;
+            ChangeCanExecute(ResetCommand);
+            return true;
+        }
+
         #endregion
 
         #region Properties
@@ -239,9 +266,9 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             }
         }
 
-        private ObservableCollection<BaseItemRowViewModel> _guests;
+        private ObservableCollection<ItemRowViewModel> _guests;
         [Embedded]
-        public ObservableCollection<BaseItemRowViewModel> Guests
+        public ObservableCollection<ItemRowViewModel> Guests
         {
             get
             {
@@ -254,9 +281,9 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             }
         }
 
-        private ObservableCollection<BaseItemRowViewModel> _expenses;
+        private ObservableCollection<ItemRowViewModel> _expenses;
         [Embedded]
-        public ObservableCollection<BaseItemRowViewModel> Expenses
+        public ObservableCollection<ItemRowViewModel> Expenses
         {
             get
             {
@@ -281,6 +308,20 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             {
                 _outcome = value;
                 OnPropertyChanged(nameof(Outcome));
+            }
+        }
+
+        private bool _isResetEnabled;
+        public bool IsResetEnabled
+        {
+            get
+            {
+                return _isResetEnabled;
+            }
+            set
+            {
+                _isResetEnabled = value;
+                OnPropertyChanged(nameof(IsResetEnabled));
             }
         }
 

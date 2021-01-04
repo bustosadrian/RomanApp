@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:c="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
              mc:Ignorable="d"
              Title="{x:Static res:Views.Sheet_Tab_Input_Title}"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Tabs.InputTab">
@@ -14,9 +15,8 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView VerticalScrollBarVisibility="Always"
-                    BackgroundColor="Blue">
-            <Grid Margin="15">
+        <ScrollView>
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto" />
@@ -26,7 +26,8 @@
                              ItemsSource="{Binding Guests}" 
                              ItemSelectedCommand="{Binding EditItemCommand}"
                              AddItemCommand="{Binding NewGuestCommand}"
-                             TypeName="{x:Static res:Views.Sheet_Card_Header_Guests}"
+                             Icon="User"
+                             ItemType="Guest"
                              TotalCount="{Binding GuestsCount}"
                              TotalAmount="{Binding GuestsAmount}"/>
 
@@ -35,7 +36,8 @@
                              ItemsSource="{Binding Expenses}" 
                              ItemSelectedCommand="{Binding EditItemCommand}"
                              AddItemCommand="{Binding NewExpenseCommand}"
-                             TypeName="{x:Static res:Views.Sheet_Card_Header_Expenses}"
+                             Icon="MoneyBillAlt"
+                             ItemType="Expense"
                              TotalCount="{Binding ExpensesCount}"
                              TotalAmount="{Binding ExpensesAmount}"/>
             </Grid>
