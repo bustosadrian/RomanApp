@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
@@ -19,6 +20,26 @@
 
     <Style ApplyToDerivedTypes="true" TargetType="TableSection">
         <Setter Property="TextColor" Value="{DynamicResource main-color-normal}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="true" TargetType="c:Separator">
+        <Setter Property="Color" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+
+    <Style ApplyToDerivedTypes="true" x:Key="DialogStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="30" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="c:Toolbar">
+        <Setter Property="BackgroundColor" Value="{DynamicResource main-color-super-dark}" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="ButtonsSize" Value="64" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="ValidationMessage" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="Red" />
     </Style>
 
 </ResourceDictionary>

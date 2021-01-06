@@ -117,7 +117,6 @@
     <Compile Include="ViewModels\Components\ValidationsViewModel.cs" />
     <Compile Include="ViewModels\Help\HelpViewModel.cs" />
     <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
-    <Compile Include="ViewModels\Sheet\Embeddeds\ItemRowViewModel.cs" />
     <Compile Include="ViewModels\Sheet\SheetViewModel.cs" />
     <Compile Include="Views\Help\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>

@@ -11,11 +11,6 @@ namespace RomanApp.Client.UWP.ViewModels.Settings
             ((XamlUICommand)BackCommand).ExecuteRequested += (s, e) => {
                 OnBack();
             };
-
-            SaveCommand = new XamlUICommand();
-            ((XamlUICommand)SaveCommand).ExecuteRequested += (s, e) => {
-                OnSave();
-            };
         }
     }
 }

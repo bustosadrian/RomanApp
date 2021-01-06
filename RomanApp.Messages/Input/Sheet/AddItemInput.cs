@@ -6,29 +6,20 @@ using System;
 namespace RomanApp.Messages.Input.Sheet
 {
     [Serializable]
-    [Message(KEY)]
-    public class AddItemInput : InputMessage
+    public abstract class AddItemInput : InputMessage
     {
-        private const string KEY = "RomanApp.Sheet.Input.Add.Item";
 
         #region Properties
 
-        public ItemType Type
+        [Tags("name")]
+        public virtual string Name
         {
             get;
             set;
         }
 
-        [Required]
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        [Required]
-        [Range(GreaterThan = -1, ValidationMessage = "Must be greater or equal than zero")]
-        public decimal Amount
+        [Tags("amount")]
+        public virtual decimal Amount
         {
             get;
             set;

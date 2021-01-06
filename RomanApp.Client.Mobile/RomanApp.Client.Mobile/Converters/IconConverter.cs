@@ -19,6 +19,13 @@ namespace RomanApp.Client.Mobile.Converters
                     case IconConverterResult.Font:
                         switch (icon)
                         {
+                            case Icons.Check:
+                                retval = FontAwesomeIcons.Check;
+                                break;
+                            case Icons.CheckCircleSolid:
+                            case Icons.CheckCircleRegular:
+                                retval = FontAwesomeIcons.CheckCircle;
+                                break;
                             case Icons.ChevronLeft:
                                 retval = FontAwesomeIcons.ChevronLeft;
                                 break;
@@ -31,6 +38,16 @@ namespace RomanApp.Client.Mobile.Converters
                             case Icons.Plus:
                                 retval = FontAwesomeIcons.Plus;
                                 break;
+                            case Icons.Times:
+                                retval = FontAwesomeIcons.Times;
+                                break;
+                            case Icons.TimesCircleSolid:
+                            case Icons.TimesCircleRegular:
+                                retval = FontAwesomeIcons.TimesCircle;
+                                break;
+                            case Icons.TrashAltSolid:
+                                retval = FontAwesomeIcons.TrashAlt;
+                                break;
                             case Icons.User:
                                 retval = FontAwesomeIcons.User;
                                 break;
@@ -39,13 +56,20 @@ namespace RomanApp.Client.Mobile.Converters
                     case IconConverterResult.FontFamily:
                         switch (icon)
                         {
-                            case Icons.Plus:
+                            case Icons.Check:
+                            case Icons.CheckCircleSolid:
                             case Icons.ChevronLeft:
                             case Icons.Exclamation:
+                            case Icons.Plus:
+                            case Icons.TimesCircleSolid:
+                            case Icons.TrashAltSolid:
                                 retval = Application.Current.Resources["FontAwesomeSolid"];
                                 break;
+                            case Icons.CheckCircleRegular:
                             case Icons.MoneyBillAlt:
                             case Icons.User:
+                            case Icons.Times:
+                            case Icons.TimesCircleRegular:
                                 retval = Application.Current.Resources["FontAwesomeRegular"];
                                 break;
                         }

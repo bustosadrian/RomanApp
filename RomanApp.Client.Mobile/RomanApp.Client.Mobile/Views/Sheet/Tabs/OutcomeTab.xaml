@@ -6,10 +6,15 @@
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
              xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
              xmlns:sc="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
+             xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
              mc:Ignorable="d"
-             Title="{x:Static res:Views.Sheet_Tab_Outcome_Title}"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Tabs.OutcomeTab">
 
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}"
+                         Glyph="{x:Static f:FontAwesomeIcons.Calculator}" />
+    </ContentPage.IconImageSource>
+    
     <ContentPage.Resources>
         <ResourceDictionary Source="/Styles/Sheet.xaml" />
     </ContentPage.Resources>

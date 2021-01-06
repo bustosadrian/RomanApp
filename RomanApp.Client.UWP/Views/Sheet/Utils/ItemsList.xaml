@@ -26,10 +26,11 @@
                               Glyph="{Binding Icon, ElementName=Self}" />
 
                     <Button Grid.Column="1"
-                            Command="{Binding EditCommand}"
+                            CommandParameter="{Binding}"
                             FontFamily="Segoe MDL2 Assets" 
                             Content="&#xE70F;"
-                            Margin="0 0 10 0" />
+                            Margin="0 0 10 0"
+                            Click="Button_Click" />
 
                     <TextBlock Grid.Column="2"
                                Margin="0 0 10 0"

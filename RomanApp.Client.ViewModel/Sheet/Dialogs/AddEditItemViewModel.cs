@@ -3,28 +3,26 @@ using RomanApp.Messages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace RomanApp.Client.ViewModel.Sheet.Dialogs
 {
     public class AddEditItemViewModel : BaseViewModel
     {
         public AddEditItemViewModel(ItemType itemType, bool isEditing)
+            : this(null, itemType, isEditing)
         {
-            NameValidationErrors = new ObservableCollection<string>();
-            AmountValidationErrors = new ObservableCollection<string>();
 
-            ItemType = itemType;
-            IsEditing = isEditing;
         }
 
-        public AddEditItemViewModel(string id, ItemType itemType, bool isDeleteEnabled)
+        public AddEditItemViewModel(string id, ItemType itemType, bool isEditing)
         {
-            NameValidationErrors = new ObservableCollection<string>();
-            AmountValidationErrors = new ObservableCollection<string>();
+            NameValidationErrors = new ObservableCollection<ValidationError>();
+            AmountValidationErrors = new ObservableCollection<ValidationError>();
 
             Id = id;
             ItemType = itemType;
-            IsEditing = isDeleteEnabled;
+            IsEditing = isEditing;
         }
 
         public bool ProcessValidationErrors(IEnumerable<ValidationError> errors)
@@ -35,14 +33,15 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
             AmountValidationErrors.Clear();
             foreach(var o in errors)
             {
-                if(o.Data.ContainsKey("propertyName") && o.Data["propertyName"].ToString().Equals("name", StringComparison.InvariantCultureIgnoreCase))
+                if (o.Tags.Contains("name"))
                 {
-                    NameValidationErrors.Add(o.Message);
+                    NameValidationErrors.Add(o);
                     retval = true;
-                } 
-                else if (o.Data.ContainsKey("propertyName") && o.Data["propertyName"].ToString().Equals("amount", StringComparison.InvariantCultureIgnoreCase))
+                }
+
+                if (o.Tags.Contains("amount"))
                 {
-                    AmountValidationErrors.Add(o.Message);
+                    AmountValidationErrors.Add(o);
                     retval = true;
                 }
             }
@@ -52,8 +51,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
 
         #region Properties
 
-        private ObservableCollection<string> _nameValidationErrors;
-        public ObservableCollection<string> NameValidationErrors
+        private ObservableCollection<ValidationError> _nameValidationErrors;
+        public ObservableCollection<ValidationError> NameValidationErrors
         {
             get
             {
@@ -66,8 +65,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
             }
         }
 
-        private ObservableCollection<string> _amountValidationErrors;
-        public ObservableCollection<string> AmountValidationErrors
+        private ObservableCollection<ValidationError> _amountValidationErrors;
+        public ObservableCollection<ValidationError> AmountValidationErrors
         {
             get
             {

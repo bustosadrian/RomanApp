@@ -44,6 +44,9 @@
     <EmbeddedResource Update="Controls\Separator.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Controls\Toolbar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Controls\ValidationMessages.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -54,6 +57,10 @@
     <EmbeddedResource Update="Resx\Native.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Native.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resx\ValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resx\Views.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,6 +120,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Native.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resx\ValidationMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
     </Compile>
     <Compile Update="Resx\Views.Designer.cs">
       <DesignTime>True</DesignTime>

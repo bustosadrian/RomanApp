@@ -1,13 +1,13 @@
 ﻿using Reedoo.NET.Client.Messages;
 using RomanApp.Client.UWP.Dialogs;
 using RomanApp.Client.UWP.ViewModels.Components;
-using RomanApp.Client.UWP.ViewModels.Sheet.Embeddeds;
 using RomanApp.Client.UWP.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using System;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 
@@ -43,12 +43,12 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 OnReset();
             };
 
-            Validations = new ValidationsViewModel(this);
-        }
+            EditItemCommand = new XamlUICommand();
+            ((XamlUICommand)EditItemCommand).ExecuteRequested += (s, e) => {
+                OnEditItem((ItemRowViewModel)e.Parameter);
+            };
 
-        protected override BaseItemRowViewModel NewItemRow()
-        {
-            return new ItemRowViewModel(this);
+            Validations = new ValidationsViewModel(this);
         }
 
         protected override async void OnNewItem(ItemType itemType)
@@ -63,7 +63,34 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
             switch (dialog.Result)
             {
                 case AddEditItemDialogResult.Save:
-                    AddItem(vm);
+                    SaveItem(vm);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected async void OnEditItem(ItemRowViewModel item)
+        {
+            AddEditItemViewModel vm = new AddEditItemViewModel(item.Id, item.Type, true)
+            {
+                Name = item.Name,
+                Amount = item.Amount,
+            };
+
+            AddEditItemDialog dialog = new AddEditItemDialog()
+            {
+                DataContext = vm,
+            };
+
+            await dialog.ShowAsync();
+            switch (dialog.Result)
+            {
+                case AddEditItemDialogResult.Save:
+                    SaveItem(vm);
+                    break;
+                case AddEditItemDialogResult.Delete:
+                    Delete(vm);
                     break;
                 default:
                     break;
@@ -78,6 +105,16 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 Reset();
             }
         }
+
+        #region Commands
+
+        public ICommand EditItemCommand
+        {
+            get;
+            protected set;
+        }
+
+        #endregion
 
         #region Components
 

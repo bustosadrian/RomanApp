@@ -18,11 +18,17 @@ namespace RomanApp.Client.Mobile.Converters
 
             if(value is string)
             {
+                int maxLength = MaxLength;
+                if(parameter != null)
+                {
+                    int.TryParse(parameter.ToString(), out maxLength);
+                }
+
                 retval = value.ToString();
 
-                if(retval.Length > MaxLength)
+                if(retval.Length > maxLength)
                 {
-                    retval = retval.Substring(0, MaxLength);
+                    retval = retval.Substring(0, maxLength);
                     retval += "...";
                 }
             }

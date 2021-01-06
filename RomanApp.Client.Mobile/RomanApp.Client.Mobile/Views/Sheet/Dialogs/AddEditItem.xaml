@@ -5,55 +5,125 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
              xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Dialogs"
+             xmlns:t="clr-namespace:RomanApp.Client.Mobile.TriggerActions"
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Dialogs.AddEditItem">
+
 
     <ContentView.Resources>
         <l:HeaderLabelConverter x:Key="c_h_add" IsEditing="False" />
         <l:HeaderLabelConverter x:Key="c_h_edit" IsEditing="True" />
         <l:AmountLabelConverter x:Key="c_a" />
+
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
     </ContentView.Resources>
-    
-  <ContentView.Content>
-        <Grid Margin="30">
+
+    <ContentView.Content>
+        <Grid Style="{StaticResource AddEditItemDialogStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Grid HorizontalOptions="Center"
-                  Margin="0,0,0,30">
-                <Label Text="{Binding ItemType, Converter={StaticResource c_h_add}}"
-                       IsVisible="{Binding IsEditing, Converter={StaticResource c_n}}"
-                       FontSize="32" FontAttributes="Bold" />
-                <Label Text="{Binding ItemType, Converter={StaticResource c_h_edit}}"
-                       IsVisible="{Binding IsEditing}"
-                       FontSize="32" FontAttributes="Bold" />
+            <Grid Style="{StaticResource AddEditItemDialogHeaderStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"
+                             HorizontalOptions="Center"
+                             Orientation="Horizontal">
+                    <StackLayout.Resources>
+                        <Style ApplyToDerivedTypes="True" TargetType="Label" BasedOn="{StaticResource AddEditItemDialogHeaderTextStyle}" />
+                    </StackLayout.Resources>
+                    <c:Icon Value="{Binding ItemType, Converter={StaticResource c_it_i}}" />
+
+                    <Label Text="{Binding ItemType, Converter={StaticResource c_h_add}}"
+                           IsVisible="{Binding IsEditing, Converter={StaticResource c_n}}" />
+                    <Label Text="{Binding Name, Mode=OneTime, Converter={StaticResource c_max}"
+                           IsVisible="{Binding IsEditing}" />
+                </StackLayout>
+                <c:Separator Grid.Row="1" />
             </Grid>
 
-            <Grid Grid.Row="1" VerticalOptions="Start"
-                  HorizontalOptions="Center">
-                <StackLayout Orientation="Vertical">
+            <Grid Grid.Row="1"
+                  Style="{StaticResource AddEditItemDialogFormStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style ApplyToDerivedTypes="True" TargetType="StackLayout" BasedOn="{d:StaticResource AddEditItemDialogFormGroup}" />
+                    <Style ApplyToDerivedTypes="True" TargetType="Label" BasedOn="{d:StaticResource AddEditItemDialogFormLabelStyle}" />
+                    <Style ApplyToDerivedTypes="True" TargetType="Entry" BasedOn="{d:StaticResource AddEditItemDialogFormInputStyle}" />
+                </Grid.Resources>
+
+
+                <StackLayout Grid.Row="0">
                     <c:Repeat ItemsSource="{Binding NameValidationErrors}"
                               ItemTemplate="{StaticResource template_validation_message}"/>
-                    <Label Text="{x:Static res:Views.Sheet_Input_Dialog_Add_Edit_Name}" 
-                           HorizontalOptions="Center"/>
-                    <Entry Grid.Column="0" 
-                           HorizontalTextAlignment="Center"
-                           Text="{Binding Name,Mode=TwoWay}"/>
+                    <Label Text="{x:Static res:Views.Sheet_Input_Dialog_Add_Edit_Name}" />
+                    <Entry Text="{Binding Name,Mode=TwoWay}" 
+                           Keyboard="Chat">
+                        <Entry.Triggers>
+                            <EventTrigger Event="Focused">
+                                <t:SelectAllTriggerAction />
+                            </EventTrigger>
+                        </Entry.Triggers>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1">
                     <c:Repeat ItemsSource="{Binding AmountValidationErrors}"
                               ItemTemplate="{StaticResource template_validation_message}"/>
-                    <Label Text="{Binding ItemType, Converter={StaticResource c_a}}" 
-                           Margin="0,15,0,0"
-                           HorizontalOptions="Center"/>
-                    <Entry Grid.Column="1" 
-                           Keyboard="Numeric"
-                           Placeholder="Amount"
-                           HorizontalTextAlignment="Center"
-                           Text="{Binding Amount,Mode=TwoWay}"/>
+                    <Label Text="{Binding ItemType, Converter={StaticResource c_a}}" />
+                    <Entry Text="{Binding Amount,Mode=TwoWay}"
+                           Keyboard="Numeric">
+                        <Entry.Triggers>
+                            <EventTrigger Event="Focused">
+                                <t:SelectAllTriggerAction />
+                            </EventTrigger>
+                        </Entry.Triggers>
+                    </Entry>
                 </StackLayout>
             </Grid>
+
+            <!--<Frame Grid.Row="2" BackgroundColor="{DynamicResource main-color-super-dark}"
+                   HeightRequest="100">
+                <Grid VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style ApplyToDerivedTypes="True" TargetType="Label">
+                            <Setter Property="TextColor" Value="White" />
+                            <Setter Property="FontSize" Value="64" />
+                        </Style>
+                    </Grid.Resources>
+                    <c:IconButton Grid.Column="0" 
+                                  TextColor="Red"
+                                  Value="TrashAltSolid"
+                                  HorizontalOptions="Center" />
+                    <c:Icon Grid.Column="1" 
+                                  TextColor="White"
+                            HorizontalOptions="Center"
+                            Value="TimesCircleRegular" />
+                    <c:Icon Grid.Column="2" 
+                            TextColor="Lime"
+                            HorizontalOptions="Center"
+                            Value="CheckCircleRegular" />
+                </Grid>
+            </Frame>
+            <BoxView Grid.Row="2" Color="{DynamicResource main-color-normal}" 
+                     VerticalOptions="Start" HeightRequest="2"/>-->
         </Grid>
     </ContentView.Content>
 </ContentView>
+    

@@ -37,12 +37,14 @@
                     <TextBlock Text="{Binding GuestsCount}" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
                 </StackPanel>
                 <c:ItemsList ItemsSource="{Binding Guests}" 
+                             ItemSelectedCommand="{Binding EditItemCommand}"
                          Icon="&#xE77B;" />
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Expenses:" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
                     <TextBlock Text="{Binding ExpensesCount}" FontWeight="Bold" FontSize="20" Margin="0 0 15 0" />
                 </StackPanel>
                 <c:ItemsList ItemsSource="{Binding Expenses}" 
+                             ItemSelectedCommand="{Binding EditItemCommand}"
                      Icon="&#xE8C7;" />
                 <StackPanel Orientation="Horizontal">
                     <Button Content="Add guest" Command="{Binding NewGuestCommand}" />

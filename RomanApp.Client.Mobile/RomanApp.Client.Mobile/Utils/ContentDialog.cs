@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using RomanApp.Client.Mobile.Controls;
+using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -8,16 +8,15 @@ namespace RomanApp.Client.Mobile.Utils
 {
     public class ContentDialog
     {
-        private List<ContentDialogButton> _buttons;
+        private ObservableCollection<ContentDialogButton> _buttons;
 
         private Grid _mainGrid;
-        private Grid _toolbarGrid;
 
         private TaskCompletionSource<object> _task;
 
         public ContentDialog()
         {
-            _buttons = new List<ContentDialogButton>();
+            _buttons = new ObservableCollection<ContentDialogButton>();
         }
 
 
@@ -54,53 +53,52 @@ namespace RomanApp.Client.Mobile.Utils
                 },
             };
 
+            Toolbar toolbar = new Toolbar(new ObservableCollection<ToolbarButton>(_buttons));
 
-            ColumnDefinitionCollection toolbarButtonsColumns = new ColumnDefinitionCollection();
-            for(int i = 0; i < _buttons.Count; i++)
-            {
-                toolbarButtonsColumns.Add(new ColumnDefinition()
-                {
-                    Width  = new GridLength(2, GridUnitType.Star),
-                });
-            }
-            _toolbarGrid = new Grid
-            {
-                RowDefinitions =
-                {
-                    new RowDefinition { Height = new GridLength(2, GridUnitType.Auto) }
-                },
-                ColumnDefinitions = toolbarButtonsColumns,
-            };
+            toolbar.ButtonTapped += Toolbar_ButtonTapped;
+            //toolbar.BackgroundColor = Color.FromHex("#001b00");
+            //toolbar.ButtonsSize = 64;
+            //toolbar.Padding = new Thickness(15);
 
-            _mainGrid.Children.Add(_toolbarGrid, 0, 1);
-            CreateButtons();
-
+            _mainGrid.Children.Add(toolbar, 0, 1);
             _mainGrid.Children.Add(Content, 0, 0);
         }
 
-        private void CreateButtons()
-        {
-            int column = 0;
-            foreach(var o in _buttons)
-            {
-                var button = new Button
-                {
-                    Text = o.Text,
-                };
-                button.Clicked += async (s, e) =>
-                {
-                    if (o.CloseDialog)
-                    {
-                        await Navigation.PopModalAsync();
-                    }
-                    _task.SetResult(o.Result);
-                };
+        
 
-                o.Button = button;
-                _toolbarGrid.Children.Add(button, column, 0);
+        //private void CreateButtons()
+        //{
+        //    int column = 0;
+        //    foreach(var o in _buttons)
+        //    {
+        //        var button = new Button
+        //        {
+        //            Text = o.Text,
+        //        };
+        //        button.Clicked += async (s, e) =>
+        //        {
+        //            if (o.CloseDialog)
+        //            {
+        //                await Navigation.PopModalAsync();
+        //            }
+        //            _task.SetResult(o.Result);
+        //        };
+
+        //        o.Button = button;
+        //        _toolbarGrid.Children.Add(button, column, 0);
                 
-                column++;
+        //        column++;
+        //    }
+        //}
+
+        private async void Toolbar_ButtonTapped(object sender, EventArgs e)
+        {
+            ContentDialogButton button = (ContentDialogButton)sender;
+            if (button.CloseDialog)
+            {
+                await Navigation.PopModalAsync();
             }
+            _task.SetResult(button.Result);
         }
 
         #region Properties
@@ -129,23 +127,11 @@ namespace RomanApp.Client.Mobile.Utils
 
     }
 
-    public class ContentDialogButton
+    public class ContentDialogButton : ToolbarButton
     {
         #region Properties
 
-        public string Text
-        {
-            get;
-            set;
-        }
-
         public object Result
-        {
-            get;
-            set;
-        }
-
-        internal Button Button
         {
             get;
             set;

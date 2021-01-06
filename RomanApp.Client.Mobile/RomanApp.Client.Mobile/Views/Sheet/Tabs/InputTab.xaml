@@ -7,8 +7,12 @@
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
              xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
              mc:Ignorable="d"
-             Title="{x:Static res:Views.Sheet_Tab_Input_Title}"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Tabs.InputTab">
+
+    <ContentPage.IconImageSource>
+        <FontImageSource FontFamily="{StaticResource FontAwesomeRegular}"
+                                 Glyph="{x:Static f:FontAwesomeIcons.Edit}" />
+    </ContentPage.IconImageSource>
 
     <ContentPage.Resources>
         <ResourceDictionary Source="/Styles/Sheet.xaml" />

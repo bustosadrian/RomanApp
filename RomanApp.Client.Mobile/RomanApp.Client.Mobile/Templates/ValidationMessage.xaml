@@ -2,7 +2,8 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <DataTemplate x:Key="template_validation_message">
-        <Label Text="{Binding}" TextColor="Red"/>
+        <Label Text="{Binding Message, Converter={StaticResource c_val}}" 
+               Style="{StaticResource ValidationMessage}"/>
     </DataTemplate>
 </ResourceDictionary>
                   

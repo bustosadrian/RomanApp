@@ -212,22 +212,27 @@ namespace RomanApp.Controller.MemberStates
         public void Action(AddItemInput message)
         {
             ItemModel item = null;
-            switch (message.Type)
+            if(message is AddGuestInput)
             {
-                case ItemType.Guest:
-                    item = new GuestModel(EventService.AddGuest(CurrentEvent.Id, null, message.Name, message.Amount));
-                    CurrentEvent.Guests.Add((GuestModel)item);
-                    break;
-                case ItemType.Expense:
-                    item = new ExpenseModel(EventService.AddExpense(CurrentEvent.Id, null, message.Name, message.Amount));
-                    CurrentEvent.Expenses.Add((ExpenseModel)item);
-                    break;
+                item = new GuestModel(EventService.AddGuest(CurrentEvent.Id, null, message.Name, message.Amount));
+                CurrentEvent.Guests.Add((GuestModel)item);
+                Queue(ToItemOutput(item, ItemType.Guest));
+
+            }
+            else if (message is AddExpenseInput)
+            {
+                item = new ExpenseModel(EventService.AddExpense(CurrentEvent.Id, null, message.Name, message.Amount));
+                CurrentEvent.Expenses.Add((ExpenseModel)item);
+                Queue(ToItemOutput(item, ItemType.Expense));
+            }
+            else
+            {
+                throw new InvalidCastException($"{message.GetType().Name} is not handled");
             }
             CalculateOutcome();
             QueueItemsCount();
             QueueItemsAmount();
             QueueOutcomeAvailable();
-            Queue(ToItemOutput(item, message.Type));
             QueueOutcomeSummary();
             QueueOutcomeGuests();
             QueueItemSaved();
@@ -240,26 +245,31 @@ namespace RomanApp.Controller.MemberStates
         {
             ItemModel modelItem = null;
             Item updatedItem = null;
-            switch (message.Type)
+            if (message is EditGuestInput)
             {
-                case ItemType.Guest:
-                    modelItem = CurrentEvent.Guests.Single(x => x.Id == message.ItemId);
-                    updatedItem = EventService.UpdateGuest(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
-                    modelItem.Map(updatedItem);
-                    break;
-                case ItemType.Expense:
-                    modelItem = CurrentEvent.Expenses.Single(x => x.Id == message.ItemId);
-                    updatedItem = EventService.UpdateExpense(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
-                    modelItem.Map(updatedItem);
-                    break;
+                modelItem = CurrentEvent.Guests.Single(x => x.Id == message.ItemId);
+                updatedItem = EventService.UpdateGuest(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                modelItem.Map(updatedItem);
+                Queue(ToItemOutput(modelItem, ItemType.Guest));
             }
+            else if (message is EditExpenseInput)
+            {
+                modelItem = CurrentEvent.Expenses.Single(x => x.Id == message.ItemId);
+                updatedItem = EventService.UpdateExpense(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                modelItem.Map(updatedItem);
+                Queue(ToItemOutput(modelItem, ItemType.Expense));
+            }
+            else
+            {
+                throw new InvalidCastException($"{message.GetType().Name} is not handled");
+            }
+
             if(modelItem != null)
             {
                 CalculateOutcome();
                 QueueItemsCount();
                 QueueItemsAmount();
                 QueueOutcomeAvailable();
-                Queue(ToItemOutput(modelItem, message.Type));
                 QueueOutcomeSummary();
                 QueueOutcomeGuests();
                 QueueItemSaved();

@@ -2,6 +2,7 @@
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Messages;
+using Xamarin.Forms;
 
 namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
 {
@@ -29,10 +30,10 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
 
             if (isEditing)
             {
-                AddButton(new ContentDialogButton() { Text = "Delete", Result = AddEditItemResult.Delete });
+                AddButton(new ContentDialogButton() { Icon = Icons.TrashAltSolid, Color = Color.Red, Result = AddEditItemResult.Delete });
             }
-            AddButton(new ContentDialogButton() { Text = "Cancel", Result = AddEditItemResult.Cancel });
-            AddButton(new ContentDialogButton() { Text = "Ok", Result = AddEditItemResult.Ok, CloseDialog = false });
+            AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel });
+            AddButton(new ContentDialogButton() { Icon = Icons.CheckCircleRegular, Color = Color.Lime, Result = AddEditItemResult.Ok, CloseDialog = false });
         }
 
         #region Properties

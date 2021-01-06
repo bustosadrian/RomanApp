@@ -1,5 +1,6 @@
 ﻿using RomanApp.Client.Mobile.Services;
 using RomanApp.Client.Mobile.Utils;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -30,12 +31,23 @@ namespace RomanApp.Client.Mobile.Controls
 
         private void Gesture_Tapped(object sender, System.EventArgs e)
         {
-            if(Command != null)
+            _soundService.Click();
+            RaiseTapped();
+            if (Command != null)
             {
-                _soundService.Click();
                 Execute(Command, null);
             }
         }
+
+        #region Events
+
+        public event EventHandler<EventArgs> Tapped;
+        private void RaiseTapped()
+        {
+            Tapped?.Invoke(this, new EventArgs());
+        }
+
+        #endregion
 
         #region Commands
 

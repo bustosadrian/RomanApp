@@ -55,16 +55,29 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             AddItemInput message = null;
             if (viewModel.IsEditing)
             {
-                message = new EditItemInput()
+                switch (viewModel.ItemType)
                 {
-                    ItemId = viewModel.Id,
-                };
+                    case ItemType.Guest:
+                        message = new EditGuestInput();
+                        break;
+                    case ItemType.Expense:
+                        message = new EditExpenseInput();
+                        break;
+                }
+                ((EditItemInput)message).ItemId = viewModel.Id;
             }
             else
             {
-                message = new AddItemInput();
+                switch (viewModel.ItemType)
+                {
+                    case ItemType.Guest:
+                        message = new AddGuestInput();
+                        break;
+                    case ItemType.Expense:
+                        message = new AddExpenseInput();
+                        break;
+                }
             }
-            message.Type = viewModel.ItemType;
             message.Name = viewModel.Name;
             message.Amount = viewModel.Amount;
 

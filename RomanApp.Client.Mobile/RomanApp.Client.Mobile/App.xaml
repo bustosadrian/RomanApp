@@ -12,9 +12,11 @@
         <converter:MaxLengthConverter x:Key="c_max" />
         <converter:AnyVisibleConverter x:Key="c_av" />
         <converter:AnyVisibleConverter x:Key="c_avi" IsInverse="True" />
+        <converter:ValidationMessageConverter x:Key="c_val" />
         <converter:AddConverter x:Key="c_add" />
         <converter:IconConverter x:Key="c_i_f" Result="Font" />
         <converter:IconConverter x:Key="c_i_ff" Result="FontFamily" />
+        <converter:ItemTypeToIconsConverter x:Key="c_it_i" />
 
 
         <!-- Fonts -->

@@ -1,6 +1,7 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Input;
 
 namespace RomanApp.Client.UWP.Views.Sheet.Utils
 {
@@ -10,6 +11,24 @@ namespace RomanApp.Client.UWP.Views.Sheet.Utils
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            ((ICommand)ItemSelectedCommand).Execute(button.CommandParameter);
+        }
+
+        #region Commands
+
+        public static readonly DependencyProperty ItemSelectedCommandProperty =
+            DependencyProperty.Register(nameof(ItemSelectedCommand), typeof(XamlUICommand), typeof(ItemsList), null);
+        public XamlUICommand ItemSelectedCommand
+        {
+            get { return (XamlUICommand)GetValue(ItemSelectedCommandProperty); }
+            set { SetValue(ItemSelectedCommandProperty, value); }
+        }
+
+        #endregion
 
         #region Properties
 
@@ -24,5 +43,7 @@ namespace RomanApp.Client.UWP.Views.Sheet.Utils
 
 
         #endregion
+
+        
     }
 }

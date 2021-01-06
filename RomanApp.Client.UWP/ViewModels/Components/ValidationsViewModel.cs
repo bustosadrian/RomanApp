@@ -5,6 +5,7 @@ using RomanApp.Client.ViewModel;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
+using System.Linq;
 
 namespace RomanApp.Client.UWP.ViewModels.Components
 {
@@ -23,6 +24,11 @@ namespace RomanApp.Client.UWP.ViewModels.Components
             StringBuilder sb = new StringBuilder();
             foreach (var o in message.Errors)
             {
+                if (o.Tags != null && o.Tags.Length > 0)
+                {
+                    sb.Append(TagsToString(o.Tags));
+                    sb.Append(" ");
+                }
                 sb.Append($"- {o.Message}");
                 sb.AppendLine();
             }
@@ -34,6 +40,28 @@ namespace RomanApp.Client.UWP.ViewModels.Components
             await dialog.ShowAsync();
 
             return true;
+        }
+
+        private string TagsToString(string[] tags)
+        {
+            string retval = null;
+
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < tags.Length; i++)
+            {
+                var o = tags[i];
+                sb.Append(o);
+                if((i + 1) < tags.Length)
+                {
+                    sb.Append(", ");
+                }
+            }
+            if(sb.Length > 0)
+            {
+                retval = $"({sb})";
+            }
+
+            return retval;
         }
 
         #endregion

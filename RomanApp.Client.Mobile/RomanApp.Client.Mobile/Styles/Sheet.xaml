@@ -2,6 +2,7 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+                    xmlns:t="clr-namespace:RomanApp.Client.Mobile.TriggerActions"
                     xmlns:sheet_controls="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls">
 
     
@@ -143,5 +144,45 @@
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
+    
+    
+    
+    <!-- Add Edit Item Dialog -->
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogStyle" TargetType="Grid" BasedOn="{StaticResource DialogStyle}">
+        
+    </Style>
 
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogHeaderStyle"  TargetType="Grid">
+        <Setter Property="Margin" Value="0,0,0,20" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogHeaderTextStyle"  TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogFormStyle"  TargetType="Grid">
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogFormGroup"  TargetType="StackLayout">
+        <Setter Property="Margin" Value="0,0,0,25" />
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogFormLabelStyle"  TargetType="Label">
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogFormInputStyle"  TargetType="Entry">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="WidthRequest" Value="250" />
+    </Style>
 </ResourceDictionary>
