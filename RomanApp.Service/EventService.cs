@@ -134,13 +134,13 @@ namespace RomanApp.Service
                     throw new OutcomeAnavailableException(OutcomeResult.NotEnoughGuests);
                 }
 
+                retval.TotalGuests = _event.Guests.Sum(x => x.Amount);
                 retval.TotalExpenses = _event.Expenses.Sum(x => x.Amount);
-                retval.Total = retval.TotalExpenses;
+                retval.Total = retval.TotalGuests + retval.TotalExpenses;
 
                 List<GuestOutcome> all = new List<GuestOutcome>();
                 foreach (var o in _event.Guests)
                 {
-                    retval.Total += o.Amount;
                     all.Add(new GuestOutcome()
                     {
                         Id = o.Id,

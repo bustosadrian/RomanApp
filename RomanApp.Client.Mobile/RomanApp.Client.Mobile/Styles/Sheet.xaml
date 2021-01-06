@@ -7,7 +7,7 @@
 
     
     <DataTemplate x:Key="template_item">
-        <Grid Padding="2">
+        <Grid Padding="5">
             <Grid.Resources>
                 <Style ApplyToDerivedTypes="True" TargetType="Label">
                     <Setter Property="VerticalOptions" Value="Center" />
@@ -24,7 +24,7 @@
                    Text="{Binding Name, Converter={StaticResource c_max}}" />
 
             <Label Grid.Column="1"  
-                   Text="{Binding Amount}" />
+                   Text="{Binding Amount,Converter={StaticResource c_money}}" />
         </Grid>
     </DataTemplate>
 
@@ -77,7 +77,7 @@
         <Setter Property="VerticalOptions" Value="Start" />
     </Style>
     <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryLabel" TargetType="Label">
-        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontSize" Value="Body" />
     </Style>
     <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryConceptStyle" BasedOn="{StaticResource OutcomeSummaryLabel}" TargetType="Label">
         <Setter Property="FontAttributes" Value="Bold" />
@@ -88,6 +88,20 @@
         <Setter Property="HorizontalTextAlignment" Value="End" />
         <Setter Property="HorizontalOptions" Value="End" />
         <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryTotalConceptStyle" BasedOn="{StaticResource OutcomeSummaryConceptStyle}" TargetType="Label">
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryTotalValueStyle" BasedOn="{StaticResource OutcomeSummaryValueStyle}" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryShareConceptStyle" BasedOn="{StaticResource OutcomeSummaryConceptStyle}" TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeSummaryShareValueStyle" BasedOn="{StaticResource OutcomeSummaryValueStyle}" TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="FontAttributes" Value="Bold" />
     </Style>
 
     <!-- Outcome Details -->
@@ -104,7 +118,7 @@
     </Style>
 
     <DataTemplate x:Key="template_outcome_item">
-        <Grid Padding="2">
+        <Grid Padding="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -121,7 +135,7 @@
                    Text="{Binding Name, Converter={StaticResource c_max}}" />
 
             <Label Grid.Column="1"  
-                   Text="{Binding Amount}" />
+                   Text="{Binding Amount, Converter={StaticResource c_money}}" />
         </Grid>
     </DataTemplate>
 
@@ -177,6 +191,7 @@
 
     <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogFormLabelStyle"  TargetType="Label">
         <Setter Property="FontSize" Value="Body" />
+        <Setter Property="FontAttributes" Value="Bold" />
         <Setter Property="HorizontalOptions" Value="Center" />
     </Style>
 

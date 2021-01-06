@@ -18,6 +18,12 @@ namespace RomanApp.Service.Entities
             set;
         }
 
+        public decimal TotalGuests
+        {
+            get;
+            set;
+        }
+
         public decimal TotalExpenses
         {
             get;

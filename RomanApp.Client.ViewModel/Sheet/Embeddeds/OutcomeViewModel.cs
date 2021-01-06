@@ -45,8 +45,9 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         [Reader]
         public bool Read(OutcomeSummaryOutput message)
         {
-            Total = message.Total;
+            TotalGuests = message.TotalGuests;
             TotalExpenses = message.TotalExpenses;
+            Total = message.Total;
             Share = message.Share;
             return true;
         }
@@ -131,18 +132,17 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             }
         }
 
-
-        private decimal _total;
-        public decimal Total
+        private decimal _totalGuests;
+        public decimal TotalGuests
         {
             get
             {
-                return _total;
+                return _totalGuests;
             }
             set
             {
-                _total = value;
-                OnPropertyChanged(nameof(Total));
+                _totalGuests = value;
+                OnPropertyChanged(nameof(TotalGuests));
             }
         }
 
@@ -158,6 +158,21 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _totalExpesnes = value;
                 OnPropertyChanged(nameof(TotalExpenses));
+            }
+        }
+
+
+        private decimal _total;
+        public decimal Total
+        {
+            get
+            {
+                return _total;
+            }
+            set
+            {
+                _total = value;
+                OnPropertyChanged(nameof(Total));
             }
         }
 

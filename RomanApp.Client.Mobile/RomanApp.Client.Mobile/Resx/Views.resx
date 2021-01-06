@@ -207,6 +207,9 @@
   <data name="Sheet.Outcome.Summary.Total.Expenses" xml:space="preserve">
     <value>Total expenses</value>
   </data>
+  <data name="Sheet.Outcome.Summary.Total.Guests" xml:space="preserve">
+    <value>Total contributions</value>
+  </data>
   <data name="Sheet.Outcome.Unavailable.No.Debtors" xml:space="preserve">
     <value>Nobody owes anything</value>
   </data>

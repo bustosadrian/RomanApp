@@ -98,7 +98,7 @@
                     <Label Grid.Column="0"
                             Text="{x:Static res:Views.Sheet_Card_Footer_Label}" />
                     <Label Grid.Column="1" 
-                            Text="{Binding TotalAmount, Source={x:Reference Self}}" />
+                            Text="{Binding TotalAmount, Source={x:Reference Self}, Converter={StaticResource c_money}}" />
                 </Grid>
             </Grid>
         </Grid>

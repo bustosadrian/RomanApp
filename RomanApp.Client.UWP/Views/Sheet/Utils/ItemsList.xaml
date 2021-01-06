@@ -38,7 +38,7 @@
 
                     <TextBlock Grid.Column="3"  
                                Margin="0 0 10 0"
-                               Text="{Binding Amount}" />
+                               Text="{Binding Amount, Converter={StaticResource c_m}}" />
                 </Grid>
             </Grid>
         </DataTemplate>

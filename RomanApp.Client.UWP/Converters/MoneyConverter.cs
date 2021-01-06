@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using Windows.UI.Xaml.Data;
 
 namespace RomanApp.Client.UWP.Converters
@@ -13,11 +15,20 @@ namespace RomanApp.Client.UWP.Converters
 
             if (value is decimal myNumber)
             {
-                retval = string.Format("{0:0.00}", myNumber);
+                //retval = string.Format("{0:0.00}", myNumber);
 
-                if (retval.EndsWith("00"))
+                //if (retval.EndsWith("00"))
+                //{
+                //    retval = ((int)myNumber).ToString();
+                //}
+                CultureInfo c = new CultureInfo("es-AR");
+                if (myNumber % 1 == 0)
                 {
-                    retval = ((int)myNumber).ToString();
+                    retval = myNumber.ToString("n0", c);
+                }
+                else
+                {
+                    retval = myNumber.ToString("n2", c);
                 }
             }
 

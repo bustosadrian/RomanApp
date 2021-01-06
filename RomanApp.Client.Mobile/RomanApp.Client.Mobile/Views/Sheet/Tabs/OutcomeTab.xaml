@@ -60,6 +60,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
+                                <RowDefinition Height="Auto" />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
@@ -67,26 +68,36 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
+
                             <Label Grid.Row="0" Grid.Column="0" 
                                    Style="{StaticResource OutcomeSummaryConceptStyle}"
-                                   Text="{x:Static res:Views.Sheet_Outcome_Summary_Total}"  />
+                                   Text="{x:Static res:Views.Sheet_Outcome_Summary_Total_Guests}" />
                             <Label Grid.Row="0" Grid.Column="1" 
                                    Style="{StaticResource OutcomeSummaryValueStyle}"
-                                   Text="{Binding Path=Outcome.Total}" />
-
+                                   Text="{Binding Path=Outcome.TotalGuests, Converter={StaticResource c_money}}" />
+                            
                             <Label Grid.Row="1" Grid.Column="0" 
                                    Style="{StaticResource OutcomeSummaryConceptStyle}"
                                    Text="{x:Static res:Views.Sheet_Outcome_Summary_Total_Expenses}" />
                             <Label Grid.Row="1" Grid.Column="1" 
                                    Style="{StaticResource OutcomeSummaryValueStyle}"
-                                   Text="{Binding Path=Outcome.TotalExpenses}" />
+                                   Text="{Binding Path=Outcome.TotalExpenses, Converter={StaticResource c_money}}" />
 
                             <Label Grid.Row="2" Grid.Column="0" 
-                                   Style="{StaticResource OutcomeSummaryConceptStyle}"
-                                   Text="{x:Static res:Views.Sheet_Outcome_Summary_Share}" />
+                                   Style="{StaticResource OutcomeSummaryTotalConceptStyle}"
+                                   Text="{x:Static res:Views.Sheet_Outcome_Summary_Total}"  />
                             <Label Grid.Row="2" Grid.Column="1" 
-                                   Style="{StaticResource OutcomeSummaryValueStyle}"
-                                   Text="{Binding Path=Outcome.Share}" />
+                                   Style="{StaticResource OutcomeSummaryTotalValueStyle}"
+                                   Text="{Binding Path=Outcome.Total, Converter={StaticResource c_money}}" />
+
+                            <c:Separator Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="Center"/>
+
+                            <Label Grid.Row="4" Grid.Column="0" 
+                                   Style="{StaticResource OutcomeSummaryShareConceptStyle}"
+                                   Text="{x:Static res:Views.Sheet_Outcome_Summary_Share}" />
+                            <Label Grid.Row="4" Grid.Column="1"
+                                   Style="{StaticResource OutcomeSummaryShareValueStyle}"
+                                   Text="{Binding Path=Outcome.Share, Converter={StaticResource c_money}}" />
                         </Grid>
                     </Frame>
 

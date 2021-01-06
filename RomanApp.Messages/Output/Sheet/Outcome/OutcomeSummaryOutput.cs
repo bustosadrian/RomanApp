@@ -12,13 +12,19 @@ namespace RomanApp.Messages.Output.Sheet.Outcome
 
         #region Properties
 
-        public decimal Total
+        public decimal TotalGuests
         {
             get;
             set;
         }
 
         public decimal TotalExpenses
+        {
+            get;
+            set;
+        }
+
+        public decimal Total
         {
             get;
             set;

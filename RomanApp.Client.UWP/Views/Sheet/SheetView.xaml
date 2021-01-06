@@ -80,6 +80,7 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
@@ -88,22 +89,29 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="0" 
-                               Text="Total:" 
+                               Text="Total guests:" 
                                FontWeight="Bold" TextAlignment="Right" />
                         <TextBlock Grid.Row="0" Grid.Column="1" 
-                               Text="{Binding Path=Outcome.Total}" />
+                               Text="{Binding Path=Outcome.TotalGuests, Converter={StaticResource c_m}}" />
 
                         <TextBlock Grid.Row="1" Grid.Column="0" 
                                Text="Total expenses:" 
                                FontWeight="Bold" TextAlignment="Right" />
                         <TextBlock Grid.Row="1" Grid.Column="1" 
-                               Text="{Binding Path=Outcome.TotalExpenses}" />
+                               Text="{Binding Path=Outcome.TotalExpenses, Converter={StaticResource c_m}}" />
 
                         <TextBlock Grid.Row="2" Grid.Column="0" 
-                               Text="Share:" 
+                               Text="Total:" 
                                FontWeight="Bold" TextAlignment="Right" />
                         <TextBlock Grid.Row="2" Grid.Column="1" 
-                               Text="{Binding Path=Outcome.Share}" />
+                               Text="{Binding Path=Outcome.Total, Converter={StaticResource c_m}}" />
+
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" 
+                               Text="Share:" 
+                               FontWeight="Bold" TextAlignment="Right" />
+                        <TextBlock Grid.Row="3" Grid.Column="1" 
+                               Text="{Binding Path=Outcome.Share, Converter={StaticResource c_m}}" />
                     </Grid>
 
                     <!-- DETAILS -->

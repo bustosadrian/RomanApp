@@ -331,6 +331,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total contributions.
+        /// </summary>
+        internal static string Sheet_Outcome_Summary_Total_Guests {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Summary.Total.Guests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nobody owes anything.
         /// </summary>
         internal static string Sheet_Outcome_Unavailable_No_Debtors {

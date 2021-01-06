@@ -117,10 +117,11 @@ namespace RomanApp.Controller.MemberStates
         {
             Queue(new OutcomeSummaryOutput()
             {
-                Total = _outcome.Total,
+                TotalGuests = _outcome.TotalGuests,
                 TotalExpenses = _outcome.TotalExpenses,
+                Total = _outcome.Total,
                 Share = _outcome.Share,
-            });
+            }); ;
         }
 
         private void QueueItemSaved()
