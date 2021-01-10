@@ -7,31 +7,32 @@
 
     
     <DataTemplate x:Key="template_item">
-        <Grid Padding="5">
-            <Grid.Resources>
-                <Style ApplyToDerivedTypes="True" TargetType="Label">
-                    <Setter Property="VerticalOptions" Value="Center" />
-                    <Setter Property="Margin" Value="0,0,10,0" />
-                    <Setter Property="FontSize" Value="Small" />
-                </Style>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid Padding="5">
+                <Grid.Resources>
+                    <Style ApplyToDerivedTypes="True" TargetType="Label">
+                        <Setter Property="VerticalOptions" Value="Center" />
+                        <Setter Property="Margin" Value="0,0,10,0" />
+                        <Setter Property="FontSize" Value="Small" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-            <Label Grid.Column="0"
-                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+                <Label Grid.Column="0"
+                       Text="{Binding Name, Converter={StaticResource c_max}}" />
 
-            <Label Grid.Column="1"  
-                   Text="{Binding Amount,Converter={StaticResource c_money}}" />
+                <Label Grid.Column="1"  
+                       Text="{Binding Amount,Converter={StaticResource c_money}}" />
+            </Grid>
         </Grid>
     </DataTemplate>
 
     
     <!-- ItemsCard-->
     <Style ApplyToDerivedTypes="True" x:Key="ItemsCardStyle" TargetType="sheet_controls:ItemsCard">
-        <Setter Property="CornerRadius" Value="5" />
     </Style>
 
     <Style ApplyToDerivedTypes="True" x:Key="ItemsCardContentStyle" TargetType="Grid">
@@ -45,8 +46,14 @@
         <Setter Property="Margin" Value="0,0,5,0" />
         <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
     </Style>
-    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardAddButtonStyle" TargetType="c:IconButton">
-        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    <Style ApplyToDerivedTypes="True" x:Key="ItemsCardAddButtonStyle" TargetType="c:ShapeButton">
+        <Setter Property="Fill" Value="White" />
+        <Setter Property="Stroke" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="StrokeThickness" Value="2" />
+        <Setter Property="Size" Value="40" />
+        <Setter Property="Icon" Value="Plus" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="End" />
     </Style>
     <Style ApplyToDerivedTypes="True" x:Key="ItemsCardItemsStyle" TargetType="c:IconButton">
         <Setter Property="Padding" Value="10,0,10,0" />
@@ -65,6 +72,7 @@
     <Style ApplyToDerivedTypes="True" x:Key="ItemsCardEmptyLabelStyle" TargetType="Label">
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontSize" Value="Medium" />
         <Setter Property="FontAttributes" Value="Bold" />
         <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />

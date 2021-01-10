@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+      mc:Ignorable="d"
+      Margin="0" Padding="0"
+      x:Class="RomanApp.Client.Mobile.Controls.ShapeButton"
+      x:Name="Self">
+
+    <Ellipse x:Name="Shape" 
+             Fill="{Binding Fill, Source={x:Reference Self}}"
+             WidthRequest="{Binding Size, Source={x:Reference Self}}" 
+             HeightRequest="{Binding Size, Source={x:Reference Self}}"
+             StrokeThickness="{Binding StrokeThickness, Source={x:Reference Self}}">
+    </Ellipse>
+
+    <c:Icon Value="{Binding Icon, Source={x:Reference Self}}"
+            Padding="0" Margin="0"
+            HorizontalTextAlignment="Center"
+            HorizontalOptions="Center" VerticalOptions="Center"
+            TextColor="{Binding Stroke, Source={x:Reference Self}}" />
+    
+
+</Grid>

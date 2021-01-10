@@ -25,6 +25,8 @@ namespace RomanApp.Client.Mobile
 
         public App()
         {
+            Device.SetFlags(new[] { "Shapes_Experimental", "Brush_Experimental" });
+
             InitializeComponent();
 
             MainPage = new MainPage();

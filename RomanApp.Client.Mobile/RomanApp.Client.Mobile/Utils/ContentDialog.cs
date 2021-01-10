@@ -1,6 +1,8 @@
 ﻿using RomanApp.Client.Mobile.Controls;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,6 +15,8 @@ namespace RomanApp.Client.Mobile.Utils
         private Grid _mainGrid;
 
         private TaskCompletionSource<object> _task;
+
+        private ContentDialogButton _backButton;
 
         public ContentDialog()
         {
@@ -29,11 +33,20 @@ namespace RomanApp.Client.Mobile.Utils
         {
             CreateContent();
 
-            var page = new ContentPage();
+            var page = new DialogPage();
             page.Title = Title;
             page.Content = _mainGrid;
+            if(_backButton != null)
+            {
+                page.BackPressed += Page_BackPressed;
+            }
 
             Navigation.PushModalAsync(page);
+        }
+
+        private void Page_BackPressed(object sender, EventArgs e)
+        {
+            Action(_backButton);
         }
 
         public Task<object> Wait()
@@ -53,53 +66,52 @@ namespace RomanApp.Client.Mobile.Utils
                 },
             };
 
+            _backButton = _buttons.SingleOrDefault(x => x.IsBack);
+
             Toolbar toolbar = new Toolbar(new ObservableCollection<ToolbarButton>(_buttons));
 
             toolbar.ButtonTapped += Toolbar_ButtonTapped;
-            //toolbar.BackgroundColor = Color.FromHex("#001b00");
-            //toolbar.ButtonsSize = 64;
-            //toolbar.Padding = new Thickness(15);
 
             _mainGrid.Children.Add(toolbar, 0, 1);
             _mainGrid.Children.Add(Content, 0, 0);
         }
 
-        
-
-        //private void CreateButtons()
-        //{
-        //    int column = 0;
-        //    foreach(var o in _buttons)
-        //    {
-        //        var button = new Button
-        //        {
-        //            Text = o.Text,
-        //        };
-        //        button.Clicked += async (s, e) =>
-        //        {
-        //            if (o.CloseDialog)
-        //            {
-        //                await Navigation.PopModalAsync();
-        //            }
-        //            _task.SetResult(o.Result);
-        //        };
-
-        //        o.Button = button;
-        //        _toolbarGrid.Children.Add(button, column, 0);
-                
-        //        column++;
-        //    }
-        //}
-
-        private async void Toolbar_ButtonTapped(object sender, EventArgs e)
+        private void Toolbar_ButtonTapped(object sender, EventArgs e)
         {
-            ContentDialogButton button = (ContentDialogButton)sender;
+            try
+            {
+                if ("1".Equals("1"))
+                {
+                    throw new NullReferenceException("From dialog");
+                }
+                ContentDialogButton button = (ContentDialogButton)sender;
+                Action(button);
+            }
+            catch (Exception ex)
+            {
+                RaiseOnError(ex);
+            }
+        }
+
+        private async void Action(ContentDialogButton button)
+        {
             if (button.CloseDialog)
             {
                 await Navigation.PopModalAsync();
             }
             _task.SetResult(button.Result);
         }
+
+        #region Events
+
+        public event EventHandler<ErrorEventArgs> OnError;
+        private void RaiseOnError(Exception e)
+        {
+            OnError?.Invoke(this, new ErrorEventArgs(e));
+        }
+
+
+        #endregion
 
         #region Properties
 
@@ -141,6 +153,31 @@ namespace RomanApp.Client.Mobile.Utils
         {
             get;
             set;
+        }
+
+        internal bool IsBack
+        {
+            get;
+            set;
+        }
+
+        #endregion
+    }
+
+    public sealed class DialogPage : ContentPage
+    {
+        protected override bool OnBackButtonPressed()
+        {
+            RaiseBackPressed();
+            return true;
+        }
+
+        #region Events
+
+        public event EventHandler BackPressed;
+        private void RaiseBackPressed()
+        {
+            BackPressed?.Invoke(this, new EventArgs());
         }
 
         #endregion

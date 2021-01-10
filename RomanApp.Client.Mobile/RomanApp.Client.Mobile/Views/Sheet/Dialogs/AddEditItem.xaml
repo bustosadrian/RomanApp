@@ -45,7 +45,7 @@
 
                     <Label Text="{Binding ItemType, Converter={StaticResource c_h_add}}"
                            IsVisible="{Binding IsEditing, Converter={StaticResource c_n}}" />
-                    <Label Text="{Binding Name, Mode=OneTime, Converter={StaticResource c_max}"
+                    <Label Text="{Binding Name, Mode=OneTime, Converter={StaticResource c_max}}"
                            IsVisible="{Binding IsEditing}" />
                 </StackLayout>
                 <c:Separator Grid.Row="1" />

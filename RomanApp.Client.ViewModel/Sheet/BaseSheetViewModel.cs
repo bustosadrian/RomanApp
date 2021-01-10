@@ -7,6 +7,7 @@ using RomanApp.Messages;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Sheet;
 using RomanApp.Messages.Output.Sheet;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -24,26 +25,6 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
 
 
         protected abstract void OnNewItem(ItemType itemType);
-
-
-        protected void OnGoToSettings()
-        {
-            Send(new GoToSettingsInput());
-        }
-
-        protected void OnGoToHelp()
-        {
-            Send(new GoToHelpInput());
-        }
-
-        protected void OnNewGuest()
-        {
-            OnNewItem(ItemType.Guest);
-        }
-        protected void OnNewExpense()
-        {
-            OnNewItem(ItemType.Expense);
-        }
 
         protected void Reset()
         {
@@ -102,6 +83,56 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
 
             return retval;
         }
+
+        #region Command Methods
+
+        protected void OnGoToSettings()
+        {
+            try
+            {
+                Send(new GoToSettingsInput());
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+        protected void OnGoToHelp()
+        {
+            try
+            {
+                Send(new GoToHelpInput());
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
+        protected void OnNewGuest()
+        {
+            try
+            {
+                OnNewItem(ItemType.Guest);
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+        protected void OnNewExpense()
+        {
+            try
+            {
+                OnNewItem(ItemType.Expense);
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
+        #endregion
 
         #region Commands
 

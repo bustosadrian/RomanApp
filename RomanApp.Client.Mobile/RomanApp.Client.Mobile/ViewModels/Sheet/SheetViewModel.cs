@@ -6,6 +6,7 @@ using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using RomanApp.Messages.Output.Sheet;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -31,45 +32,63 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
                 canExecute: () => IsResetEnabled
                 );
 
-            EditItemCommand = new Command<ItemRowViewModel>(OnItemSelected);
+            EditItemCommand = new Command<ItemRowViewModel>(OnEditCommand);
         }
 
         protected override void ChangeCanExecute(ICommand command)
         {
-            ((Command)command).ChangeCanExecute();
+            try
+            {
+                ((Command)command).ChangeCanExecute();
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         protected override void OnNewItem(ItemType itemType)
         {
-            _addEditItemDialog = new AddEditItemDialog(itemType, false);
-            _addEditItemDialog.Show();
-            WaitForAddEditItemResult();
+            if(_addEditItemDialog == null)
+            {
+                _addEditItemDialog = new AddEditItemDialog(itemType, false);
+                _addEditItemDialog.OnError += AddEditItemDialog_OnError;
+                _addEditItemDialog.Show();
+                WaitForAddEditItemResult();
+            }
         }
 
-        private void OnItemSelected(ItemRowViewModel item)
-        {
-            _addEditItemDialog = new AddEditItemDialog(item.Id, item.Type, true, item.Name, item.Amount);
-            _addEditItemDialog.Show();
-            WaitForAddEditItemResult();
-        }
 
         private async void CloseAddEditItemDialog()
         {
-            await Navigation.PopModalAsync();
-
-            _addEditItemDialog = null;
+            try
+            {
+                _addEditItemDialog = null;
+                await Navigation.PopModalAsync();
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         private async void OnReset()
         {
-            var answer = await Application.Current.MainPage.DisplayAlert(
-                RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Header,
-                RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Verbiage,
-                RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Action_Yes,
-                RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Action_No);
-            if (answer)
+            try
             {
-                Reset();
+                var answer = await Application.Current.MainPage.DisplayAlert(
+                    RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Header,
+                    RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Verbiage,
+                    RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Action_Yes,
+                    RomanApp.Client.Mobile.Resx.Views.Sheet_Dialog_Reset_Action_No);
+                if (answer)
+                {
+                    Reset();
+                }
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
             }
         }
 
@@ -77,22 +96,57 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
 
         private async void WaitForAddEditItemResult()
         {
-            var result = await _addEditItemDialog.Wait();
-
-            switch (result)
+            try
             {
-                case AddEditItemResult.Ok:
-                    SaveItem(_addEditItemDialog.ViewModel);
-                    break;
-                case AddEditItemResult.Delete:
-                    Delete(_addEditItemDialog.ViewModel);
-                    CloseAddEditItemDialog();
-                    break;
-                case AddEditItemResult.Cancel:
-                    CloseAddEditItemDialog();
-                    break;
+                var result = await _addEditItemDialog.Wait();
+
+                switch (result)
+                {
+                    case AddEditItemResult.Ok:
+                        SaveItem(_addEditItemDialog.ViewModel);
+                        break;
+                    case AddEditItemResult.Delete:
+                        Delete(_addEditItemDialog.ViewModel);
+                        CloseAddEditItemDialog();
+                        break;
+                    case AddEditItemResult.Cancel:
+                        CloseAddEditItemDialog();
+                        break;
+                }
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
             }
         }
+
+        private void AddEditItemDialog_OnError(object sender, System.IO.ErrorEventArgs e)
+        {
+            _addEditItemDialog = null;
+            HandleError(e.GetException());
+        }
+
+        #region Command Methods
+
+        private void OnEditCommand(ItemRowViewModel item)
+        {
+            try
+            {
+                if (_addEditItemDialog == null)
+                {
+                    _addEditItemDialog = new AddEditItemDialog(item.Id, item.Type, true, item.Name, item.Amount);
+                    _addEditItemDialog.OnError += AddEditItemDialog_OnError;
+                    _addEditItemDialog.Show();
+                    WaitForAddEditItemResult();
+                }
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
+        #endregion
 
         #region Commands
 

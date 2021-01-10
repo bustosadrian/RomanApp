@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace RomanApp.Client.Mobile.Views.Sheet.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemsCard : Frame
+    public partial class ItemsCard : Grid
     {
         public ItemsCard()
         {

@@ -7,6 +7,7 @@
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.App">
     <Application.Resources>
+       
         <!-- Converters -->
         <converter:NegateConverter x:Key="c_n" />
         <converter:MaxLengthConverter x:Key="c_max" />
@@ -38,7 +39,6 @@
             <On Platform="iOS" Value="FontAwesome5Free-Regular" />
             <!--<On Platform="UWP" Value="/Assets/FontAwesome5Regular.otf#Font Awesome 5 Free" />-->
         </OnPlatform>
-
 
         <!-- Styles -->
         <ResourceDictionary Source="Styles/Pallete.xaml" />

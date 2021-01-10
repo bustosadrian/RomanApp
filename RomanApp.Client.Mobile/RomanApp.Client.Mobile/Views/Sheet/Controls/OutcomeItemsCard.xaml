@@ -14,36 +14,51 @@
         <ResourceDictionary Source="/Styles/Sheet.xaml" />
     </Frame.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
 
-        <Grid Grid.Row="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.Resources>
-                    <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderStyle}" />
-                </Grid.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderStyle}" />
+            </Grid.Resources>
 
-                <Label Grid.Column="0"
+            <Label Grid.Column="0"
                        Text="{Binding GroupName, Source={x:Reference Self}}" />
-                <Label Grid.Column="1" 
+            <Label Grid.Column="1" 
                        Text="{Binding Count, Source={x:Reference Self}}" />
-            </Grid>
         </Grid>
 
         <c:Separator Grid.Row="1" />
 
-        <Grid Grid.Row="2">
-            <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
-                      ItemTemplate="{StaticResource template_outcome_item}">
-            </c:Repeat>
-        </Grid>
-    </Grid>
+
+        <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}">
+            <c:Repeat.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <Style ApplyToDerivedTypes="True" TargetType="Label">
+                                <Setter Property="VerticalOptions" Value="Center" />
+                                <Setter Property="Margin" Value="0,0,10,0" />
+                                <Setter Property="FontSize" Value="Small" />
+                            </Style>
+                        </Grid.Resources>
+
+                        <Label Grid.Column="0"
+                                   LineBreakMode="NoWrap"
+                                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+
+                        <Label Grid.Column="1"  
+                                   Text="{Binding Amount, Converter={StaticResource c_money}}" />
+                    </Grid>
+                </DataTemplate>
+            </c:Repeat.ItemTemplate>
+        </c:Repeat>
+    </StackLayout>
 </Frame>

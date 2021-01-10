@@ -32,7 +32,7 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
             {
                 AddButton(new ContentDialogButton() { Icon = Icons.TrashAltSolid, Color = Color.Red, Result = AddEditItemResult.Delete });
             }
-            AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel });
+            AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel, IsBack = true, });
             AddButton(new ContentDialogButton() { Icon = Icons.CheckCircleRegular, Color = Color.Lime, Result = AddEditItemResult.Ok, CloseDialog = false });
         }
 

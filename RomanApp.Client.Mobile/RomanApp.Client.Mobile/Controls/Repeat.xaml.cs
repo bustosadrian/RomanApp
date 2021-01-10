@@ -1,4 +1,5 @@
 ﻿using RomanApp.Client.Mobile.Services;
+using RomanApp.Client.Mobile.Styles;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace RomanApp.Client.Mobile.Controls
             InitializeComponent();
             
             _soundService =  DependencyService.Get<ISoundService>();
+
+            Resources.Add(new Pallete());
         }
 
         private void ResetRows()
@@ -48,16 +51,34 @@ namespace RomanApp.Client.Mobile.Controls
 
         private void AddRow(object row)
         {
-            var tapped = new TapGestureRecognizer();
-            tapped.Tapped += Tgr_Tapped;
+            
 
             var itemContent = (View)ItemTemplate.CreateContent();
             if (itemContent != null)
             {
-                itemContent.GestureRecognizers.Add(tapped);
-                itemContent.BindingContext = row;
-                Children.Add(itemContent);
+                Children.Add(WrapContent(itemContent, row));
             }
+        }
+
+        private Grid WrapContent(View content, object row)
+        {
+            Grid retval = null;
+
+            retval = new Grid();
+            retval.BindingContext = row;
+            BoxView selectionBox = new BoxView();
+            selectionBox.BackgroundColor = (Color)Resources["main-color-bright"];
+            selectionBox.Opacity = 0;
+
+            retval.Children.Add(selectionBox, 0, 0);
+            retval.Children.Add(content, 0, 0);
+
+            var tapped = new TapGestureRecognizer();
+            tapped.Tapped += Tgr_Tapped;
+            retval.GestureRecognizers.Add(tapped);
+
+
+            return retval;
         }
 
         private void RemoveRows(IEnumerable rows)
@@ -77,13 +98,18 @@ namespace RomanApp.Client.Mobile.Controls
             }
         }
 
-        private void Tgr_Tapped(object sender, System.EventArgs e)
+        private async void Tgr_Tapped(object sender, System.EventArgs e)
         {
             if(SelectedCommand != null)
             {
+                Grid contentWrapper = (Grid)sender;
+                var selectionBox = contentWrapper.Children.First();
+                selectionBox.Opacity = 1;
+                await selectionBox.FadeTo(0, 250);
+                
                 _soundService.Click();
-                var item = (BindableObject)sender;
-                Execute(SelectedCommand, item.BindingContext);
+                
+                Execute(SelectedCommand, contentWrapper.BindingContext);
             }
         }
 

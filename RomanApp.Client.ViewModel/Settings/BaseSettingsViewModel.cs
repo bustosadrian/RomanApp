@@ -2,6 +2,7 @@
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Settings;
 using RomanApp.Messages.Output.Settings;
+using System;
 using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.Settings
@@ -16,11 +17,18 @@ namespace RomanApp.Client.ViewModel.Settings
 
         private void SaveWholeNumbers()
         {
-            Send(new SaveSettingsInput()
+            try
             {
-                UseWholeNumberSet = true,
-                UseWholeNumbers = IsUseWholeNumbers,
-            });
+                Send(new SaveSettingsInput()
+                {
+                    UseWholeNumberSet = true,
+                    UseWholeNumbers = IsUseWholeNumbers,
+                });
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         #region Command

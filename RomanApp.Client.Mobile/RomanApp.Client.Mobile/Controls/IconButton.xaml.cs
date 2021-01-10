@@ -29,8 +29,11 @@ namespace RomanApp.Client.Mobile.Controls
             GestureRecognizers.Add(gesture);
         }
 
-        private void Gesture_Tapped(object sender, System.EventArgs e)
+        private async void Gesture_Tapped(object sender, System.EventArgs e)
         {
+            await this.ScaleTo(.75, 10);
+            await this.ScaleTo(1, 10);
+
             _soundService.Click();
             RaiseTapped();
             if (Command != null)
