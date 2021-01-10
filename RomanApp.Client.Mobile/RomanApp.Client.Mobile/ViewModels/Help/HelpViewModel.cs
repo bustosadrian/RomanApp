@@ -6,10 +6,5 @@ namespace RomanApp.Client.Mobile.ViewModels.Help
     public class HelpViewModel : BaseHelpViewModel
     {
 
-        public HelpViewModel()
-        {
-            BackCommand = new Command(OnBack);
-        }
-
     }
 }

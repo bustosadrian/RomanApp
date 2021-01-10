@@ -1,20 +1,12 @@
 ﻿using Reedoo.NET.Messages;
-using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Settings;
 using RomanApp.Messages.Output.Settings;
 using System;
-using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.Settings
 {
     public abstract class BaseSettingsViewModel : BusViewModel
     {
-
-        protected void OnBack()
-        {
-            Send(new BackInput());
-        }
-
         private void SaveWholeNumbers()
         {
             try
@@ -32,13 +24,7 @@ namespace RomanApp.Client.ViewModel.Settings
         }
 
         #region Command
-
-        public ICommand BackCommand
-        {
-            get;
-            protected set;
-        }
-
+       
         #endregion
 
 

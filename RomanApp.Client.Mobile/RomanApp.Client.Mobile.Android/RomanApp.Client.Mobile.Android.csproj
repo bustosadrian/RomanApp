@@ -53,10 +53,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Platform\NavigationPageRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\SoundService.cs" />
@@ -91,6 +92,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\RomanApp.Client.ViewModel\RomanApp.Client.ViewModel.csproj">
+      <Project>{2316AD27-EE34-4678-9DAC-1D1C99069470}</Project>
+      <Name>RomanApp.Client.ViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RomanApp.Client.Mobile\RomanApp.Client.Mobile.csproj">
       <Project>{8015A5C6-A30F-491F-A546-0FFE889BA624}</Project>
       <Name>RomanApp.Client.Mobile</Name>

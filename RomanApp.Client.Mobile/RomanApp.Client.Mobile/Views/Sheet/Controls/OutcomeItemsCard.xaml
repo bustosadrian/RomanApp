@@ -51,11 +51,12 @@
                         </Grid.Resources>
 
                         <Label Grid.Column="0"
-                                   LineBreakMode="NoWrap"
-                                   Text="{Binding Name, Converter={StaticResource c_max}}" />
+                               LineBreakMode="NoWrap"
+                               Text="{Binding Name, Converter={StaticResource c_max}}" />
 
                         <Label Grid.Column="1"  
-                                   Text="{Binding Amount, Converter={StaticResource c_money}}" />
+                               Text="{Binding Amount, Converter={StaticResource c_money}}" 
+                               IsVisible="{Binding ShowAmount, Source={x:Reference Self}}"/>
                     </Grid>
                 </DataTemplate>
             </c:Repeat.ItemTemplate>

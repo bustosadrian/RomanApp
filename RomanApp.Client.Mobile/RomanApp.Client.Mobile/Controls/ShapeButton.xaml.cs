@@ -75,45 +75,21 @@ namespace RomanApp.Client.Mobile.Controls
 
         #region Properties
 
-        public static readonly BindableProperty SizeProperty = BindableProperty.Create(nameof(Size),
-                typeof(double), typeof(ShapeButton), (double)0);
-        public double Size
-        {
-            get { return (double)GetValue(SizeProperty); }
-            set { SetValue(SizeProperty, value); }
-        }
-
         public static readonly BindableProperty FillProperty = BindableProperty.Create(nameof(Fill),
-        typeof(Brush), typeof(ShapeButton), new SolidColorBrush(Color.White));
-        public Brush Fill
+        typeof(Color), typeof(ShapeButton), Color.White);
+        public Color Fill
         {
-            get { return (Brush)GetValue(FillProperty); }
+            get { return (Color)GetValue(FillProperty); }
             set { SetValue(FillProperty, value); }
         }
 
         public static readonly BindableProperty StrokeProperty = BindableProperty.Create(nameof(Stroke),
-        typeof(Color), typeof(ShapeButton), Color.White, propertyChanged: OnStrokeChanged);
+        typeof(Color), typeof(ShapeButton), Color.White);
         public Color Stroke
         {
             get { return (Color)GetValue(StrokeProperty); }
             set { SetValue(StrokeProperty, value); }
         }
-
-        public static readonly BindableProperty StrokeThicknessProperty = BindableProperty.Create(nameof(StrokeThickness),
-                typeof(double), typeof(ShapeButton), (double)1);
-        public double StrokeThickness
-        {
-            get { return (double)GetValue(StrokeThicknessProperty); }
-            set { SetValue(SizeProperty, value); }
-        }
-
-        private static void OnStrokeChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            ShapeButton me = (ShapeButton)bindable;
-            SolidColorBrush brush = newValue != null ? new SolidColorBrush((Color)newValue) : null;
-            me.Shape.Stroke = brush;
-        }
-
 
         public static readonly BindableProperty IconProperty = BindableProperty.Create(nameof(Icon),
                 typeof(Icons), typeof(ShapeButton), null);

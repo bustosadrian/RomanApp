@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Messages.Input;
 using Reedoo.NET.XAML;
+using RomanApp.Messages.Input;
 using System;
 
 namespace RomanApp.Client.ViewModel
@@ -9,6 +10,11 @@ namespace RomanApp.Client.ViewModel
         public virtual void Send(InputMessage message)
         {
             Bus.Send(message);
+        }
+
+        public void GoBack()
+        {
+            Send(new BackInput());
         }
 
         protected void HandleError(Exception e)

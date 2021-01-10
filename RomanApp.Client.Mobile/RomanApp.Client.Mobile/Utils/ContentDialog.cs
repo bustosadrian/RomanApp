@@ -80,10 +80,6 @@ namespace RomanApp.Client.Mobile.Utils
         {
             try
             {
-                if ("1".Equals("1"))
-                {
-                    throw new NullReferenceException("From dialog");
-                }
                 ContentDialogButton button = (ContentDialogButton)sender;
                 Action(button);
             }

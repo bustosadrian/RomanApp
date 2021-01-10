@@ -14,6 +14,9 @@ namespace RomanApp.Client.Mobile.Views.Sheet
         public SheetView()
         {
             InitializeComponent();
+            
+            NavigationPage.SetBackButtonTitle(this, "");
+            NavigationPage.SetHasBackButton(this, false);
         }
     }
 }

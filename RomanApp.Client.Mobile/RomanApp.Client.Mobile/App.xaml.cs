@@ -29,7 +29,7 @@ namespace RomanApp.Client.Mobile
 
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
 
             LoadDependencies();
 

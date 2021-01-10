@@ -43,6 +43,15 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Controls
             set { SetValue(CountProperty, value); }
         }
 
+        public static readonly BindableProperty ShowAmountProperty = BindableProperty.Create(nameof(ShowAmount),
+        typeof(bool), typeof(OutcomeItemsCard), true);
+
+        public bool ShowAmount
+        {
+            get { return (bool)GetValue(ShowAmountProperty); }
+            set { SetValue(ShowAmountProperty, value); }
+        }
+
         #endregion
     }
 }

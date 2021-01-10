@@ -105,7 +105,8 @@
                         <sc:OutcomeItemsCard Grid.Row="2" ItemsSource="{Binding Path=Outcome.Evens}" 
                                              GroupName="{x:Static res:Views.Sheet_Outcome_Group_Even_Header}"
                                              Count="{Binding Path=Outcome.EvensCount}"
-                                             IsVisible="{Binding Path=Outcome.IsShowEvens}" />
+                                             IsVisible="{Binding Path=Outcome.IsShowEvens}" 
+                                             ShowAmount="False" />
                     </Grid>
                 </Grid>
             </Grid>

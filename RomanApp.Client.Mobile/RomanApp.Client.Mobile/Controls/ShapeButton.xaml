@@ -9,12 +9,11 @@
       x:Class="RomanApp.Client.Mobile.Controls.ShapeButton"
       x:Name="Self">
 
-    <Ellipse x:Name="Shape" 
-             Fill="{Binding Fill, Source={x:Reference Self}}"
-             WidthRequest="{Binding Size, Source={x:Reference Self}}" 
-             HeightRequest="{Binding Size, Source={x:Reference Self}}"
-             StrokeThickness="{Binding StrokeThickness, Source={x:Reference Self}}">
-    </Ellipse>
+    <Frame x:Name="Shape" 
+           BackgroundColor="{Binding Fill, Source={x:Reference Self}}"
+           CornerRadius="25"
+           BorderColor="{Binding Stroke, Source={x:Reference Self}}">
+    </Frame>
 
     <c:Icon Value="{Binding Icon, Source={x:Reference Self}}"
             Padding="0" Margin="0"

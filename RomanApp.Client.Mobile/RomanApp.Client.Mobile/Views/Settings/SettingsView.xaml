@@ -1,24 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<p:NavigablePage xmlns="http://xamarin.com/schemas/2014/forms"
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
+             xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
            xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
              xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
            x:Class="RomanApp.Client.Mobile.Views.Settings.SettingsView"
            Title="{x:Static res:Views.Settings_Title}">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Primary" Priority="0"
-                     Command="{Binding BackCommand}">
-            <ToolbarItem.IconImageSource>
-                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}"
-                                 Glyph="{x:Static f:FontAwesomeIcons.ChevronLeft}" />
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-
 
     <ContentPage.Content>
         <TableView>
@@ -30,4 +20,4 @@
             </TableRoot>
         </TableView>
     </ContentPage.Content>
-</ContentPage>
+</p:NavigablePage>

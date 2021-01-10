@@ -8,19 +8,7 @@ namespace RomanApp.Client.ViewModel.Help
 {
     public class BaseHelpViewModel : BusViewModel
     {
-        protected void OnBack()
-        {
-            Send(new BackInput());
-        }
-
-
         #region Commands
-
-        public ICommand BackCommand
-        {
-            get;
-            protected set;
-        }
 
         #endregion
 

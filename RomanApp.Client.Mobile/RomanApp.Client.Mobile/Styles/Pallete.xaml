@@ -16,6 +16,4 @@
 
     <Color x:Key="text">#8bc34a</Color>
 
-    <SolidColorBrush x:Key="main-color-dark-brush" Color="#005901" />
-
 </ResourceDictionary>
