@@ -6,11 +6,12 @@
                  xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
                  xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
                  xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+                 xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
                  xmlns:hc="clr-namespace:RomanApp.Client.Mobile.Controls.Help"
                  xmlns:converters="clr-namespace:RomanApp.Client.Mobile.Converters"
                  xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Help"
                  mc:Ignorable="d"
-                 Title="{x:Static res:Native.Help}"
+                 Title="{x:Static res:Views.Help_Title}"
                  x:Class="RomanApp.Client.Mobile.Views.Help.HelpView">
     
     <p:NavigablePage.Resources>
@@ -19,6 +20,16 @@
 
         <ResourceDictionary Source="/Styles/Help.xaml" />
     </p:NavigablePage.Resources>
+
+    <p:NavigablePage.ToolbarItems>
+        <ToolbarItem Order="Primary" Priority="0"
+                     Command="{Binding GoToIndexCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="{StaticResource FontAwesomeSolid}"
+                                 Glyph="{x:Static f:FontAwesomeIcons.List}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </p:NavigablePage.ToolbarItems>
     
     
     <ContentPage.Content>

@@ -13,6 +13,16 @@ namespace RomanApp.Client.ViewModel.Help
     {
         #region Command Methods
 
+        public BaseHelpViewModel()
+        {
+            RelatedTopics = new ObservableCollection<RelatedTopicViewModel>();
+        }
+
+        protected void OnGoToIndex()
+        {
+            Send(new GoToHelpIndexInput());
+        }
+
         protected void OnSeeAlso(RelatedTopicViewModel relatedTopicViewModel)
         {
             Send(new SeeAlsoInput(){
@@ -23,6 +33,12 @@ namespace RomanApp.Client.ViewModel.Help
         #endregion
 
         #region Commands
+
+        public ICommand GoToIndexCommand
+        {
+            get;
+            protected set;
+        }
 
         public ICommand SeeAlsoCommand
         {
@@ -39,8 +55,11 @@ namespace RomanApp.Client.ViewModel.Help
         {
             Topic = message.Topic;
 
-            RelatedTopics = new ObservableCollection<RelatedTopicViewModel>(
-                message.RelatedTopics.Select(x => new RelatedTopicViewModel(x)));
+            RelatedTopics.Clear();
+            foreach(var o in message.RelatedTopics)
+            {
+                RelatedTopics.Add(new RelatedTopicViewModel(o));
+            }
 
             return true;
         }

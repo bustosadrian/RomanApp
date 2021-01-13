@@ -159,6 +159,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An overall view about RomanApp..
+        /// </summary>
+        internal static string Overview_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Overview.Help.Topic.Quick.Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 
         ///      
         ///      This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building. &lt;br /&gt;&lt;br /&gt;
@@ -310,6 +319,15 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Input_Help_Topic {
             get {
                 return ResourceManager.GetString("Sheet.Input.Help.Topic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detailed explanation of the input tab, its components and its usage..
+        /// </summary>
+        internal static string Sheet_Input_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Sheet.Input.Help.Topic.Quick.Summary", resourceCulture);
             }
         }
         
@@ -723,6 +741,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detailed explanation of how to read the outcome of an event calculation..
+        /// </summary>
+        internal static string Sheet_Outcome_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Help.Topic.Quick.Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This is the coefficient between the total amount and the number of guests. The share is what each guest is &lt;strong&gt;supposed&lt;/strong&gt; to pay..
         /// </summary>
         internal static string Sheet_Outcome_Summary_Share_Description {
@@ -837,6 +864,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A first glace of the main panel..
+        /// </summary>
+        internal static string Sheet_Overview_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Sheet.Overview.Help.Topic.Quick.Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to For more information on how to work with this portion of the panel check the &lt;strong&gt;Input Tab&lt;/strong&gt; link in the &lt;strong&gt;&quot;See Also&quot;&lt;/strong&gt; section below..
         /// </summary>
         internal static string Sheet_Overview_Summary_Note_Input {
@@ -901,6 +937,15 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Settings_Help_Topic {
             get {
                 return ResourceManager.GetString("Sheet.Settings.Help.Topic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Definition of each configuration property. Their purpose and their impact in the app..
+        /// </summary>
+        internal static string Sheet_Settings_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Sheet.Settings.Help.Topic.Quick.Summary", resourceCulture);
             }
         }
         

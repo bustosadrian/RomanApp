@@ -60,6 +60,16 @@ namespace RomanApp.Controller.MemberStates
         #region Messages
 
         [Reader]
+        public void Action(GoToHelpIndexInput message)
+        {
+            ChangeState(typeof(HelpIndexMemberState), new HelpIndexParameters()
+            {
+                PreviousState = Type.GetType(PreviousState),
+                Topic = Topic,
+            });
+        }
+
+        [Reader]
         public void Action(SeeAlsoInput message)
         {
             Topic = message.Topic;

@@ -3,9 +3,9 @@ using System;
 
 namespace RomanApp.Controller.MemberStates.Parameters
 {
-    public class HelpParameters
+    public class HelpIndexParameters
     {
-        #region Properties
+        #region Properites
 
         public HelpTopic Topic
         {
@@ -18,6 +18,7 @@ namespace RomanApp.Controller.MemberStates.Parameters
             get;
             set;
         }
+
 
         #endregion
     }

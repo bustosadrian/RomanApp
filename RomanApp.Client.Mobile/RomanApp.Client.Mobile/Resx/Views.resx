@@ -225,4 +225,14 @@
   <data name="Sheet.Title" xml:space="preserve">
     <value>RomanApp</value>
   </data>
+  <data name="Help.Title" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HelpIndex.Title" xml:space="preserve">
+    <value>Help index</value>
+  </data>
+  <data name="HelpIndex.Header" xml:space="preserve">
+    <value>How can I help you with?</value>
+  </data>
+
 </root>

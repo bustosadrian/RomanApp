@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<p:NavigablePage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
+                 xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+                 xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
+                 xmlns:converters="clr-namespace:RomanApp.Client.Mobile.Converters"
+                 xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+                 mc:Ignorable="d"
+                 x:Class="RomanApp.Client.Mobile.Views.HelpIndex.HelpIndexView"
+                 Title="{x:Static res:Views.HelpIndex_Title}">
+
+    <p:NavigablePage.Resources>
+        <converters:HelpTopicConverter x:Key="c_ht" />
+        <converters:HelpTopicConverter x:Key="c_htqs" ForQuickSummary="True" />
+
+        <ResourceDictionary Source="/Styles/HelpIndex.xaml" />
+
+        <DataTemplate x:Key="template_topic">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" 
+                       Text="{x:Static f:FontAwesomeIcons.Circle}"
+                       FontFamily="{StaticResource FontAwesomeSolid}"
+                       Style="{StaticResource TopicBulletpointStyle}" />
+                    
+                <Label Grid.Row="0" Grid.Column="1" 
+                       Text="{Binding Topic, Converter={StaticResource c_ht}}" 
+                       Style="{StaticResource TopicHeaderStyle}" />
+
+                <Label Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding Topic, Converter={StaticResource c_htqs}}" 
+                       Style="{StaticResource TopicQuickSummaryStyle}"/>
+
+                <c:Repeat Grid.Row="2" Grid.Column="1" 
+                          ItemsSource="{Binding SubTopics}"
+                          ItemTemplate="{StaticResource template_topic}" 
+                          SelectedCommand="{Binding SelectedTopicCommand}" />
+            </Grid>
+        </DataTemplate>
+    </p:NavigablePage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{x:Static res:Views.HelpIndex_Header}"
+                       Style="{StaticResource HeaderStyle}"/>
+                <c:Separator />
+                <Grid Style="{StaticResource MainContentStyle}">
+                    <c:Repeat ItemsSource="{Binding Topics}" 
+                              ItemTemplate="{StaticResource template_topic}" 
+                              SelectedCommand="{Binding SelectedTopicCommand}"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</p:NavigablePage>

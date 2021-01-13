@@ -120,6 +120,9 @@
   <data name="Overview.Help.Topic" xml:space="preserve">
     <value>Overview</value>
   </data>
+  <data name="Overview.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>An overall view about RomanApp.</value>
+  </data>
   <data name="Overview.Header" xml:space="preserve">
     <value>Help</value>
   </data>
@@ -129,7 +132,7 @@
       This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building. <br /><br />
       You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you were currently working on.<br /><br />
       For example if you access the help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.<br /><br />
-      But don't worry. Once there you can navigate to any section you need.<br /><br />
+      But don't worry. You can access any section or topic you need by tapping the index button at the top right corner.<br /><br />
       One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.
       ]]></value>
   </data>
@@ -181,6 +184,9 @@
   <data name="Sheet.Overview.Help.Topic" xml:space="preserve">
     <value>Main panel</value>
   </data>
+  <data name="Sheet.Overview.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>A first glace of the main panel.</value>
+  </data>
   <data name="Sheet.Overview.Summary.Part1" xml:space="preserve">
     <value>
     <![CDATA[
@@ -219,6 +225,9 @@
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Input.Help.Topic" xml:space="preserve">
     <value>Input tab</value>
+  </data>
+  <data name="Sheet.Input.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>Detailed explanation of the input tab, its components and its usage.</value>
   </data>
   <data name="Sheet.Input.Summary" xml:space="preserve">
     <value>
@@ -352,6 +361,9 @@
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Outcome.Help.Topic" xml:space="preserve">
     <value>Outcome tab</value>
+  </data>
+  <data name="Sheet.Outcome.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>Detailed explanation of how to read the outcome of an event calculation.</value>
   </data>
   <data name="Sheet.Output.Summary" xml:space="preserve">
     <value>
@@ -598,6 +610,9 @@
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Settings.Help.Topic" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="Sheet.Settings.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>Definition of each configuration property. Their purpose and their impact in the app.</value>
   </data>
   <data name="Sheet.Settings" xml:space="preserve">
     <value>

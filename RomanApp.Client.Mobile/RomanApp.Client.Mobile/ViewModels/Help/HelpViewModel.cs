@@ -8,6 +8,8 @@ namespace RomanApp.Client.Mobile.ViewModels.Help
     {
         public HelpViewModel()
         {
+            GoToIndexCommand = new Command(OnGoToIndex);
+
             SeeAlsoCommand = new Command<RelatedTopicViewModel>(OnSeeAlso);
         }
     }

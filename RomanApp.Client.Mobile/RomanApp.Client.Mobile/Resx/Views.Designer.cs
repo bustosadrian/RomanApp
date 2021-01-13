@@ -61,6 +61,33 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        internal static string Help_Title {
+            get {
+                return ResourceManager.GetString("Help.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How can I help you with?.
+        /// </summary>
+        internal static string HelpIndex_Header {
+            get {
+                return ResourceManager.GetString("HelpIndex.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help index.
+        /// </summary>
+        internal static string HelpIndex_Title {
+            get {
+                return ResourceManager.GetString("HelpIndex.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         internal static string Settings_General_Title {
