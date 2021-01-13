@@ -79,6 +79,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No..
+        /// </summary>
+        internal static string Overview_About_Encrypted {
+            get {
+                return ResourceManager.GetString("Overview.About.Encrypted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is the stored data encrypted?.
         /// </summary>
         internal static string Overview_About_Encrypted_Header {
@@ -88,11 +97,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    RomanApp is a tool to divide the expenses between all the guests in a current event.&lt;br /&gt;&lt;br /&gt;
+        ///    In a scenario where some guests have contributed money for the event and some didn&apos;t, RomanApp will display the amounts that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
+        ///    .
         /// </summary>
-        internal static string Overview_About_Encrypted_Line1 {
+        internal static string Overview_About_What {
             get {
-                return ResourceManager.GetString("Overview.About.Encrypted.Line1", resourceCulture);
+                return ResourceManager.GetString("Overview.About.What", resourceCulture);
             }
         }
         
@@ -106,20 +119,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RomanApp is a tool to divide the expenses between all the guests in a current event..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    This app works completely offline. There is no need to have any Internet or LAN connection available to run it. It can run on &lt;strong&gt;Airplane Mode&lt;/strong&gt; if needed.&lt;br /&gt;&lt;br /&gt;
+        ///    It will also store your progress locally in your device so you can revisit your work at any time even after restarting your device.
+        ///    .
         /// </summary>
-        internal static string Overview_About_What_Line1 {
+        internal static string Overview_About_Work {
             get {
-                return ResourceManager.GetString("Overview.About.What.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In a scenario where some guests have contributed money for the event and some didn&apos;t, RomanApp will display the amounts that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to..
-        /// </summary>
-        internal static string Overview_About_What_Line2 {
-            get {
-                return ResourceManager.GetString("Overview.About.What.Line2", resourceCulture);
+                return ResourceManager.GetString("Overview.About.Work", resourceCulture);
             }
         }
         
@@ -129,24 +137,6 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Overview_About_Work_Header {
             get {
                 return ResourceManager.GetString("Overview.About.Work.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This app works completely offline. There is no need to have any Internet or LAN connection available to run it. It can run on &lt;strong&gt;Airplane Mode&lt;/strong&gt; if needed..
-        /// </summary>
-        internal static string Overview_About_Work_Line1 {
-            get {
-                return ResourceManager.GetString("Overview.About.Work.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It will also store your progress locally in your device so you can revisit your work at any time even after restarting your device..
-        /// </summary>
-        internal static string Overview_About_Work_Line2 {
-            get {
-                return ResourceManager.GetString("Overview.About.Work.Line2", resourceCulture);
             }
         }
         
@@ -169,47 +159,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building..
+        ///   Looks up a localized string similar to 
+        ///      
+        ///      This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building. &lt;br /&gt;&lt;br /&gt;
+        ///      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping &quot;Help&quot;. This will open the Help view at the section you were currently working on.&lt;br /&gt;&lt;br /&gt;
+        ///      For example if you access the help while you were in the &lt;strong&gt;Settings&lt;/strong&gt; panel you will access the Settings section of t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Overview_Summary_Line1 {
+        internal static string Overview_Summary {
             get {
-                return ResourceManager.GetString("Overview.Summary.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping &quot;Help&quot;. This will open the Help view at the section you were currently working on..
-        /// </summary>
-        internal static string Overview_Summary_Line2 {
-            get {
-                return ResourceManager.GetString("Overview.Summary.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to For example if you access the help while you were in the &lt;strong&gt;Settings&lt;/strong&gt; panel you will access the Settings section of the Help..
-        /// </summary>
-        internal static string Overview_Summary_Line3 {
-            get {
-                return ResourceManager.GetString("Overview.Summary.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to But don&apos;t worry. Once there you can navigate to any section you need..
-        /// </summary>
-        internal static string Overview_Summary_Line4 {
-            get {
-                return ResourceManager.GetString("Overview.Summary.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to One more thing that might be useful to know is the &quot;See also&quot; portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about..
-        /// </summary>
-        internal static string Overview_Summary_Line5 {
-            get {
-                return ResourceManager.GetString("Overview.Summary.Line5", resourceCulture);
+                return ResourceManager.GetString("Overview.Summary", resourceCulture);
             }
         }
         
@@ -223,24 +181,6 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &quot;Add an expense&quot; if you tapped the button of the second box..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Action_Header_Expense {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Action.Header.Expense", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &quot;Add a guest&quot; if you tapped the button of the first box..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Action_Header_Guest {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Action.Header.Guest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to How can I add an element for my event?.
         /// </summary>
         internal static string Sheet_Input_Adding_Header {
@@ -250,70 +190,12 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can add as many elements as you want, either &lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt; by tapping the &quot;plus&quot; button at the top right corner of the corresponding box..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This will popup a window that will, at its top, display the proper action that is taking place..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Followed by the header, in the center of the window, is the element&apos;s information form. For either a &lt;strong&gt;Guest&lt;/strong&gt; or &lt;strong&gt;Expense&lt;/strong&gt; you can enter the name (first field) and the amount (second field)..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In any case the &lt;strong&gt;Name&lt;/strong&gt; field is required and the &lt;strong&gt;Contribution&lt;/strong&gt; or &lt;strong&gt;Value&lt;/strong&gt; can&apos;t have a negative number..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If you are adding an &lt;strong&gt;Expense&lt;/strong&gt; the value must be greater than 0..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Don&apos;t worry about remembering these conditions. If you misfollow any of them a message will appear on top of the field guiding you to correct it..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line6 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Once the fields are properly filled you may tapped in the green circular button with a &quot;check&quot; icon in it at the bottom of the window. Doing so the window will close and the item will appear in the corresponding box at the bottom of the list..
-        /// </summary>
-        internal static string Sheet_Input_Adding_Line7 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Line7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Notice that the second field will display a different label depending of the type of element that you are adding:.
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Notice that the second field will display a different label depending of the type of element that you are adding:&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Contribution&quot; if you are adding a &lt;strong&gt;Guest&lt;/strong&gt;.&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Value&quot; if you are adding an &lt;strong&gt;Expense&lt;/strong&gt;.&lt;br /&gt;
+        ///    .
         /// </summary>
         internal static string Sheet_Input_Adding_Note_Amount_Label {
             get {
@@ -322,38 +204,49 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &quot;Value&quot; if you are adding an &lt;strong&gt;Expense&lt;/strong&gt;..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    You can add as many elements as you want, either &lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt; by tapping the &quot;plus&quot; button at the top right corner of the corresponding box.&lt;br /&gt;&lt;br /&gt;
+        ///    This will popup a window that will, at its top, display the proper action that is taking place.&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Add a guest&quot; if you tapped the button of the first box.&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Add an expense&quot; if you tapped the button of the second box.&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Input_Adding_Note_Amount_Label_Expense {
+        internal static string Sheet_Input_Adding_Part1 {
             get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Note.Amount.Label.Expense", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Adding.Part1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &quot;Contribution&quot; if you are adding a &lt;strong&gt;Guest&lt;/strong&gt;..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    In any case the &lt;strong&gt;Name&lt;/strong&gt; field is required and the &lt;strong&gt;Contribution&lt;/strong&gt; or &lt;strong&gt;Value&lt;/strong&gt; can&apos;t have a negative number.&lt;br /&gt;&lt;br /&gt;
+        ///    If you are adding an &lt;strong&gt;Expense&lt;/strong&gt; the value must be greater than 0.&lt;br /&gt;&lt;br /&gt;
+        ///    Don&apos;t worry about remembering these conditions. If you misfollow any of them a message will appear on top of the field guiding you to correct it.&lt;br /&gt;&lt;br /&gt;
+        ///    Once the fields are properly filled you may tap in the green circular but [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Input_Adding_Note_Amount_Label_Guest {
+        internal static string Sheet_Input_Adding_Part2 {
             get {
-                return ResourceManager.GetString("Sheet.Input.Adding.Note.Amount.Label.Guest", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Adding.Part2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &lt;strong&gt;Expenses&lt;/strong&gt;.
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    The &lt;strong&gt;Input tab&lt;/strong&gt; is composed by two main groups:&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &lt;strong&gt;Guests&lt;/strong&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &lt;strong&gt;Expenses&lt;/strong&gt;&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///    You can see them as boxes vertically positioned in the content of the tab.&lt;br /&gt;&lt;br /&gt;
+        ///    Each box, or group, has a header that describes what elements represents (&quot;Guests&quot; or &quot;Expenses&quot;) followed by the number of elements added.&lt;br /&gt;&lt;br /&gt;
+        ///    On the top right corner of each box there is a  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Input_Components_Group_Expenses {
+        internal static string Sheet_Input_Components {
             get {
-                return ResourceManager.GetString("Sheet.Input.Components.Group.Expenses", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &lt;strong&gt;Guests&lt;/strong&gt;.
-        /// </summary>
-        internal static string Sheet_Input_Components_Group_Guests {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Group.Guests", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Components", resourceCulture);
             }
         }
         
@@ -363,51 +256,6 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Input_Components_Header {
             get {
                 return ResourceManager.GetString("Sheet.Input.Components.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;Input tab&lt;/strong&gt; is composed by two main groups:.
-        /// </summary>
-        internal static string Sheet_Input_Components_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You can see them as boxes vertically positioned in the content of the tab..
-        /// </summary>
-        internal static string Sheet_Input_Components_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Each box, or group, has a header that describes what elements represents (&quot;Guests&quot; or &quot;Expenses&quot;) followed by the number of elements added..
-        /// </summary>
-        internal static string Sheet_Input_Components_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to On the top right corner of each box there is a circular button with a &quot;plus&quot; icon in it. This will allow you to enter a new element into the group..
-        /// </summary>
-        internal static string Sheet_Input_Components_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to By default both groups have no elements in them, in which case a message will be displayed at the center of the box describing the case..
-        /// </summary>
-        internal static string Sheet_Input_Components_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Components.Line5", resourceCulture);
             }
         }
         
@@ -430,56 +278,29 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At any time you may modify the event&apos;s information whether by editing an element or removing it..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    At any time you may modify the event&apos;s information whether by editing an element or removing it.&lt;br /&gt;&lt;br /&gt;
+        ///    For any case you can tap the item in the list and the same window you used to add it will popup. This time the header of the window will display the name of the element and the fields will already be filled with the selected element&apos;s values.&lt;br /&gt;&lt;br /&gt;
+        ///    In case you&apos;re attempting to change the information you may tap the &quot;check&quot; button to save it just as you did when you previou [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Input_Edit_Line1 {
+        internal static string Sheet_Input_Edit_Part1 {
             get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Edit.Part1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For any case you can tap the item in the list and the same window you used to add it will popup. This time the header of the window will display the name of the element and the fields will already be filled with the selected element&apos;s values..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Once completing the window will close and you may see the changes in the groups.&lt;br /&gt;&lt;br /&gt;
+        ///    If you decide not to perform any changes (adding, editing or deleting) after the window popped you can tap in the white circular button with an &quot;X&quot; icon in it, at the bottom center of the window to close it.
+        ///    
+        ///    .
         /// </summary>
-        internal static string Sheet_Input_Edit_Line2 {
+        internal static string Sheet_Input_Edit_Part2 {
             get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In case you&apos;re attempting to change the information you may tap the &quot;check&quot; button to save it just as you did when you previously add it..
-        /// </summary>
-        internal static string Sheet_Input_Edit_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In case you&apos;re attempting remove the element from the group you may tap the red circular button with &quot;trash&quot; icon in it at the bottom left of the window. This button will only show up when you&apos;re editing an element..
-        /// </summary>
-        internal static string Sheet_Input_Edit_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Once completing the window will close and you may see the changes in the groups..
-        /// </summary>
-        internal static string Sheet_Input_Edit_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If you decide not to perform any changes (adding, editing or deleting) after the window popped you can tap in the white circular button with an &quot;X&quot; icon in it, at the bottom center of the window to close it..
-        /// </summary>
-        internal static string Sheet_Input_Edit_Line6 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Edit.Line6", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Edit.Part2", resourceCulture);
             }
         }
         
@@ -493,6 +314,21 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Whenever a box contains elements in it the empty message (read above) will be replaced by a &lt;strong&gt;list&lt;/strong&gt; and a &lt;strong&gt;footer&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+        ///    The &lt;strong&gt;list&lt;/strong&gt;, in the center of the box, contains two columns. At the left the name of the element and at the right its contribution or value.&lt;br /&gt;&lt;br /&gt;
+        ///    The &lt;strong&gt;footer&lt;/strong&gt;, at the bottom of the box, will show the sum of the contributions or values of the elements.
+        ///    
+        ///    .
+        /// </summary>
+        internal static string Sheet_Input_Items_List {
+            get {
+                return ResourceManager.GetString("Sheet.Input.Items.List", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reading the boxes or groups.
         /// </summary>
         internal static string Sheet_Input_Items_List_Header {
@@ -502,29 +338,16 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Whenever a box contains elements in it the empty message (read above) will be replaced by a &lt;strong&gt;list&lt;/strong&gt; and a &lt;strong&gt;footer&lt;/strong&gt;..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Yes. Whenever either boxes contain elements in them the button with an &quot;eraser&quot; icon at the top right of the screen, next to the menu button, can be tapped to delete all the information.&lt;br /&gt;&lt;br /&gt;
+        ///    &lt;strong&gt;A dialog will appear asking you to confirm the operation since this action cannot be undone.&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;
+        ///    This option will remain disabled whilst both boxes are empty.
+        ///    .
         /// </summary>
-        internal static string Sheet_Input_Items_List_Line1 {
+        internal static string Sheet_Input_Reset {
             get {
-                return ResourceManager.GetString("Sheet.Input.Items.List.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;list&lt;/strong&gt;, in the center of the box, contains two columns. At the left the name of the element and at the right its contribution or value..
-        /// </summary>
-        internal static string Sheet_Input_Items_List_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Items.List.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;footer&lt;/strong&gt;, at the bottom of the box, will show the sum of the contributions or values of the elements..
-        /// </summary>
-        internal static string Sheet_Input_Items_List_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Items.List.Line3", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Reset", resourceCulture);
             }
         }
         
@@ -538,56 +361,27 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yes. Whenever either boxes contain elements in them the button with an &quot;eraser&quot; icon at the top right of the screen, next to the menu button, can be tapped to delete all the information..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    This tab allows you to enter the event information regarding guests and expenses.&lt;br /&gt;&lt;br /&gt;
+        ///    All data you enter will automatically be stored in your device for you to resume your work at any time, even after the app is terminated or the device is restarted.&lt;br /&gt;&lt;br /&gt;
+        ///    You can delete the complete stored data (input and app data) and start from scratch (as if &lt;strong&gt;RomanApp&lt;/strong&gt; has been reinstalled) by going to &lt;strong&gt;Application Manager&lt;/strong&gt; in your device settings and cle [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Input_Reset_Line1 {
+        internal static string Sheet_Input_Summary {
             get {
-                return ResourceManager.GetString("Sheet.Input.Reset.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Input.Summary", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;A dialog will appear asking you to confirm the operation since this action cannot be undone.&lt;/strong&gt;.
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    In order to have a proper outcome we need to meet the minimum requirements to get it. If one of them are not met we will see a message informing us why we are not getting a detailed result:
+        ///    .
         /// </summary>
-        internal static string Sheet_Input_Reset_Line2 {
+        internal static string Sheet_Outcome_Empty {
             get {
-                return ResourceManager.GetString("Sheet.Input.Reset.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This option will remain disabled whilst both boxes are empty..
-        /// </summary>
-        internal static string Sheet_Input_Reset_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Reset.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This tab allows you to enter the event information regarding guests and expenses..
-        /// </summary>
-        internal static string Sheet_Input_Summary_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Summary.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to All data you enter will automatically be stored in your device for you to resume your work at any time, even after the app is terminated or the device is restarted..
-        /// </summary>
-        internal static string Sheet_Input_Summary_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Summary.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You can delete the complete stored data (input and app data) and start from scratch (as if &lt;strong&gt;RomanApp&lt;/strong&gt; has been reinstalled) by going to &lt;strong&gt;Application Manager&lt;/strong&gt; in your device settings and clearing the Data. Check your device manual for more details..
-        /// </summary>
-        internal static string Sheet_Input_Summary_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Input.Summary.Line3", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Empty", resourceCulture);
             }
         }
         
@@ -615,15 +409,6 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Outcome_Empty_Header {
             get {
                 return ResourceManager.GetString("Sheet.Outcome.Empty.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to In order to have a proper outcome we need to meet the minimum requirements to get it. If one of them are not met we will see a message informing us why we are not getting a detailed result:.
-        /// </summary>
-        internal static string Sheet_Outcome_Empty_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Empty.Line1", resourceCulture);
             }
         }
         
@@ -664,6 +449,19 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    To fully understand how to read the outcome result we are going to run some examples. This can be verified entering the same values in the &lt;strong&gt;Input tab&lt;/strong&gt;.
+        ///    
+        ///    .
+        /// </summary>
+        internal static string Sheet_Outcome_Examples {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Examples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Example 1 (simple):.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Example1_Header {
@@ -673,65 +471,29 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There are three people attending this event. Myself, John and Mike..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    There are three people attending this event. Myself, John and Mike. &lt;br /&gt;&lt;br /&gt;
+        ///    I contributed with nothing whilst John put &lt;strong&gt;64&lt;/strong&gt; for food and Mike &lt;strong&gt;86&lt;/strong&gt; for beverages.
+        ///    
+        ///    .
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line1 {
+        internal static string Sheet_Outcome_Examples_Example1_Premise {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Premise", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I contributed with nothing whilst John put &lt;strong&gt;64&lt;/strong&gt; for food and Mike &lt;strong&gt;86&lt;/strong&gt; for beverages..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    The total spent for this event was &lt;strong&gt;150&lt;/strong&gt; (John&apos;s food for &lt;strong&gt;64&lt;/strong&gt; and Mike&apos;s beverages for &lt;strong&gt;86&lt;/strong&gt;). Divided by the 3 of us gives us a share of &lt;strong&gt;50&lt;/strong&gt;. That is what each guest is supposed to pay at the end of this event.&lt;br /&gt;&lt;br /&gt;
+        ///    &lt;strong&gt;But...&lt;/strong&gt; John and Mike already contributed even more money than their share.&lt;br /&gt;&lt;br /&gt;
+        ///    This means that in the outcome I will see myself owing money and John and Mike collecting.&lt;br /&gt;&lt;br / [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line2 {
+        internal static string Sheet_Outcome_Examples_Example1_Result {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The total spent for this event was &lt;strong&gt;150&lt;/strong&gt; (John&apos;s food for &lt;strong&gt;64&lt;/strong&gt; and Mike&apos;s beverages for &lt;strong&gt;86&lt;/strong&gt;). Divided by the 3 of us gives us a share of &lt;strong&gt;50&lt;/strong&gt;. That is what each guest is supposed to pay at the end of this event..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to But... John and Mike already contributed even more money than their share..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This means that in the outcome I will see myself owing money and John and Mike collecting..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to From my full share of &lt;strong&gt;50&lt;/strong&gt; we can take &lt;strong&gt;14&lt;/strong&gt; for John and &lt;strong&gt;36&lt;/strong&gt; for Mike..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line6 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Since John contributed &lt;strong&gt;64&lt;/strong&gt;, by collecting &lt;strong&gt;14&lt;/strong&gt; he&apos;s leaving his share of &lt;strong&gt;50&lt;/strong&gt;. And mike, having him pay &lt;strong&gt;86&lt;/strong&gt; and collecting &lt;strong&gt;36&lt;/strong&gt; he is leaving his share of &lt;strong&gt;50&lt;/strong&gt; as well..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example1_Line7 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Line7", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example1.Result", resourceCulture);
             }
         }
         
@@ -745,110 +507,35 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This time will be using expenses. Four people at this event: Myself, Chris, Susan and Lucy..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    This time will be using expenses.&lt;br/&gt;&lt;br/&gt;
+        ///    Four people at this event: Myself, Chris, Susan and Lucy. &lt;br /&gt;&lt;br /&gt;
+        ///    &lt;u&gt;Contributions (4):&lt;/u&gt;&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Myself&lt;/strong&gt;: 105&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Chris&lt;/strong&gt;: 0&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Susan&lt;/strong&gt;: 15&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Lucy&lt;/strong&gt;: 110&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///    We are now adding an expense for &lt;strong&gt;170&lt;/strong&gt;, let&apos;s say for the paintball gear, reloads and time will be using it. We decide to spli [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line1 {
+        internal static string Sheet_Outcome_Examples_Example2_Premise {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Premise", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chris owes the total share of &lt;strong&gt;100&lt;/strong&gt;, Susan owes &lt;strong&gt;85&lt;/strong&gt; since she already contributed with &lt;strong&gt;15&lt;/strong&gt;..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    The total cost of this event is &lt;strong&gt;400&lt;/strong&gt;. That is &lt;strong&gt;100&lt;/strong&gt; for each to pay. &lt;br /&gt;&lt;br /&gt;
+        ///    &lt;strong&gt;230&lt;/strong&gt; will be for those who contributed (minus their share) and &lt;strong&gt;170&lt;/strong&gt; to pay for &quot;paintball&quot;.&lt;br /&gt;&lt;br /&gt;
+        ///    Chris owes the total share of &lt;strong&gt;100&lt;/strong&gt;, Susan owes &lt;strong&gt;85&lt;/strong&gt; since she already contributed with &lt;strong&gt;15&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+        ///    Lucy and I will be collecting from what Chris and Susan put over the table. That is a [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line10 {
+        internal static string Sheet_Outcome_Examples_Example2_Result {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lucy and I will be collecting from what Chris and Susan put over the table. That is a total of &lt;strong&gt;185&lt;/strong&gt;..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line11 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line11", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to From that I will take &lt;strong&gt;5&lt;/strong&gt; and Lucy will take &lt;strong&gt;10&lt;/strong&gt; leaving, still, &lt;strong&gt;170&lt;/strong&gt; on the table. That is the money that should go to pay for a lovely afternoon playing paintball..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line12 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line12", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;u&gt;Contributions:&lt;/u&gt;.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Myself&lt;/strong&gt;: 105.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Chris&lt;/strong&gt;: 0.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Susan&lt;/strong&gt;: 15.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Lucy&lt;/strong&gt;: 110.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line6 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to We are now adding an expense for &lt;strong&gt;170&lt;/strong&gt;, let&apos;s say for the paintball gear, reloads and time will be using it. We decide to split this evenly..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line7 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The total cost of this event is &lt;strong&gt;400&lt;/strong&gt;. That is &lt;strong&gt;100&lt;/strong&gt; for each to pay..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line8 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line8", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;230&lt;/strong&gt; will be for those who contributed (minus their share) and &lt;strong&gt;170&lt;/strong&gt; to pay for &quot;paintball&quot;..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example2_Line9 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Line9", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example2.Result", resourceCulture);
             }
         }
         
@@ -862,128 +549,36 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this example will try to get the use of all three groups of the outcome. Four people at this event: Myself, Ellen, Leo and Jo..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    In this example will try to get the use of all three groups of the outcome. &lt;br /&gt;&lt;br /&gt;
+        ///    Four people at this event: Myself, Ellen, Leo and Jo. &lt;br /&gt;&lt;br /&gt;
+        ///    &lt;u&gt;Contributions (4):&lt;/u&gt;&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Myself&lt;/strong&gt;: 5 (snacks)&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Ellen&lt;/strong&gt;: 30 (beverages)&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Leo&lt;/strong&gt;: 5 (more snacks)&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Jo&lt;/strong&gt;: 0&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///    &lt;u&gt;Expenses (2):&lt;/u&gt;&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 35 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line1 {
+        internal static string Sheet_Outcome_Examples_Example3_Premise {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Premise", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The total cost of this event is &lt;strong&gt;100&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    The total cost of this event is &lt;strong&gt;100&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay. &lt;br /&gt;&lt;br /&gt;
+        ///    Jo and I are the ones who should put money on the table. I should pay &lt;strong&gt;20&lt;/strong&gt; since &lt;strong&gt;5&lt;/strong&gt; were already covered for snacks and Jo should pay her full share.&lt;br /&gt;&lt;br /&gt;
+        ///    A total of &lt;strong&gt;45&lt;/strong&gt; is now on the table. &lt;strong&gt;5&lt;/strong&gt; goes to Ellen since she contributed with &lt;strong&gt;30&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
+        ///    We are now left with &lt;strong&gt;40&lt;/st [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line10 {
+        internal static string Sheet_Outcome_Examples_Example3_Result {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Jo and I are the ones who should put money on the table. I should pay &lt;strong&gt;20&lt;/strong&gt; since &lt;strong&gt;5&lt;/strong&gt; were already covered for snacks and Jo should pay her full share..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line11 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line11", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A total of &lt;strong&gt;45&lt;/strong&gt; is now on the table. &lt;strong&gt;5&lt;/strong&gt; goes to Ellen since she contributed with &lt;strong&gt;30&lt;/strong&gt;..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line12 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line12", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to We are now left with &lt;strong&gt;40&lt;/strong&gt; on the table. &lt;strong&gt;35&lt;/strong&gt; will go to pay for the Tennis Court and &lt;strong&gt;5&lt;/strong&gt; for the DVD recording..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line13 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line13", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Leo should not pay or receive anything since his contribution matches the share: &lt;strong&gt;25&lt;/strong&gt;..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line14 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line14", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;u&gt;Contributions:&lt;/u&gt;.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Myself&lt;/strong&gt;: 5 (snacks).
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Ellen&lt;/strong&gt;: 30 (beverages).
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Leo&lt;/strong&gt;: 5 (more snacks).
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Jo&lt;/strong&gt;: 0.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line6 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;u&gt;Expenses:&lt;/u&gt;.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line7 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line7", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Tennis court&lt;/strong&gt;: 35.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line8 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line8", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;DVD recording of the match&lt;/strong&gt;: 5.
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Example3_Line9 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Line9", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Examples.Example3.Result", resourceCulture);
             }
         }
         
@@ -997,15 +592,6 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To fully understand how to read the outcome result we are going to run some examples. This can be verified entering the same values in the &lt;strong&gt;Input tab&lt;/strong&gt;..
-        /// </summary>
-        internal static string Sheet_Outcome_Examples_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Examples.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to What&apos;s the result?.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Result {
@@ -1015,29 +601,19 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; Those who must collect..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides three different boxes which represent the event&apos;s guests sorted in three groups:&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who owe.&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who must collect&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who broke even&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///    Each box has a header that describes, at its left side, what group of guests (described above) contains and  the count of guests at its right side.&lt;br /&gt;&lt;br /&gt;
+        ///    Inside the b [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Sheet_Outcome_Groups_Group_Collect {
+        internal static string Sheet_Outcome_Groups {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Group.Collect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; Those who broke even..
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Group_Even {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Group.Even", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; Those who owe..
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Group_Owe {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Group.Owe", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Groups", resourceCulture);
             }
         }
         
@@ -1051,43 +627,10 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides three different boxes which represent the event&apos;s guests sorted in three groups:.
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Each box has a header that describes, at its left side, what group of guests (described above) contains and  the count of guests at its right side..
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inside the box you can see the list of guests. On the left side the guest&apos;s name and on the right side the amount that the guest either owes or must collect, depending on which box you&apos;re looking at..
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The third box, the group of guests that broke even, only shows the names not the amounts since it&apos;s understood that said amount is zero..
-        /// </summary>
-        internal static string Sheet_Outcome_Groups_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Groups.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one guest after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group (&quot;Who must collect?&quot;) will not be shown..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one guest after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group (&quot;Who must collect?&quot;) will not be shown.
+        ///    .
         /// </summary>
         internal static string Sheet_Outcome_Groups_Note_Visible {
             get {
@@ -1096,20 +639,16 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Represents any cost for the event that &lt;strong&gt;has not been payed for yet&lt;/strong&gt; and has been agreed upon to divide between the rest of the guests..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Represents any cost for the event that &lt;strong&gt;has not been payed for yet&lt;/strong&gt; and has been agreed upon to divide between the rest of the guests. &lt;br /&gt;&lt;br /&gt;
+        ///    This could be the rent of a grill for the barbacue, a laser tag arena, a whole villa for the night, etc.
+        ///    
+        ///    .
         /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Definition_Expense_Description_Line1 {
+        internal static string Sheet_Outcome_Guest_Expense_Definition_Expense_Description {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Expense.Description.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This could be the rent of a grill for the barbacue, a laser tag arena, a whole villa for the night, etc..
-        /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Definition_Expense_Description_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Expense.Description.Line2", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Expense.Description", resourceCulture);
             }
         }
         
@@ -1123,20 +662,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests. &lt;br /&gt;&lt;br /&gt;
+        ///    This could be food a guest brought for everyone, it could be drinks or even a Karaoke machine the guest rented for the night and has already been payed for.
+        ///    .
         /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Definition_Guest_Description_Line1 {
+        internal static string Sheet_Outcome_Guest_Expense_Definition_Guest_Description {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Guest.Description.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This could be food a guest brought for everyone, it could be drinks or even a Karaoke machine the guest rented for the night and has already been payed for..
-        /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Definition_Guest_Description_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Guest.Description.Line2", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Definition.Guest.Description", resourceCulture);
             }
         }
         
@@ -1159,20 +693,23 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A common question would be when to add an expense or a guest&apos;s contribution. For that, first we need to know the definitions of each element..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    A common question would be when to add an expense or a guest&apos;s contribution. For that, first we need to know the definitions of each element.
+        ///    .
         /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Line1 {
+        internal static string Sheet_Outcome_Guest_Expense_Part1 {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Part1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to The main difference for calculating the outcome is that unlike a contribution, a new expense will increase the share, while a new contribution (a new guest) may result, depending on their contribution, in a decreasing of the share since is now divided in more guests..
         /// </summary>
-        internal static string Sheet_Outcome_Guest_Expense_Line2 {
+        internal static string Sheet_Outcome_Guest_Expense_Part2 {
             get {
-                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Line2", resourceCulture);
+                return ResourceManager.GetString("Sheet.Outcome.Guest.Expense.Part2", resourceCulture);
             }
         }
         
@@ -1213,20 +750,23 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    At the top of the tab there is a box that shows a quick summary of the calculations:
+        ///    .
+        /// </summary>
+        internal static string Sheet_Outcome_Totals {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Totals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Summary.
         /// </summary>
         internal static string Sheet_Outcome_Totals_Header {
             get {
                 return ResourceManager.GetString("Sheet.Outcome.Totals.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to At the top of the tab there is a box that shows a quick summary of the calculations:.
-        /// </summary>
-        internal static string Sheet_Outcome_Totals_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Outcome.Totals.Line1", resourceCulture);
             }
         }
         
@@ -1276,11 +816,14 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This tab will give you the result calculation of every guest&apos;s contribution and expense..
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    This tab will give you the result calculation of every guest&apos;s contribution and expense.
+        ///    .
         /// </summary>
-        internal static string Sheet_Output_Summary_Line1 {
+        internal static string Sheet_Output_Summary {
             get {
-                return ResourceManager.GetString("Sheet.Output.Summary.Line1", resourceCulture);
+                return ResourceManager.GetString("Sheet.Output.Summary", resourceCulture);
             }
         }
         
@@ -1294,92 +837,61 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;Main panel&lt;/strong&gt; is where you will spend most of the time using the app..
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Here you will be able to input the event&apos;s information and see the result in real time..
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line2 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The event&apos;s information consists of two type of elements:.
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line3 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &lt;strong&gt;Expenses&lt;/strong&gt;.
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line3_Expenses {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line3.Expenses", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; &lt;strong&gt;Guests&lt;/strong&gt;.
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line3_Guests {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line3.Guests", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;guests&lt;/strong&gt; are the people attending the event. Each one is identified by their name, which can be repeated among other guests and may carry a contribution for the event..
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line4 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;strong&gt;expenses&lt;/strong&gt; are products or services that will be consumed during the event and will need to be paid for at the end of the event. They are also identified by name, which can also be repeated among other expenses and must have a value greater than zero..
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line5 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line5", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to For more information on how to work with this portion of the panel check the &lt;strong&gt;Input Tab&lt;/strong&gt; link in the &lt;strong&gt;&quot;See Also&quot;&lt;/strong&gt; section below..
         /// </summary>
-        internal static string Sheet_Overview_Summary_Line6 {
+        internal static string Sheet_Overview_Summary_Note_Input {
             get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line6", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to At any time during the event you may add, edit and remove any element (&lt;strong&gt;guests&lt;/strong&gt; and/or &lt;strong&gt;expenses&lt;/strong&gt;) which will be composing the total cost of the event. At the same time the app will calculate how much money should some guests pay to cover the cost of the event and how much money should other guests collect from that to cover their difference of the share..
-        /// </summary>
-        internal static string Sheet_Overview_Summary_Line7 {
-            get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line7", resourceCulture);
+                return ResourceManager.GetString("Sheet.Overview.Summary.Note.Input", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to For more information on how to read the outcome calculation check the &lt;strong&gt;Outcome Tab&lt;/strong&gt; link in the &lt;strong&gt;&quot;See Also&quot;&lt;/strong&gt; section below..
         /// </summary>
-        internal static string Sheet_Overview_Summary_Line8 {
+        internal static string Sheet_Overview_Summary_Note_Outcome {
             get {
-                return ResourceManager.GetString("Sheet.Overview.Summary.Line8", resourceCulture);
+                return ResourceManager.GetString("Sheet.Overview.Summary.Note.Outcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    The &lt;strong&gt;Main panel&lt;/strong&gt; is where you will spend most of the time using the app.&lt;br /&gt;
+        ///    Here you will be able to input the event&apos;s information and see the result in real time.&lt;br /&gt;&lt;br /&gt;
+        ///    The event&apos;s information consists of two type of elements:&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &lt;strong&gt;Guests&lt;/strong&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &lt;strong&gt;Expenses&lt;/strong&gt;&lt;br /&gt;
+        ///    &lt;br /&gt;
+        ///    The &lt;strong&gt;guests&lt;/strong&gt; are the people attending the event. Each one is identified by their n [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Sheet_Overview_Summary_Part1 {
+            get {
+                return ResourceManager.GetString("Sheet.Overview.Summary.Part1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    At any time during the event you may add, edit and remove any element (&lt;strong&gt;guests&lt;/strong&gt; and/or &lt;strong&gt;expenses&lt;/strong&gt;) which will be composing the total cost of the event. At the same time the app will calculate how much money should some guests pay to cover the cost of the event and how much money should other guests collect from that to cover their difference of the share.
+        ///    
+        ///    .
+        /// </summary>
+        internal static string Sheet_Overview_Summary_Part2 {
+            get {
+                return ResourceManager.GetString("Sheet.Overview.Summary.Part2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///      This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted.
+        ///    .
+        /// </summary>
+        internal static string Sheet_Settings {
+            get {
+                return ResourceManager.GetString("Sheet.Settings", resourceCulture);
             }
         }
         
@@ -1393,15 +905,6 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted..
-        /// </summary>
-        internal static string Sheet_Settings_Line1 {
-            get {
-                return ResourceManager.GetString("Sheet.Settings.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &amp;#8226; Use whole numbers?.
         /// </summary>
         internal static string Sheet_Settings_Option_Whole_Label {
@@ -1411,7 +914,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sets the app to use whole numbers or decimals. In case is set for the latter the app will round the decimals in 25, 50 and 75 to make it easier for the guests to pay their share..
+        ///   Looks up a localized string similar to Sets the app to use whole numbers or decimals. In case is set for the latter the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share..
         /// </summary>
         internal static string Sheet_Settings_Option_Whole_Line1 {
             get {
