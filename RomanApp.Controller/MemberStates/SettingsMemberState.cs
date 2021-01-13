@@ -1,24 +1,31 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Commons;
-using RomanApp.Messages.Input;
+using RomanApp.Messages;
 using RomanApp.Messages.Input.Settings;
 using RomanApp.Messages.Output.Settings;
 
 namespace RomanApp.Controller.MemberStates
 {
     [ApplicationState(StatesKeys.SETTINGS)]
-    public class SettingsMemberState : BaseMemberState
+    public class SettingsMemberState : BasicMemberState
     {
+        public SettingsMemberState()
+            : base(HelpTopic.Settings)
+        {
+
+        }
+
         public override void Brief()
         {
             QueueSettings();
         }
 
-        private void Back()
+        protected override void OnBack()
         {
             ChangeState(typeof(SheetMemberState));
         }
+
 
         #region Queues
 
@@ -33,12 +40,6 @@ namespace RomanApp.Controller.MemberStates
         #endregion
 
         #region Messages
-
-        [Reader]
-        public void Action(BackInput message)
-        {
-            Back();
-        }
 
         [Reader]
         public void Action(SaveSettingsInput message)

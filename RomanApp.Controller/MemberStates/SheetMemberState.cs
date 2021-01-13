@@ -15,9 +15,15 @@ using System.Linq;
 namespace RomanApp.Controller.MemberStates
 {
     [ApplicationState(StatesKeys.SHEET)]
-    public class SheetMemberState : BaseMemberState
+    public class SheetMemberState : BasicMemberState
     {
         private Outcome _outcome;
+
+        public SheetMemberState()
+            : base(HelpTopic.SheetOverview)
+        {
+
+        }
 
         public override void OnLoad()
         {
@@ -199,15 +205,7 @@ namespace RomanApp.Controller.MemberStates
         {
             ChangeState(typeof(SettingsMemberState));
         }
-
-        [Reader]
-        public void Action(GoToHelpInput message)
-        {
-            ChangeState(typeof(HelpMemberState), new HelpParameters()
-            {
-                Topic = HelpTopic.Overview,
-            });
-        }
+        
 
         [Reader]
         public void Action(AddItemInput message)

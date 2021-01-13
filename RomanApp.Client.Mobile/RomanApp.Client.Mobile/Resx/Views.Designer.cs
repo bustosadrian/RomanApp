@@ -241,15 +241,6 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Help.
-        /// </summary>
-        internal static string Sheet_Navigation_Help {
-            get {
-                return ResourceManager.GetString("Sheet.Navigation.Help", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         internal static string Sheet_Navigation_Reset {

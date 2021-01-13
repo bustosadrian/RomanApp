@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <Style ApplyToDerivedTypes="True" x:Key="TopicStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="SummaryStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Body" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="SeeAlsoStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="RelatedTopicStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+    </Style>
+
+
+    <Style ApplyToDerivedTypes="True" x:Key="ContentH1Style" TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="Margin" Value="0,10,0,5" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="ContentH2Style" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="Margin" Value="0,7,0,5" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="ContentParagraphStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Body" />
+        <Setter Property="Margin" Value="5,0,0,10" />
+        <Setter Property="TextType" Value="Html" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="NoteBoxStyle" TargetType="Frame">
+        <Setter Property="BorderColor" Value="LightBlue" />
+        <Setter Property="Margin" Value="10" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="NoteTextStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#6a919d" />
+        <Setter Property="FontSize" Value="Caption" />
+        <Setter Property="TextType" Value="Html" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" x:Key="OptionLabelStyle" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OptionDescriptionStyle" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label">
+        <Setter Property="Margin" Value="15,0,0,0" />
+    </Style>
+
+
+</ResourceDictionary>

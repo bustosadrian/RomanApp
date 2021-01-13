@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+             xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             xmlns:converters="clr-namespace:RomanApp.Client.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="RomanApp.Client.Mobile.Controls.Help.SeeAlso"
+             x:Name="Self">
+
+    <StackLayout.Resources>
+        <converters:HelpTopicConverter x:Key="c_ht" />
+
+        <ResourceDictionary Source="/Styles/Help.xaml" />
+    </StackLayout.Resources>
+
+    <StackLayout Orientation="Vertical">
+        <Label Text="{x:Static res:Help.See_Also}" 
+               Style="{StaticResource SeeAlsoStyle}" />
+
+        <c:Separator />
+
+        <c:Repeat ItemsSource="{Binding RelatedTopics, Source={x:Reference Self}}"
+                  SelectedCommand="{Binding Command, Source={x:Reference Self}}">
+            <c:Repeat.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout.Resources>
+                            <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource RelatedTopicStyle}" TargetType="Label" />
+                        </StackLayout.Resources>
+                        <Label Text="•" Margin="0,0,5,0"/>
+                        <Label Text="{Binding Topic, Converter={StaticResource c_ht}}" 
+                               Margin="0,0,5,0"/>
+                    </StackLayout>
+                </DataTemplate>
+            </c:Repeat.ItemTemplate>
+        </c:Repeat>
+    </StackLayout>
+</StackLayout>

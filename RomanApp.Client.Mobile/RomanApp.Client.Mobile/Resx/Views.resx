@@ -177,9 +177,6 @@
   <data name="Sheet.Input.Dialog.Edit.Header.Guest" xml:space="preserve">
     <value>Edit guest</value>
   </data>
-  <data name="Sheet.Navigation.Help" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <data name="Sheet.Navigation.Reset" xml:space="preserve">
     <value>Reset</value>
   </data>

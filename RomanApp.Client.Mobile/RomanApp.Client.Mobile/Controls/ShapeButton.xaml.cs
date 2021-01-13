@@ -34,7 +34,7 @@ namespace RomanApp.Client.Mobile.Controls
             await Shape.ScaleTo(.75, 10);
             await Shape.ScaleTo(1, 10);
 
-            _soundService.Click();
+            _soundService?.Click();
             RaiseTapped();
             if (Command != null)
             {

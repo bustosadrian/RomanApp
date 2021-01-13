@@ -120,4 +120,7 @@
   <data name="To.Back" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
 </root>

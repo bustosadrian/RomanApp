@@ -31,6 +31,8 @@
             <StackPanel Orientation="Horizontal">
                 <Button Content="Back" Command="{Binding BackCommand}" 
                         Margin="0 0 15 0" />
+                <Button Content="Help" Command="{Binding GetHelpCommand}" 
+                        Margin="0 0 15 0" />
             </StackPanel>
         </Grid>
     </Grid>

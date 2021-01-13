@@ -1,4 +1,5 @@
-﻿using Android.Views;
+﻿using Android.App;
+using Android.Views;
 using RomanApp.Client.Mobile.Services;
 
 namespace RomanApp.Client.Mobile.Droid.Service

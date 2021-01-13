@@ -12,9 +12,27 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <TextBlock Text="{Binding Topic}" 
-                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="{Binding Topic}" />
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Text="See Also" FontWeight="Bold" FontSize="32" />
+                    <ListView ItemsSource="{Binding RelatedTopics}"
+                              SelectionMode="Single" SelectedItem="{Binding SelectedRelatedTopic, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Grid>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Horizontal">

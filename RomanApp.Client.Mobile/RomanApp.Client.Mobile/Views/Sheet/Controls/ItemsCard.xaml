@@ -6,7 +6,6 @@
        xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
        xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
        xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
-       xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
        mc:Ignorable="d"
        x:Class="RomanApp.Client.Mobile.Views.Sheet.Controls.ItemsCard"
        x:Name="Self">

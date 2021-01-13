@@ -27,9 +27,9 @@
         <ToolbarItem Text="{x:Static res:Views.Sheet_Navigation_Settings}"
                      Order="Secondary" Priority="0"
                      Command="{Binding GoToSettingsCommand}" />
-        <ToolbarItem Text="{x:Static res:Views.Sheet_Navigation_Help}"
+        <ToolbarItem Text="{x:Static res:Native.Help}"
                      Order="Secondary" Priority="1"
-                     Command="{Binding GoToHelpCommand}" />
+                     Command="{Binding GetHelpCommand}" />
     </TabbedPage.ToolbarItems>
 
 

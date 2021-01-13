@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             mc:Ignorable="d"
+             x:Class="RomanApp.Client.Mobile.Views.Help.Topics.HelpTopics">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Styles/Help.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="template_help_no_help">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+
+            <Label Text="{x:Static res:Help.No_Help_Line1}" />
+        </StackLayout>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="template_help_overview">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Overview_Summary_Line1}" />
+            <Label Text="{x:Static res:Help.Overview_Summary_Line2}" />
+            <Label Text="{x:Static res:Help.Overview_Summary_Line3}" />
+            <Label Text="{x:Static res:Help.Overview_Summary_Line4}" />
+            <Label Text="{x:Static res:Help.Overview_Summary_Line5}" />
+
+            <!-- What -->
+            <Label Text="{x:Static res:Help.Overview_About_What_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Overview_About_What_Line1}" />
+            <Label Text="{x:Static res:Help.Overview_About_What_Line2}" />
+            
+            <!-- Work -->
+            <Label Text="{x:Static res:Help.Overview_About_Work_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Overview_About_Work_Line1}" />
+            <Label Text="{x:Static res:Help.Overview_About_Work_Line2}" />
+
+            <!-- Encrypted -->
+            <Label Text="{x:Static res:Help.Overview_About_Encrypted_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Overview_About_Encrypted_Line1}" />
+        </StackLayout>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="template_help_sheet_overview">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line3}" />
+            <StackLayout>
+                <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line3_Guests}" />
+                <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line3_Expenses}" />
+            </StackLayout>
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line4}" />
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line5}" />
+            <Frame Style="{StaticResource NoteBoxStyle}">
+                <Frame.Resources>
+                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource NoteTextStyle}" TargetType="Label" />
+                </Frame.Resources>
+                <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line6}"/>
+            </Frame>
+            <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line7}" />
+            <Frame Style="{StaticResource NoteBoxStyle}">
+                <Frame.Resources>
+                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource NoteTextStyle}" TargetType="Label" />
+                </Frame.Resources>
+                <Label Text="{x:Static res:Help.Sheet_Overview_Summary_Line8}"/>
+            </Frame>
+        </StackLayout>
+    </ControlTemplate>
+
+
+
+    <ControlTemplate x:Key="template_help_sheet_input">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Summary_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Summary_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Summary_Line3}" />
+
+            <!-- Components -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Line1}" />
+            <StackLayout>
+                <Label Text="{x:Static res:Help.Sheet_Input_Components_Group_Guests}" />
+                <Label Text="{x:Static res:Help.Sheet_Input_Components_Group_Expenses}" />
+            </StackLayout>
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Line3}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Line4}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Components_Line5}" />
+
+            <!-- Adding -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line2}" />
+            <StackLayout>
+                <Label Text="{x:Static res:Help.Sheet_Input_Adding_Action_Header_Guest}" />
+                <Label Text="{x:Static res:Help.Sheet_Input_Adding_Action_Header_Expense}" />
+            </StackLayout>
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line3}" />
+            <Frame Style="{StaticResource NoteBoxStyle}">
+                <Frame.Resources>
+                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource NoteTextStyle}" TargetType="Label" />
+                </Frame.Resources>
+                <StackLayout>
+                    <Label Text="{x:Static res:Help.Sheet_Input_Adding_Note_Amount_Label}"/>
+                    <StackLayout>
+                        <Label Text="{x:Static res:Help.Sheet_Input_Adding_Note_Amount_Label_Guest}" />
+                        <Label Text="{x:Static res:Help.Sheet_Input_Adding_Note_Amount_Label_Expense}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line4}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line5}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line6}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Adding_Line7}" />
+
+            <!-- Items List -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Items_List_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Items_List_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Items_List_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Items_List_Line3}" />
+
+            <!-- Edit -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line3}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line4}" />
+            <Frame Style="{StaticResource NoteBoxStyle}">
+                <Frame.Resources>
+                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource NoteTextStyle}" TargetType="Label" />
+                </Frame.Resources>
+                <Label Text="{x:Static res:Help.Sheet_Input_Edit_Delete_Note}"/>
+            </Frame>
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line5}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Edit_Line6}" />
+
+            <!-- Reset -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Reset_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Reset_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Reset_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Reset_Line3}" />
+
+        </StackLayout>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="template_help_sheet_outcome">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Sheet_Output_Summary_Line1}" />
+
+            <!-- Totals -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Total_Contributions_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Total_Contributions_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Total_Expenses_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Summary_Total_Expenses_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Total_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Summary_Total_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Totals_Share_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Summary_Share_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+
+            <!-- Groups -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Line1}" />
+            <StackLayout>
+                <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Group_Owe}" />
+                <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Group_Collect}" />
+                <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Group_Even}" />
+            </StackLayout>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Line3}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Line4}" />
+            <Frame Style="{StaticResource NoteBoxStyle}">
+                <Frame.Resources>
+                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource NoteTextStyle}" TargetType="Label" />
+                </Frame.Resources>
+                <Label Text="{x:Static res:Help.Sheet_Outcome_Groups_Note_Visible}"/>
+            </Frame>
+
+            <!-- Empty -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Total_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Total_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_Enough_Guests_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_Enough_Guests_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Debt_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Debt_Description}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+
+            <!-- Guest/Expense -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Guest_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Guest_Description_Line1}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Guest_Description_Line2}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Expense_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Expense_Description_Line1}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Expense_Description_Line2}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Line2}" />
+
+            <!-- Examples -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Line1}" />
+            <!-- #1 -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Header}" 
+                   Style="{StaticResource ContentH2Style}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Result}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line3}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line4}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line5}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line6}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example1_Line7}" />
+            <!-- #2 -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Header}" 
+                   Style="{StaticResource ContentH2Style}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line3}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line4}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line5}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line6}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line7}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Result}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line8}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line9}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line10}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line11}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example2_Line12}" />
+            <!-- #3 -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Header}" 
+                   Style="{StaticResource ContentH2Style}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line1}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line2}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line3}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line4}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line5}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line6}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line7}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line8}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line9}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line10}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line11}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line12}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line13}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Example3_Line14}" />
+        </StackLayout>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="template_help_settings">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Sheet_Settings_Line1}" />
+
+            <!-- Options -->
+            <Label Text="{x:Static res:Help.Sheet_Settings_Options_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Settings_Option_Whole_Label}" 
+                   Style="{StaticResource OptionLabelStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Settings_Option_Whole_Line1}" 
+                   Style="{StaticResource OptionDescriptionStyle}"/>
+        </StackLayout>
+    </ControlTemplate>
+
+</ResourceDictionary>

@@ -5,7 +5,7 @@ using System;
 
 namespace RomanApp.Client.ViewModel.Settings
 {
-    public abstract class BaseSettingsViewModel : BusViewModel
+    public abstract class BaseSettingsViewModel : BasicViewModel
     {
         private void SaveWholeNumbers()
         {

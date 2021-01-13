@@ -34,7 +34,7 @@ namespace RomanApp.Client.Mobile.Controls
             await this.ScaleTo(.75, 10);
             await this.ScaleTo(1, 10);
 
-            _soundService.Click();
+            _soundService?.Click();
             RaiseTapped();
             if (Command != null)
             {
@@ -98,7 +98,7 @@ namespace RomanApp.Client.Mobile.Controls
         private void Button_Clicked(object sender, System.EventArgs e)
         {
             var service = DependencyService.Get<ISoundService>();
-            service.Click();
+            service?.Click();
         }
     }
 }

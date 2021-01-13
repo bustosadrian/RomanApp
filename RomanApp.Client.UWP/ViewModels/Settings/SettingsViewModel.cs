@@ -9,8 +9,23 @@ namespace RomanApp.Client.UWP.ViewModels.Settings
         {
             BackCommand = new XamlUICommand();
             ((XamlUICommand)BackCommand).ExecuteRequested += (s, e) => {
-                OnBack();
+                GoBack();
+            };
+
+            GetHelpCommand = new XamlUICommand();
+            ((XamlUICommand)GetHelpCommand).ExecuteRequested += (s, e) => {
+                OnGetHelp();
             };
         }
+
+        #region Commands
+
+        public XamlUICommand BackCommand
+        {
+            get;
+            set;
+        }
+
+        #endregion
     }
 }

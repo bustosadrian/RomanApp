@@ -1,0 +1,9 @@
+Summary {
+1: <![CDATA[This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building.]]>
+
+2: <![CDATA[You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you were currently working on.]]>
+3: <![CDATA[For example if you access the help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.]]>
+4: <![CDATA[But don't worry. Once there you can navigate to any section you need.]]>
+
+5: <![CDATA[One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.]]>
+}

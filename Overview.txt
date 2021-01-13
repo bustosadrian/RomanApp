@@ -1,0 +1,30 @@
+Summary {
+1: <![CDATA[This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building.]]>
+
+2: <![CDATA[You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you were currently working on.]]>
+3: <![CDATA[For example if you access the help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.]]>
+4: <![CDATA[But don't worry. Once there you can navigate to any section you need.]]>
+
+5: <![CDATA[One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.]]>
+}
+
+
+
+
+[About.RomanApp]
+
+What is RomanApp? {
+1: <![CDATA[RomanApp is a tool to divide the expenses between all the guests in a current event.]]>
+2: <![CDATA[In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.]]>
+
+}
+
+How does it work? {
+1: <![CDATA[This app works completely offline. There is no need to have any Internet or LAN connection available to run it. It can run on <strong>Airplane Mode</strong> if needed.]]>
+2: <![CDATA[It will also store your progress locally in your device so you can revisit your work at any time even after restarting your device.]]>
+}
+
+Is the stored data encrypted? {
+1: <![CDATA[No.]]>
+}
+

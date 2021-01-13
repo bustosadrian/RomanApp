@@ -18,6 +18,12 @@ namespace RomanApp.Messages.Output.Help
             set;
         }
 
+        public HelpTopic[] RelatedTopics
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

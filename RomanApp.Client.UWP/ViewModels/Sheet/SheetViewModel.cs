@@ -23,9 +23,9 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
                 OnGoToSettings();
             };
 
-            GoToHelpCommand = new XamlUICommand();
-            ((XamlUICommand)GoToHelpCommand).ExecuteRequested += (s, e) => {
-                OnGoToHelp();
+            GetHelpCommand = new XamlUICommand();
+            ((XamlUICommand)GetHelpCommand).ExecuteRequested += (s, e) => {
+                OnGetHelp();
             };
 
             NewGuestCommand = new XamlUICommand();

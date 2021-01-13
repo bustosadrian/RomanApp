@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace RomanApp.Client.XAML.ViewModels.Sheet
 {
-    public abstract class BaseSheetViewModel : BusViewModel
+    public abstract class BaseSheetViewModel : BasicViewModel
     {
         public BaseSheetViewModel()
         {
@@ -97,17 +97,7 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
                 HandleError(e);
             }
         }
-        protected void OnGoToHelp()
-        {
-            try
-            {
-                Send(new GoToHelpInput());
-            }
-            catch (Exception e)
-            {
-                HandleError(e);
-            }
-        }
+        
 
         protected void OnNewGuest()
         {
@@ -160,12 +150,7 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             protected set;
         }
 
-        public ICommand GoToHelpCommand
-        {
-            get;
-            protected set;
-        }
-
+        
         #endregion
 
         #region Messages

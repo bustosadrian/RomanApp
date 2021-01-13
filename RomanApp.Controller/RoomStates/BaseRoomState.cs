@@ -4,7 +4,6 @@ using RomanApp.Controller.MemberStates;
 using RomanApp.Controller.Model;
 using RomanApp.Controller.Model.Event;
 using RomanApp.Service;
-using RomanApp.Service.Entities;
 using System;
 
 namespace RomanApp.Controller.RoomStates
