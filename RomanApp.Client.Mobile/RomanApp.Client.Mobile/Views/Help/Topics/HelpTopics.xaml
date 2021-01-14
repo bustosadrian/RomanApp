@@ -95,6 +95,20 @@
             <hc:Note Text="{x:Static res:Help.Sheet_Input_Edit_Delete_Note}" />
             <Label Text="{x:Static res:Help.Sheet_Input_Edit_Part2}" />
 
+            <!-- Guest/Expense -->
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Part1}" />
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Definition_Guest_Label}" 
+                   Style="{StaticResource RemarkStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Definition_Guest_Description}" 
+                   Style="{StaticResource PadLeftStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Definition_Expense_Label}" 
+                   Style="{StaticResource RemarkStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Definition_Expense_Description}" 
+                   Style="{StaticResource PadLeftStyle}"/>
+            <Label Text="{x:Static res:Help.Sheet_Input_Guest_Expense_Part2}" />
+
             <!-- Reset -->
             <Label Text="{x:Static res:Help.Sheet_Input_Reset_Header}"
                    Style="{StaticResource ContentH1Style}" />
@@ -154,20 +168,6 @@
                    Style="{StaticResource RemarkStyle}"/>
             <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Debt_Description}" 
                    Style="{StaticResource PadLeftStyle}"/>
-
-            <!-- Guest/Expense -->
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Header}"
-                   Style="{StaticResource ContentH1Style}" />
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Part1}" />
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Guest_Label}" 
-                   Style="{StaticResource RemarkStyle}"/>
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Guest_Description}" 
-                   Style="{StaticResource PadLeftStyle}"/>
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Expense_Label}" 
-                   Style="{StaticResource RemarkStyle}"/>
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Definition_Expense_Description}" 
-                   Style="{StaticResource PadLeftStyle}"/>
-            <Label Text="{x:Static res:Help.Sheet_Outcome_Guest_Expense_Part2}" />
 
 
             <!-- Examples -->

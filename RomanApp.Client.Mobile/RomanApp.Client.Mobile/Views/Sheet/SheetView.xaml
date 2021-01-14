@@ -24,12 +24,15 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
 
-        <ToolbarItem Text="{x:Static res:Views.Sheet_Navigation_Settings}"
+        <ToolbarItem Text="{x:Static res:Menu.Settings}"
                      Order="Secondary" Priority="0"
                      Command="{Binding GoToSettingsCommand}" />
-        <ToolbarItem Text="{x:Static res:Native.Help}"
+        <ToolbarItem Text="{x:Static res:Menu.Help}"
                      Order="Secondary" Priority="1"
                      Command="{Binding GetHelpCommand}" />
+        <ToolbarItem Text="{x:Static res:Menu.About}"
+                     Order="Secondary" Priority="1"
+                     Command="{Binding GoToAboutCommand}" />
     </TabbedPage.ToolbarItems>
 
 

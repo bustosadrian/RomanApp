@@ -3,8 +3,8 @@ using RomanApp.Messages;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Help;
 using RomanApp.Messages.Output.Help;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.Help
@@ -20,14 +20,29 @@ namespace RomanApp.Client.ViewModel.Help
 
         protected void OnGoToIndex()
         {
-            Send(new GoToHelpIndexInput());
+            try
+            {
+                Send(new GoToHelpIndexInput());
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         protected void OnSeeAlso(RelatedTopicViewModel relatedTopicViewModel)
         {
-            Send(new SeeAlsoInput(){
-                Topic = relatedTopicViewModel.Topic,
-            });
+            try
+            {
+                Send(new SeeAlsoInput()
+                {
+                    Topic = relatedTopicViewModel.Topic,
+                });
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         #endregion

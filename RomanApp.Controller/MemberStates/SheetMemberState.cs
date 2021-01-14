@@ -324,6 +324,14 @@ namespace RomanApp.Controller.MemberStates
             Brief();
         }
 
+
+
+        [Reader]
+        public virtual void Action(GoToAboutInput message)
+        {
+            ChangeState(typeof(AboutMemberState));
+        }
+
         #endregion
     }
 }

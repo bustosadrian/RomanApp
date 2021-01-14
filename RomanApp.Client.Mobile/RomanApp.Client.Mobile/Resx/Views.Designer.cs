@@ -61,6 +61,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About RomanApp.
+        /// </summary>
+        internal static string About_Title {
+            get {
+                return ResourceManager.GetString("About.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         internal static string Help_Title {

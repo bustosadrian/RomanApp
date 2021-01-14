@@ -129,9 +129,9 @@
   <data name="Overview.Summary" xml:space="preserve">
     <value>
       <![CDATA[
-      This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and building. <br /><br />
-      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you were currently working on.<br /><br />
-      For example if you access the help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.<br /><br />
+      This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and development. <br /><br />
+      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you are currently working on.<br /><br />
+      For example if you access the Help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.<br /><br />
       But don't worry. You can access any section or topic you need by tapping the index button at the top right corner.<br /><br />
       One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.
       ]]></value>
@@ -146,7 +146,7 @@
     <value>
     <![CDATA[
     RomanApp is a tool to divide the expenses between all the guests in a current event.<br /><br />
-    In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
+    In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts of money that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
     ]]></value>
   </data>
   <!-- ............................... -->
@@ -159,7 +159,7 @@
     <value>
     <![CDATA[
     This app works completely offline. There is no need to have any Internet or LAN connection available to run it. It can run on <strong>Airplane Mode</strong> if needed.<br /><br />
-    It will also store your progress locally in your device so you can revisit your work at any time even after restarting your device.
+    It will also store your progress locally so you can revisit your work at any time even after restarting your device.
     ]]></value>
   </data>
   <!-- ............................... -->
@@ -197,7 +197,7 @@
     &nbsp;&nbsp;&#8226; <strong>Expenses</strong><br />
     <br />
     The <strong>guests</strong> are the people attending the event. Each one is identified by their name, which can be repeated among other guests and may carry a contribution for the event.<br /><br />
-    The <strong>expenses</strong> are products or services that will be consumed during the event and will need to be paid for at the end of the event. They are also identified by name, which can also be repeated among other expenses and must have a value greater than zero.
+    The <strong>expenses</strong> are products or services that will be consumed during the event and will need to be paid for when this finishes. They are also identified by name, which can also be repeated among other expenses and must have a value greater than zero.
     ]]>
     </value>
   </data>
@@ -234,7 +234,7 @@
     <![CDATA[
     This tab allows you to enter the event information regarding guests and expenses.<br /><br />
     All data you enter will automatically be stored in your device for you to resume your work at any time, even after the app is terminated or the device is restarted.<br /><br />
-    You can delete the complete stored data (input and app data) and start from scratch (as if <strong>RomanApp</strong> has been reinstalled) by going to <strong>Application Manager</strong> in your device settings and clearing the Data. Check your device manual for more details.
+    You can delete the complete stored data (input and app data) and start from scratch (as if <strong>RomanApp</strong> has been reinstalled) by going to the <strong>Application Manager</strong> in your device settings and clearing the Data. Check your device manual for more details.
     ]]></value>
   </data>
   <!-- ............................... -->
@@ -251,7 +251,7 @@
     &nbsp;&nbsp;&#8226; <strong>Expenses</strong><br />
     <br />
     You can see them as boxes vertically positioned in the content of the tab.<br /><br />
-    Each box, or group, has a header that describes what elements represents ("Guests" or "Expenses") followed by the number of elements added.<br /><br />
+    Each box, or group, has a header that describes what elements they represents ("Guests" or "Expenses") followed by the number of elements added.<br /><br />
     On the top right corner of each box there is a circular button with a "plus" icon in it. This will allow you to enter a new element into the group.<br /><br />
     By default both groups have no elements in them, in which case a message will be displayed at the center of the box describing the case.
     ]]>
@@ -288,8 +288,8 @@
     <![CDATA[
     In any case the <strong>Name</strong> field is required and the <strong>Contribution</strong> or <strong>Value</strong> can't have a negative number.<br /><br />
     If you are adding an <strong>Expense</strong> the value must be greater than 0.<br /><br />
-    Don't worry about remembering these conditions. If you misfollow any of them a message will appear on top of the field guiding you to correct it.<br /><br />
-    Once the fields are properly filled you may tap in the green circular button with a "check" icon in it at the bottom of the window. Doing so the window will close and the item will appear in the corresponding box at the bottom of the list.
+    Don't worry about remembering these rules. If you misfollow any of them a message will appear on top of the field guiding you to correct them.<br /><br />
+    Once the fields are properly set you may tap in the green circular button with a "check" icon in it at the bottom of the window. Doing so the window will close and the item will appear in the corresponding box at the bottom of the list.
     ]]>
     </value>
   </data>
@@ -318,7 +318,7 @@
     <value>
     <![CDATA[
     At any time you may modify the event's information whether by editing an element or removing it.<br /><br />
-    For any case you can tap the item in the list and the same window you used to add it will popup. This time the header of the window will display the name of the element and the fields will already be filled with the selected element's values.<br /><br />
+    For any case you can tap the item in the list and the same window used to add it will popup. This time the header of the window will display the name of the element and the fields will already be filled with the selected element's properties.<br /><br />
     In case you're attempting to change the information you may tap the "check" button to save it just as you did when you previously add it.<br /><br />
     In case you're attempting remove the element from the group you may tap the red circular button with "trash" icon in it at the bottom left of the window. This button will only show up when you're editing an element.
     ]]></value>
@@ -329,10 +329,46 @@
   <data name="Sheet.Input.Edit.Part2" xml:space="preserve">
     <value>
     <![CDATA[
-    Once completing the window will close and you may see the changes in the groups.<br /><br />
-    If you decide not to perform any changes (adding, editing or deleting) after the window popped you can tap in the white circular button with an "X" icon in it, at the bottom center of the window to close it.
+    Once completed the window will close and you may see the changes in the groups.<br /><br />
+    If you decide not to perform any changes (adding, editing or deleting) after the window popped you can tap the white circular button with an "X" icon in it, at the bottom center of the window to close it.
     ]]>
     </value>
+  </data>
+  <!-- ............................... -->
+  <!-- ............................... -->
+  <!-- ............................... -->
+  <data name="Sheet.Input.Guest.Expense.Header" xml:space="preserve">
+    <value>Contribution or expense?</value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Part1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    A common question would be when to add an expense or a guest's contribution. For that, first we need to know the definitions of each element.
+    ]]></value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Definition.Guest.Label" xml:space="preserve">
+    <value><![CDATA[Guest's contribution:]]></value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Definition.Guest.Description" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests. <br /><br />
+    This could be food a guest brought for everyone, it could be beverages or even a Karaoke machine the guest rented for the night and has already payed for.
+    ]]></value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Definition.Expense.Label" xml:space="preserve">
+    <value><![CDATA[Expense:]]></value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Definition.Expense.Description" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Represents any cost for the event that <strong>has not been payed for yet</strong> and has been agreed upon to divide between the rest of the guests. <br /><br />
+    This could be the rent of a grill for a barbacue, a laser tag arena, a whole villa for the night, etc.
+    ]]>
+    </value>
+  </data>
+  <data name="Sheet.Input.Guest.Expense.Part2" xml:space="preserve">
+    <value><![CDATA[The main difference for calculating the outcome is that unlike a contribution, a new expense will increase the share, while a new contribution (a new guest) may result, depending on their contribution, in a decreasing of the share since is now divided between more guests.]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
@@ -343,7 +379,7 @@
   <data name="Sheet.Input.Reset" xml:space="preserve">
     <value>
     <![CDATA[
-    Yes. Whenever either boxes contain elements in them the button with an "eraser" icon at the top right of the screen, next to the menu button, can be tapped to delete all the information.<br /><br />
+    Yes. Whenever either boxes contain elements in them the button with an "eraser" icon in it at the top right of the screen, next to the menu button, can be tapped to delete all the information.<br /><br />
     <strong>A dialog will appear asking you to confirm the operation since this action cannot be undone.</strong><br /><br />
     This option will remain disabled whilst both boxes are empty.
     ]]></value>
@@ -465,42 +501,6 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
-  <data name="Sheet.Outcome.Guest.Expense.Header" xml:space="preserve">
-    <value>Contribution or expense?</value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Part1" xml:space="preserve">
-    <value>
-    <![CDATA[
-    A common question would be when to add an expense or a guest's contribution. For that, first we need to know the definitions of each element.
-    ]]></value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Definition.Guest.Label" xml:space="preserve">
-    <value><![CDATA[Guest's contribution:]]></value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Definition.Guest.Description" xml:space="preserve">
-    <value>
-    <![CDATA[
-    Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests. <br /><br />
-    This could be food a guest brought for everyone, it could be drinks or even a Karaoke machine the guest rented for the night and has already been payed for.
-    ]]></value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Definition.Expense.Label" xml:space="preserve">
-    <value><![CDATA[Expense:]]></value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Definition.Expense.Description" xml:space="preserve">
-    <value>
-    <![CDATA[
-    Represents any cost for the event that <strong>has not been payed for yet</strong> and has been agreed upon to divide between the rest of the guests. <br /><br />
-    This could be the rent of a grill for the barbacue, a laser tag arena, a whole villa for the night, etc.
-    ]]>
-    </value>
-  </data>
-  <data name="Sheet.Outcome.Guest.Expense.Part2" xml:space="preserve">
-    <value><![CDATA[The main difference for calculating the outcome is that unlike a contribution, a new expense will increase the share, while a new contribution (a new guest) may result, depending on their contribution, in a decreasing of the share since is now divided in more guests.]]></value>
-  </data>
-  <!-- ............................... -->
-  <!-- ............................... -->
-  <!-- ............................... -->
   <data name="Sheet.Outcome.Examples.Header" xml:space="preserve">
     <value>Let's take a look at some examples</value>
   </data>
@@ -522,7 +522,7 @@
     <value>
     <![CDATA[
     There are three people attending this event. Myself, John and Mike. <br /><br />
-    I contributed with nothing whilst John put <strong>64</strong> for food and Mike <strong>86</strong> for beverages.
+    I contributed with nothing whilst John contributed <strong>64</strong> for food and Mike <strong>86</strong> for beverages.
     ]]>
     </value>
   </data>
@@ -559,11 +559,11 @@
   <data name="Sheet.Outcome.Examples.Example2.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total cost of this event is <strong>400</strong>. That is <strong>100</strong> for each to pay. <br /><br />
+    The total cost of this event is <strong>400</strong>. That is <strong>100</strong> for each to pay <strong>(the Share)</strong>. <br /><br />
     <strong>230</strong> will be for those who contributed (minus their share) and <strong>170</strong> to pay for "paintball".<br /><br />
     Chris owes the total share of <strong>100</strong>, Susan owes <strong>85</strong> since she already contributed with <strong>15</strong>.<br /><br />
-    Lucy and I will be collecting from what Chris and Susan put over the table. That is a total of <strong>185</strong>.<br /><br />
-    From that I will take <strong>5</strong> and Lucy will take <strong>10</strong> leaving, still, <strong>170</strong> on the table. That is the money that should go to pay for a lovely afternoon playing paintball.
+    Lucy and I will be collecting from what Chris and Susan put on the table. That is a total of <strong>185</strong>.<br /><br />
+    From that I will take <strong>5</strong> and Lucy will take <strong>10</strong> leaving, still, <strong>170</strong> on the table. That is the money that should go to pay for a lovely afternoon of paintball.
     ]]>
     </value>
   </data>
@@ -591,11 +591,11 @@
   <data name="Sheet.Outcome.Examples.Example3.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total cost of this event is <strong>100</strong>. That is <strong>25</strong> for each to pay. <br /><br />
+    The total cost of this event is <strong>100</strong>. That is <strong>25</strong> for each to pay <strong>(the Share)</strong>. <br /><br />
     Jo and I are the ones who should put money on the table. I should pay <strong>20</strong> since <strong>5</strong> were already covered for snacks and Jo should pay her full share.<br /><br />
     A total of <strong>45</strong> is now on the table. <strong>5</strong> goes to Ellen since she contributed with <strong>30</strong>.<br /><br />
     We are now left with <strong>40</strong> on the table. <strong>35</strong> will go to pay for the Tennis Court and <strong>5</strong> for the DVD recording.<br /><br />
-    Leo should not pay or receive anything since his contribution matches the share: <strong>25</strong>.
+    Leo should not pay or receive anything since his contribution matches the share of <strong>25</strong>.
     ]]>
     </value>
   </data>
@@ -629,7 +629,7 @@
     <value><![CDATA[&#8226; Use whole numbers?]]></value>
   </data>
   <data name="Sheet.Settings.Option.Whole.Line1" xml:space="preserve">
-    <value><![CDATA[Sets the app to use whole numbers or decimals. In case is set for the latter the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share.]]></value>
+    <value><![CDATA[Sets the app to use whole numbers or decimals. In case is set for the latter (<strong>Off</strong>) the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share.]]></value>
   </data>
 
 </root>

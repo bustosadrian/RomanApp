@@ -10,7 +10,7 @@
                  Title="{x:Static res:Views.Settings_Title}">
 
     <p:NavigablePage.ToolbarItems>
-        <ToolbarItem Text="{x:Static res:Native.Help}"
+        <ToolbarItem Text="{x:Static res:Menu.Help}"
                      Order="Secondary" Priority="1"
                      Command="{Binding GetHelpCommand}" />
     </p:NavigablePage.ToolbarItems>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<p:NavigablePage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                 xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
+                 xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+                 mc:Ignorable="d"
+                 Title="{x:Static res:Views.About_Title}"
+             x:Class="RomanApp.Client.Mobile.Views.About.AboutView">
+
+    <ContentPage.Content>
+        <ScrollView>
+        </ScrollView>
+    </ContentPage.Content>
+</p:NavigablePage>

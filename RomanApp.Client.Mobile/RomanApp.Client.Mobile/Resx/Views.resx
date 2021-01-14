@@ -234,5 +234,8 @@
   <data name="HelpIndex.Header" xml:space="preserve">
     <value>How can I help you with?</value>
   </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About RomanApp</value>
+  </data>
 
 </root>

@@ -9,5 +9,7 @@
         public const string SETTINGS = "RomanApp.Settings";
 
         public const string SHEET = "RomanApp.Sheet";
+
+        public const string ABOUT = "RomanApp.About";
     }
 }

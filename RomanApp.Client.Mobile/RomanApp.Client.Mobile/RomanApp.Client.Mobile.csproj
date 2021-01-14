@@ -67,6 +67,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Help.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resx\Menu.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Menu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resx\Native.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Native.Designer.cs</LastGenOutput>
@@ -98,6 +102,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Templates\ValidationMessage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\About\AboutView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HelpIndex\HelpIndexView.xaml">
@@ -151,6 +158,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Help.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resx\Menu.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Menu.resx</DependentUpon>
     </Compile>
     <Compile Update="Resx\Native.Designer.cs">
       <DesignTime>True</DesignTime>

@@ -21,6 +21,8 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
         {
             GoToSettingsCommand = new Command(OnGoToSettings);
 
+            GoToAboutCommand = new Command(OnGoToAbout);
+
             GetHelpCommand = new Command(OnGetHelp);
 
             NewGuestCommand = new Command(OnNewGuest);

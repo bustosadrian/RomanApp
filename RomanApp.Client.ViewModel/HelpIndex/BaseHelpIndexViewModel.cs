@@ -1,12 +1,13 @@
 ﻿using Reedoo.NET.Messages;
 using RomanApp.Messages.Input.HelpIndex;
 using RomanApp.Messages.Output.HelpIndex;
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace RomanApp.Client.ViewModel.HelpIndex
 {
-    public class BaseHelpIndexViewModel : BusViewModel
+    public abstract class BaseHelpIndexViewModel : BusViewModel
     {
         public BaseHelpIndexViewModel()
         {
@@ -17,10 +18,17 @@ namespace RomanApp.Client.ViewModel.HelpIndex
 
         protected void OnSelectedTopic(HelpTopicViewModel helpTopicViewModel)
         {
-            Send(new SelectTopicInput()
+            try
             {
-                Topic = helpTopicViewModel.Topic,
-            });
+                Send(new SelectTopicInput()
+                {
+                    Topic = helpTopicViewModel.Topic,
+                });
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         #endregion

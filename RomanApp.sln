@@ -51,14 +51,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanApp.Client.Mobile", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanApp.Commons", "RomanApp.Commons\RomanApp.Commons.csproj", "{6FAAFCC4-FA07-4F37-97A7-0C7475CA63E0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B1EAAB45-1A74-473F-8830-4BF49A4C06DB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Help", "Help", "{5BB5D271-B66B-4E4E-BCCC-5EAD7D807EE9}"
-	ProjectSection(SolutionItems) = preProject
-		NoHelp.txt = NoHelp.txt
-		Overview.txt = Overview.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -1014,7 +1006,6 @@ Global
 		{29BF82FE-31E0-4BE8-B7F9-E845297F0935} = {B115B3D1-5CE2-4A5F-A351-28E67B551D2C}
 		{A3D36BBD-4701-4FFD-B904-54E78B350DBB} = {B115B3D1-5CE2-4A5F-A351-28E67B551D2C}
 		{313653E5-38B8-4E4C-BC36-2311555D7EF6} = {B115B3D1-5CE2-4A5F-A351-28E67B551D2C}
-		{5BB5D271-B66B-4E4E-BCCC-5EAD7D807EE9} = {B1EAAB45-1A74-473F-8830-4BF49A4C06DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {43D71ACC-955B-4E4E-B610-B5EA05FC1572}

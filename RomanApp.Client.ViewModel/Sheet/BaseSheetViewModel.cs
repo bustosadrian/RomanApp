@@ -97,7 +97,19 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
                 HandleError(e);
             }
         }
-        
+
+        protected void OnGoToAbout()
+        {
+            try
+            {
+                Send(new GoToAboutInput());
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
 
         protected void OnNewGuest()
         {
@@ -139,6 +151,12 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
         }
 
         public ICommand GoToSettingsCommand
+        {
+            get;
+            protected set;
+        }
+
+        public ICommand GoToAboutCommand
         {
             get;
             protected set;
