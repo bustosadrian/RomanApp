@@ -295,6 +295,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Keep in mind that since the app is set to use whole numbers all figures are rounded. For a more accurate result go to &lt;strong&gt;Settings&lt;/strong&gt; and turn off the option &lt;i&gt;&quot;Use whole numbers&quot;&lt;/i&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Disclaimer {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Disclaimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Who must collect?.
         /// </summary>
         internal static string Sheet_Outcome_Group_Creditors_Header {

@@ -48,6 +48,12 @@ namespace RomanApp.Messages.Output.Sheet.Outcome.Text
             set;
         }
 
+        public bool UseWholeNumbers
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

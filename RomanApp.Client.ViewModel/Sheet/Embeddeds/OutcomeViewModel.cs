@@ -49,6 +49,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             TotalExpenses = message.TotalExpenses;
             Total = message.Total;
             Share = message.Share;
+            UseWholeNumbers = message.UseWholeNumbers;
             return true;
         }
 
@@ -317,6 +318,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _evensCount = value;
                 OnPropertyChanged(nameof(EvensCount));
+            }
+        }
+
+        private bool _useWholeNumbers;
+        public bool UseWholeNumbers
+        {
+            get
+            {
+                return _useWholeNumbers;
+            }
+            set
+            {
+                _useWholeNumbers = value;
+                OnPropertyChanged(nameof(UseWholeNumbers));
             }
         }
 

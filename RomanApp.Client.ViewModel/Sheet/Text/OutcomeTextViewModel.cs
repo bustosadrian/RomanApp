@@ -27,6 +27,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             {
                 Evens = new EvensGroupViewModel(message.Evens);
             }
+
+            UseWholeNumbers = message.UseWholeNumbers;
         }
 
         #region Properties
@@ -113,6 +115,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             {
                 _evens = value;
                 OnPropertyChanged(nameof(Evens));
+            }
+        }
+
+        private bool _useWholeNumbers;
+        public bool UseWholeNumbers
+        {
+            get
+            {
+                return _useWholeNumbers;
+            }
+            set
+            {
+                _useWholeNumbers = value;
+                OnPropertyChanged(nameof(UseWholeNumbers));
             }
         }
 

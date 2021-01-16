@@ -60,6 +60,9 @@
 
                 <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Footer}"  
                        Style="{StaticResource OutcomeTextHeaderFooterStyle}" />
+                <Label Text="{x:Static res:Views.Sheet_Outcome_Disclaimer}"
+                       Style="{StaticResource OutcomeDiclaimerStyle}" 
+                       IsVisible="{Binding UseWholeNumbers}"/>
             </StackLayout>
         </ScrollView>
     </ContentView.Content>

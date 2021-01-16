@@ -165,6 +165,16 @@
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
     
+    <!-- Outcome footer -->
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeDiclaimerStyle"  TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="FontSize" Value="Caption" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="Margin" Value="0,5,0,15" />
+        <Setter Property="TextType" Value="Html" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    
     
     
     <!-- Add Edit Item Dialog -->

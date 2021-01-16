@@ -138,16 +138,12 @@ namespace RomanApp.Service
                 retval.TotalExpenses = _event.Expenses.Sum(x => x.Amount);
                 retval.Total = retval.TotalGuests + retval.TotalExpenses;
 
-                List<GuestOutcome> all = new List<GuestOutcome>();
-                foreach (var o in _event.Guests)
+                List<GuestOutcome> all = _event.Guests.Select(x => new GuestOutcome()
                 {
-                    all.Add(new GuestOutcome()
-                    {
-                        Id = o.Id,
-                        Name = o.Name,
-                        Amount = o.Amount,
-                    });
-                }
+                    Id = x.Id,
+                    Name = x.Name,
+                    Amount = x.Amount,
+                }).ToList();
 
                 if (retval.Total == 0)
                 {
@@ -158,7 +154,7 @@ namespace RomanApp.Service
 
                 foreach (var o in all)
                 {
-                    o.Debt = o.Amount - retval.Share;
+                    o.Debt = (o.Amount - retval.Share).RoundCents(useWholeNumbers);
                     if (o.Debt > 0)
                     {
                         creditors.Add(o);
@@ -210,7 +206,7 @@ namespace RomanApp.Service
                     roundedTotal += o.Debt;
                 }
                 decimal residual = total - roundedTotal;
-                int it = new Random().Next(0, guests.Count);
+                int it = new Random().Next(0, guests.Count());
                 guests[it].Debt += residual;
                 guests[it].Debt = guests[it].Debt.RoundCents(wholeNumbers);
             }

@@ -502,7 +502,7 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Text.Header" xml:space="preserve">
-    <value><![CDATA[Explain it to me like I'm 5.]]></value>
+    <value><![CDATA[Explain it to me like I'm 5]]></value>
   </data>
   <data name="Sheet.Outcome.Text" xml:space="preserve">
     <value>

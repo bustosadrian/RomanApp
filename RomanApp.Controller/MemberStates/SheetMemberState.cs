@@ -57,77 +57,6 @@ namespace RomanApp.Controller.MemberStates
             _outcome = EventService.Calculate(null, RoomSettings.UseWholeNumbers);
         }
 
-        private void QueueOutcomeAsText()
-        {
-            OutcomeTextOutput text = new OutcomeTextOutput();
-
-            //Total
-            text.Total = new TotalGroupOutput()
-            {
-                Total = _outcome.Total,
-                TotalGuests = _outcome.TotalGuests,
-                Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput()
-                {
-                    Name = x.Name,
-                    Value1 = x.Amount,
-                }).ToList()
-            };
-
-            var list = _outcome.Debtors.Where(x => x.Debt < _outcome.Share);
-
-            //Share
-            text.Share = new ShareGroupOutput()
-            {
-                GuestsCount = CurrentEvent.Guests.Count(),
-                Share = _outcome.Share,
-                HasNoDebtors = (CurrentEvent.Guests.Count() - _outcome.Debtors.Count()) > 0,
-                HasPartialDebtors = _outcome.Debtors.Any(x => x.Debt < _outcome.Share),
-            };
-
-
-            //Debtors
-            text.Debtors = new DebtorsGroupOutput()
-            {
-                Share = _outcome.Share,
-                FullDebtors = _outcome.Debtors.Where(x => x.Debt == _outcome.Share).Select(x => x.Name).ToList(),
-                PartialDebtors = _outcome.Debtors.Where(x => x.Debt < _outcome.Share).Select(x => new NameAmountOutput(x.Name, x.Debt, x.Amount)).ToList(),
-            };
-
-            //Collected
-            if (_outcome.Creditors.Any())
-            {
-                text.Collected = new CollectedGroupOutput()
-                {
-                    Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
-                    TotalCollected = _outcome.Debtors.Sum(x => x.Debt),
-                    Creditors = _outcome.Creditors.Select(x => new NameAmountOutput(x.Name, x.Debt)).ToList(),
-                };
-            }
-
-            //Expenses
-            if (CurrentEvent.Expenses.Any())
-            {
-                text.Expenses = new ExpensesGroupOutput()
-                {
-                    HasCreditors = _outcome.Creditors.Any(),
-                    Remaining = _outcome.Total - _outcome.TotalGuests,
-                    Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
-                    Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput(x.Name, x.Amount)).ToList(),
-                };
-            }
-
-            //Evens
-            if (_outcome.Evens.Any())
-            {
-                text.Evens = new EvensGroupOutput()
-                {
-                    Evens = _outcome.Evens.Select(x => x.Name).ToList(),
-                };
-            }
-
-            Queue(text);
-        }
-
         #region Queues
 
         private void QueueClearAll()
@@ -198,6 +127,7 @@ namespace RomanApp.Controller.MemberStates
                 TotalExpenses = _outcome.TotalExpenses,
                 Total = _outcome.Total,
                 Share = _outcome.Share,
+                UseWholeNumbers = RoomSettings.UseWholeNumbers,
             }); ;
         }
 
@@ -232,6 +162,78 @@ namespace RomanApp.Controller.MemberStates
             {
                 ResetEnabled = resetEnabled,
             });
+        }
+
+        private void QueueOutcomeAsText()
+        {
+            OutcomeTextOutput text = new OutcomeTextOutput();
+
+            //Total
+            text.Total = new TotalGroupOutput()
+            {
+                Total = _outcome.Total,
+                TotalGuests = _outcome.TotalGuests,
+                Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput()
+                {
+                    Name = x.Name,
+                    Value1 = x.Amount,
+                }).ToList()
+            };
+
+            var list = _outcome.Debtors.Where(x => x.Debt < _outcome.Share);
+
+            //Share
+            text.Share = new ShareGroupOutput()
+            {
+                GuestsCount = CurrentEvent.Guests.Count(),
+                Share = _outcome.Share,
+                HasNoDebtors = (CurrentEvent.Guests.Count() - _outcome.Debtors.Count()) > 0,
+                HasPartialDebtors = _outcome.Debtors.Any(x => x.Debt < _outcome.Share),
+            };
+
+
+            //Debtors
+            text.Debtors = new DebtorsGroupOutput()
+            {
+                Share = _outcome.Share,
+                FullDebtors = _outcome.Debtors.Where(x => x.Debt == _outcome.Share).Select(x => x.Name).ToList(),
+                PartialDebtors = _outcome.Debtors.Where(x => x.Debt < _outcome.Share).Select(x => new NameAmountOutput(x.Name, x.Debt, x.Amount)).ToList(),
+            };
+
+            //Collected
+            if (_outcome.Creditors.Any())
+            {
+                text.Collected = new CollectedGroupOutput()
+                {
+                    Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
+                    TotalCollected = _outcome.Debtors.Sum(x => x.Debt),
+                    Creditors = _outcome.Creditors.Select(x => new NameAmountOutput(x.Name, x.Debt)).ToList(),
+                };
+            }
+
+            //Expenses
+            if (CurrentEvent.Expenses.Any())
+            {
+                text.Expenses = new ExpensesGroupOutput()
+                {
+                    HasCreditors = _outcome.Creditors.Any(),
+                    Remaining = _outcome.Total - _outcome.TotalGuests,
+                    Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
+                    Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput(x.Name, x.Amount)).ToList(),
+                };
+            }
+
+            //Evens
+            if (_outcome.Evens.Any())
+            {
+                text.Evens = new EvensGroupOutput()
+                {
+                    Evens = _outcome.Evens.Select(x => x.Name).ToList(),
+                };
+            }
+            text.UseWholeNumbers = RoomSettings.UseWholeNumbers;
+
+            Queue(text);
         }
 
         #endregion

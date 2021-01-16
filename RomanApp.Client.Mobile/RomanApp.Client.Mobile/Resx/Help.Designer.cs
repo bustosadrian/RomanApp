@@ -791,7 +791,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Explain it to me like I&apos;m 5..
+        ///   Looks up a localized string similar to Explain it to me like I&apos;m 5.
         /// </summary>
         internal static string Sheet_Outcome_Text_Header {
             get {

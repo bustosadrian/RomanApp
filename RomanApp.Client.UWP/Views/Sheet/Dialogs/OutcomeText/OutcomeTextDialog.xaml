@@ -84,7 +84,13 @@
         </StackPanel>
 
         <Grid Grid.Row="2">
-            <TextBlock Text="And we are done!" />
+            <StackPanel>
+                <TextBlock Text="And we are done!" />
+                <TextBlock Text="Keep in mind that since the app is set to use whole numbers all figures are round down. For a more accurate result go to Settings and change the Use whole numbers roperty." 
+                           Foreground="Red"
+                           TextWrapping="Wrap"
+                           Visibility="{Binding UseWholeNumbers, Converter={StaticResource c_bv}}" />
+            </StackPanel>
         </Grid>
 
     </Grid>
