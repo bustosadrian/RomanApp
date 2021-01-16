@@ -6,9 +6,9 @@ namespace RomanApp.Messages.Output.Sheet.Outcome
 {
     [Serializable]
     [Message(KEY)]
-    public class OutcomeGuestOutput : OutputMessage
+    public class OutcomeItemOutput : OutputMessage
     {
-        private const string KEY = "RomanApp.Sheet.Output.Outcome.Guest";
+        private const string KEY = "RomanApp.Sheet.Output.Outcome.Item";
 
         #region Properties
 

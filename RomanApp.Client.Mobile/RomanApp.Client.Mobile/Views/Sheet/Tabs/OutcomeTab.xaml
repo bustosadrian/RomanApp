@@ -96,18 +96,29 @@
                         <sc:OutcomeItemsCard Grid.Row="0" ItemsSource="{Binding Path=Outcome.Debtors}" 
                                              GroupName="{x:Static res:Views.Sheet_Outcome_Group_Debtors_Header}"
                                              Count="{Binding Path=Outcome.DebtorsCount}"
-                                             IsVisible="{Binding Path=Outcome.IsShowDebtors}" />
+                                             IsVisible="{Binding Path=Outcome.IsShowDebtors}" 
+                                             Total="{Binding Path=Outcome.TotalDebtors}" 
+                                             ShowTotal="{Binding Path=Outcome.IsShowTotalDebtors}" />
 
                         <sc:OutcomeItemsCard Grid.Row="1" ItemsSource="{Binding Path=Outcome.Creditors}" 
                                              GroupName="{x:Static res:Views.Sheet_Outcome_Group_Creditors_Header}"
                                              Count="{Binding Path=Outcome.CreditorsCount}"
-                                             IsVisible="{Binding Path=Outcome.IsShowCreditors}" />
+                                             IsVisible="{Binding Path=Outcome.IsShowCreditors}" 
+                                             Total="{Binding Path=Outcome.TotalCreditors}" 
+                                             ShowTotal="{Binding Path=Outcome.IsShowTotalCreditors}" />
+
+                        <sc:OutcomeItemsCard Grid.Row="2" ItemsSource="{Binding Path=Outcome.Expenses}" 
+                                             GroupName="{x:Static res:Views.Sheet_Outcome_Group_Expenses_Header}"
+                                             Count="{Binding Path=Outcome.ExpensesCount}"
+                                             IsVisible="{Binding Path=Outcome.IsShowExpenses}"
+                                             ShowTotal="False" />
 
                         <sc:OutcomeItemsCard Grid.Row="2" ItemsSource="{Binding Path=Outcome.Evens}" 
                                              GroupName="{x:Static res:Views.Sheet_Outcome_Group_Even_Header}"
                                              Count="{Binding Path=Outcome.EvensCount}"
                                              IsVisible="{Binding Path=Outcome.IsShowEvens}" 
-                                             ShowAmount="False" />
+                                             ShowAmount="False" 
+                                             ShowTotal="False" />
                     </Grid>
 
                     <!--TEXT-->

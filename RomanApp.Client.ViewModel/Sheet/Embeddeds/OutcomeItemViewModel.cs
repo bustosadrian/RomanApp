@@ -2,14 +2,14 @@
 
 namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
 {
-    public class OutcomeGuestViewModel : BaseViewModel
+    public class OutcomeItemViewModel : BaseViewModel
     {
-        public OutcomeGuestViewModel(OutcomeGuestOutput message)
+        public OutcomeItemViewModel(OutcomeItemOutput message)
         {
             Load(message);
         }
 
-        public void Load(OutcomeGuestOutput outcomeGuestOutput)
+        public void Load(OutcomeItemOutput outcomeGuestOutput)
         {
             Name = outcomeGuestOutput.Name;
             Amount = outcomeGuestOutput.Amount;
@@ -26,12 +26,12 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
 
         public string Name
         {
-            get 
-            { 
-                return _name; 
+            get
+            {
+                return _name;
             }
-            set 
-            { 
+            set
+            {
                 _name = value;
                 OnPropertyChanged(nameof(Name));
             }
@@ -52,5 +52,6 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         }
 
         #endregion
+
     }
 }

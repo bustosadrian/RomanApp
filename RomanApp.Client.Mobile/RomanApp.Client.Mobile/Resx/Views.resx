@@ -192,6 +192,12 @@
   <data name="Sheet.Outcome.Group.Even.Header" xml:space="preserve">
     <value>Who owes nothing?</value>
   </data>
+  <data name="Sheet.Outcome.Group.Expenses.Header" xml:space="preserve">
+    <value>Expenses to cover</value>
+  </data>
+  <data name="Sheet.Outcome.Group.Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
   <data name="Sheet.Outcome.Summary.Header" xml:space="preserve">
     <value>Summary</value>
   </data>

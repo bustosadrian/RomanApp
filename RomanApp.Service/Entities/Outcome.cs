@@ -24,7 +24,25 @@ namespace RomanApp.Service.Entities
             set;
         }
 
+        public int GuestsCount
+        {
+            get;
+            set;
+        }
+
         public decimal TotalExpenses
+        {
+            get;
+            set;
+        }
+
+        public decimal TotalDebtors
+        {
+            get;
+            set;
+        }
+
+        public decimal TotalCreditors
         {
             get;
             set;
@@ -49,6 +67,12 @@ namespace RomanApp.Service.Entities
         }
 
         public IEnumerable<GuestOutcome> Evens
+        {
+            get;
+            set;
+        }
+
+        public IEnumerable<ExpenseOutcome> Expenses
         {
             get;
             set;

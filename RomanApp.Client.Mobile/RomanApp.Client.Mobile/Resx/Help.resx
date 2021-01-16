@@ -452,20 +452,22 @@
   <data name="Sheet.Outcome.Groups" xml:space="preserve">
     <value>
     <![CDATA[
-    Along with the <strong>Summary</strong> the outcome provides three different boxes which represent the event's guests sorted in three groups:<br /><br />
-    &nbsp;&nbsp;&#8226; Those who owe.<br />
-    &nbsp;&nbsp;&#8226; Those who must collect<br />
-    &nbsp;&nbsp;&#8226; Those who broke even<br />
+    Along with the <strong>Summary</strong> the outcome provides three different boxes which represent the event's guests or expenses sorted in four groups:<br /><br />
+    &nbsp;&nbsp;1. Those who owe.<br />
+    &nbsp;&nbsp;2. Those who must collect<br />
+    &nbsp;&nbsp;3. Expenses to cover<br />
+    &nbsp;&nbsp;4. Those who broke even<br />
     <br />
-    Each box has a header that describes, at its left side, what group of guests (described above) contains and  the count of guests at its right side.<br /><br />
-    Inside the box you can see the list of guests. On the left side the guest's name and on the right side the amount that the guest either owes or must collect, depending on which box you're looking at.<br /><br />
-    The third box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero.
+    Each box has a header that describes, at its left side, what group of elements (<strong>guests</strong> or <strong>expenses</strong>, described above) contains and  the count of elements at its right side.<br />
+    Each, also, have a footer that shows the total sum of all the elements in the box. This will only be visible when the box, or group, contains more than one element.<br /><br />
+    Inside the box you can see the list of elements. On the left side the element's name and on the right side the amount that the it either owes, must collect or be payed, depending on which box you're looking at.<br /><br />
+    The fourth box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero and won't show the total, at its footer, either.
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Groups.Note.Visible" xml:space="preserve">
     <value>
     <![CDATA[
-    You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one guest after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group ("Who must collect?") will not be shown.
+    You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one element after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group ("Who must collect?") will not be shown.
     ]]></value>
   </data>
   <!-- ............................... -->

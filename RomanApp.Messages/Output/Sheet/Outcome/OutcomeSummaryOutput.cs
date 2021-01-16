@@ -24,6 +24,18 @@ namespace RomanApp.Messages.Output.Sheet.Outcome
             set;
         }
 
+        public decimal TotalDebtors
+        {
+            get;
+            set;
+        }
+
+        public decimal TotalCreditors
+        {
+            get;
+            set;
+        }
+
         public decimal Total
         {
             get;

@@ -47,6 +47,9 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         {
             TotalGuests = message.TotalGuests;
             TotalExpenses = message.TotalExpenses;
+            TotalDebtors = message.TotalDebtors;
+            TotalCreditors = message.TotalCreditors;
+
             Total = message.Total;
             Share = message.Share;
             UseWholeNumbers = message.UseWholeNumbers;
@@ -56,17 +59,23 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
         [Reader]
         public bool Read(OutcomeGuestsOutput message)
         {
-            Debtors = new ObservableCollection<OutcomeGuestViewModel>(message.Debtors.Select(x => new OutcomeGuestViewModel(x)));
-            Creditors = new ObservableCollection<OutcomeGuestViewModel>(message.Creditors.Select(x => new OutcomeGuestViewModel(x)));
-            Evens = new ObservableCollection<OutcomeGuestViewModel>(message.Evens.Select(x => new OutcomeGuestViewModel(x)));
+            Debtors = new ObservableCollection<OutcomeItemViewModel>(message.Debtors.Select(x => new OutcomeItemViewModel(x)));
+            Creditors = new ObservableCollection<OutcomeItemViewModel>(message.Creditors.Select(x => new OutcomeItemViewModel(x)));
+            Evens = new ObservableCollection<OutcomeItemViewModel>(message.Evens.Select(x => new OutcomeItemViewModel(x)));
+            Expenses = new ObservableCollection<OutcomeItemViewModel>(message.Expenses.Select(x => new OutcomeItemViewModel(x)));
 
             DebtorsCount = Debtors.Count();
             CreditorsCount = Creditors.Count();
             EvensCount = Evens.Count();
+            ExpensesCount = Expenses.Count();
 
             IsShowDebtors = DebtorsCount > 0;
             IsShowCreditors = CreditorsCount > 0;
             IsShowEvens = EvensCount > 0;
+            IsShowExpenses = ExpensesCount > 0;
+
+            IsShowTotalDebtors = DebtorsCount > 1;
+            IsShowTotalCreditors = CreditorsCount > 1;
 
             return true;
         }
@@ -191,9 +200,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             }
         }
 
-        private ObservableCollection<OutcomeGuestViewModel> _debtors;
-        [Embedded]
-        public ObservableCollection<OutcomeGuestViewModel> Debtors
+        private ObservableCollection<OutcomeItemViewModel> _debtors;
+        public ObservableCollection<OutcomeItemViewModel> Debtors
         {
             get
             {
@@ -206,9 +214,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             }
         }
 
-        private ObservableCollection<OutcomeGuestViewModel> _creditors;
-        [Embedded]
-        public ObservableCollection<OutcomeGuestViewModel> Creditors
+        private ObservableCollection<OutcomeItemViewModel> _creditors;
+        public ObservableCollection<OutcomeItemViewModel> Creditors
         {
             get
             {
@@ -221,9 +228,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             }
         }
 
-        private ObservableCollection<OutcomeGuestViewModel> _evens;
-        [Embedded]
-        public ObservableCollection<OutcomeGuestViewModel> Evens
+        private ObservableCollection<OutcomeItemViewModel> _evens;
+        public ObservableCollection<OutcomeItemViewModel> Evens
         {
             get
             {
@@ -233,6 +239,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _evens = value;
                 OnPropertyChanged(nameof(Evens));
+            }
+        }
+
+        private ObservableCollection<OutcomeItemViewModel> _expenses;
+        public ObservableCollection<OutcomeItemViewModel> Expenses
+        {
+            get
+            {
+                return _expenses;
+            }
+            set
+            {
+                _expenses = value;
+                OnPropertyChanged(nameof(Expenses));
             }
         }
 
@@ -275,6 +295,48 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _isShowEvens = value;
                 OnPropertyChanged(nameof(IsShowEvens));
+            }
+        }
+
+        private bool _isShowExpenses;
+        public bool IsShowExpenses
+        {
+            get
+            {
+                return _isShowExpenses;
+            }
+            set
+            {
+                _isShowExpenses = value;
+                OnPropertyChanged(nameof(IsShowExpenses));
+            }
+        }
+
+        private bool _isShowTotalDebtors;
+        public bool IsShowTotalDebtors
+        {
+            get
+            {
+                return _isShowTotalDebtors;
+            }
+            set
+            {
+                _isShowTotalDebtors = value;
+                OnPropertyChanged(nameof(IsShowTotalDebtors));
+            }
+        }
+
+        private bool _isShowTotalCreditors;
+        public bool IsShowTotalCreditors
+        {
+            get
+            {
+                return _isShowTotalCreditors;
+            }
+            set
+            {
+                _isShowTotalCreditors = value;
+                OnPropertyChanged(nameof(IsShowTotalCreditors));
             }
         }
 
@@ -321,6 +383,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             }
         }
 
+        private int _expensesCount;
+        public int ExpensesCount
+        {
+            get
+            {
+                return _expensesCount;
+            }
+            set
+            {
+                _expensesCount = value;
+                OnPropertyChanged(nameof(ExpensesCount));
+            }
+        }
+
         private bool _useWholeNumbers;
         public bool UseWholeNumbers
         {
@@ -332,6 +408,34 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _useWholeNumbers = value;
                 OnPropertyChanged(nameof(UseWholeNumbers));
+            }
+        }
+
+        private decimal _totalDebtors;
+        public decimal TotalDebtors
+        {
+            get
+            {
+                return _totalDebtors;
+            }
+            set
+            {
+                _totalDebtors = value;
+                OnPropertyChanged(nameof(TotalDebtors));
+            }
+        }
+
+        private decimal _totalCreditors;
+        public decimal TotalCreditors
+        {
+            get
+            {
+                return _totalCreditors;
+            }
+            set
+            {
+                _totalCreditors = value;
+                OnPropertyChanged(nameof(TotalCreditors));
             }
         }
 

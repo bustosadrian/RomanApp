@@ -17,11 +17,11 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Controls
         #region Properties
 
         public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource),
-                typeof(ObservableCollection<OutcomeGuestViewModel>), typeof(OutcomeItemsCard), null);
+                typeof(ObservableCollection<OutcomeItemViewModel>), typeof(OutcomeItemsCard), null);
 
-        public ObservableCollection<OutcomeGuestViewModel> ItemsSource
+        public ObservableCollection<OutcomeItemViewModel> ItemsSource
         {
-            get { return (ObservableCollection<OutcomeGuestViewModel>)GetValue(ItemsSourceProperty); }
+            get { return (ObservableCollection<OutcomeItemViewModel>)GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
@@ -50,6 +50,24 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Controls
         {
             get { return (bool)GetValue(ShowAmountProperty); }
             set { SetValue(ShowAmountProperty, value); }
+        }
+
+        public static readonly BindableProperty TotalProperty = BindableProperty.Create(nameof(Total),
+                typeof(decimal), typeof(OutcomeItemsCard), (decimal)0);
+
+        public decimal Total
+        {
+            get { return (decimal)GetValue(TotalProperty); }
+            set { SetValue(TotalProperty, value); }
+        }
+
+        public static readonly BindableProperty ShowTotalProperty = BindableProperty.Create(nameof(ShowTotal),
+                typeof(bool), typeof(OutcomeItemsCard), false);
+
+        public bool ShowTotal
+        {
+            get { return (bool)GetValue(ShowTotalProperty); }
+            set { SetValue(ShowTotalProperty, value); }
         }
 
         #endregion

@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.Resources>
-                <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderStyle}" />
+                <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderFooterStyle}" />
             </Grid.Resources>
 
             <Label Grid.Column="0"
@@ -31,7 +31,7 @@
                        Text="{Binding Count, Source={x:Reference Self}}" />
         </Grid>
 
-        <c:Separator Grid.Row="1" />
+        <c:Separator />
 
 
         <c:Repeat ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}">
@@ -61,5 +61,24 @@
                 </DataTemplate>
             </c:Repeat.ItemTemplate>
         </c:Repeat>
+
+        <StackLayout IsVisible="{Binding ShowTotal, Source={x:Reference Self}}">
+            <c:Separator />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label" BasedOn="{StaticResource OutcomeDetailsCardHeaderFooterStyle}" />
+                </Grid.Resources>
+
+                <Label Grid.Column="0"
+                       Text="{x:Static res:Views.Sheet_Outcome_Group_Total}" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Total, Source={x:Reference Self}, Converter={StaticResource c_money}}" />
+            </Grid>
+        </StackLayout>
     </StackLayout>
 </Frame>

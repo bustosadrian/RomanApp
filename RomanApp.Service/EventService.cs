@@ -119,12 +119,14 @@ namespace RomanApp.Service
             List<GuestOutcome> creditors = new List<GuestOutcome>();
             List<GuestOutcome> debtors = new List<GuestOutcome>();
             List<GuestOutcome> evens = new List<GuestOutcome>();
+            List<ExpenseOutcome> expenses = new List<ExpenseOutcome>();
             retval = new Outcome()
             {
                 Result = OutcomeResult.Ready,
                 Creditors = creditors,
                 Debtors = debtors,
                 Evens = evens,
+                Expenses = expenses,
             };
 
             try
@@ -135,6 +137,18 @@ namespace RomanApp.Service
                 }
 
                 retval.TotalGuests = _event.Guests.Sum(x => x.Amount);
+
+                foreach(var o in _event.Expenses)
+                {
+                    retval.TotalExpenses += o.Amount;
+                    expenses.Add(new ExpenseOutcome()
+                    {
+                        Id = o.Id,
+                        Name = o.Name,
+                        Amount = o.Amount,
+                    });
+                }
+
                 retval.TotalExpenses = _event.Expenses.Sum(x => x.Amount);
                 retval.Total = retval.TotalGuests + retval.TotalExpenses;
 
@@ -144,6 +158,7 @@ namespace RomanApp.Service
                     Name = x.Name,
                     Amount = x.Amount,
                 }).ToList();
+                retval.GuestsCount = all.Count();
 
                 if (retval.Total == 0)
                 {
@@ -154,20 +169,22 @@ namespace RomanApp.Service
 
                 foreach (var o in all)
                 {
-                    o.Debt = (o.Amount - retval.Share).RoundCents(useWholeNumbers);
-                    if (o.Debt > 0)
+                    decimal debt = (o.Amount - retval.Share).RoundCents(useWholeNumbers);
+                    o.Debt = Math.Abs(debt);
+                    if (debt > 0)
                     {
+                        retval.TotalCreditors += o.Debt;
                         creditors.Add(o);
                     }
-                    else if (o.Debt < 0)
+                    else if (debt < 0)
                     {
+                        retval.TotalDebtors += o.Debt;
                         debtors.Add(o);
                     }
-                    else if (o.Debt == 0)
+                    else if (debt == 0)
                     {
                         evens.Add(o);
                     }
-                    o.Debt = Math.Abs(o.Debt);
                 }
 
                 Round(retval.Share, (List<GuestOutcome>)retval.Creditors, useWholeNumbers);

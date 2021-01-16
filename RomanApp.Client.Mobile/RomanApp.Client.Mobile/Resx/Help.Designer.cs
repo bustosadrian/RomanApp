@@ -696,13 +696,13 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides three different boxes which represent the event&apos;s guests sorted in three groups:&lt;br /&gt;&lt;br /&gt;
-        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who owe.&lt;br /&gt;
-        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who must collect&lt;br /&gt;
-        ///    &amp;nbsp;&amp;nbsp;&amp;#8226; Those who broke even&lt;br /&gt;
+        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides three different boxes which represent the event&apos;s guests or expenses sorted in four groups:&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;1. Those who owe.&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;2. Those who must collect&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;3. Expenses to cover&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;4. Those who broke even&lt;br /&gt;
         ///    &lt;br /&gt;
-        ///    Each box has a header that describes, at its left side, what group of guests (described above) contains and  the count of guests at its right side.&lt;br /&gt;&lt;br /&gt;
-        ///    Inside the b [rest of string was truncated]&quot;;.
+        ///    Each box has a header that describes, at its left side, what group of elements (&lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt;, des [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Groups {
             get {
@@ -722,7 +722,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one guest after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group (&quot;Who must collect?&quot;) will not be shown.
+        ///    You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one element after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group (&quot;Who must collect?&quot;) will not be shown.
         ///    .
         /// </summary>
         internal static string Sheet_Outcome_Groups_Note_Visible {

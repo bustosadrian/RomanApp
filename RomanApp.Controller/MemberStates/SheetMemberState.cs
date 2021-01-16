@@ -125,6 +125,8 @@ namespace RomanApp.Controller.MemberStates
             {
                 TotalGuests = _outcome.TotalGuests,
                 TotalExpenses = _outcome.TotalExpenses,
+                TotalDebtors = _outcome.TotalDebtors,
+                TotalCreditors = _outcome.TotalCreditors,
                 Total = _outcome.Total,
                 Share = _outcome.Share,
                 UseWholeNumbers = RoomSettings.UseWholeNumbers,
@@ -139,9 +141,10 @@ namespace RomanApp.Controller.MemberStates
         private void QueueOutcomeGuests()
         {
             OutcomeGuestsOutput list = new OutcomeGuestsOutput();
-            list.Debtors = _outcome.Debtors.Select(x => ToOutcomeGuestOutput(x)).ToList();
-            list.Creditors = _outcome.Creditors.Select(x => ToOutcomeGuestOutput(x)).ToList();
-            list.Evens = _outcome.Evens.Select(x => ToOutcomeGuestOutput(x)).ToList();
+            list.Debtors = _outcome.Debtors.Select(x => ToOutcomeItemOutput(x)).ToList();
+            list.Creditors = _outcome.Creditors.Select(x => ToOutcomeItemOutput(x)).ToList();
+            list.Evens = _outcome.Evens.Select(x => ToOutcomeItemOutput(x)).ToList();
+            list.Expenses = _outcome.Expenses.Select(x => ToOutcomeItemOutput(x)).ToList();
             Queue(list);
         }
 
@@ -173,7 +176,7 @@ namespace RomanApp.Controller.MemberStates
             {
                 Total = _outcome.Total,
                 TotalGuests = _outcome.TotalGuests,
-                Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput()
+                Expenses = _outcome.Expenses.Select(x => new NameAmountOutput()
                 {
                     Name = x.Name,
                     Value1 = x.Amount,
@@ -185,9 +188,9 @@ namespace RomanApp.Controller.MemberStates
             //Share
             text.Share = new ShareGroupOutput()
             {
-                GuestsCount = CurrentEvent.Guests.Count(),
+                GuestsCount = _outcome.GuestsCount,
                 Share = _outcome.Share,
-                HasNoDebtors = (CurrentEvent.Guests.Count() - _outcome.Debtors.Count()) > 0,
+                HasNoDebtors = (_outcome.GuestsCount - _outcome.Debtors.Count()) > 0,
                 HasPartialDebtors = _outcome.Debtors.Any(x => x.Debt < _outcome.Share),
             };
 
@@ -212,14 +215,14 @@ namespace RomanApp.Controller.MemberStates
             }
 
             //Expenses
-            if (CurrentEvent.Expenses.Any())
+            if (_outcome.Expenses.Any())
             {
                 text.Expenses = new ExpensesGroupOutput()
                 {
                     HasCreditors = _outcome.Creditors.Any(),
                     Remaining = _outcome.Total - _outcome.TotalGuests,
                     Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
-                    Expenses = CurrentEvent.Expenses.Select(x => new NameAmountOutput(x.Name, x.Amount)).ToList(),
+                    Expenses = _outcome.Expenses.Select(x => new NameAmountOutput(x.Name, x.Amount)).ToList(),
                 };
             }
 
@@ -255,19 +258,27 @@ namespace RomanApp.Controller.MemberStates
             return retval;
         }
 
-        private OutcomeGuestOutput ToOutcomeGuestOutput(GuestOutcome entity)
+        private OutcomeItemOutput ToOutcomeItemOutput(GuestOutcome entity)
         {
-            OutcomeGuestOutput retval = null;
+            OutcomeItemOutput retval = null;
 
-            retval = new OutcomeGuestOutput()
-            {
-                Name = entity.Name,
-                Amount = Math.Abs(entity.Debt),
-            };
+            retval = new OutcomeItemOutput();
+            retval.Name = entity.Name;
+            retval.Amount = entity.Debt;
 
             return retval;
         }
 
+        private OutcomeItemOutput ToOutcomeItemOutput(ExpenseOutcome entity)
+        {
+            OutcomeItemOutput retval = null;
+
+            retval = new OutcomeItemOutput();
+            retval.Name = entity.Name;
+            retval.Amount = entity.Amount;
+
+            return retval;
+        }
 
         #endregion
 

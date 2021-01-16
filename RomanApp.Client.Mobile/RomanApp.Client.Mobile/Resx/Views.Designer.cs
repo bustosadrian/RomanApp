@@ -331,6 +331,24 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expenses to cover.
+        /// </summary>
+        internal static string Sheet_Outcome_Group_Expenses_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Group.Expenses.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total.
+        /// </summary>
+        internal static string Sheet_Outcome_Group_Total {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Group.Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Summary.
         /// </summary>
         internal static string Sheet_Outcome_Summary_Header {

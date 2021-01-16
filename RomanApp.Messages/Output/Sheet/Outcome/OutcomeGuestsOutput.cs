@@ -2,7 +2,6 @@
 using Reedoo.NET.Messages.Output;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Messages.Output.Sheet.Outcome
 {
@@ -14,19 +13,26 @@ namespace RomanApp.Messages.Output.Sheet.Outcome
 
         #region Properties
 
-        public List<OutcomeGuestOutput> Debtors
+        public List<OutcomeItemOutput> Debtors
         {
             get;
             set;
         }
 
-        public List<OutcomeGuestOutput> Creditors
+        public List<OutcomeItemOutput> Creditors
         {
             get;
             set;
         }
 
-        public List<OutcomeGuestOutput> Evens
+        public List<OutcomeItemOutput> Evens
+        {
+            get;
+            set;
+        }
+
+
+        public List<OutcomeItemOutput> Expenses
         {
             get;
             set;

@@ -119,17 +119,51 @@
                     <Grid Grid.Row="1"  
                       Margin="30" VerticalAlignment="Top">
                         <StackPanel VerticalAlignment="Top">
-                            <TextBlock Text="Debtors" 
-                                   FontWeight="Bold" FontSize="20"/>
-                            <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Debtors}" Foreground="DarkRed" />
+                            <StackPanel Visibility="{Binding Path=Outcome.IsShowDebtors, Converter={StaticResource c_bv}}" 
+                                        Margin="0 0 0 20">
+                                <TextBlock FontWeight="Bold" FontSize="20">
+                                    <Run Text="Debtors" />
+                                    <Run Text="{Binding Path=Outcome.DebtorsCount}" />
+                                </TextBlock>
+                                <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Debtors}" Foreground="DarkRed" />
+                                <TextBlock FontWeight="Bold" FontSize="20"
+                                           Visibility="{Binding Path=Outcome.IsShowTotalDebtors, Converter={StaticResource c_bv}}">
+                                    <Run Text="Total:" />
+                                    <Run Text="{Binding Path=Outcome.TotalDebtors}" />
+                                </TextBlock>
+                            </StackPanel>
 
-                            <TextBlock Text="Creditors" 
-                                   FontWeight="Bold" FontSize="20"/>
-                            <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Creditors}" Foreground="DarkGreen" />
+                            <StackPanel Visibility="{Binding Path=Outcome.IsShowCreditors, Converter={StaticResource c_bv}}" 
+                                        Margin="0 0 0 20">
+                                <TextBlock FontWeight="Bold" FontSize="20">
+                                    <Run Text="Creditors" />
+                                    <Run Text="{Binding Path=Outcome.CreditorsCount}" />
+                                </TextBlock>
+                                <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Creditors}" Foreground="DarkGreen" />
+                                <TextBlock FontWeight="Bold" FontSize="20"
+                                           Visibility="{Binding Path=Outcome.IsShowTotalCreditors, Converter={StaticResource c_bv}}">
+                                    <Run Text="Total:" />
+                                    <Run Text="{Binding Path=Outcome.TotalCreditors}" />
+                                </TextBlock>
+                            </StackPanel>
 
-                            <TextBlock Text="Even" 
-                                   FontWeight="Bold" FontSize="20"/>
-                            <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Evens}" Foreground="Black" />
+                            <StackPanel Visibility="{Binding Path=Outcome.IsShowExpenses, Converter={StaticResource c_bv}}" 
+                                        Margin="0 0 0 20">
+                                <TextBlock FontWeight="Bold" FontSize="20">
+                                    <Run Text="Expenses" />
+                                    <Run Text="{Binding Path=Outcome.ExpensesCount}" />
+                                </TextBlock>
+                                <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Expenses}" Foreground="Black" />
+                            </StackPanel>
+
+                            <StackPanel Visibility="{Binding Path=Outcome.IsShowEvens, Converter={StaticResource c_bv}}" 
+                                        Margin="0 0 0 20">
+                                <TextBlock FontWeight="Bold" FontSize="20">
+                                    <Run Text="Evens" />
+                                    <Run Text="{Binding Path=Outcome.EvensCount}" />
+                                </TextBlock>
+                                <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Evens}" Foreground="Black" />
+                            </StackPanel>
                         </StackPanel>
                     </Grid>
 
