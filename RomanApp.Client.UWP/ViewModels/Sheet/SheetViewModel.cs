@@ -2,8 +2,10 @@
 using RomanApp.Client.UWP.Dialogs;
 using RomanApp.Client.UWP.ViewModels.Components;
 using RomanApp.Client.UWP.Views.Sheet.Dialogs;
+using RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
+using RomanApp.Client.ViewModel.Sheet.Text;
 using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using System;
@@ -46,6 +48,11 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
             EditItemCommand = new XamlUICommand();
             ((XamlUICommand)EditItemCommand).ExecuteRequested += (s, e) => {
                 OnEditItem((ItemRowViewModel)e.Parameter);
+            };
+
+            GetOutcomeAsTextCommand = new XamlUICommand();
+            ((XamlUICommand)GetOutcomeAsTextCommand).ExecuteRequested += (s, e) => {
+                OnGetOutcomeAsTextCommand();
             };
 
             Validations = new ValidationsViewModel(this);
@@ -104,6 +111,15 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
             {
                 Reset();
             }
+        }
+
+        protected override async void ShowOutcomeText(OutcomeTextViewModel text)
+        {
+            OutcomeTextDialog dialog = new OutcomeTextDialog()
+            {
+                DataContext = text,
+            };
+            await dialog.ShowAsync();
         }
 
         #region Commands

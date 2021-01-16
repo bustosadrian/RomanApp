@@ -169,6 +169,11 @@
             <Label Text="{x:Static res:Help.Sheet_Outcome_Empty_No_Debt_Description}" 
                    Style="{StaticResource PadLeftStyle}"/>
 
+            <!-- Empty -->
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Text_Header}"
+                   Style="{StaticResource ContentH1Style}" />
+            <Label Text="{x:Static res:Help.Sheet_Outcome_Text}" />
+
 
             <!-- Examples -->
             <Label Text="{x:Static res:Help.Sheet_Outcome_Examples_Header}"

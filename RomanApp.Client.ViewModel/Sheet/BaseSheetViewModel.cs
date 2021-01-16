@@ -3,10 +3,12 @@ using Reedoo.NET.Messages;
 using RomanApp.Client.ViewModel;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
+using RomanApp.Client.ViewModel.Sheet.Text;
 using RomanApp.Messages;
 using RomanApp.Messages.Input;
 using RomanApp.Messages.Input.Sheet;
 using RomanApp.Messages.Output.Sheet;
+using RomanApp.Messages.Output.Sheet.Outcome.Text;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -84,6 +86,11 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             return retval;
         }
 
+        protected virtual void ShowOutcomeText(OutcomeTextViewModel text)
+        {
+
+        }
+
         #region Command Methods
 
         protected void OnGoToSettings()
@@ -134,6 +141,18 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             }
         }
 
+        protected void OnGetOutcomeAsTextCommand()
+        {
+            try
+            {
+                Send(new GetOutcomeAsTextInput());
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
         #endregion
 
         #region Commands
@@ -168,11 +187,17 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             protected set;
         }
 
-        
+        public ICommand GetOutcomeAsTextCommand
+        {
+            get;
+            protected set;
+        }
+
+
         #endregion
 
         #region Messages
-        
+
 
         [Reader]
         public bool Read(ItemsCountOutput message)
@@ -250,6 +275,16 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
         {
             IsResetEnabled = message.ResetEnabled;
             ChangeCanExecute(ResetCommand);
+            return true;
+        }
+
+        [Reader]
+        public bool Read(OutcomeTextOutput message)
+        {
+            OutcomeTextViewModel text = new OutcomeTextViewModel(message);
+
+            ShowOutcomeText(text);
+
             return true;
         }
 

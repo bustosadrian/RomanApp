@@ -51,6 +51,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <!--HEADER-->
@@ -107,6 +108,17 @@
                                              Count="{Binding Path=Outcome.EvensCount}"
                                              IsVisible="{Binding Path=Outcome.IsShowEvens}" 
                                              ShowAmount="False" />
+                    </Grid>
+
+                    <!--TEXT-->
+                    <Grid Grid.Row="2" 
+                          Margin="0,10,0,5">
+                        <c:IconButton FontFamily="{StaticResource FontAwesomeSolid}"
+                                      Text="{x:Static f:FontAwesomeIcons.CommentAlt}"
+                                      Command="{Binding GetOutcomeAsTextCommand}" 
+                                      HorizontalOptions="Center"
+                                      TextColor="{DynamicResource main-color-dark}"
+                                      FontSize="48" />
                     </Grid>
                 </Grid>
             </Grid>

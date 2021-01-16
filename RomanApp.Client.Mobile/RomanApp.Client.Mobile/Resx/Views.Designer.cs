@@ -367,6 +367,258 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Paying up....
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Collected_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Collected.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;{value}&lt;/strong&gt; should go to &lt;i&gt;{name}&lt;/i&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_CollectedCreditor {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.CollectedCreditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From that {creditors}..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_CollectedManyDebtorsCreditors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.CollectedManyDebtorsCreditors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From &lt;i&gt;{singleDebtor}&lt;/i&gt;&apos;s share, {creditors}.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_CollectedSingleDebtor {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.CollectedSingleDebtor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After {debtors} pay their share, there should be &lt;strong&gt;{totalCollected}&lt;/strong&gt; on the table..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_CollectedTotalCollected {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.CollectedTotalCollected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;nbsp;&amp;nbsp;&amp;#8226; &lt;i&gt;{name}&lt;/i&gt;&apos;s share is &lt;strong&gt;{debt}&lt;/strong&gt; since they already contributed with &lt;strong&gt;{contribution}&lt;/strong&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsEachPartialDebtor {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsEachPartialDebtor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {fullDebtors} should put &lt;strong&gt;{share}&lt;/strong&gt; (the full share) on the table..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsFullDebtorsPlural {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsFullDebtorsPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {fullDebtors} should put &lt;strong&gt;{share}&lt;/strong&gt; (the full share) on the table..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsFullDebtorsSingular {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsFullDebtorsSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instead {partialDebtors} should pay less than their full share, since they already contributed for this event..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsInsteadPartialDebtorsPlural {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Instead &lt;i&gt;{name}&lt;/i&gt; should put &lt;strong&gt;{debt}&lt;/strong&gt; on the table since they already contributed for the event with &lt;strong&gt;{contribution}&lt;/strong&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsInsteadPartialDebtorsSingular {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {partialDebtors} should pay less than their full share, since they already contributed for this event..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsPartialDebtorsPlural {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsPartialDebtorsPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;{name}&lt;/i&gt; should put &lt;strong&gt;{debt}&lt;/strong&gt; on the table since they already contributed for the event with &lt;strong&gt;{contribution}&lt;/strong&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_DebtorsPartialDebtorsSingular {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.DebtorsPartialDebtorsSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What about the rest?.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Evens_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Evens.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to And finally {evens} should not pay anything since their contributions matches their share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_EvensPlural {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.EvensPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to And finally {evens} should not pay anything since their contributions matches their share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_EvensSingular {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.EvensSingular", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Covering expenses....
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Expenses_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Expenses.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;{value}&lt;/strong&gt; for &lt;u&gt;{name}&lt;/u&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ExpensesExpense {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ExpensesExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This money is to pay {expenses}..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ExpensesExpenses {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ExpensesExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We still have &lt;strong&gt;{remaining}&lt;/strong&gt; remaining on the table..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ExpensesRemaining {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ExpensesRemaining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ... and we are done!.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Footer {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Footer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok, so....
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to But not all guests should pay and not all guests should pay their full share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareCreditorsAndPartialDebtors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareCreditorsAndPartialDebtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will be divided by the {guestsCount} guests giving us a share (what each guest is supposed to pay) of &lt;strong&gt;{share}&lt;/strong&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareDivided {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareDivided", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to But not all guests should pay their full share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareNoCreditors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareNoCreditors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to But not all guests should pay..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_SharePartialDebtors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.SharePartialDebtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is composed by the guests&apos; contributions (&lt;strong&gt;{totalGuests}&lt;/strong&gt; in total) plus {expenses}..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_TotalComponsed {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.TotalComponsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The total cost of the event is &lt;strong&gt;{total}&lt;/strong&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_TotalCostEvent {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.TotalCostEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;{value}&lt;/strong&gt; for &lt;u&gt;{name}&lt;/u&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_TotalExpense {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.TotalExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nobody owes anything.
         /// </summary>
         internal static string Sheet_Outcome_Unavailable_No_Debtors {

@@ -1,19 +1,20 @@
-﻿using RomanApp.Client.ViewModel.Extensions;
-using System;
+﻿using System;
 using System.Globalization;
 using Xamarin.Forms;
 
 namespace RomanApp.Client.Mobile.Converters
 {
-    public class MoneyConverter : IValueConverter
+    public class NullBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string retval = null;
+            bool retval = false;
 
-            if (value is decimal myNumber)
+            retval = value != null;
+
+            if (IsInverse)
             {
-                retval = myNumber.ToMoney(culture);
+                retval = !retval;
             }
 
             return retval;
@@ -23,5 +24,7 @@ namespace RomanApp.Client.Mobile.Converters
         {
             throw new NotImplementedException();
         }
+
+        public bool IsInverse { get; set; }
     }
 }

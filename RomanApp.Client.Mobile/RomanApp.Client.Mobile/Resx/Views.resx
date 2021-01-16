@@ -216,6 +216,112 @@
   <data name="Sheet.Outcome.Unavailable.No.Total" xml:space="preserve">
     <value>Total contributed must be greater than 0</value>
   </data>
+
+  <!-- Outcome Text -->
+  <!-- ******************************************-->
+  <!-- ******************************************-->
+  <!-- ******************************************-->
+  <data name="Sheet.Outcome.Text.Header" xml:space="preserve">
+    <value><![CDATA[Ok, so...]]></value>
+  </data>
+
+  <!-- Total -->
+  <data name="Sheet.Outcome.Text.TotalCostEvent" xml:space="preserve">
+    <value><![CDATA[The total cost of the event is <strong>{total}</strong>.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.TotalComponsed" xml:space="preserve">
+    <value><![CDATA[This is composed by the guests' contributions (<strong>{totalGuests}</strong> in total) plus {expenses}.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.TotalExpense" xml:space="preserve">
+    <value><![CDATA[<strong>{value}</strong> for <u>{name}</u>]]></value>
+  </data>
+
+  <!-- Share -->
+  <data name="Sheet.Outcome.Text.ShareDivided" xml:space="preserve">
+    <value><![CDATA[This will be divided by the {guestsCount} guests giving us a share (what each guest is supposed to pay) of <strong>{share}</strong>.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ShareCreditorsAndPartialDebtors" xml:space="preserve">
+    <value><![CDATA[But not all guests should pay and not all guests should pay their full share.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ShareNoCreditors" xml:space="preserve">
+    <value><![CDATA[But not all guests should pay their full share.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
+    <value><![CDATA[But not all guests should pay.]]></value>
+  </data>
+
+  <!-- Debtors -->
+  <data name="Sheet.Outcome.Text.DebtorsFullDebtorsSingular" xml:space="preserve">
+    <value><![CDATA[{fullDebtors} should put <strong>{share}</strong> (the full share) on the table.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsFullDebtorsPlural" xml:space="preserve">
+    <value><![CDATA[{fullDebtors} should put <strong>{share}</strong> (the full share) on the table.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsPartialDebtorsSingular" xml:space="preserve">
+    <value><![CDATA[<i>{name}</i> should put <strong>{debt}</strong> on the table since they already contributed for the event with <strong>{contribution}</strong>.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsPartialDebtorsPlural" xml:space="preserve">
+    <value><![CDATA[{partialDebtors} should pay less than their full share, since they already contributed for this event.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsSingular" xml:space="preserve">
+    <value><![CDATA[Instead <i>{name}</i> should put <strong>{debt}</strong> on the table since they already contributed for the event with <strong>{contribution}</strong>.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsPlural" xml:space="preserve">
+    <value><![CDATA[Instead {partialDebtors} should pay less than their full share, since they already contributed for this event.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.DebtorsEachPartialDebtor" xml:space="preserve">
+    <value><![CDATA[&nbsp;&nbsp;&#8226; <i>{name}</i>'s share is <strong>{debt}</strong> since they already contributed with <strong>{contribution}</strong>.]]></value>
+  </data>
+
+  <!-- Collected -->
+  <data name="Sheet.Outcome.Text.Collected.Header" xml:space="preserve">
+    <value><![CDATA[Paying up...]]></value>
+  </data>
+
+  <data name="Sheet.Outcome.Text.CollectedSingleDebtor" xml:space="preserve">
+    <value><![CDATA[From <i>{singleDebtor}</i>'s share, {creditors}]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.CollectedCreditor" xml:space="preserve">
+    <value><![CDATA[<strong>{value}</strong> should go to <i>{name}</i>]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.CollectedTotalCollected" xml:space="preserve">
+    <value><![CDATA[After {debtors} pay their share, there should be <strong>{totalCollected}</strong> on the table.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.CollectedManyDebtorsCreditors" xml:space="preserve">
+    <value><![CDATA[From that {creditors}.]]></value>
+  </data>
+
+  <!-- Expenses -->
+  <data name="Sheet.Outcome.Text.Expenses.Header" xml:space="preserve">
+    <value><![CDATA[Covering expenses...]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ExpensesRemaining" xml:space="preserve">
+    <value><![CDATA[We still have <strong>{remaining}</strong> remaining on the table.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ExpensesExpenses" xml:space="preserve">
+    <value><![CDATA[This money is to pay {expenses}.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ExpensesExpense" xml:space="preserve">
+    <value><![CDATA[<strong>{value}</strong> for <u>{name}</u>]]></value>
+  </data>
+
+  <!-- Evens -->
+  <data name="Sheet.Outcome.Text.Evens.Header" xml:space="preserve">
+    <value><![CDATA[What about the rest?]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.EvensSingular" xml:space="preserve">
+    <value><![CDATA[And finally {evens} should not pay anything since their contributions matches their share.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.EvensPlural" xml:space="preserve">
+    <value><![CDATA[And finally {evens} should not pay anything since their contributions matches their share.]]></value>
+  </data>
+
+  <data name="Sheet.Outcome.Text.Footer" xml:space="preserve">
+    <value><![CDATA[... and we are done!]]></value>
+  </data>
+  <!-- ******************************************-->
+
+
   <data name="Sheet.Tab.Input.Title" xml:space="preserve">
     <value>Inputs</value>
   </data>

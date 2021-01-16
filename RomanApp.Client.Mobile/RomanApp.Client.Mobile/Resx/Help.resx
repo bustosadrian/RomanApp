@@ -501,6 +501,20 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
+  <data name="Sheet.Outcome.Text.Header" xml:space="preserve">
+    <value><![CDATA[Explain it to me like I'm 5.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Another way to read the result is by tapping the button with the "conversation" icon in it at the bottom of the tab.<br />
+   This will popup a window explaining step by step the calculation result and what to do with the money.
+    ]]>
+    </value>
+  </data>
+  <!-- ............................... -->
+  <!-- ............................... -->
+  <!-- ............................... -->
   <data name="Sheet.Outcome.Examples.Header" xml:space="preserve">
     <value>Let's take a look at some examples</value>
   </data>
@@ -579,7 +593,7 @@
     <u>Contributions (4):</u><br />
     &#8226; <strong>Myself</strong>: 5 (snacks)<br />
     &#8226; <strong>Ellen</strong>: 30 (beverages)<br />
-    &#8226; <strong>Leo</strong>: 5 (more snacks)<br />
+    &#8226; <strong>Leo</strong>: 25 (more snacks)<br />
     &#8226; <strong>Jo</strong>: 0<br />
     <br />
     <u>Expenses (2):</u><br />

@@ -649,11 +649,11 @@ namespace RomanApp.Client.Mobile.Resx {
         ///    &lt;u&gt;Contributions (4):&lt;/u&gt;&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Myself&lt;/strong&gt;: 5 (snacks)&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Ellen&lt;/strong&gt;: 30 (beverages)&lt;br /&gt;
-        ///    &amp;#8226; &lt;strong&gt;Leo&lt;/strong&gt;: 5 (more snacks)&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Leo&lt;/strong&gt;: 25 (more snacks)&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Jo&lt;/strong&gt;: 0&lt;br /&gt;
         ///    &lt;br /&gt;
         ///    &lt;u&gt;Expenses (2):&lt;/u&gt;&lt;br /&gt;
-        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 35 [rest of string was truncated]&quot;;.
+        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Example3_Premise {
             get {
@@ -773,6 +773,29 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Outcome_Summary_Total_Expenses_Description {
             get {
                 return ResourceManager.GetString("Sheet.Outcome.Summary.Total.Expenses.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Another way to read the result is by tapping the button with the &quot;conversation&quot; icon in it at the bottom of the tab.&lt;br /&gt;
+        ///   This will popup a window explaining step by step the calculation result and what to do with the money.
+        ///    
+        ///    .
+        /// </summary>
+        internal static string Sheet_Outcome_Text {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explain it to me like I&apos;m 5..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_Header {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.Header", resourceCulture);
             }
         }
         

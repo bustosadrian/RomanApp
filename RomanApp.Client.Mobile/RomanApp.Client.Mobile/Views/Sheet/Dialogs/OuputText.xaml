@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dc="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Dialogs.Converters"
+             xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
+             mc:Ignorable="d"
+             x:Class="RomanApp.Client.Mobile.Views.Sheet.Dialogs.OuputText">
+
+    <ContentView.Resources>
+        <dc:OutputTextGroupConverter x:Key="c_otg" />
+
+        <ResourceDictionary Source="/Styles/Sheet.xaml" />
+    </ContentView.Resources>
+    
+  <ContentView.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Header}" 
+                       Style="{StaticResource OutcomeTextHeaderFooterStyle}" />
+                <c:Separator />
+
+                <StackLayout Padding="10">
+                    <StackLayout.Resources>
+                        <Style BasedOn="{StaticResource OutcomeTextContentStyle}" TargetType="Label" />
+                        <Style BasedOn="{StaticResource OutcomeTextParagraphStyle}" TargetType="StackLayout" />
+                    </StackLayout.Resources>
+                    <StackLayout>
+                        <Label Text="{Binding Total, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="{Binding Share, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="{Binding Debtors, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding Collected, Converter={StaticResource c_nb}}">
+                        <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Collected_Header}"
+                               Style="{StaticResource OutcomeTextParagraphHeaderStyle}" />
+                        <Label Text="{Binding Collected, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding Expenses, Converter={StaticResource c_nb}}">
+                        <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Expenses_Header}" 
+                               Style="{StaticResource OutcomeTextParagraphHeaderStyle}" />
+                        <Label Text="{Binding Expenses, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding Evens, Converter={StaticResource c_nb}}">
+                        <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Evens_Header}" 
+                               Style="{StaticResource OutcomeTextParagraphHeaderStyle}" />
+                        <Label Text="{Binding Evens, Converter={StaticResource c_otg}}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Footer}"  
+                       Style="{StaticResource OutcomeTextHeaderFooterStyle}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

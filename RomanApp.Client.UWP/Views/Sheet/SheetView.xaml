@@ -71,6 +71,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <!-- HEADER -->
@@ -129,6 +130,15 @@
                             <TextBlock Text="Even" 
                                    FontWeight="Bold" FontSize="20"/>
                             <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Evens}" Foreground="Black" />
+                        </StackPanel>
+                    </Grid>
+
+                    <!-- MENU -->
+                    <Grid Grid.Row="2"  
+                      Margin="30" VerticalAlignment="Top">
+                        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                            <Button Content="As text"
+                                    Command="{Binding GetOutcomeAsTextCommand}" />
                         </StackPanel>
                     </Grid>
                 </Grid>

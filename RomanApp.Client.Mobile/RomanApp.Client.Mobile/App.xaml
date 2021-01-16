@@ -19,6 +19,8 @@
         <converter:IconConverter x:Key="c_i_f" Result="Font" />
         <converter:IconConverter x:Key="c_i_ff" Result="FontFamily" />
         <converter:ItemTypeToIconsConverter x:Key="c_it_i" />
+        <converter:NullBoolConverter x:Key="c_nb" />
+        <converter:NullBoolConverter x:Key="c_nbi" IsInverse="True" />
 
 
         <!-- Fonts -->

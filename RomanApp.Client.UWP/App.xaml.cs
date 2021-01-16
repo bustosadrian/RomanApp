@@ -32,6 +32,20 @@ namespace RomanApp.Client.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            App.Current.UnhandledException += Current_UnhandledException;
+        }
+
+        private void Current_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            try
+            {
+                _uwpClient.HandleError(e.Exception);
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>

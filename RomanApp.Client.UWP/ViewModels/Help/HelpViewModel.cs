@@ -16,7 +16,7 @@ namespace RomanApp.Client.UWP.ViewModels.Help
 
             SeeAlsoCommand = new XamlUICommand();
             ((XamlUICommand)SeeAlsoCommand).ExecuteRequested += (s, e) => {
-                OnSeeAlso((HelpTopic)e.Parameter);
+                OnSeeAlso((RelatedTopicViewModel)e.Parameter);
             };
         }
 
@@ -29,8 +29,8 @@ namespace RomanApp.Client.UWP.ViewModels.Help
             set;
         }
 
-        private HelpTopic? _selectedRelatedTopic;
-        public HelpTopic? SelectedRelatedTopic
+        private RelatedTopicViewModel _selectedRelatedTopic;
+        public RelatedTopicViewModel SelectedRelatedTopic
         {
             get
             {
@@ -43,7 +43,7 @@ namespace RomanApp.Client.UWP.ViewModels.Help
                 OnPropertyChanged(nameof(SelectedRelatedTopic));
                 if (_selectedRelatedTopic != null && previous != _selectedRelatedTopic)
                 {
-                    OnSeeAlso(_selectedRelatedTopic.Value);
+                    OnSeeAlso(_selectedRelatedTopic);
                 }
 
             }

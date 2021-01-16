@@ -1,0 +1,93 @@
+﻿<ContentDialog
+    x:Class="RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.OutcomeTextDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:l="using:RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText"
+    xmlns:e="using:RomanApp.Client.UWP.Extensions"
+    xmlns:tc="using:RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters"
+    mc:Ignorable="d"
+    Title="Outcome"
+    PrimaryButtonText="Ok"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <ContentDialog.Resources>
+        <l:TotalExpensesConverter x:Key="TotalExpensesConverter" />
+        <l:ShareGuestSituationConverter x:Key="ShareGuestSituationConverter" />
+        <l:DebtorsFullConverter x:Key="DebtorsFullConverter" />
+        <l:DebtorsPartialConverter x:Key="DebtorsPartialConverter" />
+
+        <tc:TextGroupConverter x:Key="TextGroupConverter" />
+    </ContentDialog.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0 0 0 15">
+            <TextBlock Text="Ok, so..." />
+        </Grid>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="WebView">
+                    <Setter Property="Margin" Value="0 0 0 0" />
+                    <Setter Property="Height" Value="0" />
+                    <Setter Property="Width" Value="500" />
+                </Style>
+            </StackPanel.Resources>
+            
+            <!-- Total -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Total, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Total,Converter={StaticResource c_nv}}"/>
+
+            <!-- Share -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Share, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Share,Converter={StaticResource c_nv}}"/>
+
+
+
+            <!-- Debtors -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Debtors, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Debtors,Converter={StaticResource c_nv}}"/>
+
+
+
+            <!-- Collected -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Collected, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Collected,Converter={StaticResource c_nv}}"/>
+
+            <!-- Expenses -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Expenses, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Expenses,Converter={StaticResource c_nv}}"/>
+
+            <!-- Evens -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Evens, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding Evens,Converter={StaticResource c_nv}}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <TextBlock Text="And we are done!" />
+        </Grid>
+
+    </Grid>
+</ContentDialog>
+
+    

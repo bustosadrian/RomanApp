@@ -1,8 +1,10 @@
 ﻿using Reedoo.NET.Messages;
 using Reedoo.NET.Messages.Output;
+using RomanApp.Client.Mobile.Utils;
 using RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs;
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
+using RomanApp.Client.ViewModel.Sheet.Text;
 using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using RomanApp.Messages.Output.Sheet;
@@ -35,6 +37,8 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
                 );
 
             EditItemCommand = new Command<ItemRowViewModel>(OnEditCommand);
+
+            GetOutcomeAsTextCommand = new Command(OnGetOutcomeAsTextCommand);
         }
 
         protected override void ChangeCanExecute(ICommand command)
@@ -94,8 +98,6 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
             }
         }
 
-        
-
         private async void WaitForAddEditItemResult()
         {
             try
@@ -126,6 +128,21 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
         {
             _addEditItemDialog = null;
             HandleError(e.GetException());
+        }
+
+        protected async override void ShowOutcomeText(OutcomeTextViewModel text)
+        {
+            var dialog = new ContentDialog()
+            {
+                Content = new OuputText()
+                {
+                    BindingContext = text,
+                }
+            };
+            dialog.AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel, IsBack = true, });
+            dialog.Show();
+            await dialog.Wait();
+            await Navigation.PopModalAsync();
         }
 
         #region Command Methods
