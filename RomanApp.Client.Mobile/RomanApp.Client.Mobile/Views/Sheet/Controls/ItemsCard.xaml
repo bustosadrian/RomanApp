@@ -108,5 +108,6 @@
     </Frame>
 
     <c:ShapeButton Style="{StaticResource ItemsCardAddButtonStyle}"
+                   Icon="Plus"
                    Command="{Binding AddItemCommand, Source={x:Reference Self}}" />
 </Grid>

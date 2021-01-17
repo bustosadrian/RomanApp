@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Styles.Pallete">
 
-    <Color x:Key="main-color-super-dark">#001b00</Color>
+    <Color x:Key="main-color-super-dark">#003601</Color>
     <Color x:Key="main-color-dark">#005901</Color>
     <Color x:Key="main-color-normal">#008b02</Color>
     <Color x:Key="main-color-bright">#5aed5c</Color>

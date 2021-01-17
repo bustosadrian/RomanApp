@@ -99,6 +99,15 @@ namespace RomanApp.Client.Mobile.Controls
             set { SetValue(IconProperty, value); }
         }
 
+        public static readonly BindableProperty SizeProperty = BindableProperty.Create(nameof(Size),
+            typeof(double?), typeof(ShapeButton), null);
+        public double? Size
+        {
+            get { return (double?)GetValue(SizeProperty); }
+            set { SetValue(SizeProperty, value); }
+        }
+
+
         #endregion
     }
 }

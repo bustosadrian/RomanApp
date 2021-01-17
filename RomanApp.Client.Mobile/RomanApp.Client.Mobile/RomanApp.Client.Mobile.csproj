@@ -59,10 +59,6 @@
     <EmbeddedResource Update="Controls\ValidationMessages.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resx\AppResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Update="Resx\Help.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Help.Designer.cs</LastGenOutput>
@@ -151,11 +147,6 @@
   <ItemGroup>
     <Compile Update="Controls\Repeat.xaml.cs">
       <DependentUpon>Repeat.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Resx\AppResources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Update="Resx\Help.Designer.cs">
       <DesignTime>True</DesignTime>

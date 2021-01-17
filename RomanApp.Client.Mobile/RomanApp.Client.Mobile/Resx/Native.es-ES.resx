@@ -106,16 +106,13 @@
 
 
 
-
-
-
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+  <data name="To.Back" xml:space="preserve">
+    <value>Volver</value>
   </data>
   <data name="Help" xml:space="preserve">
-    <value>Help</value>
+    <value>Ayuda</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <data name="And" xml:space="preserve">
+    <value>Y</value>
   </data>
 </root>

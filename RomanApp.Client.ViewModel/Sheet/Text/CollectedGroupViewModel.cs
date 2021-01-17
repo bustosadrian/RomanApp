@@ -15,12 +15,19 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             Creditors = new ObservableCollection<NameAmountViewModel>(
                 message.Creditors.Select(x => new NameAmountViewModel(x)));
 
+            HasExpenses = message.HasExpenses;
+
             if(Debtors.Count() == 1)
             {
                 IsSingleDebtor = true;
                 SingleDebtor = Debtors.Single();
             }
             
+            if(Creditors.Count() == 1)
+            {
+                IsSingleCreditor = true;
+                SingleCreditor = Creditors.Single();
+            }
         }
 
 
@@ -83,6 +90,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             }
         }
 
+        private bool _isSingleCreditor;
+        public bool IsSingleCreditor
+        {
+            get
+            {
+                return _isSingleCreditor;
+            }
+            set
+            {
+                _isSingleCreditor = value;
+                OnPropertyChanged(nameof(IsSingleCreditor));
+            }
+        }
+
         private string _singleDebtor;
         public string SingleDebtor
         {
@@ -94,6 +115,34 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             {
                 _singleDebtor = value;
                 OnPropertyChanged(nameof(SingleDebtor));
+            }
+        }
+
+        private NameAmountViewModel _singleCreditor;
+        public NameAmountViewModel SingleCreditor
+        {
+            get
+            {
+                return _singleCreditor;
+            }
+            set
+            {
+                _singleCreditor = value;
+                OnPropertyChanged(nameof(SingleCreditor));
+            }
+        }
+
+        private bool _hasExpenses;
+        public bool HasExpenses
+        {
+            get
+            {
+                return _hasExpenses;
+            }
+            set
+            {
+                _hasExpenses = value;
+                OnPropertyChanged(nameof(HasExpenses));
             }
         }
 

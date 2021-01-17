@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content;
 using Android.Support.V7.Widget;
+using Android.Views;
 using RomanApp.Client.Mobile.Droid.Platform;
 using RomanApp.Client.Mobile.Platform;
 using RomanApp.Client.ViewModel;

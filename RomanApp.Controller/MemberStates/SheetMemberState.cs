@@ -208,6 +208,7 @@ namespace RomanApp.Controller.MemberStates
             {
                 text.Collected = new CollectedGroupOutput()
                 {
+                    HasExpenses = _outcome.Expenses.Any(),
                     Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
                     TotalCollected = _outcome.Debtors.Sum(x => x.Debt),
                     Creditors = _outcome.Creditors.Select(x => new NameAmountOutput(x.Name, x.Debt)).ToList(),

@@ -6,6 +6,7 @@
         CheckCircleSolid,
         CheckCircleRegular,
         ChevronLeft,
+        CommentAlt,
         Exclamation,
         MoneyBillAlt,
         Plus,

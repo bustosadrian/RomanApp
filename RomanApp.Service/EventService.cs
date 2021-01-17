@@ -165,7 +165,7 @@ namespace RomanApp.Service
                     throw new OutcomeAnavailableException(OutcomeResult.NoTotal);
                 }
 
-                retval.Share = retval.Total / all.Count;
+                retval.Share = (retval.Total / all.Count).RoundCents(useWholeNumbers);
 
                 foreach (var o in all)
                 {

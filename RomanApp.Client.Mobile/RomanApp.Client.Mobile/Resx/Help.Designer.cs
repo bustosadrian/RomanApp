@@ -216,7 +216,7 @@ namespace RomanApp.Client.Mobile.Resx {
         ///   Looks up a localized string similar to 
         ///    
         ///    You can add as many elements as you want, either &lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt; by tapping the &quot;plus&quot; button at the top right corner of the corresponding box.&lt;br /&gt;&lt;br /&gt;
-        ///    This will popup a window that will, at its top, display the proper action that is taking place.&lt;br /&gt;&lt;br /&gt;
+        ///    This will popup a window that will, at its top, display the proper action that is taking place:&lt;br /&gt;&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Add a guest&quot; if you tapped the button of the first box.&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Add an expense&quot; if you tapped the button of the second box.&lt;br /&gt;
         ///    &lt;br /&gt;
@@ -340,7 +340,7 @@ namespace RomanApp.Client.Mobile.Resx {
         ///   Looks up a localized string similar to 
         ///    
         ///    Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests. &lt;br /&gt;&lt;br /&gt;
-        ///    This could be food a guest brought for everyone, it could be beverages or even a Karaoke machine the guest rented for the night and has already payed for.
+        ///    This could be food a guest brought for everyone, it could be beverages or even a Karaoke machine the guest rented for the night and has already been payed for by said guest.
         ///    .
         /// </summary>
         internal static string Sheet_Input_Guest_Expense_Definition_Guest_Description {
@@ -434,7 +434,7 @@ namespace RomanApp.Client.Mobile.Resx {
         ///   Looks up a localized string similar to 
         ///    
         ///    Yes. Whenever either boxes contain elements in them the button with an &quot;eraser&quot; icon in it at the top right of the screen, next to the menu button, can be tapped to delete all the information.&lt;br /&gt;&lt;br /&gt;
-        ///    &lt;strong&gt;A dialog will appear asking you to confirm the operation since this action cannot be undone.&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;
+        ///    &lt;strong&gt;A dialog will appear asking you to confirm the action since this cannot be undone.&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;
         ///    This option will remain disabled whilst both boxes are empty.
         ///    .
         /// </summary>
@@ -479,7 +479,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You need at least two guests to have the total of the event cost divided in shares..
+        ///   Looks up a localized string similar to You need at least two guests to have the  cost of the event cost divided in shares..
         /// </summary>
         internal static string Sheet_Outcome_Empty_Enough_Guests_Description {
             get {
@@ -524,7 +524,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The total cost of the event (see &quot;Total&quot; in the &lt;strong&gt;Summary&lt;/strong&gt; section above) added up to zero..
+        ///   Looks up a localized string similar to The total cost of the event (see &quot;Total&quot; in the &lt;strong&gt;Summary&lt;/strong&gt; section above) added up to zero. So there is nothing to share..
         /// </summary>
         internal static string Sheet_Outcome_Empty_No_Total_Description {
             get {
@@ -533,7 +533,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; Total contributed must be greater than 0:.
+        ///   Looks up a localized string similar to &amp;#8226; The total cost of the event must be greater than 0:.
         /// </summary>
         internal static string Sheet_Outcome_Empty_No_Total_Label {
             get {
@@ -621,7 +621,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    The total cost of this event is &lt;strong&gt;400&lt;/strong&gt;. That is &lt;strong&gt;100&lt;/strong&gt; for each to pay &lt;strong&gt;(the Share)&lt;/strong&gt;. &lt;br /&gt;&lt;br /&gt;
+        ///    The total cost of this event is &lt;strong&gt;400&lt;/strong&gt;. That is &lt;strong&gt;100&lt;/strong&gt; for each to pay (&lt;strong&gt;the Share&lt;/strong&gt;). &lt;br /&gt;&lt;br /&gt;
         ///    &lt;strong&gt;230&lt;/strong&gt; will be for those who contributed (minus their share) and &lt;strong&gt;170&lt;/strong&gt; to pay for &quot;paintball&quot;.&lt;br /&gt;&lt;br /&gt;
         ///    Chris owes the total share of &lt;strong&gt;100&lt;/strong&gt;, Susan owes &lt;strong&gt;85&lt;/strong&gt; since she already contributed with &lt;strong&gt;15&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
         ///    Lucy and I will be collecting from what Chris and Susan  [rest of string was truncated]&quot;;.
@@ -644,7 +644,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    In this example will try to get the use of all three groups of the outcome. &lt;br /&gt;&lt;br /&gt;
+        ///    In this example will try to get the use of all four groups of the outcome. &lt;br /&gt;&lt;br /&gt;
         ///    Four people at this event: Myself, Ellen, Leo and Jo. &lt;br /&gt;&lt;br /&gt;
         ///    &lt;u&gt;Contributions (4):&lt;/u&gt;&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Myself&lt;/strong&gt;: 5 (snacks)&lt;br /&gt;
@@ -653,7 +653,7 @@ namespace RomanApp.Client.Mobile.Resx {
         ///    &amp;#8226; &lt;strong&gt;Jo&lt;/strong&gt;: 0&lt;br /&gt;
         ///    &lt;br /&gt;
         ///    &lt;u&gt;Expenses (2):&lt;/u&gt;&lt;br /&gt;
-        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 3 [rest of string was truncated]&quot;;.
+        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 35 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Example3_Premise {
             get {
@@ -664,7 +664,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    The total cost of this event is &lt;strong&gt;100&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay &lt;strong&gt;(the Share)&lt;/strong&gt;. &lt;br /&gt;&lt;br /&gt;
+        ///    The total cost of this event is &lt;strong&gt;100&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay (&lt;strong&gt;the Share&lt;/strong&gt;). &lt;br /&gt;&lt;br /&gt;
         ///    Jo and I are the ones who should put money on the table. I should pay &lt;strong&gt;20&lt;/strong&gt; since &lt;strong&gt;5&lt;/strong&gt; were already covered for snacks and Jo should pay her full share.&lt;br /&gt;&lt;br /&gt;
         ///    A total of &lt;strong&gt;45&lt;/strong&gt; is now on the table. &lt;strong&gt;5&lt;/strong&gt; goes to Ellen since she contributed with &lt;strong&gt;30&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
         ///    We are [rest of string was truncated]&quot;;.
@@ -696,13 +696,13 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides three different boxes which represent the event&apos;s guests or expenses sorted in four groups:&lt;br /&gt;&lt;br /&gt;
-        ///    &amp;nbsp;&amp;nbsp;1. Those who owe.&lt;br /&gt;
+        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides four different boxes which represent the event&apos;s guests or expenses sorted in four groups:&lt;br /&gt;&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;1. Those who owe&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;2. Those who must collect&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;3. Expenses to cover&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;4. Those who broke even&lt;br /&gt;
         ///    &lt;br /&gt;
-        ///    Each box has a header that describes, at its left side, what group of elements (&lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt;, des [rest of string was truncated]&quot;;.
+        ///    Each box has a header that describes, at its left side, what group of elements (&lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt;, descr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Groups {
             get {
@@ -750,7 +750,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is the coefficient between the total amount and the number of guests. The share is what each guest is &lt;strong&gt;supposed&lt;/strong&gt; to pay..
+        ///   Looks up a localized string similar to This is the coefficient between the total cost of the event and the number of guests. The share is what each guest is &lt;strong&gt;supposed&lt;/strong&gt; to pay..
         /// </summary>
         internal static string Sheet_Outcome_Summary_Share_Description {
             get {
@@ -779,8 +779,8 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Another way to read the result is by tapping the button with the &quot;conversation&quot; icon in it at the bottom of the tab.&lt;br /&gt;
-        ///   This will popup a window explaining step by step the calculation result and what to do with the money.
+        ///    Another way to read the result is by tapping the circle button with a &quot;conversation&quot; icon in it at the bottom of the tab.&lt;br /&gt;
+        ///   This will popup a window explaining step by step the calculation result and what should each guest do with the money.
         ///    
         ///    .
         /// </summary>

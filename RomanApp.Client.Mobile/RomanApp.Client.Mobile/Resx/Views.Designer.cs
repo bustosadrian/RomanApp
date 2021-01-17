@@ -421,6 +421,15 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to That money should go to &lt;i&gt;{singleCreditor}&lt;/i&gt;..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_CollectedOneSingleCreditor {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.CollectedOneSingleCreditor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to From &lt;i&gt;{singleDebtor}&lt;/i&gt;&apos;s share, {creditors}.
         /// </summary>
         internal static string Sheet_Outcome_Text_CollectedSingleDebtor {
@@ -520,7 +529,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to And finally {evens} should not pay anything since their contributions matches their share..
+        ///   Looks up a localized string similar to And finally {evens} should not pay anything since their contribution matches their share..
         /// </summary>
         internal static string Sheet_Outcome_Text_EvensSingular {
             get {
@@ -664,7 +673,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total contributed must be greater than 0.
+        ///   Looks up a localized string similar to The total cost of the event must be greater than 0.
         /// </summary>
         internal static string Sheet_Outcome_Unavailable_No_Total {
             get {

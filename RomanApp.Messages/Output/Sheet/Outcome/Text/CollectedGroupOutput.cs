@@ -31,6 +31,12 @@ namespace RomanApp.Messages.Output.Sheet.Outcome.Text
             set;
         }
 
+        public bool HasExpenses
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

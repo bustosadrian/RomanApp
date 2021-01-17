@@ -29,6 +29,9 @@ namespace RomanApp.Client.Mobile.Converters
                             case Icons.ChevronLeft:
                                 retval = FontAwesomeIcons.ChevronLeft;
                                 break;
+                            case Icons.CommentAlt:
+                                retval = FontAwesomeIcons.CommentAlt;
+                                break;
                             case Icons.Exclamation:
                                 retval = FontAwesomeIcons.Exclamation;
                                 break;
@@ -59,6 +62,7 @@ namespace RomanApp.Client.Mobile.Converters
                             case Icons.Check:
                             case Icons.CheckCircleSolid:
                             case Icons.ChevronLeft:
+                            case Icons.CommentAlt:
                             case Icons.Exclamation:
                             case Icons.Plus:
                             case Icons.TimesCircleSolid:

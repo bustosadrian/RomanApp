@@ -15,7 +15,7 @@ namespace RomanApp.Controller.Utils
             retval = new List<HelpTopic>();
             if(topic == HelpTopic.Overview)
             {
-                retval.Add(HelpTopic.SheetInputOverview);
+                retval.Add(HelpTopic.SheetOverview);
                 retval.Add(HelpTopic.Settings);
             }
             else

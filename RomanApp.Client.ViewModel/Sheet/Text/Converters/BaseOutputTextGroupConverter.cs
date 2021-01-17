@@ -7,6 +7,11 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
 {
     public abstract class BaseOutputTextGroupConverter
     {
+        public BaseOutputTextGroupConverter(string and)
+        {
+            And = and;
+        }
+
         protected string Convert(BaseViewModel viewModel, CultureInfo culture)
         {
             string retval = null;
@@ -59,7 +64,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
                     x => TotalExpense
                     .Replace("{value}", x.Value1.ToMoney(culture))
                     .Replace("{name}", x.Name))
-                    .Enumerate();
+                    .Enumerate(And);
 
                 sb.Append(TotalComponsed.
                     Replace("{totalGuests}", viewModel.TotalGuests.ToMoney(culture)).
@@ -99,7 +104,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
                 string singleOrPluralFullDebtors = viewModel.IsSingleFullDebtor ? DebtorsFullDebtorsSingular : DebtorsFullDebtorsPlural;
 
                 sb.Append(singleOrPluralFullDebtors
-                    .Replace("{fullDebtors}", viewModel.FullDebtors.Select(x => $"<i>{x}</i>").Enumerate())
+                    .Replace("{fullDebtors}", viewModel.FullDebtors.Select(x => $"<i>{x}</i>").Enumerate(And))
                     .Replace("{share}", viewModel.Share.ToMoney(culture)));
                 sb.Append("<br />");
             }
@@ -118,7 +123,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
                 {
                     string insteadManyPartialDebtors = viewModel.HasFullDebtors ? DebtorsInsteadPartialDebtorsPlural : DebtorsPartialDebtorsPlural;
                     sb.Append(insteadManyPartialDebtors
-                        .Replace("{partialDebtors}", viewModel.PartialDebtors.Select(x => $"<i>{x.Name}</i>").Enumerate()));
+                        .Replace("{partialDebtors}", viewModel.PartialDebtors.Select(x => $"<i>{x.Name}</i>").Enumerate(And)));
                     sb.Append("<br />");
                     foreach (var o in viewModel.PartialDebtors)
                     {
@@ -138,7 +143,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
                 viewModel.Creditors.Select(x => CollectedCreditor
                 .Replace("{value}", x.Value1.ToMoney(culture))
                 .Replace("{name}", x.Name))
-                .Enumerate();
+                .Enumerate(And);
 
             if (viewModel.IsSingleDebtor)
             {
@@ -149,11 +154,19 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             else
             {
                 sb.Append(CollectedTotalCollected
-                    .Replace("{debtors}", viewModel.Debtors.Select(x => $"<i>{x}</i>").Enumerate())
-                    .Replace("{totalCollected}", viewModel.TotalCopllected.ToMoney(culture)));
+                    .Replace("{debtors}", viewModel.Debtors.Select(x => $"<i>{x}</i>").Enumerate(And)
+                    .Replace("{totalCollected}", viewModel.TotalCopllected.ToMoney(culture))));
                 sb.Append("<br />");
-                sb.Append(CollectedManyDebtorsCreditors
-                    .Replace("{creditors}", creditors));
+                if (viewModel.IsSingleCreditor && !viewModel.HasExpenses)
+                {
+                    sb.Append(CollectedOneSingleCreditor
+                        .Replace("{singleCreditor}", viewModel.SingleCreditor.Name));
+                }
+                else
+                {
+                    sb.Append(CollectedManyDebtorsCreditors
+                        .Replace("{creditors}", creditors));
+                }
             }
         }
 
@@ -168,7 +181,7 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             string expenses = viewModel.Expenses.Select(x =>  ExpensesExpense
                 .Replace("{value}", x.Value1.ToMoney(culture))
                 .Replace("{name}", x.Name))
-            .Enumerate();
+            .Enumerate(And);
             sb.Append(ExpensesExpenses.Replace("{expenses}", expenses));
         }
 
@@ -176,10 +189,16 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
         {
             string evensSingularPlural = viewModel.Evens.Count() == 1 ? EvensSingular : EvensPlural;
             sb.Append(evensSingularPlural
-                .Replace("{evens}", viewModel.Evens.Select(x => $"<i>{x}</i>").Enumerate()));
+                .Replace("{evens}", viewModel.Evens.Select(x => $"<i>{x}</i>").Enumerate(And)));
         }
 
         #region Lines
+
+        protected string And
+        {
+            get;
+            set;
+        }
 
         //Total
         protected string TotalCostEvent
@@ -284,6 +303,12 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
         }
 
         protected string CollectedManyDebtorsCreditors
+        {
+            get;
+            set;
+        }
+
+        protected string CollectedOneSingleCreditor
         {
             get;
             set;

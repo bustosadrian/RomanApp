@@ -42,4 +42,10 @@
         <Setter Property="TextColor" Value="Red" />
     </Style>
 
+    <Style ApplyToDerivedTypes="True" TargetType="c:ShapeButton">
+        <Setter Property="Stroke" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="Fill" Value="White" />
+    </Style>
+
+
 </ResourceDictionary>

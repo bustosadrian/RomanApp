@@ -5,7 +5,7 @@ namespace RomanApp.Client.ViewModel.Extensions
 {
     public static class IEnumerableExtension
     {
-        public static string Enumerate(this IEnumerable enumerable)
+        public static string Enumerate(this IEnumerable enumerable, string andLabel)
         {
             string retval = null;
 
@@ -28,7 +28,7 @@ namespace RomanApp.Client.ViewModel.Extensions
 
                     if (sb.Length > 0)
                     {
-                        sb.Append(" and " + last);
+                        sb.Append($" {andLabel.ToLower()} {last}");
                     }
                     else
                     {

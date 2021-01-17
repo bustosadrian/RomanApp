@@ -109,13 +109,28 @@
 
 
 
-  <data name="Settings" xml:space="preserve">
-    <value>Settings</value>
+
+
+
+
+
+
+  <data name="sheet.add.edit.expense.amount.range" xml:space="preserve">
+    <value>El valor debe ser mayor a 0</value>
   </data>
-  <data name="Help" xml:space="preserve">
-    <value>Help</value>
+  <data name="sheet.add.edit.expense.amount.required" xml:space="preserve">
+    <value>Se requiere un valor</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <data name="sheet.add.edit.expense.name.required" xml:space="preserve">
+    <value>Se requiere un nombre</value>
+  </data>
+  <data name="sheet.add.edit.guest.amount.range" xml:space="preserve">
+    <value>El aporte debe ser mayor o igual a 0</value>
+  </data>
+  <data name="sheet.add.edit.guest.amount.required" xml:space="preserve">
+    <value>Se requiere un aporte</value>
+  </data>
+  <data name="sheet.add.edit.guest.name.required" xml:space="preserve">
+    <value>Se requiere un nombre</value>
   </data>
 </root>

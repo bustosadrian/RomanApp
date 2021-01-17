@@ -47,9 +47,6 @@
         <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
     </Style>
     <Style ApplyToDerivedTypes="True" x:Key="ItemsCardAddButtonStyle" TargetType="c:ShapeButton">
-        <Setter Property="Fill" Value="White" />
-        <Setter Property="Stroke" Value="{DynamicResource main-color-dark}" />
-        <Setter Property="Icon" Value="Plus" />
         <Setter Property="VerticalOptions" Value="Start" />
         <Setter Property="HorizontalOptions" Value="End" />
     </Style>
@@ -113,6 +110,7 @@
     <!-- Outcome Details -->
     <Style ApplyToDerivedTypes="True" x:Key="OutcomeDetailsStyle" TargetType="Grid">
         <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="Margin" Value="5,0,5,0" />
     </Style>
 
     <Style ApplyToDerivedTypes="True" x:Key="OutcomeDetailsCardHeaderFooterStyle" TargetType="Label">
@@ -174,9 +172,14 @@
         <Setter Property="TextType" Value="Html" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
-    
-    
-    
+
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeGetTextButtonStyle"  TargetType="Label">
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+
+
+
     <!-- Add Edit Item Dialog -->
     <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogStyle" TargetType="Grid" BasedOn="{StaticResource DialogStyle}">
         

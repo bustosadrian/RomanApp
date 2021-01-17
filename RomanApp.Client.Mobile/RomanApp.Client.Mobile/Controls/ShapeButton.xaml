@@ -11,15 +11,14 @@
 
     <Frame x:Name="Shape" 
            BackgroundColor="{Binding Fill, Source={x:Reference Self}}"
-           CornerRadius="25"
+           CornerRadius="50"
+           Padding="10"
            BorderColor="{Binding Stroke, Source={x:Reference Self}}">
-    </Frame>
-
-    <c:Icon Value="{Binding Icon, Source={x:Reference Self}}"
+        <c:Icon Value="{Binding Icon, Source={x:Reference Self}}"
             Padding="0" Margin="0"
+            FontSize="{Binding Size, Source={x:Reference Self}}"
             HorizontalTextAlignment="Center"
             HorizontalOptions="Center" VerticalOptions="Center"
             TextColor="{Binding Stroke, Source={x:Reference Self}}" />
-    
-
+    </Frame>
 </Grid>

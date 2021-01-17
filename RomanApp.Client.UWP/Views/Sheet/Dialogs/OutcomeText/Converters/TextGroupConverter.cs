@@ -1,11 +1,7 @@
-﻿using RomanApp.Client.UWP.Utils;
-using RomanApp.Client.ViewModel;
-using RomanApp.Client.ViewModel.Sheet.Text;
+﻿using RomanApp.Client.ViewModel;
 using RomanApp.Client.ViewModel.Sheet.Text.Converters;
 using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using Windows.UI.Xaml.Data;
 
 namespace RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters
@@ -13,6 +9,7 @@ namespace RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters
     public class TextGroupConverter : BaseOutputTextGroupConverter, IValueConverter
     {
         public TextGroupConverter()
+            : base("and")
         {
             TotalCostEvent = "The total cost of the event is <strong>{total}</strong>.";
             TotalComponsed = "This is composed by the guests' contributions (<strong>{totalGuests}</strong> in total) plus {expenses}.";
@@ -35,6 +32,7 @@ namespace RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters
             CollectedCreditor = "<strong>{value}</strong> should go to <i>{name}</i>";
             CollectedTotalCollected = "After {debtors} pay their share, there should be <strong>{totalCollected}</strong> on the table.";
             CollectedManyDebtorsCreditors = "From that {creditors}.";
+            CollectedOneSingleCreditor = "That money should go to <i>{singleCreditor}</i>.";
 
             ExpensesRemaining = "Leaving still <strong>{remaining}</strong> on the table.";
             ExpensesExpenses = "This money is to pay {expenses}.";

@@ -9,6 +9,7 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Dialogs.Converters
     public class OutputTextGroupConverter : BaseOutputTextGroupConverter, IValueConverter
     {
         public OutputTextGroupConverter()
+            : base(Resx.Native.And)
         {
             TotalCostEvent = Resx.Views.Sheet_Outcome_Text_TotalCostEvent;
             TotalComponsed = Resx.Views.Sheet_Outcome_Text_TotalComponsed;
@@ -31,6 +32,7 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Dialogs.Converters
             CollectedCreditor = Resx.Views.Sheet_Outcome_Text_CollectedCreditor;
             CollectedTotalCollected = Resx.Views.Sheet_Outcome_Text_CollectedTotalCollected;
             CollectedManyDebtorsCreditors = Resx.Views.Sheet_Outcome_Text_CollectedManyDebtorsCreditors;
+            CollectedOneSingleCreditor = Resx.Views.Sheet_Outcome_Text_CollectedOneSingleCreditor;
 
             ExpensesRemaining = Resx.Views.Sheet_Outcome_Text_ExpensesRemaining;
             ExpensesExpenses = Resx.Views.Sheet_Outcome_Text_ExpensesExpenses;

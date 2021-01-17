@@ -107,7 +107,7 @@
 
 
   <data name="See.Also" xml:space="preserve">
-    <value>See also</value>
+    <value>Vea tambíen</value>
   </data>
 
 
@@ -116,10 +116,10 @@
   <!-- No help -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="No.Help.Header" xml:space="preserve">
-    <value>We are sorry</value>
+    <value>Lo sentimos</value>
   </data>
   <data name="No.Help.Line1" xml:space="preserve">
-    <value>We are sorry, The document you are requests has not been found.</value>
+    <value>Lo sentimos. El documento solicitado no ha sido encontrado.</value>
   </data>
 
 
@@ -127,15 +127,15 @@
   <!-- Overview -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Overview.Help.Topic" xml:space="preserve">
-    <value>Overview</value>
+    <value>Ayuda general</value>
   </data>
   <data name="Overview.Help.Topic.Quick.Summary" xml:space="preserve">
-    <value>An overall view about RomanApp.</value>
+    <value>Una vista general acerca de RomanApp.</value>
   </data>
   <data name="Overview.Header" xml:space="preserve">
-    <value>Help</value>
+    <value>Ayuda</value>
   </data>
-  <data name="Overview.Summary" xml:space="preserve">
+  <!--<data name="Overview.Summary" xml:space="preserve">
     <value>
       <![CDATA[
       This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and development. <br /><br />
@@ -144,38 +144,55 @@
       But don't worry. You can access any section or topic you need by tapping the index button at the top right corner.<br /><br />
       One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.
       ]]></value>
+  </data>-->
+  <data name="Overview.Summary" xml:space="preserve">
+    <value>
+      <![CDATA[
+      Esta ayuda lo guiará a través de la app, intentando despejar cualquier duda que pueda tener acerca de su propósito, uso y su desarrollo.<br /><br />
+      Puede acceder a la Ayuda en cualquier momento presionando el botón de menu con los tres puntos en el marco superior derecho de la pantalla y luego presionando "Ayuda". Esto abrirá la Ayuda en la sección que actualmente está trabajando.<br /><br />
+      Por ejemplo, si usted accede a la Ayuda mientras esta en el panel de <strong>Configuración</strong>, accederá a la sección de Configuración de la ayuda.<br /><br />
+      Pero no se preocupe. Puede acceder a cualquier sección o tema que necesite presionando el botón de indice en el marco superior derecho.<br /><br />
+      Una cosa más que puede serle útil saber es la parte de "Vea también". Puede encontrarla al final de la vista. Esta listará los temas relacionados con lo que actualmente esté leyendo.
+      ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Overview.About.What.Header" xml:space="preserve">
-    <value>What is RomanApp?</value>
+    <value>¿Qué es RomanApp?</value>
   </data>
-  <data name="Overview.About.What" xml:space="preserve">
+  <!--<data name="Overview.About.What" xml:space="preserve">
     <value>
     <![CDATA[
     RomanApp is a tool to divide the expenses between all the guests in a current event.<br /><br />
     In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts of money that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
+    ]]></value>
+  </data>-->
+  <data name="Overview.About.What" xml:space="preserve">
+    <value>
+    <![CDATA[
+    RomanApp es una herramienta para dividir los gastos entre todos los participantes de un evento.<br /><br />
+    En un escenario en el que algunos participantes contribuyeron dinero para este y algunos no, RomanApp mostará las cantidades de dinero que cada participante, aquellos que no contribuyeron lo suficiente, deben y la cantidad que cada participante debe cobrar, aquellos que contribuyeron más de lo que debían.
     ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Overview.About.Work.Header" xml:space="preserve">
-    <value>How does it work?</value>
+    <value>¿Cómo funciona?</value>
   </data>
   <data name="Overview.About.Work" xml:space="preserve">
     <value>
     <![CDATA[
-    This app works completely offline. There is no need to have any Internet or LAN connection available to run it. It can run on <strong>Airplane Mode</strong> if needed.<br /><br />
-    It will also store your progress locally so you can revisit your work at any time even after restarting your device.
+    Esta app funciona completamente fuera de línea. No hay necesidad de tener una conexión de Internet o LAN disponible para usarla. Puede correr en <strong>Modo avíon</strong> si es necesario.<br /><br />
+    También almacenará los datos de su progreso localmente para que pueda reaundar su trabajo en cualquier momento, aún luego de reiniciar su dispositivo.
     ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Overview.About.Encrypted.Header" xml:space="preserve">
-    <value>Is the stored data encrypted?</value>
+    <value>¿La información se guarda de forma encriptada?</value>
   </data>
   <data name="Overview.About.Encrypted" xml:space="preserve">
     <value><![CDATA[No.]]></value>
@@ -191,13 +208,13 @@
   <!-- Sheet -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Overview.Help.Topic" xml:space="preserve">
-    <value>Main panel</value>
+    <value>Panel principal</value>
   </data>
   <data name="Sheet.Overview.Help.Topic.Quick.Summary" xml:space="preserve">
-    <value>A first glace of the main panel.</value>
+    <value>Un primer vistazo del panel principal.</value>
   </data>
   <data name="Sheet.Overview.Summary.Part1" xml:space="preserve">
-    <value>
+    <!--<value>
     <![CDATA[
     The <strong>Main panel</strong> is where you will spend most of the time using the app.<br />
     Here you will be able to input the event's information and see the result in real time.<br /><br />
@@ -208,51 +225,79 @@
     The <strong>guests</strong> are the people attending the event. Each one is identified by their name, which can be repeated among other guests and may carry a contribution for the event.<br /><br />
     The <strong>expenses</strong> are products or services that will be consumed during the event and will need to be paid for when this finishes. They are also identified by name, which can also be repeated among other expenses and must have a value greater than zero.
     ]]>
+    </value>-->
+    <value>
+    <![CDATA[
+    El panel principal es donde pasará la mayor parte del tiempo usando la app.<br />
+    Aquí usted podrá ingresar la información del evento y ver el resultado en tiempo real.<br /><br />
+    La información del evento consiste en dos tipos de elementos:<br /><br />
+    &nbsp;&nbsp;&#8226; <strong>Participantes</strong><br />
+    &nbsp;&nbsp;&#8226; <strong>Gastos</strong><br />
+    <br />
+    Los <strong>participantes</strong> son las personas asistiendo al evento. Cada uno es identificado por su nombre, que puede repetirse entre otros participantes, y pueden traer aportes para el evento.<br /><br />
+    Los <strong>gastos</strong> son productos o servicios que se consumirán durante el evento y que deberán ser pagados cuando este finalice. También son identificados por nombre, que también pueden repetirse entre otros gastos y deberán tener un valor mayor a cero.
+    ]]>
     </value>
   </data>
-  <data name="Sheet.Overview.Summary.Part2" xml:space="preserve">
+  <!--<data name="Sheet.Overview.Summary.Part2" xml:space="preserve">
     <value>
     <![CDATA[
     At any time during the event you may add, edit and remove any element (<strong>guests</strong> and/or <strong>expenses</strong>) which will be composing the total cost of the event. At the same time the app will calculate how much money should some guests pay to cover the cost of the event and how much money should other guests collect from that to cover their difference of the share.
     ]]>
     </value>
+  </data>-->
+  <data name="Sheet.Overview.Summary.Part2" xml:space="preserve">
+    <value>
+    <![CDATA[
+    En todo momento durante el evento usted podrá agregar, editar o quitar un elemento (<strong>participante</strong> y/o <strong>gasto</strong>) los cuales compondrán el costo total del evento. Al mismo tiempo la app calculará cuánto dinero debe pagar cada participante para cubrir el costo del evento y cuánto dinero deben cobrar otros participantes para cubrir la diferencia con su parte.
+    ]]>
+    </value>
   </data>
   <data name="Sheet.Overview.Summary.Note.Input" xml:space="preserve">
-    <value><![CDATA[For more information on how to work with this portion of the panel check the <strong>Input Tab</strong> link in the <strong>"See Also"</strong> section below.]]></value>
+    <value><![CDATA[Para más información acerca de cómo trabajar con esta parte del panel vea el link de <strong>Pestaña de ingresos</strong> en la sección de <strong>"Vea también"</strong>, debajo.]]></value>
   </data>
   <data name="Sheet.Overview.Summary.Note.Outcome" xml:space="preserve">
-    <value><![CDATA[For more information on how to read the outcome calculation check the <strong>Outcome Tab</strong> link in the <strong>"See Also"</strong> section below.]]></value>
+    <value><![CDATA[Para más información acerca de cómo leer el resultado del cálculo vea el link de <strong>Pestaña de resultado</strong> en la sección de <strong>"Vea también"</strong>, debajo.]]></value>
   </data>
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
 
 
 
 
- 
- <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <!-- Sheet - Input Tab-->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Input.Help.Topic" xml:space="preserve">
-    <value>Input tab</value>
+    <value>Pestaña de ingresos</value>
   </data>
   <data name="Sheet.Input.Help.Topic.Quick.Summary" xml:space="preserve">
-    <value>Detailed explanation of the input tab, its components and its usage.</value>
+    <value>Explicación detallada de la pestaña de ingresos, sus componentes y su uso.</value>
   </data>
-  <data name="Sheet.Input.Summary" xml:space="preserve">
+  <!--<data name="Sheet.Input.Summary" xml:space="preserve">
     <value>
     <![CDATA[
     This tab allows you to enter the event information regarding guests and expenses.<br /><br />
     All data you enter will automatically be stored in your device for you to resume your work at any time, even after the app is terminated or the device is restarted.<br /><br />
     You can delete the complete stored data (input and app data) and start from scratch (as if <strong>RomanApp</strong> has been reinstalled) by going to the <strong>Application Manager</strong> in your device settings and clearing the Data. Check your device manual for more details.
     ]]></value>
+  </data>-->
+  <data name="Sheet.Input.Summary" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Esta pestaña le permite ingresar la información del evento en cuanto a sus participantes y gastos.<br /><br />
+    Toda la información que ingrese se guardará automaticamente en su dispositivo para que pueda reanudar su trabajo en cualquier momento, aún luego de que la app se haya cerrado o su dispositivo reiniciado.<br /><br />
+    Puede borrar completamente los datos guardados (ingresos y datos de la app) e iniciar de cero (como si <strong>RomanApp</strong> acabase de ser reinstalada) yendo al <strong>Administrador de aplicaciones</strong> en la configuración de su dispositivo y borrar los Datos. Revise el manual de su dipositivo para para obtener más detalles.
+    
+    ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Input.Components.Header" xml:space="preserve">
-    <value>What does this tab contain?</value>
+    <value>¿Qué contiene esta pestaña?</value>
   </data>
-  <data name="Sheet.Input.Components" xml:space="preserve">
+  <!--<data name="Sheet.Input.Components" xml:space="preserve">
     <value>
     <![CDATA[
     The <strong>Input tab</strong> is composed by two main groups:<br /><br />
@@ -265,14 +310,28 @@
     By default both groups have no elements in them, in which case a message will be displayed at the center of the box describing the case.
     ]]>
     </value>
+  </data>-->
+  <data name="Sheet.Input.Components" xml:space="preserve">
+    <value>
+    <![CDATA[
+    La <strong>Pestaña de ingresos</strong> está compuesta por dos grupos principales:<br /><br />
+    &nbsp;&nbsp;&#8226; <strong>Participantes</strong><br />
+    &nbsp;&nbsp;&#8226; <strong>Gastos</strong><br />
+    <br />
+    Puedes verlos como cajas verticalmente posicionadas en el contenido de la pestaña.<br /><br />
+    Cada caja, o grupo, tiene un encabezado que describe qué elementos representa ("Participantes" or "Gastos") seguido del número de elementos agregados.<br /><br />
+    En la esquina superior derecha de cada caja hay un botón circular con un ícono de "más" dentro. Este le permitirá ingresar un nuevo elemento adentro del grupo.<br /><br />
+    Por defecto ambos grupos no contienen elementos, por lo que se mosetrará un mensaje en el centro de la caja describiendo el caso.
+    ]]>
+    </value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Input.Adding.Header" xml:space="preserve">
-    <value>How can I add an element for my event?</value>
+    <value>¿Cómo puedo agregar un nuevo elemento en mi evento?</value>
   </data>
-  <data name="Sheet.Input.Adding.Part1" xml:space="preserve">
+  <!--<data name="Sheet.Input.Adding.Part1" xml:space="preserve">
     <value>
     <![CDATA[
     You can add as many elements as you want, either <strong>guests</strong> or <strong>expenses</strong> by tapping the "plus" button at the top right corner of the corresponding box.<br /><br />
@@ -283,16 +342,28 @@
     Followed by the header, in the center of the window, is the element's information form. For either a <strong>Guest</strong> or <strong>Expense</strong> you can enter the name (first field) and the amount (second field).
     ]]>
     </value>
+  </data>-->
+  <data name="Sheet.Input.Adding.Part1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Puede agregar tantos elementos desee, sean <strong>participantes</strong> o <strong>gastos</strong> presionando el botón "más" en la esquina superior derecha de la caja correspondiente.<br /><br />
+    Esto despliegará una ventana que, en su marco superior, mostrar la acción que se está llevando a cabo:<br /><br />
+    &nbsp;&nbsp;&#8226; "Agregar un participante" si presionó el botón de la primera caja.<br />
+    &nbsp;&nbsp;&#8226; "Agregar gasto" si presionó el botón de la segunda caja.<br />
+    <br />
+    Seguido del encabezado, en el centro de la ventana, está el formulario de la información del elemento. Tanto para un <strong>Participante</strong> o un <strong>Gasto</strong> usted puede ingresar el nombre (primer campo) y la cantidad (segundo campo).
+    ]]>
+    </value>
   </data>
   <data name="Sheet.Input.Adding.Note.Amount.Label" xml:space="preserve">
     <value>
     <![CDATA[
-    Notice that the second field will display a different label depending of the type of element that you are adding:<br />
-    &nbsp;&nbsp;&#8226; "Contribution" if you are adding a <strong>Guest</strong>.<br />
-    &nbsp;&nbsp;&#8226; "Value" if you are adding an <strong>Expense</strong>.<br />
+    Note que el segundo campo mostrará una etiqueta diferente dependiendo del tipo de elemento que está agregando:<br />
+    &nbsp;&nbsp;&#8226; "Aporte" si está agregando un <strong>Participante</strong>.<br />
+    &nbsp;&nbsp;&#8226; "Valor" si está agregando un <strong>Gasto</strong>.<br />
     ]]></value>
   </data>
-  <data name="Sheet.Input.Adding.Part2" xml:space="preserve">
+  <!--<data name="Sheet.Input.Adding.Part2" xml:space="preserve">
     <value>
     <![CDATA[
     In any case the <strong>Name</strong> field is required and the <strong>Contribution</strong> or <strong>Value</strong> can't have a negative number.<br /><br />
@@ -301,11 +372,21 @@
     Once the fields are properly set you may tap in the green circular button with a "check" icon in it at the bottom of the window. Doing so the window will close and the item will appear in the corresponding box at the bottom of the list.
     ]]>
     </value>
+  </data>-->
+  <data name="Sheet.Input.Adding.Part2" xml:space="preserve">
+    <value>
+    <![CDATA[
+    En cualquier caso el campos <strong>Nombre</strong> es requerido y su <strong>Aporte</strong> o <strong>Valor</strong> no puede ser un número negatisvo.<br /><br />
+    Si está agregando un <strong>Gasto</strong> el valor debe ser mayor a 0.<br /><br />
+    No se preocupe por recordar estas reglas. Si se equivoca con cualquiera de ellas un mensaje aparecerá encima del campo, guiándolo a corregir su valor.<br /><br />
+    Una vez que los campo hayan sido correctamente completados puede presionar el botón circular verde con un ícono de "chequeado" dentro, al fondo de la ventana. Haciéndolo la ventana se cerrará y el elemento aparecerá en la caja correspondiente, al final de la lista.
+    ]]>
+    </value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
-  <data name="Sheet.Input.Items.List.Header" xml:space="preserve">
+  <!--<data name="Sheet.Input.Items.List.Header" xml:space="preserve">
     <value>Reading the boxes or groups</value>
   </data>
   <data name="Sheet.Input.Items.List" xml:space="preserve">
@@ -316,11 +397,23 @@
     The <strong>footer</strong>, at the bottom of the box, will show the sum of the contributions or values of the elements.
     ]]>
     </value>
+  </data>-->
+  <data name="Sheet.Input.Items.List.Header" xml:space="preserve">
+    <value>Leyendo las cajas o grupos</value>
+  </data>
+  <data name="Sheet.Input.Items.List" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Cuando una caja contiene elementos dentro, el mensaje de vacío (lea arriba) será reemplazado por una <strong>lista</strong> y un <strong>pié</strong>.<br /><br />
+    La <strong>lista</strong>, en el centro de la caja, contiene dos columnas. A la izquierda el nombre del elemento y a la derecha su aporte o valor.<br /><br />
+    El <strong>pié</strong>, en el marco inferior de la caja, mostrará la suma de los aportes o valores de los elementos.
+    ]]>
+    </value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
-  <data name="Sheet.Input.Edit.Header" xml:space="preserve">
+  <!--<data name="Sheet.Input.Edit.Header" xml:space="preserve">
     <value>How can I edit the information?</value>
   </data>
   <data name="Sheet.Input.Edit.Part1" xml:space="preserve">
@@ -331,15 +424,35 @@
     In case you're attempting to change the information you may tap the "check" button to save it just as you did when you previously add it.<br /><br />
     In case you're attempting remove the element from the group you may tap the red circular button with a "trash" icon in it at the bottom left of the window. This button will only show up when you're editing an element.
     ]]></value>
+  </data>-->
+  <data name="Sheet.Input.Edit.Header" xml:space="preserve">
+    <value>¿Cómo puedo editar la información?</value>
+  </data>
+  <data name="Sheet.Input.Edit.Part1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    En todo momento usted puede modificar la información del evento ya sea editándo un elemento o borrándolo.<br /><br />
+    Para cualquier caso puede presionar sobre el elemento en la lista y la misma ventana que se usó para agregarlo reaparecerá. Esta vez el encabezado de la ventana mostrará el nombre del elemento y sus campos ya estarán llenos con sus valores.<br /><br />
+    En caso de que esté intentando modificar la información puede presionar el botón con el ícono "chequeado" para guardarla, de la misma manera que lo hizo previamente para agregar el elemento.<br /><br />
+    En caso de que esté intentando borrar el elemento del grupo puede presionar el botón circular rojo con el ícono de un "cesto de basura" dentro en el marco inferior izquierdo de la ventana. Este botón solo se mostrará cuando usted esté editando un elemento.
+    ]]></value>
   </data>
   <data name="Sheet.Input.Edit.Delete.Note" xml:space="preserve">
-    <value><![CDATA[Remember that no confirmation will be required when tapping the "trash" icon and this action cannot be undone.]]></value>
+    <value><![CDATA[Recuerde que no se requiere una confirmación luego de haber presionado el botón de borrar y esta acción no puede ser deshecha.]]></value>
   </data>
-  <data name="Sheet.Input.Edit.Part2" xml:space="preserve">
+  <!--<data name="Sheet.Input.Edit.Part2" xml:space="preserve">
     <value>
     <![CDATA[
     Once completed the window will close and you may see the changes in the groups.<br /><br />
     If you decide not to perform any changes (adding, editing or deleting) after the window popped you can tap the white circular button with an "X" icon in it, at the bottom center of the window to close it.
+    ]]>
+    </value>
+  </data>-->
+  <data name="Sheet.Input.Edit.Part2" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Una vez completado, la ventana se cerrará y podrá ver los cambios realizados en los grupos.<br /><br />
+    Si decide no realizar ningún cambio (agregar, editar o quitar) luego de que la ventana se haya despliegado puede presionar el botón circular blanco con una "X" dentro, en el marco inferior de la ventana, para cerrarla.
     ]]>
     </value>
   </data>
@@ -347,50 +460,74 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Input.Guest.Expense.Header" xml:space="preserve">
-    <value>Contribution or expense?</value>
+    <value>¿Aporte o gasto?</value>
   </data>
-  <data name="Sheet.Input.Guest.Expense.Part1" xml:space="preserve">
+  <!--<data name="Sheet.Input.Guest.Expense.Part1" xml:space="preserve">
     <value>
     <![CDATA[
     A common question would be when to add an expense or a guest's contribution. For that, first we need to know the definitions of each element.
     ]]></value>
+  </data>-->
+  <data name="Sheet.Input.Guest.Expense.Part1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Una pregunta común suele ser cuándo agregar un gasto o cuándo agregar el aporte de un participante. Para ello, primero necesitamos conocer la definición de cada tipo de elemento.
+    ]]></value>
   </data>
   <data name="Sheet.Input.Guest.Expense.Definition.Guest.Label" xml:space="preserve">
-    <value><![CDATA[Guest's contribution:]]></value>
+    <value><![CDATA[Aporte de un participante:]]></value>
   </data>
-  <data name="Sheet.Input.Guest.Expense.Definition.Guest.Description" xml:space="preserve">
+  <!--<data name="Sheet.Input.Guest.Expense.Definition.Guest.Description" xml:space="preserve">
     <value>
     <![CDATA[
     Represents any amount of money that a particular guest spent for this event and has been agreed upon to divide between the rest of the guests. <br /><br />
     This could be food a guest brought for everyone, it could be beverages or even a Karaoke machine the guest rented for the night and has already been payed for by said guest.
     ]]></value>
+  </data>-->
+  <data name="Sheet.Input.Guest.Expense.Definition.Guest.Description" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Representa cualquier cantidad de dinero que un participante en particular gastó para este evento y que se acordó dividir entre el resto de los participantes.<br /><br />
+    Esto podría ser comida que trajo el participante para todos, pueden ser bebidas o incluso una máquina de Karaoke que el participante alquiló y pagó.
+    ]]></value>
   </data>
   <data name="Sheet.Input.Guest.Expense.Definition.Expense.Label" xml:space="preserve">
-    <value><![CDATA[Expense:]]></value>
+    <value><![CDATA[Gasto:]]></value>
   </data>
   <data name="Sheet.Input.Guest.Expense.Definition.Expense.Description" xml:space="preserve">
     <value>
     <![CDATA[
-    Represents any cost for the event that <strong>has not been payed for yet</strong> and has been agreed upon to divide between the rest of the guests. <br /><br />
-    This could be the rent of a grill for a barbacue, a laser tag arena, a whole villa for the night, etc.
+    Respresenta cualquier costo para el evento que <strong>aún no ha sido pagado</strong> y que se acordó dividir entre todos los participantes.<br /><br />
+    Esto podría ser el aqluiler de una parrilla, la cancha de futbol, una quinta, etc.
     ]]>
     </value>
   </data>
-  <data name="Sheet.Input.Guest.Expense.Part2" xml:space="preserve">
+  <!--<data name="Sheet.Input.Guest.Expense.Part2" xml:space="preserve">
     <value><![CDATA[The main difference for calculating the outcome is that unlike a contribution, a new expense will increase the share, while a new contribution (a new guest) may result, depending on their contribution, in a decreasing of the share since is now divided between more guests.]]></value>
+  </data>-->
+  <data name="Sheet.Input.Guest.Expense.Part2" xml:space="preserve">
+    <value><![CDATA[La principal diferencia para calcular un resultado es que un nuevo gasto aumetará la <strong>Parte</strong> mientras que un nuevo aporte (un nuevo participante) puede resultar en, dependiendo de su aporte, un decremento de la <strong>Parte</strong> ya que el total se divide entre más personas.]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Input.Reset.Header" xml:space="preserve">
-    <value>Can I clear everything in one go?</value>
+    <value>¿Puedo borrar todo de una?</value>
   </data>
-  <data name="Sheet.Input.Reset" xml:space="preserve">
+  <!--<data name="Sheet.Input.Reset" xml:space="preserve">
     <value>
     <![CDATA[
     Yes. Whenever either boxes contain elements in them the button with an "eraser" icon in it at the top right of the screen, next to the menu button, can be tapped to delete all the information.<br /><br />
     <strong>A dialog will appear asking you to confirm the action since this cannot be undone.</strong><br /><br />
     This option will remain disabled whilst both boxes are empty.
+    ]]></value>
+  </data>-->
+  <data name="Sheet.Input.Reset" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Sí. Cuando cualquiera de las cajas contengan elementos dentro, el botón con un ícono de un "borrador" en el marco superior derecho, al lado del botón del menu, puede ser presionado para borrar toda la información ingresada.<br /><br />
+    <strong>Una caja de diálogo aparecerá preguntándole si desea confirmar la acción debido a que esta no puede ser deshecha.</strong><br /><br />
+    Esta opción se mantendrá dehabilitada mientras las cajas estén vacías.
     ]]></value>
   </data>
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
@@ -405,121 +542,138 @@
   <!-- Sheet - Outcome -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Outcome.Help.Topic" xml:space="preserve">
-    <value>Outcome tab</value>
+    <value>Pestaña de resultado</value>
   </data>
   <data name="Sheet.Outcome.Help.Topic.Quick.Summary" xml:space="preserve">
-    <value>Detailed explanation of how to read the outcome of an event calculation.</value>
+    <value>Explicación en detalle sobre cómo leer el resultado del cálculo del evento.</value>
   </data>
   <data name="Sheet.Output.Summary" xml:space="preserve">
     <value>
     <![CDATA[
-    This tab will give you the result calculation of every guest's contribution and expense.
+    Esta pestaña le dará el resultado del cálculo del aporte de cada participante y los gastos.
     ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Totals.Header" xml:space="preserve">
-    <value>Summary</value>
+    <value>Resumen</value>
   </data>
   <data name="Sheet.Outcome.Totals" xml:space="preserve">
     <value>
     <![CDATA[
-    At the top of the tab there is a box that shows a quick summary of the calculations:
+    En el marco superior de la pestaña hay una caja que muestra un resumen rápido del cálculo:
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Totals.Total.Contributions.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Total contributions:]]></value>
+    <value><![CDATA[&#8226; Total de aportes:]]></value>
   </data>
   <data name="Sheet.Outcome.Totals.Total.Contributions.Description" xml:space="preserve">
-    <value><![CDATA[The sum of all guests' contributions, those which are greater than zero.]]></value>
+    <value><![CDATA[La suma de todos los aportes de los participantes, aquellos que sean mayor a cero.]]></value>
   </data>
   <data name="Sheet.Outcome.Totals.Total.Expenses.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Total expenses:]]></value>
+    <value><![CDATA[&#8226; Total de gastos:]]></value>
   </data>
   <data name="Sheet.Outcome.Summary.Total.Expenses.Description" xml:space="preserve">
-    <value><![CDATA[The sum of all expenses.]]></value>
+    <value><![CDATA[La suma de todos los gastos.]]></value>
   </data>
   <data name="Sheet.Outcome.Totals.Total.Label" xml:space="preserve">
     <value><![CDATA[&#8226; Total:]]></value>
   </data>
   <data name="Sheet.Outcome.Summary.Total.Description" xml:space="preserve">
-    <value><![CDATA[The sum of all guest's contributions and expenses. <strong>This number represents the entire cost of the event.</strong>]]></value>
+    <value><![CDATA[La suma de los aportes de los participantes y los gastos. <strong>Este número representa el costo total del evento.</strong>]]></value>
   </data>
   <data name="Sheet.Outcome.Totals.Share.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Share:]]></value>
+    <value><![CDATA[&#8226; Parte:]]></value>
   </data>
   <data name="Sheet.Outcome.Summary.Share.Description" xml:space="preserve">
-    <value><![CDATA[This is the coefficient between the total cost of the event and the number of guests. The share is what each guest is <strong>supposed</strong> to pay.]]></value>
+    <value><![CDATA[Es el coeficiente entre el costo total del evento y la cantidad de participantes. La parte es lo que cada participante <strong>supone</strong> a pagar.]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Groups.Header" xml:space="preserve">
-    <value>What's in the box?</value>
+    <value>¿Qué hay en la caja?</value>
   </data>
   <data name="Sheet.Outcome.Groups" xml:space="preserve">
-    <value>
+    <!--<value>
     <![CDATA[
     Along with the <strong>Summary</strong> the outcome provides four different boxes which represent the event's guests or expenses sorted in four groups:<br /><br />
-    &nbsp;&nbsp;1. Those who owe<br />
+    &nbsp;&nbsp;1. Those who owe.<br />
     &nbsp;&nbsp;2. Those who must collect<br />
     &nbsp;&nbsp;3. Expenses to cover<br />
     &nbsp;&nbsp;4. Those who broke even<br />
     <br />
     Each box has a header that describes, at its left side, what group of elements (<strong>guests</strong> or <strong>expenses</strong>, described above) contains and  the count of elements at its right side.<br />
-    Each, also, has a footer that shows the total sum of all the elements in the box. This will only be visible when the box, or group, contains more than one element.<br /><br />
+    Each, also, have a footer that shows the total sum of all the elements in the box. This will only be visible when the box, or group, contains more than one element.<br /><br />
     Inside the box you can see the list of elements. On the left side the element's name and on the right side the amount that the it either owes, must collect or be payed, depending on which box you're looking at.<br /><br />
     The fourth box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero and won't show the total at its footer, either.
+    ]]></value>-->
+    <value>
+    <![CDATA[
+    Junto con el <strong>Resumen</strong> el resultado provee cuatro diferentes cajas las cuales representan a los participantes o gastos categorizados en cuatro grupos:<br /><br />
+    &nbsp;&nbsp;1. Aquellos que deben dinero<br />
+    &nbsp;&nbsp;2. Aquellos que deben cobrar<br />
+    &nbsp;&nbsp;3. Los gastos a cubrir<br />
+    &nbsp;&nbsp;4. Aquellos que no deben nada<br />
+    <br />
+    Cada caja tiene un encabezado que describe, a su izquierda, qué grupo de elementos (<strong>participantes</strong> o <strong>gastos</strong>, descrito arriba) contiene y la cantidad de ellos a su derecha.<br />
+    Cada caja, también, tiene un pié que muestra la suma total de todos los elementos dentro en ella. Este será visible solo cuando la caja, o grupo, contenga más de un elemento.<br /><br />
+    Dentro de la caja puede ver la lista de elementos. A su izquierda el nombre del elemento y a su derecha la cantidad que, ya sea debe, debe cobrar o debe ser pagada, dependiendo de qué caja esté mirando.<br /><br />
+    La cuarta caja, el grupo de participantes que no deben nada, solo muestra los nombres sin las cantidades ya que se sobreentiende que la mismas siempre serán cero y tampoco mostrará el total en el pié.
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Groups.Note.Visible" xml:space="preserve">
-    <value>
+    <!--<value>
     <![CDATA[
     You may notice that not all the groups are always shown. This is because the outcome only shows those which contain at least one element after doing the calculations. For example if the outcome states that no guests should collect an amount but all of them should pay at least a part of their share, the second group ("Who must collect?") will not be shown.
+    ]]></value>-->
+    <value>
+    <![CDATA[
+    Podrá notar que no todos los grupos siempre se muestran. Esto se debe a que el resultado solo mostrará aquellos que contentan al menos un elemento luego de haber hecho el cálculo. Por ejemplo, si el resultado indica que ningún participante debe cobrar una cantidad pero todos deben aportar al menos una parte, el segundo grupo ("¿Quiénes deben cobrar?") no se mostrará.
     ]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Empty.Header" xml:space="preserve">
-    <value>What is that exclamation mark?</value>
+    <value>¿Qué es el signo de exclamación?</value>
   </data>
   <data name="Sheet.Outcome.Empty" xml:space="preserve">
     <value>
     <![CDATA[
-    In order to have a proper outcome we need to meet the minimum requirements to get it. If one of them are not met we will see a message informing us why we are not getting a detailed result:
+    Para poder obtener un resultado debemos cumplir los mínimos requerimientos. Si uno de ellos no se cumple veremos un mensaje informándonos por qué no obtuvimos el resultado detallado:
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.No.Total.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; The total cost of the event must be greater than 0:]]></value>
+    <value><![CDATA[&#8226; El costo total del evento debe ser mayor a 0:]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.No.Total.Description" xml:space="preserve">
-    <value><![CDATA[The total cost of the event (see "Total" in the <strong>Summary</strong> section above) added up to zero. So there is nothing to share.]]></value>
+    <value><![CDATA[El costo total del evento (vea "Total" en la sección <strong>Resumen</strong>, arriba) resultó en 0. Por ende no hay nada que dividir.]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.Enough.Guests.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Not enough guests:]]></value>
+    <value><![CDATA[&#8226; No se agregaron suficiente participantes:]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.Enough.Guests.Description" xml:space="preserve">
-    <value><![CDATA[You need at least two guests to have the  cost of the event cost divided in shares.]]></value>
+    <value><![CDATA[Necesita al menos dos participantes para poder dividir el costo del evento en partes.]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.No.Debt.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Nobody owes anything:]]></value>
+    <value><![CDATA[&#8226; Nadie debe nada:]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.No.Debt.Description" xml:space="preserve">
-    <value><![CDATA[After doing the calculations the outcome states that nobody should pay more than they already contributed.]]></value>
+    <value><![CDATA[Luego de hacer el cálculo el resultado indica que nadie debe pagar más de lo que ya aportó.]]></value>
   </data>
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Text.Header" xml:space="preserve">
-    <value><![CDATA[Explain it to me like I'm 5]]></value>
+    <value><![CDATA[Explícamelo como si tuviese 5 años]]></value>
   </data>
   <data name="Sheet.Outcome.Text" xml:space="preserve">
     <value>
     <![CDATA[
-    Another way to read the result is by tapping the circle button with a "conversation" icon in it at the bottom of the tab.<br />
-   This will popup a window explaining step by step the calculation result and what should each guest do with the money.
+    Otra manera de leer el resultado es presionado el botón circular con un ícono de "conversación" al final de la pestaña.<br />
+   Esto despliegará una ventana explicando paso a paso el cálculo y qué debe hacer cada participante con el dinero.
     ]]>
     </value>
   </data>
@@ -527,100 +681,100 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <data name="Sheet.Outcome.Examples.Header" xml:space="preserve">
-    <value>Let's take a look at some examples</value>
+    <value>Veamos algunos ejemplos</value>
   </data>
   <data name="Sheet.Outcome.Examples" xml:space="preserve">
     <value>
     <![CDATA[
-    To fully understand how to read the outcome result we are going to run some examples. This can be verified entering the same values in the <strong>Input tab</strong>.
+    Para poder entender completamente cómo leer el resultado vamos a ejercitar unos ejemplos. Estos pueden ser verificados ingresando los mismos valores en la <strong>Pestaña de ingresos</strong>.
     ]]>
     </value>
   </data>
   <data name="Sheet.Outcome.Examples.Result" xml:space="preserve">
-    <value><![CDATA[What's the result?]]></value>
+    <value><![CDATA[¿Cuál es el resultado?]]></value>
   </data>
   <!-- :::::::::::::::::::::::::::::::::::::::::: -->
   <data name="Sheet.Outcome.Examples.Example1.Header" xml:space="preserve">
-    <value>Example 1 (simple):</value>
+    <value>Ejemplo 1 (simple):</value>
   </data>
   <data name="Sheet.Outcome.Examples.Example1.Premise" xml:space="preserve">
     <value>
     <![CDATA[
-    There are three people attending this event. Myself, John and Mike. <br /><br />
-    I contributed with nothing whilst John contributed <strong>64</strong> for food and Mike <strong>86</strong> for beverages.
+    Hay tres personas asistiendo a este evento. Juan, Miguel y yo.<br /><br />
+    Yo no aporté nada mientras que Juan aportó <strong>64</strong> para la comida y Miguel <strong>86</strong> para las bebidas.
     ]]>
     </value>
   </data>
   <data name="Sheet.Outcome.Examples.Example1.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total spent for this event was <strong>150</strong> (John's food for <strong>64</strong> and Mike's beverages for <strong>86</strong>). Divided by the 3 of us gives us a share of <strong>50</strong>. That is what each guest is supposed to pay at the end of this event.<br /><br />
-    <strong>But...</strong> John and Mike already contributed even more money than their share.<br /><br />
-    This means that in the outcome I will see myself owing money and John and Mike collecting.<br /><br />
-    From my full share of <strong>50</strong> we can take <strong>14</strong> for John and <strong>36</strong> for Mike.<br /><br />
-    Since John contributed <strong>64</strong>, by collecting <strong>14</strong> he's leaving his share of <strong>50</strong>. And Mike, having him pay <strong>86</strong> and collecting <strong>36</strong> he is leaving his share of <strong>50</strong> as well.
+    El total gastado para este evento es de <strong>150</strong> (La comida de Juan por <strong>64</strong> y las bebidas de Miguel por <strong>86</strong>). Dividido entre nosotros 3 nos da una parte de <strong>50</strong>. Esto es lo que cada uno supone pagar al final del evento.<br /><br />
+    <strong>Pero...</strong> Juan y Miguel ya aportaron más que su parte.<br /><br />
+    Esto significa que en el resultado me veré debiendo dinero y veré a Juan y a Miguel cobrando.<br /><br />
+    De mi parte completa de <strong>50</strong> tomaremos <strong>14</strong> para Juan y <strong>36</strong> para Miguel.<br /><br />
+    Ya que Juan aportó <strong>64</strong>, cobrando <strong>14</strong> él deja su parte de <strong>50</strong>. Y Miguel, habiendo pagado <strong>86</strong> y cobrando <strong>36</strong> está dejando su parte de <strong>50</strong> también.
     ]]>
     </value>
   </data>
   <!-- :::::::::::::::::::::::::::::::::::::::::: -->
   <data name="Sheet.Outcome.Examples.Example2.Header" xml:space="preserve">
-    <value>Example 2 (medium):</value>
+    <value>Ejemplo 2 (medio):</value>
   </data>
   <data name="Sheet.Outcome.Examples.Example2.Premise" xml:space="preserve">
     <value>
     <![CDATA[
-    This time will be using expenses.<br/><br/>
-    Four people at this event: Myself, Chris, Susan and Lucy. <br /><br />
-    <u>Contributions (4):</u><br />
-    &#8226; <strong>Myself</strong>: 105<br />
-    &#8226; <strong>Chris</strong>: 0<br />
-    &#8226; <strong>Susan</strong>: 15<br />
-    &#8226; <strong>Lucy</strong>: 110<br />
+    Esta vez usaremos gastos.<br/><br/>
+    Cuatro personas para este evento: Cristian, Susana, Lucía y yo. <br /><br />
+    <u>Aportes (4):</u><br />
+    &#8226; <strong>Yo</strong>: 105<br />
+    &#8226; <strong>Cristian</strong>: 0<br />
+    &#8226; <strong>Susana</strong>: 15<br />
+    &#8226; <strong>Lucía</strong>: 110<br />
     <br />
-    We are now adding an expense for <strong>170</strong>, let's say for the paintball gear, reloads and time will be using it. We decide to split this evenly.
+    Ahora agregaremos un gasto por <strong>170</strong>, digamos que es por el equipo de paintball, recargas y tiempo de uso. Decidimos dividirnos este gasto entre todos.
     ]]>
     </value>
   </data>
   <data name="Sheet.Outcome.Examples.Example2.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total cost of this event is <strong>400</strong>. That is <strong>100</strong> for each to pay (<strong>the Share</strong>). <br /><br />
-    <strong>230</strong> will be for those who contributed (minus their share) and <strong>170</strong> to pay for "paintball".<br /><br />
-    Chris owes the total share of <strong>100</strong>, Susan owes <strong>85</strong> since she already contributed with <strong>15</strong>.<br /><br />
-    Lucy and I will be collecting from what Chris and Susan put on the table. That is a total of <strong>185</strong>.<br /><br />
-    From that I will take <strong>5</strong> and Lucy will take <strong>10</strong> leaving, still, <strong>170</strong> on the table. That is the money that should go to pay for a lovely afternoon of paintball.
+    El costo total del evento es de <strong>400</strong>. Eso es <strong>100</strong> a pagar por cada uno (<strong>la Parte</strong>). <br /><br />
+    <strong>230</strong> serán para aquellos que aportaron (menos su parte) y <strong>170</strong> para pagar por el "paintball".<br /><br />
+    Cristian debe el total de su parte de <strong>100</strong>, Susana debe <strong>85</strong> debido a que ya aportó con <strong>15</strong>.<br /><br />
+    Lucía y yo estaremos cobrando de lo que Cristian y Susana pusieron sobre la mesa. Esto es un total de <strong>185</strong>.<br /><br />
+    De eso yo tomaré <strong>5</strong> y Lucía tomará <strong>10</strong> dejando, aún, <strong>170</strong> sobre la mesa. Ese es el dinero que con el que se pagará por una memorable tarde de paintball.
     ]]>
     </value>
   </data>
   <!-- :::::::::::::::::::::::::::::::::::::::::: -->
   <data name="Sheet.Outcome.Examples.Example3.Header" xml:space="preserve">
-    <value>Example 3 (advanced):</value>
+    <value>Ejemplo 3 (avanzado):</value>
   </data>
   <data name="Sheet.Outcome.Examples.Example3.Premise" xml:space="preserve">
     <value>
     <![CDATA[
-    In this example will try to get the use of all four groups of the outcome. <br /><br />
-    Four people at this event: Myself, Ellen, Leo and Jo. <br /><br />
-    <u>Contributions (4):</u><br />
-    &#8226; <strong>Myself</strong>: 5 (snacks)<br />
-    &#8226; <strong>Ellen</strong>: 30 (beverages)<br />
-    &#8226; <strong>Leo</strong>: 25 (more snacks)<br />
-    &#8226; <strong>Jo</strong>: 0<br />
+    En este ejemplo trataremos de usar los cuatro grupos del resultado. <br /><br />
+    Cuatro personas en este evento: Elena, Leo, Josefina y yo.<br /><br />
+    <u>Aportes (4):</u><br />
+    &#8226; <strong>Yo</strong>: 5 (aperitivos)<br />
+    &#8226; <strong>Elena</strong>: 30 (bebidas)<br />
+    &#8226; <strong>Leo</strong>: 25 (más aperitivos)<br />
+    &#8226; <strong>Josefina</strong>: 0<br />
     <br />
-    <u>Expenses (2):</u><br />
-    &#8226; <strong>Tennis court</strong>: 35<br />
-    &#8226; <strong>DVD recording of the match</strong>: 5
+    <u>Gastos (2):</u><br />
+    &#8226; <strong>Cancha de tenis</strong>: 35<br />
+    &#8226; <strong>DVD de la grabación del partido</strong>: 5
     ]]>
     </value>
   </data>
   <data name="Sheet.Outcome.Examples.Example3.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total cost of this event is <strong>100</strong>. That is <strong>25</strong> for each to pay (<strong>the Share</strong>). <br /><br />
-    Jo and I are the ones who should put money on the table. I should pay <strong>20</strong> since <strong>5</strong> were already covered for snacks and Jo should pay her full share.<br /><br />
-    A total of <strong>45</strong> is now on the table. <strong>5</strong> goes to Ellen since she contributed with <strong>30</strong>.<br /><br />
-    We are now left with <strong>40</strong> on the table. <strong>35</strong> will go to pay for the Tennis Court and <strong>5</strong> for the DVD recording.<br /><br />
-    Leo should not pay or receive anything since his contribution matches the share of <strong>25</strong>.
+    El costo total de este evento es de <strong>100</strong>. Eso es <strong>25</strong> a pagar por cada uno (<strong>la Parte</strong>). <br /><br />
+    Josefina y yo somos los que debemos poner dinero sobre la mesa. Yo debería poner <strong>20</strong> debido a que <strong>5</strong> ya fueron cubiertos por aperitivos y Josefina debería poner su parte completa.<br /><br />
+    Un total de <strong>45</strong> se encuentra ahora sobre la mesa. <strong>5</strong> irán para Elena debido a que ella aportó con <strong>30</strong>.<br /><br />
+    Nos restan ahora <strong>40</strong> sobre la mesa. <strong>35</strong> serán para pagar por la cancha de tenis y <strong>5</strong> por la grabación del DVD.<br /><br />
+    Leo no debería pagar o cobrar nada debido a que su aporte equivale a su parte de <strong>25</strong>.
     ]]>
     </value>
   </data>
@@ -634,14 +788,14 @@
   <!-- Settings -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <data name="Sheet.Settings.Help.Topic" xml:space="preserve">
-    <value>Settings</value>
+    <value>Configuración</value>
   </data>
   <data name="Sheet.Settings.Help.Topic.Quick.Summary" xml:space="preserve">
-    <value>Definition of each configuration property. Their purpose and their impact in the app.</value>
+    <value>Definición de cada propiedad de la configuración. Su propósito y su impacto en la app.</value>
   </data>
   <data name="Sheet.Settings" xml:space="preserve">
     <value>
-      <![CDATA[This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted.]]>
+      <![CDATA[Este panel le permitirá configurar diferentes aspectos y comportamientos de la app. Todos los cambios serán guardados inmediatamente al momento de ser efectuados y permanecerán aún luego de que la app se haya cerrado o su dispositivo reiniciado.]]>
     </value>
   </data>
   <!-- ............................... -->
@@ -651,10 +805,10 @@
     <value>Options</value>
   </data>
   <data name="Sheet.Settings.Option.Whole.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Use whole numbers?]]></value>
+    <value><![CDATA[&#8226; Usar números enteros]]></value>
   </data>
   <data name="Sheet.Settings.Option.Whole.Line1" xml:space="preserve">
-    <value><![CDATA[Sets the app to use whole numbers or decimals. In case is set for the latter (<strong>Off</strong>) the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share.]]></value>
+    <value><![CDATA[Prepara a la app para usar números enteros o decimales. En el segundo caso (<strong>Opción apagada</strong>) la app redondeará los decimales en intervalos de 25, 50 y 75 para facilitar a los participantes a pagar su parte.]]></value>
   </data>
 
 </root>
