@@ -11,6 +11,8 @@ namespace RomanApp.Client.Mobile.Controls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShapeButton : Grid
     {
+        private const int MINIMUM_SPACING = 10;
+
         private ISoundService _soundService;
 
         public ShapeButton()
@@ -105,6 +107,22 @@ namespace RomanApp.Client.Mobile.Controls
         {
             get { return (double?)GetValue(SizeProperty); }
             set { SetValue(SizeProperty, value); }
+        }
+
+        public static readonly BindableProperty SpacingProperty = BindableProperty.Create(nameof(Spacing),
+            typeof(int), typeof(ShapeButton),
+            defaultValue: 0,
+            propertyChanged: OnSpacingChanged);
+        public int Spacing
+        {
+            get { return (int)GetValue(SpacingProperty); }
+            set { SetValue(SpacingProperty, value); }
+        }
+
+        private static void OnSpacingChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            ShapeButton me = (ShapeButton)bindable;
+            me.Shape.Padding = new Thickness(MINIMUM_SPACING + (int)newValue);
         }
 
 

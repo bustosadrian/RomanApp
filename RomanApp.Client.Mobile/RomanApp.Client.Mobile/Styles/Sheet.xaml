@@ -173,10 +173,14 @@
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
-    <Style ApplyToDerivedTypes="True" x:Key="OutcomeGetTextButtonStyle"  TargetType="Label">
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeGetTextButtonStyle"  TargetType="c:ShapeButton">
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="Size" Value="32" />
+        <Setter Property="Spacing" Value="10" />
     </Style>
+
+
 
 
 
@@ -243,7 +247,6 @@
         <Setter Property="FontSize" Value="Body" />
         <Setter Property="VerticalOptions" Value="Center" />
     </Style>
-
 
 
 

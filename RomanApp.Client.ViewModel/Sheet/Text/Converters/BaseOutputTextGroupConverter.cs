@@ -154,8 +154,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             else
             {
                 sb.Append(CollectedTotalCollected
-                    .Replace("{debtors}", viewModel.Debtors.Select(x => $"<i>{x}</i>").Enumerate(And)
-                    .Replace("{totalCollected}", viewModel.TotalCopllected.ToMoney(culture))));
+                    .Replace("{debtors}", viewModel.Debtors.Select(x => $"<i>{x}</i>").Enumerate(And))
+                    .Replace("{totalCollected}", viewModel.TotalCopllected.ToMoney(culture)));
                 sb.Append("<br />");
                 if (viewModel.IsSingleCreditor && !viewModel.HasExpenses)
                 {
