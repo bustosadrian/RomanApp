@@ -191,7 +191,7 @@
 
     <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogHeaderStyle"  TargetType="Grid">
         <Setter Property="Margin" Value="0,0,0,20" />
-    </Style>all
+    </Style>
 
     <Style ApplyToDerivedTypes="True" x:Key="AddEditItemDialogHeaderTextStyle"  TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />

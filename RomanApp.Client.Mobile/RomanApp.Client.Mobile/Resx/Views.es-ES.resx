@@ -103,6 +103,9 @@
 
 
 
+  <data name="App.Title" xml:space="preserve">
+    <value>RomanApp</value>
+  </data>
 
 
 
@@ -227,182 +230,97 @@
   </data>
 
   <!-- Total -->
-  <!--<data name="Sheet.Outcome.Text.TotalCostEvent" xml:space="preserve">
-    <value><![CDATA[The total cost of the event is <strong>{total}</strong>.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.TotalCostEvent" xml:space="preserve">
     <value><![CDATA[El costo total del evento es de <strong>{total}</strong>.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.TotalComponsed" xml:space="preserve">
-    <value><![CDATA[This is composed by the guests' contributions (<strong>{totalGuests}</strong> in total) plus {expenses}.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.TotalComponsed" xml:space="preserve">
     <value><![CDATA[Este está compuesto por los aportes de los participantes (<strong>{totalGuests}</strong> en total) más {expenses}.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.TotalExpense" xml:space="preserve">
-    <value><![CDATA[<strong>{value}</strong> for <u>{name}</u>]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.TotalExpense" xml:space="preserve">
     <value><![CDATA[<strong>{value}</strong> para <u>{name}</u>]]></value>
   </data>
 
   <!-- Share -->
-  <!--<data name="Sheet.Outcome.Text.ShareDivided" xml:space="preserve">
-    <value><![CDATA[This will be divided by the {guestsCount} guests giving us a share (what each guest is supposed to pay) of <strong>{share}</strong>.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ShareDivided" xml:space="preserve">
     <value><![CDATA[Este será dividido  entre {guestsCount} participantes dando como resultado una parte (lo que cada participante supone pagar) de <strong>{share}</strong>.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.ShareCreditorsAndPartialDebtors" xml:space="preserve">
-    <value><![CDATA[But not all guests should pay and not all guests should pay their full share.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ShareCreditorsAndPartialDebtors" xml:space="preserve">
     <value><![CDATA[Pero no todos los participantes deben pagar y no todos deben pagar su parte completa.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.ShareNoCreditors" xml:space="preserve">
-    <value><![CDATA[But not all guests should pay their full share.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ShareNoCreditors" xml:space="preserve">
-    <value><![CDATA[Pero no todos los participantes deben pagar su parte completa.]]></value>
-  </data>
-  <!--<data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
-    <value><![CDATA[But not all guests should pay.]]></value>
-  </data>-->
-  <data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
     <value><![CDATA[Pero no todos los participantes deben pagar.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
+    <value><![CDATA[Pero no todos los participantes deben pagar su parte completa.]]></value>
   </data>
 
   <!-- Debtors -->
-  <!--<data name="Sheet.Outcome.Text.DebtorsFullDebtorsSingular" xml:space="preserve">
-    <value><![CDATA[{fullDebtors} should put <strong>{share}</strong> (the full share) on the table.]]></value>
-  </data>-->  
   <data name="Sheet.Outcome.Text.DebtorsFullDebtorsSingular" xml:space="preserve">
     <value><![CDATA[{fullDebtors} debe poner <strong>{share}</strong> (la parte completa) sobre la mesa.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsFullDebtorsPlural" xml:space="preserve">
-    <value><![CDATA[{fullDebtors} should put <strong>{share}</strong> (the full share) on the table.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.DebtorsFullDebtorsPlural" xml:space="preserve">
     <value><![CDATA[{fullDebtors} deben poner <strong>{share}</strong> (la parte completa) sobre la mesa.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsPartialDebtorsSingular" xml:space="preserve">
-    <value><![CDATA[<i>{name}</i> should put <strong>{debt}</strong> on the table since they already contributed for the event with <strong>{contribution}</strong>.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.DebtorsPartialDebtorsSingular" xml:space="preserve">
     <value><![CDATA[<i>{name}</i> debe poner <strong>{debt}</strong> sobre la mesa debido a que ya aportó para este evento con <strong>{contribution}</strong>.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsPartialDebtorsPlural" xml:space="preserve">
-    <value><![CDATA[{partialDebtors} should pay less than their full share, since they already contributed for this event.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.DebtorsPartialDebtorsPlural" xml:space="preserve">
     <value><![CDATA[{partialDebtors} deben pagar menos que la parte completa debido a que ya aportaron para este evento.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsSingular" xml:space="preserve">
-    <value><![CDATA[Instead <i>{name}</i> should put <strong>{debt}</strong> on the table since they already contributed for the event with <strong>{contribution}</strong>.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsSingular" xml:space="preserve">
     <value><![CDATA[En cambio <i>{name}</i> debe poner <strong>{debt}</strong> sobre la mesa debido a que ya aportó para este evento con <strong>{contribution}</strong>.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsPlural" xml:space="preserve">
-    <value><![CDATA[Instead {partialDebtors} should pay less than their full share, since they already contributed for this event.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.DebtorsInsteadPartialDebtorsPlural" xml:space="preserve">
     <value><![CDATA[En cambio {partialDebtors} deben pagar menos que la parte completa debido a que ya aportaron para este evento.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.DebtorsEachPartialDebtor" xml:space="preserve">
-    <value><![CDATA[&nbsp;&nbsp;&#8226; <i>{name}</i>'s share is <strong>{debt}</strong> since they already contributed with <strong>{contribution}</strong>.]]></value>
-  </data>-->  
   <data name="Sheet.Outcome.Text.DebtorsEachPartialDebtor" xml:space="preserve">
     <value><![CDATA[&nbsp;&nbsp;&#8226; La parte de <i>{name}</i> es de <strong>{debt}</strong> debido a que ya aportó con <strong>{contribution}</strong>.]]></value>
   </data>
 
   <!-- Collected -->
-  <!--<data name="Sheet.Outcome.Text.Collected.Header" xml:space="preserve">
-    <value><![CDATA[Paying up...]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.Collected.Header" xml:space="preserve">
     <value><![CDATA[Hora de pagar...]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.CollectedSingleDebtor" xml:space="preserve">
-    <value><![CDATA[From <i>{singleDebtor}</i>'s share, {creditors}]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.CollectedSingleDebtor" xml:space="preserve">
     <value><![CDATA[De las partes de <i>{singleDebtor}</i>, {creditors}]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.CollectedCreditor" xml:space="preserve">
-    <value><![CDATA[<strong>{value}</strong> should go to <i>{name}</i>]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.CollectedCreditor" xml:space="preserve">
     <value><![CDATA[<strong>{value}</strong> debe ir para <i>{name}</i>]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.CollectedTotalCollected" xml:space="preserve">
-    <value><![CDATA[After {debtors} pay their share, there should be <strong>{totalCollected}</strong> on the table.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.CollectedTotalCollected" xml:space="preserve">
     <value><![CDATA[Una vez que {debtors} paguen su parte, debería haber <strong>{totalCollected}</strong> sobre la mesa.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.CollectedManyDebtorsCreditors" xml:space="preserve">
-    <value><![CDATA[From that {creditors}.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.CollectedManyDebtorsCreditors" xml:space="preserve">
     <value><![CDATA[De eso {creditors}.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.CollectedOneSingleCreditor" xml:space="preserve">
-    <value><![CDATA[That money should go to <i>{singleCreditor}</i>.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.CollectedOneSingleCreditor" xml:space="preserve">
     <value><![CDATA[Ese dinero es para <i>{singleCreditor}</i>.]]></value>
   </data>
 
   <!-- Expenses -->
-  <!--<data name="Sheet.Outcome.Text.Expenses.Header" xml:space="preserve">
-    <value><![CDATA[Covering expenses...]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.Expenses.Header" xml:space="preserve">
     <value><![CDATA[Cubriendo los gastos...]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.ExpensesRemaining" xml:space="preserve">
-    <value><![CDATA[We still have <strong>{remaining}</strong> remaining on the table.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ExpensesRemaining" xml:space="preserve">
     <value><![CDATA[Aún resta <strong>{remaining}</strong> sobre la mesa.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.ExpensesExpenses" xml:space="preserve">
-    <value><![CDATA[This money is to pay {expenses}.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ExpensesExpenses" xml:space="preserve">
     <value><![CDATA[Este dinero es para pagar {expenses}.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.ExpensesExpense" xml:space="preserve">
-    <value><![CDATA[<strong>{value}</strong> for <u>{name}</u>]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.ExpensesExpense" xml:space="preserve">
     <value><![CDATA[<strong>{value}</strong> para <u>{name}</u>]]></value>
   </data>
 
   <!-- Evens -->
-  <!--<data name="Sheet.Outcome.Text.Evens.Header" xml:space="preserve">
-    <value><![CDATA[What about the rest?]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.Evens.Header" xml:space="preserve">
     <value><![CDATA[¿Qué hay del resto?]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.EvensSingular" xml:space="preserve">
-    <value><![CDATA[And finally {evens} should not pay anything since their contribution matches their share.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.EvensSingular" xml:space="preserve">
     <value><![CDATA[Y finalmente {evens} no debería pagar nada debido a que su aporte equivale a su parte.]]></value>
   </data>
-  <!--<data name="Sheet.Outcome.Text.EvensPlural" xml:space="preserve">
-    <value><![CDATA[And finally {evens} should not pay anything since their contributions matches their share.]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.EvensPlural" xml:space="preserve">
     <value><![CDATA[Y finalmente {evens} no deberían pagar nada debido a que sus aportes equivalen a sus partes.]]></value>
   </data>
-
-  <!--<data name="Sheet.Outcome.Text.Footer" xml:space="preserve">
-    <value><![CDATA[... and we are done!]]></value>
-  </data>-->
   <data name="Sheet.Outcome.Text.Footer" xml:space="preserve">
     <value><![CDATA[... y ya estamos!]]></value>
   </data>
@@ -415,9 +333,6 @@
   <data name="Sheet.Tab.Outcome.Title" xml:space="preserve">
     <value>Resultados</value>
   </data>
-  <data name="Sheet.Title" xml:space="preserve">
-    <value>RomanApp</value>
-  </data>
   <data name="Help.Title" xml:space="preserve">
     <value>Ayuda</value>
   </data>
@@ -427,8 +342,34 @@
   <data name="HelpIndex.Header" xml:space="preserve">
     <value>¿En qué puedo ayudarte?</value>
   </data>
+
+
+
+
+
   <data name="About.Title" xml:space="preserve">
     <value>Acerca de RomanApp</value>
+  </data>
+  <data name="About.App.Version" xml:space="preserve">
+    <value>Versión:</value>
+  </data>
+  <data name="About.Owner" xml:space="preserve">
+    <value>© Bustos Adrian</value>
+  </data>
+  <data name="About.All.Rights" xml:space="preserve">
+    <value>Todos los derechos reservados</value>
+  </data>
+  <data name="About.Mobile" xml:space="preserve">
+    <value>Especificaciones de Android</value>
+  </data>
+  <data name="About.Mobile.Android.Min" xml:space="preserve">
+    <value>Versión de Android mínima</value>
+  </data>
+  <data name="About.Mobile.Android.Target" xml:space="preserve">
+    <value>Versión de Android</value>
+  </data>
+  <data name="About.Libraries" xml:space="preserve">
+    <value>Herramientas y componentes</value>
   </data>
 
 </root>

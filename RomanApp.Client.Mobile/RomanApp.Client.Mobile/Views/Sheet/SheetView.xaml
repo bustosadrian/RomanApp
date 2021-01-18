@@ -9,7 +9,7 @@
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.SheetView"
              BackgroundColor="{DynamicResource main-color-light}"
-             Title="{x:Static res:Views.Sheet_Title}">
+             Title="{x:Static res:Views.App_Title}">
 
     <TabbedPage.Resources>
         <ResourceDictionary Source="/Styles/Sheet.xaml" />

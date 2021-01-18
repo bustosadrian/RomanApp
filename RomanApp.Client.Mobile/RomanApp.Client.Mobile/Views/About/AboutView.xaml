@@ -4,13 +4,75 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                  xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
-                 xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+                 xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"  
+                 xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
                  mc:Ignorable="d"
                  Title="{x:Static res:Views.About_Title}"
              x:Class="RomanApp.Client.Mobile.Views.About.AboutView">
 
+    <p:NavigablePage.Resources>
+        <ResourceDictionary Source="/Styles/About.xaml" />
+    </p:NavigablePage.Resources>
+
     <ContentPage.Content>
         <ScrollView>
+            <StackLayout>
+                <StackLayout.Resources>
+                    <Style BasedOn="{StaticResource SectionStyle}" TargetType="Grid" />
+                </StackLayout.Resources>
+                <Grid>
+                    <StackLayout>
+                        <Label Text="{x:Static res:Views.App_Title}"
+                               Style="{StaticResource AppNameStyle}"/>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{x:Static res:Views.About_App_Version}" 
+                                   Style="{StaticResource LabelStyle}" />
+                            <Label Text="1.0" 
+                                   Style="{StaticResource ValueStyle}" />
+                        </StackLayout>
+
+                        <Label Text="{x:Static res:Views.About_Owner}" />
+                        <Label Text="{x:Static res:Views.About_All_Rights}" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid>
+                    <StackLayout>
+                        <Label Text="{x:Static res:Views.About_Mobile}" 
+                               Style="{StaticResource SectionHeaderStyle}"/>
+                        <c:Separator />
+                        <Label Text="{x:Static res:Views.About_Mobile_Android_Min}" 
+                               Style="{StaticResource Label2Style}" />
+                        <Label Text="Android 4.4 (API Level 19 - Kit Kat)" 
+                               Style="{StaticResource Value2Style}"/>
+                        <Label Text="{x:Static res:Views.About_Mobile_Android_Target}" 
+                               Style="{StaticResource Label2Style}" />
+                        <Label Text="Android 9.0 (API Level 28 - Pie)"
+                               Style="{StaticResource Value2Style}"/>
+                    </StackLayout>
+                </Grid>
+
+                <Grid>
+                    <StackLayout>
+                        <Label Text="{x:Static res:Views.About_Libraries}" 
+                               Style="{StaticResource SectionHeaderStyle}"/>
+                        <Frame Style="{StaticResource LibrariesBoxStyle}">
+                            <StackLayout>
+                                <StackLayout.Resources>
+                                    <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource LibrariesStyle}" TargetType="Label" />
+                                </StackLayout.Resources>
+                                <Label Text="NETSTandard.Library" />
+                                <Label Text="Serilog (2.10.0)" />
+                                <Label Text="Serilog (2.10.0)" />
+                                <Label Text="Serilog.Sinks.Debug (1.0.1)" />
+                                <Label Text="Xamarin.Forms (4.8.0.1687)" />
+                                <Label Text="Reedoo (0.1)" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </p:NavigablePage>

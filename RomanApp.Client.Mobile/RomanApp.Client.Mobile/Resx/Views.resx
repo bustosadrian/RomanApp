@@ -123,7 +123,9 @@
 
 
 
-
+  <data name="App.Title" xml:space="preserve">
+    <value>RomanApp</value>
+  </data>
 
 
 
@@ -264,10 +266,10 @@
     <value><![CDATA[But not all guests should pay and not all guests should pay their full share.]]></value>
   </data>
   <data name="Sheet.Outcome.Text.ShareNoCreditors" xml:space="preserve">
-    <value><![CDATA[But not all guests should pay their full share.]]></value>
+    <value><![CDATA[But not all guests should pay.]]></value>
   </data>
   <data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
-    <value><![CDATA[But not all guests should pay.]]></value>
+    <value><![CDATA[But not all guests should pay their full share.]]></value>
   </data>
 
   <!-- Debtors -->
@@ -351,9 +353,6 @@
   <data name="Sheet.Tab.Outcome.Title" xml:space="preserve">
     <value>Results</value>
   </data>
-  <data name="Sheet.Title" xml:space="preserve">
-    <value>RomanApp</value>
-  </data>
   <data name="Help.Title" xml:space="preserve">
     <value>Help</value>
   </data>
@@ -363,8 +362,34 @@
   <data name="HelpIndex.Header" xml:space="preserve">
     <value>How can I help you with?</value>
   </data>
+
+
+
+
+
   <data name="About.Title" xml:space="preserve">
     <value>About RomanApp</value>
+  </data>
+  <data name="About.App.Version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="About.Owner" xml:space="preserve">
+    <value>© Bustos Adrian</value>
+  </data>
+  <data name="About.All.Rights" xml:space="preserve">
+    <value>All rights reserved</value>
+  </data>
+  <data name="About.Mobile" xml:space="preserve">
+    <value>Android specification</value>
+  </data>
+  <data name="About.Mobile.Android.Min" xml:space="preserve">
+    <value>Minimum Android Version</value>
+  </data>
+  <data name="About.Mobile.Android.Target" xml:space="preserve">
+    <value>Target Android Version</value>
+  </data>
+  <data name="About.Libraries" xml:space="preserve">
+    <value>Components and tools</value>
   </data>
 
 </root>

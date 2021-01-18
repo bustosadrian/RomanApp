@@ -61,11 +61,83 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All rights reserved.
+        /// </summary>
+        internal static string About_All_Rights {
+            get {
+                return ResourceManager.GetString("About.All.Rights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version:.
+        /// </summary>
+        internal static string About_App_Version {
+            get {
+                return ResourceManager.GetString("About.App.Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Components and tools.
+        /// </summary>
+        internal static string About_Libraries {
+            get {
+                return ResourceManager.GetString("About.Libraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Android specification.
+        /// </summary>
+        internal static string About_Mobile {
+            get {
+                return ResourceManager.GetString("About.Mobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum Android Version.
+        /// </summary>
+        internal static string About_Mobile_Android_Min {
+            get {
+                return ResourceManager.GetString("About.Mobile.Android.Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target Android Version.
+        /// </summary>
+        internal static string About_Mobile_Android_Target {
+            get {
+                return ResourceManager.GetString("About.Mobile.Android.Target", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to © Bustos Adrian.
+        /// </summary>
+        internal static string About_Owner {
+            get {
+                return ResourceManager.GetString("About.Owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About RomanApp.
         /// </summary>
         internal static string About_Title {
             get {
                 return ResourceManager.GetString("About.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RomanApp.
+        /// </summary>
+        internal static string App_Title {
+            get {
+                return ResourceManager.GetString("App.Title", resourceCulture);
             }
         }
         
@@ -610,7 +682,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to But not all guests should pay their full share..
+        ///   Looks up a localized string similar to But not all guests should pay..
         /// </summary>
         internal static string Sheet_Outcome_Text_ShareNoCreditors {
             get {
@@ -619,7 +691,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to But not all guests should pay..
+        ///   Looks up a localized string similar to But not all guests should pay their full share..
         /// </summary>
         internal static string Sheet_Outcome_Text_SharePartialDebtors {
             get {
@@ -696,15 +768,6 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Tab_Outcome_Title {
             get {
                 return ResourceManager.GetString("Sheet.Tab.Outcome.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RomanApp.
-        /// </summary>
-        internal static string Sheet_Title {
-            get {
-                return ResourceManager.GetString("Sheet.Title", resourceCulture);
             }
         }
     }
