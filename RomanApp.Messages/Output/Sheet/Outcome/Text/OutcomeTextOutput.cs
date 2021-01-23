@@ -42,6 +42,12 @@ namespace RomanApp.Messages.Output.Sheet.Outcome.Text
             set;
         }
 
+        public LeftOverGroupOutput LeftOver
+        {
+            get;
+            set;
+        }
+
         public EvensGroupOutput Evens
         {
             get;

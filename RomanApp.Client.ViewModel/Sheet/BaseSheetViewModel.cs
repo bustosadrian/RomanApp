@@ -1,6 +1,5 @@
 ﻿using Reedoo.NET.Client.Messages;
 using Reedoo.NET.Messages;
-using RomanApp.Client.ViewModel;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.ViewModel.Sheet.Text;
@@ -14,7 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
-namespace RomanApp.Client.XAML.ViewModels.Sheet
+namespace RomanApp.Client.ViewModel.Sheet
 {
     public abstract class BaseSheetViewModel : BasicViewModel
     {
@@ -62,8 +61,9 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
                 }
             }
             message.Name = viewModel.Name;
-            message.Amount = viewModel.Amount;
 
+            message.Amount = viewModel.Amount;
+            
             Send(message);
         }
 
@@ -288,9 +288,23 @@ namespace RomanApp.Client.XAML.ViewModels.Sheet
             return true;
         }
 
+        [Reader]
+        public bool Read(UseNumericKeyboardOutput message)
+        {
+            KeyboardMode = message.UseNumericKeyboard ? KeyboardMode.Numeric : KeyboardMode.Alphanumeric;
+
+            return true;
+        }
+
         #endregion
 
         #region Properties
+
+        protected KeyboardMode KeyboardMode
+        {
+            get;
+            set;
+        }
 
         private int _guestsCount;
         public int GuestsCount

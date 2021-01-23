@@ -9,6 +9,7 @@ using Reedoo.NET.Storage.SQLite.Builder;
 using RomanApp.Messages.Input;
 using Serilog;
 using System;
+using System.Threading.Tasks;
 
 namespace RomanApp.Client.Mobile
 {
@@ -24,13 +25,49 @@ namespace RomanApp.Client.Mobile
 
         private XamarinClient _client;
 
+        private Bootstrap()
+        {
+
+        }
+
+        #region Singletone
+
+        private static Bootstrap _instance;
+        public static Bootstrap Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Bootstrap();
+                }
+
+                return _instance;
+            }
+        }
+
+        #endregion
+
+        public async void Load()
+        {
+            if (!IsLoaded)
+            {
+                IsLoaded = true;
+                await Task.Run(() =>
+                {
+                    LoadDependencies();
+
+                    LoadClient();
+
+                    BindClient();
+                });
+            }
+        }
+
         public void Start()
         {
-            LoadDependencies();
-
-            LoadClient();
-
-            BindClient();
+            _client.StealthMode = false;
+            _client.RunLastNavigation();
         }
 
         private void LoadDependencies()
@@ -126,6 +163,17 @@ namespace RomanApp.Client.Mobile
                 Client = _client
             });
         }
+
+        #endregion
+
+        #region Properties
+
+        public bool IsLoaded
+        {
+            get;
+            private set;
+        }
+
 
         #endregion
     }

@@ -21,6 +21,7 @@
         <converter:ItemTypeToIconsConverter x:Key="c_it_i" />
         <converter:NullBoolConverter x:Key="c_nb" />
         <converter:NullBoolConverter x:Key="c_nbi" IsInverse="True" />
+        <converter:KeyboardModeConverter x:Key="c_keyboard" />
 
 
         <!-- Fonts -->

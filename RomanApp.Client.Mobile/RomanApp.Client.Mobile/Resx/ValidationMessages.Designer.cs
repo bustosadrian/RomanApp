@@ -61,7 +61,16 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The value must be greater than 0.
+        ///   Looks up a localized string similar to This is not a valid number.
+        /// </summary>
+        internal static string sheet_add_edit_amount_format {
+            get {
+                return ResourceManager.GetString("sheet.add.edit.amount.format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The value must be greater than 0 and less than 1 million.
         /// </summary>
         internal static string sheet_add_edit_expense_amount_range {
             get {
@@ -88,7 +97,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The contribution must be greater or equal to 0.
+        ///   Looks up a localized string similar to The contribution must be equal or greater than zero and less than 1 million.
         /// </summary>
         internal static string sheet_add_edit_guest_amount_range {
             get {

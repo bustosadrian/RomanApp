@@ -1,5 +1,6 @@
 ﻿using RomanApp.Client.Mobile.Utils;
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
+using RomanApp.Client.ViewModel.Sheet;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Messages;
 using Xamarin.Forms;
@@ -8,16 +9,16 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs
 {
     public class AddEditItemDialog : ContentDialog
     {
-        public AddEditItemDialog(ItemType itemType, bool isDeleteEnabled)
-            : this(null, itemType, isDeleteEnabled, null, 0)
+        public AddEditItemDialog(KeyboardMode keyboardMode, ItemType itemType, bool isDeleteEnabled)
+            : this(keyboardMode, null, itemType, isDeleteEnabled, null, "0")
         {
 
         }
 
-        public AddEditItemDialog(string id, ItemType itemType, bool isEditing, string name, decimal amount)
+        public AddEditItemDialog(KeyboardMode keyboardMode, string id, ItemType itemType, bool isEditing, string name, string amount)
             : base()
         {
-            ViewModel = new AddEditItemViewModel(id, itemType, isEditing)
+            ViewModel = new AddEditItemViewModel(keyboardMode, id, itemType, isEditing)
             {
                 Name = name,
                 Amount = amount,

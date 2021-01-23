@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Reedoo\Reedoo.NET\Reedoo.NET.Messages\Reedoo.NET.Messages.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Validations\" />
+    <ProjectReference Include="..\RomanApp.Commons\RomanApp.Commons.csproj" />
   </ItemGroup>
 
 </Project>

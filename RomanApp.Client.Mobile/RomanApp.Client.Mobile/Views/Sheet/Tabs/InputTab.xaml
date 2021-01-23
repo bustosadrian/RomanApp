@@ -25,6 +25,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
+
                 <c:ItemsCard Grid.Row="0"  
                              ItemsSource="{Binding Guests}" 
                              ItemSelectedCommand="{Binding EditItemCommand}"

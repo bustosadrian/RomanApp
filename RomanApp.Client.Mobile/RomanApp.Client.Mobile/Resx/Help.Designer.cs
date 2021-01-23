@@ -171,8 +171,9 @@ namespace RomanApp.Client.Mobile.Resx {
         ///   Looks up a localized string similar to 
         ///      
         ///      This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and development. &lt;br /&gt;&lt;br /&gt;
-        ///      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping &quot;Help&quot;. This will open the Help view at the section you are currently working on.&lt;br /&gt;&lt;br /&gt;
-        ///      For example if you access the Help while you were in the &lt;strong&gt;Settings&lt;/strong&gt; panel you will access the Settings section of [rest of string was truncated]&quot;;.
+        ///      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping &quot;Help&quot;. This will open the overview as a starting point for you.&lt;br /&gt;&lt;br /&gt;
+        ///      But don&apos;t worry. You can access any section or topic you need by tapping the index button at the top right corner.&lt;br /&gt;&lt;br /&gt;
+        ///      One more th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Overview_Summary {
             get {
@@ -186,6 +187,87 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string See_Also {
             get {
                 return ResourceManager.GetString("See.Also", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///      This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted.
+        ///    .
+        /// </summary>
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Settings_Help_Topic {
+            get {
+                return ResourceManager.GetString("Settings.Help.Topic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Definition of each configuration property. Their purpose and their impact in the app..
+        /// </summary>
+        internal static string Settings_Help_Topic_Quick_Summary {
+            get {
+                return ResourceManager.GetString("Settings.Help.Topic.Quick.Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#8226; Use numeric keyboard.
+        /// </summary>
+        internal static string Settings_Option_Keyboard_Label {
+            get {
+                return ResourceManager.GetString("Settings.Option.Keyboard.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Sets the app to use whole a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
+        ///    .
+        /// </summary>
+        internal static string Settings_Option_Keyboard_Line1 {
+            get {
+                return ResourceManager.GetString("Settings.Option.Keyboard.Line1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;#8226; Use whole numbers.
+        /// </summary>
+        internal static string Settings_Option_Whole_Label {
+            get {
+                return ResourceManager.GetString("Settings.Option.Whole.Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///    
+        ///    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closes interval.&lt;br/&gt;
+        ///    i.e: &lt;i&gt;.136&lt;/i&gt; will be rounded up to &lt;strong&gt;.14&lt;/strong&gt;. &lt;i&gt;.902&lt;/i&gt; will be rounded down to &lt;strong&gt;.90&lt;/strong&gt;.
+        ///    .
+        /// </summary>
+        internal static string Settings_Option_Whole_Line1 {
+            get {
+                return ResourceManager.GetString("Settings.Option.Whole.Line1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        internal static string Settings_Options_Header {
+            get {
+                return ResourceManager.GetString("Settings.Options.Header", resourceCulture);
             }
         }
         
@@ -231,10 +313,10 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    In any case the &lt;strong&gt;Name&lt;/strong&gt; field is required and the &lt;strong&gt;Contribution&lt;/strong&gt; or &lt;strong&gt;Value&lt;/strong&gt; can&apos;t have a negative number.&lt;br /&gt;&lt;br /&gt;
+        ///    In any case the &lt;strong&gt;Name&lt;/strong&gt; field is required and the &lt;strong&gt;Contribution&lt;/strong&gt; or &lt;strong&gt;Value&lt;/strong&gt; can&apos;t have a negative number and must be lower than 1 million.&lt;br /&gt;&lt;br /&gt;
         ///    If you are adding an &lt;strong&gt;Expense&lt;/strong&gt; the value must be greater than 0.&lt;br /&gt;&lt;br /&gt;
         ///    Don&apos;t worry about remembering these rules. If you misfollow any of them a message will appear on top of the field guiding you to correct them.&lt;br /&gt;&lt;br /&gt;
-        ///    Once the fields are properly set you may tap in the green circular button wi [rest of string was truncated]&quot;;.
+        ///    Once the fields are properly set you may ta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Input_Adding_Part2 {
             get {
@@ -644,16 +726,16 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    In this example will try to get the use of all four groups of the outcome. &lt;br /&gt;&lt;br /&gt;
+        ///    In this example will try to get the use of all groups of the outcome. &lt;br /&gt;&lt;br /&gt;
         ///    Four people at this event: Myself, Ellen, Leo and Jo. &lt;br /&gt;&lt;br /&gt;
         ///    &lt;u&gt;Contributions (4):&lt;/u&gt;&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Myself&lt;/strong&gt;: 5 (snacks)&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Ellen&lt;/strong&gt;: 30 (beverages)&lt;br /&gt;
-        ///    &amp;#8226; &lt;strong&gt;Leo&lt;/strong&gt;: 25 (more snacks)&lt;br /&gt;
+        ///    &amp;#8226; &lt;strong&gt;Leo&lt;/strong&gt;: 25.05 (more snacks)&lt;br /&gt;
         ///    &amp;#8226; &lt;strong&gt;Jo&lt;/strong&gt;: 0&lt;br /&gt;
         ///    &lt;br /&gt;
         ///    &lt;u&gt;Expenses (2):&lt;/u&gt;&lt;br /&gt;
-        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 35 [rest of string was truncated]&quot;;.
+        ///    &amp;#8226; &lt;strong&gt;Tennis court&lt;/strong&gt;: 35.3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Example3_Premise {
             get {
@@ -664,10 +746,10 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    The total cost of this event is &lt;strong&gt;100&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay (&lt;strong&gt;the Share&lt;/strong&gt;). &lt;br /&gt;&lt;br /&gt;
+        ///    The total cost of this event is &lt;strong&gt;100.30&lt;/strong&gt;. That is &lt;strong&gt;25&lt;/strong&gt; for each to pay (&lt;strong&gt;the Share&lt;/strong&gt;). &lt;br /&gt;
+        ///    The real share is &lt;strong&gt;25.08&lt;/strong&gt; but we are rounding down since we are using whole numbers only.&lt;br /&gt;&lt;br /&gt;
         ///    Jo and I are the ones who should put money on the table. I should pay &lt;strong&gt;20&lt;/strong&gt; since &lt;strong&gt;5&lt;/strong&gt; were already covered for snacks and Jo should pay her full share.&lt;br /&gt;&lt;br /&gt;
-        ///    A total of &lt;strong&gt;45&lt;/strong&gt; is now on the table. &lt;strong&gt;5&lt;/strong&gt; goes to Ellen since she contributed with &lt;strong&gt;30&lt;/strong&gt;.&lt;br /&gt;&lt;br /&gt;
-        ///    We are [rest of string was truncated]&quot;;.
+        ///    A total of &lt;strong&gt;45&lt;/strong&gt; is now [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Examples_Example3_Result {
             get {
@@ -696,13 +778,14 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides four different boxes which represent the event&apos;s guests or expenses sorted in four groups:&lt;br /&gt;&lt;br /&gt;
+        ///    Along with the &lt;strong&gt;Summary&lt;/strong&gt; the outcome provides five different boxes which represent the event&apos;s guests or expenses sorted in four groups along with any surplus or shortcomings:&lt;br /&gt;&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;1. Those who owe&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;2. Those who must collect&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;3. Expenses to cover&lt;br /&gt;
-        ///    &amp;nbsp;&amp;nbsp;4. Those who broke even&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;4. Surplus or shortcomings&lt;br /&gt;
+        ///    &amp;nbsp;&amp;nbsp;5. Those who broke even&lt;br /&gt;
         ///    &lt;br /&gt;
-        ///    Each box has a header that describes, at its left side, what group of elements (&lt;strong&gt;guests&lt;/strong&gt; or &lt;strong&gt;expenses&lt;/strong&gt;, descr [rest of string was truncated]&quot;;.
+        ///    Each box has a header that describes, at its left  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Sheet_Outcome_Groups {
             get {
@@ -945,57 +1028,52 @@ namespace RomanApp.Client.Mobile.Resx {
         
         /// <summary>
         ///   Looks up a localized string similar to 
-        ///      This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted.
+        ///      Here you may find some answers and helpful tips to solve some issues you may have using the app.
         ///    .
         /// </summary>
-        internal static string Sheet_Settings {
+        internal static string Troubleshooting {
             get {
-                return ResourceManager.GetString("Sheet.Settings", resourceCulture);
+                return ResourceManager.GetString("Troubleshooting", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
+        ///   Looks up a localized string similar to Troubleshooting.
         /// </summary>
-        internal static string Sheet_Settings_Help_Topic {
+        internal static string Troubleshooting_Help_Topic {
             get {
-                return ResourceManager.GetString("Sheet.Settings.Help.Topic", resourceCulture);
+                return ResourceManager.GetString("Troubleshooting.Help.Topic", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Definition of each configuration property. Their purpose and their impact in the app..
+        ///   Looks up a localized string similar to Help and tips for known issues with the app..
         /// </summary>
-        internal static string Sheet_Settings_Help_Topic_Quick_Summary {
+        internal static string Troubleshooting_Help_Topic_Quick_Summary {
             get {
-                return ResourceManager.GetString("Sheet.Settings.Help.Topic.Quick.Summary", resourceCulture);
+                return ResourceManager.GetString("Troubleshooting.Help.Topic.Quick.Summary", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &amp;#8226; Use whole numbers?.
+        ///   Looks up a localized string similar to 
+        ///      
+        ///      Some devices may be incompatible using symbols like the decimal separator on the numeric keyboard mode. If this is your case you can deactivate the &quot;Use numeric keyboard&quot; option in the &lt;strong&gt;Settings&lt;/strong&gt; panel and use the regular keyboard for entering the amounts.
+        ///      
+        ///    .
         /// </summary>
-        internal static string Sheet_Settings_Option_Whole_Label {
+        internal static string Troubleshooting_Issue_Keyboard {
             get {
-                return ResourceManager.GetString("Sheet.Settings.Option.Whole.Label", resourceCulture);
+                return ResourceManager.GetString("Troubleshooting.Issue.Keyboard", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sets the app to use whole numbers or decimals. In case is set for the latter (&lt;strong&gt;Off&lt;/strong&gt;) the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share..
+        ///   Looks up a localized string similar to I can&apos;t use the decimal symbol in my keyboard.
         /// </summary>
-        internal static string Sheet_Settings_Option_Whole_Line1 {
+        internal static string Troubleshooting_Issue_Keyboard_Header {
             get {
-                return ResourceManager.GetString("Sheet.Settings.Option.Whole.Line1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Options.
-        /// </summary>
-        internal static string Sheet_Settings_Options_Header {
-            get {
-                return ResourceManager.GetString("Sheet.Settings.Options.Header", resourceCulture);
+                return ResourceManager.GetString("Troubleshooting.Issue.Keyboard.Header", resourceCulture);
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Commons;
-using RomanApp.Messages;
 using RomanApp.Messages.Input.Settings;
 using RomanApp.Messages.Output.Settings;
 
@@ -10,11 +9,6 @@ namespace RomanApp.Controller.MemberStates
     [ApplicationState(StatesKeys.SETTINGS)]
     public class SettingsMemberState : BasicMemberState
     {
-        public SettingsMemberState()
-            : base(HelpTopic.Settings)
-        {
-
-        }
 
         public override void Brief()
         {
@@ -34,6 +28,7 @@ namespace RomanApp.Controller.MemberStates
             Queue(new SettingsOutput()
             {
                 UseWholeNumbers = RoomSettings.UseWholeNumbers,
+                UseNumericKeyboard = RoomSettings.UseNumericKeyboard,
             });        
         }
 
@@ -47,6 +42,11 @@ namespace RomanApp.Controller.MemberStates
             if (message.UseWholeNumberSet)
             {
                 RoomSettings.UseWholeNumbers = message.UseWholeNumbers;
+            }
+
+            if (message.UseNumericKeyboardSet)
+            {
+                RoomSettings.UseNumericKeyboard = message.UseNumericKeyboard;
             }
         }
 

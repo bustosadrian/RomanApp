@@ -19,7 +19,7 @@ namespace RomanApp.Messages.Input.Sheet
         }
 
         [Tags("amount")]
-        public virtual decimal Amount
+        public virtual string Amount
         {
             get;
             set;

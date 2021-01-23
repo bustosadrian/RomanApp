@@ -16,9 +16,13 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Dialogs.Converters
             TotalExpense = Resx.Views.Sheet_Outcome_Text_TotalExpense;
 
             ShareDivided = Resx.Views.Sheet_Outcome_Text_ShareDivided;
+            ShareRealShare = Resx.Views.Sheet_Outcome_Text_ShareRealShare;
             ShareCreditorsAndPartialDebtors = Resx.Views.Sheet_Outcome_Text_ShareCreditorsAndPartialDebtors;
             ShareNoCreditors = Resx.Views.Sheet_Outcome_Text_ShareNoCreditors;
             SharePartialDebtors = Resx.Views.Sheet_Outcome_Text_SharePartialDebtors;
+            ShareRealShareCreditorsAndPartialDebtors = Resx.Views.Sheet_Outcome_Text_ShareRealShareCreditorsAndPartialDebtors;
+            ShareRealShareNoCreditors = Resx.Views.Sheet_Outcome_Text_ShareRealShareNoCreditors;
+            ShareRealSharePartialDebtors = Resx.Views.Sheet_Outcome_Text_ShareRealSharePartialDebtors;
 
             DebtorsFullDebtorsSingular = Resx.Views.Sheet_Outcome_Text_DebtorsFullDebtorsSingular;
             DebtorsFullDebtorsPlural = Resx.Views.Sheet_Outcome_Text_DebtorsFullDebtorsPlural;
@@ -37,6 +41,9 @@ namespace RomanApp.Client.Mobile.Views.Sheet.Dialogs.Converters
             ExpensesRemaining = Resx.Views.Sheet_Outcome_Text_ExpensesRemaining;
             ExpensesExpenses = Resx.Views.Sheet_Outcome_Text_ExpensesExpenses;
             ExpensesExpense = Resx.Views.Sheet_Outcome_Text_ExpensesExpense;
+
+            LeftOverSurplus = Resx.Views.Sheet_Outcome_Text_LeftOver_Surplus;
+            LeftOverShortcoming = Resx.Views.Sheet_Outcome_Text_LeftOver_Shortcoming;
 
             EvensSingular = Resx.Views.Sheet_Outcome_Text_EvensSingular;
             EvensPlural = Resx.Views.Sheet_Outcome_Text_EvensPlural;

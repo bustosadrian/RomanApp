@@ -31,6 +31,7 @@ namespace RomanApp.Controller
             Locker.Add(LockerKeys.ROOM_SETTINGS, new RoomSettingsModel()
             {
                 UseWholeNumbers = true,
+                UseNumericKeyboard = true,
             });
 
             Locker.Add(LockerKeys.ROOM_EVENT_SERVICE, new EventService());

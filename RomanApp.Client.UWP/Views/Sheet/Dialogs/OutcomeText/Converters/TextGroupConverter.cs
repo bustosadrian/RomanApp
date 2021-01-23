@@ -16,6 +16,10 @@ namespace RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters
             TotalExpense = "<strong>{value}</strong> for <u>{name}</u>";
 
             ShareDivided = "This will be divided by the {guestsCount} guests giving us a share (what each guest is supposed to pay) of <strong>{share}</strong>.";
+            ShareRealShare = "<i>This is a rounded number from <strong>{realShare}</strong>. So you might end up with a small difference at the end.</i>";
+            ShareRealShareCreditorsAndPartialDebtors = "Anyway, but not all guests should pay and not all guests should pay their full share.";
+            ShareRealShareNoCreditors = "Anyway, but not all guests should pay their full share.";
+            ShareRealSharePartialDebtors = "Anyway, but not all guests should pay";
             ShareCreditorsAndPartialDebtors = "But not all guests should pay and not all guests should pay their full share.";
             ShareNoCreditors = "But not all guests should pay their full share.";
             SharePartialDebtors = "But not all guests should pay";
@@ -37,6 +41,9 @@ namespace RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText.Converters
             ExpensesRemaining = "Leaving still <strong>{remaining}</strong> on the table.";
             ExpensesExpenses = "This money is to pay {expenses}.";
             ExpensesExpense = "<strong>{value}</strong> for <u>{name}</u>";
+
+            LeftOverSurplus = "You'll notice there are <strong>{leftOver}</strong> left over. You can divide this between the guests as you see fit.";
+            LeftOverShortcoming = "You'll notice there are <strong>{leftOver}</strong> missing. You'll have to decide who should cover this difference.";
 
             EvensSingular = "And finally {evens} should not pay anything since their contributions matches their share.";
             EvensPlural = EvensSingular;

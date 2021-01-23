@@ -22,6 +22,9 @@
                     <SwitchCell Text="{x:Static res:Views.Settings_General_Whole}" 
                                 OnColor="{DynamicResource main-color-dark}"
                                 On="{Binding IsUseWholeNumbers, Mode=TwoWay}"/>
+                    <SwitchCell Text="{x:Static res:Views.Settings_General_Numeric}" 
+                                OnColor="{DynamicResource main-color-dark}"
+                                On="{Binding IsUseNumericKeyboard, Mode=TwoWay}"/>
                 </TableSection>
             </TableRoot>
         </TableView>

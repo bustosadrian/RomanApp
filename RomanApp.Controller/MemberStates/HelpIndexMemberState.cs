@@ -59,7 +59,8 @@ namespace RomanApp.Controller.MemberStates
                     new HelpTopicOutput(HelpTopic.SheetOutcomeOverview),
                 }
                 },
-                new HelpTopicOutput(HelpTopic.Settings)
+                new HelpTopicOutput(HelpTopic.Settings),
+                new HelpTopicOutput(HelpTopic.Troubleshooting)
             };
 
             return retval;

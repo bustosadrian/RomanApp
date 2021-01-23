@@ -2,6 +2,6 @@
 {
     public interface ISoundService
     {
-        void Click();
+        void Tap();
     }
 }

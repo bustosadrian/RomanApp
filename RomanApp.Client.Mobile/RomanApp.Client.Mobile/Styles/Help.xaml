@@ -64,5 +64,10 @@
         <Setter Property="Margin" Value="20,0,0,0" />
     </Style>
 
+    <Style ApplyToDerivedTypes="True" x:Key="IssueHeaderStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource main-color-dark}" />
+        <Setter Property="FontSize" Value="Medium" />
+    </Style>
+
 
 </ResourceDictionary>

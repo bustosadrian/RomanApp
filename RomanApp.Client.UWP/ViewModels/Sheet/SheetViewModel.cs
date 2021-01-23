@@ -3,12 +3,13 @@ using RomanApp.Client.UWP.Dialogs;
 using RomanApp.Client.UWP.ViewModels.Components;
 using RomanApp.Client.UWP.Views.Sheet.Dialogs;
 using RomanApp.Client.UWP.Views.Sheet.Dialogs.OutcomeText;
+using RomanApp.Client.ViewModel.Sheet;
 using RomanApp.Client.ViewModel.Sheet.Dialogs;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.ViewModel.Sheet.Text;
-using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using System;
+using System.Globalization;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -60,7 +61,7 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
 
         protected override async void OnNewItem(ItemType itemType)
         {
-            AddEditItemViewModel vm = new AddEditItemViewModel(itemType, false);
+            AddEditItemViewModel vm = new AddEditItemViewModel(KeyboardMode, itemType, false);
             AddEditItemDialog dialog = new AddEditItemDialog()
             {
                 DataContext = vm,
@@ -79,10 +80,10 @@ namespace RomanApp.Client.UWP.ViewModels.Sheet
 
         protected async void OnEditItem(ItemRowViewModel item)
         {
-            AddEditItemViewModel vm = new AddEditItemViewModel(item.Id, item.Type, true)
+            AddEditItemViewModel vm = new AddEditItemViewModel(KeyboardMode, item.Id, item.Type, true)
             {
                 Name = item.Name,
-                Amount = item.Amount,
+                Amount = item.Amount.ToString(CultureInfo.CurrentCulture),
             };
 
             AddEditItemDialog dialog = new AddEditItemDialog()

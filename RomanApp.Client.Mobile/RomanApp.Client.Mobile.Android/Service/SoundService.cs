@@ -6,7 +6,7 @@ namespace RomanApp.Client.Mobile.Droid.Service
 {
     public class SoundService : ISoundService
     {
-        public void Click()
+        public void Tap()
         {
             var activity = MainActivity.Instance;
             var view = activity.FindViewById<View>(

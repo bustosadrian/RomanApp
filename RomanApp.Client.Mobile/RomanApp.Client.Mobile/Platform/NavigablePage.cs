@@ -4,5 +4,6 @@ namespace RomanApp.Client.Mobile.Platform
 {
     public class NavigablePage : ContentPage
     {
+
     }
 }

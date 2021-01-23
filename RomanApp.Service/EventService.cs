@@ -1,6 +1,5 @@
 ﻿using RomanApp.Service.Entities;
 using RomanApp.Service.Exceptions;
-using RomanApp.Service.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +8,9 @@ namespace RomanApp.Service
 {
     public class EventService : IEventService
     {
-        private Event _event;
+        private const int ROUND_INTERVAL = 1;
 
+        private Event _event;
         public Event Create()
         {
             _event = null;
@@ -148,8 +148,6 @@ namespace RomanApp.Service
                         Amount = o.Amount,
                     });
                 }
-
-                retval.TotalExpenses = _event.Expenses.Sum(x => x.Amount);
                 retval.Total = retval.TotalGuests + retval.TotalExpenses;
 
                 List<GuestOutcome> all = _event.Guests.Select(x => new GuestOutcome()
@@ -165,38 +163,42 @@ namespace RomanApp.Service
                     throw new OutcomeAnavailableException(OutcomeResult.NoTotal);
                 }
 
-                retval.Share = (retval.Total / all.Count).RoundCents(useWholeNumbers);
+                int interval = useWholeNumbers ? 0 : ROUND_INTERVAL;
+
+                retval.RealShare = retval.Total / (decimal)all.Count;
+                retval.Share = Round(retval.RealShare, interval);
 
                 foreach (var o in all)
                 {
-                    decimal debt = (o.Amount - retval.Share).RoundCents(useWholeNumbers);
-                    o.Debt = Math.Abs(debt);
-                    if (debt > 0)
+                    decimal debt = o.Amount - retval.Share;
+                    decimal roundedDebt = Round(debt, interval);
+                    decimal absDebt = Math.Abs(roundedDebt);
+                    o.Debt = absDebt;
+                    retval.LeftOver += Math.Abs(debt) - o.Debt;
+
+                    if (roundedDebt > 0)
                     {
                         retval.TotalCreditors += o.Debt;
                         creditors.Add(o);
                     }
-                    else if (debt < 0)
+                    else if (roundedDebt < 0)
                     {
                         retval.TotalDebtors += o.Debt;
+                        o.DebtorStatus = o.Amount == 0 ? GuestDebtorStatus.Full : GuestDebtorStatus.Partial;
                         debtors.Add(o);
                     }
-                    else if (debt == 0)
+                    else if (roundedDebt == 0)
                     {
                         evens.Add(o);
                     }
                 }
 
-                Round(retval.Share, (List<GuestOutcome>)retval.Creditors, useWholeNumbers);
-                Round(retval.Share, (List<GuestOutcome>)retval.Debtors, useWholeNumbers);
-                //Round(retval.Share, (List<GuestOutcome>)retval.Evens, e.IsWholeNumbers);
-
-                retval.Share = retval.Share.RoundCents(useWholeNumbers);
-
                 if (!debtors.Any())
                 {
                     throw new OutcomeAnavailableException(OutcomeResult.NoDebtors);
                 }
+
+                retval.LeftOver = retval.TotalDebtors - retval.TotalCreditors - retval.TotalExpenses;
             }
             catch (OutcomeAnavailableException ex)
             {
@@ -206,27 +208,71 @@ namespace RomanApp.Service
             return retval;
         }
 
-        private void Round(decimal share, List<GuestOutcome> guests, bool wholeNumbers)
+        public decimal Round(decimal value, int interval)
         {
-            Round(share, 0, guests, wholeNumbers);
-        }
+            decimal retval = 0;
 
-        private void Round(decimal share, decimal expenses, List<GuestOutcome> guests, bool wholeNumbers)
-        {
-            decimal total = guests.Sum(x => x.Debt) + expenses;
-            if (guests.Any())
+            if (interval < 0 || interval > 99)
             {
-                decimal roundedTotal = 0;
-                foreach (var o in guests)
-                {
-                    o.Debt = o.Debt.RoundCents(wholeNumbers);
-                    roundedTotal += o.Debt;
-                }
-                decimal residual = total - roundedTotal;
-                int it = new Random().Next(0, guests.Count());
-                guests[it].Debt += residual;
-                guests[it].Debt = guests[it].Debt.RoundCents(wholeNumbers);
+                throw new ArgumentException("Must be between 0 and 99", nameof(interval));
             }
+
+            int floating = Math.Abs((int)((value % 1) * 100));
+            if (floating == 0)
+            {
+                retval = value;
+            }
+            else
+            {
+                decimal? roundedFLoating = null;
+                int padLeft = 0;
+                int padRight = floating; ;
+                int closestLeft = 0;
+                int closestRight = 0;
+                for (int i = 0; i <= 100; i += (interval == 0 ? 100 : interval))
+                {
+                    if (i < floating)
+                    {
+                        padLeft = floating - i;
+                        closestLeft = i;
+                    }
+                    else if (i > floating)
+                    {
+                        padRight = i - floating;
+                        closestRight = i;
+                        break;
+                    }
+                    else
+                    {
+                        roundedFLoating = i;
+                        break;
+                    }
+                }
+
+                if (!roundedFLoating.HasValue)
+                {
+                    if (padRight < padLeft)
+                    {
+                        roundedFLoating = closestRight;
+                    }
+                    else
+                    {
+                        roundedFLoating = closestLeft;
+                    }
+                }
+
+                decimal retvalCents = roundedFLoating.Value / 100;
+                if(value < 0)
+                {
+                    retval = Math.Truncate(value) - retvalCents;
+                }
+                else
+                {
+                    retval = Math.Truncate(value) + retvalCents;
+                }
+            }
+
+            return retval;
         }
 
     }

@@ -30,6 +30,12 @@ namespace RomanApp.Messages.Output.Sheet.Outcome.Text
             set;
         }
 
+        public decimal RealShare
+        {
+            get;
+            set;
+        }
+
         public bool HasPartialDebtors
         {
             get;

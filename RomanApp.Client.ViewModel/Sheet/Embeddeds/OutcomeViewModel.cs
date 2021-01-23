@@ -1,6 +1,6 @@
-﻿using Reedoo.NET.Client.Messages;
-using Reedoo.NET.Messages;
+﻿using Reedoo.NET.Messages;
 using RomanApp.Messages.Output.Sheet.Outcome;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -49,6 +49,9 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             TotalExpenses = message.TotalExpenses;
             TotalDebtors = message.TotalDebtors;
             TotalCreditors = message.TotalCreditors;
+
+            LeftOver = message.LeftOver;
+            IsShowLeftOver = LeftOver != 0;
 
             Total = message.Total;
             Share = message.Share;
@@ -436,6 +439,63 @@ namespace RomanApp.Client.ViewModel.Sheet.Embeddeds
             {
                 _totalCreditors = value;
                 OnPropertyChanged(nameof(TotalCreditors));
+            }
+        }
+
+        private decimal _shortcomings;
+        public decimal Shortcomings
+        {
+            get
+            {
+                return _shortcomings;
+            }
+            set
+            {
+                _shortcomings = value;
+                OnPropertyChanged(nameof(Shortcomings));
+            }
+        }
+
+        private bool _isShortComings;
+        public bool IsShortComings
+        {
+            get
+            {
+                return _isShortComings;
+            }
+            set
+            {
+                _isShortComings = value;
+                OnPropertyChanged(nameof(IsShortComings));
+            }
+        }
+
+        private bool _isShowLeftOver;
+        public bool IsShowLeftOver
+        {
+            get
+            {
+                return _isShowLeftOver;
+            }
+            set
+            {
+                _isShowLeftOver = value;
+                OnPropertyChanged(nameof(IsShowLeftOver));
+            }
+        }
+
+
+        private decimal _leftOver;
+        public decimal LeftOver
+        {
+            get
+            {
+                return _leftOver;
+            }
+            set
+            {
+                _leftOver = value;
+                OnPropertyChanged(nameof(LeftOver));
             }
         }
 

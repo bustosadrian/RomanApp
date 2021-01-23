@@ -106,6 +106,9 @@
   <data name="App.Title" xml:space="preserve">
     <value>RomanApp</value>
   </data>
+  <data name="MainPage.Loading" xml:space="preserve">
+    <value>Un momento por favor...</value>
+  </data>
 
 
 
@@ -116,6 +119,9 @@
   </data>
   <data name="Settings.General.Whole" xml:space="preserve">
     <value>Usar números enteros</value>
+  </data>
+  <data name="Settings.General.Numeric" xml:space="preserve">
+    <value>Usar teclado numérico</value>
   </data>
   <data name="Settings.Title" xml:space="preserve">
     <value>Configuración</value>
@@ -211,10 +217,16 @@
     <value>Nadie debe nada</value>
   </data>
   <data name="Sheet.Outcome.Unavailable.No.Guests" xml:space="preserve">
-    <value>No se agregaron suficiente participantes</value>
+    <value>No se agregaron suficientes participantes</value>
   </data>
   <data name="Sheet.Outcome.Unavailable.No.Total" xml:space="preserve">
     <value>El costo total del evento debe ser mayor a 0</value>
+  </data>
+  <data name="Sheet.Outcome.LeftOver.Surplus" xml:space="preserve">
+    <value><![CDATA[Debido a que las cifras están redondeadas tenemos un sobrante de <strong>{leftOver}</strong>]]></value>
+  </data>
+  <data name="Sheet.Outcome.LeftOver.Shortcoming" xml:space="preserve">
+    <value><![CDATA[Debido a que las cifras están redondeadas tenemos un faltante de <strong>{leftOver}</strong>]]></value>
   </data>
   <data name="Sheet.Outcome.Disclaimer" xml:space="preserve">
     <value><![CDATA[Tenga en cuenta que debido a que la app está configurada para usar números enteros, todas las cifras están redondeadas. Para un resultado más preciso vaya a <strong>Configuración</strong> y desactive la opción <i>Usar números enteros</i>.]]></value>
@@ -253,6 +265,19 @@
   <data name="Sheet.Outcome.Text.SharePartialDebtors" xml:space="preserve">
     <value><![CDATA[Pero no todos los participantes deben pagar su parte completa.]]></value>
   </data>
+  <data name="Sheet.Outcome.Text.ShareRealShare" xml:space="preserve">
+    <value><![CDATA[<i>Este es un número está redondeando de <strong>{realShare}</strong>. Es posible que haya una pequeña diferencia en el resultado final.</i>]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ShareRealShareCreditorsAndPartialDebtors" xml:space="preserve">
+    <value><![CDATA[En fin, pero no todos los participantes deben pagar y no todos deben pagar su parte completa.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ShareRealShareNoCreditors" xml:space="preserve">
+    <value><![CDATA[En fin, pero no todos los participantes deben pagar.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.ShareRealSharePartialDebtors" xml:space="preserve">
+    <value><![CDATA[En fin, pero no todos los participantes deben pagar su parte completa.]]></value>
+  </data>
+
 
   <!-- Debtors -->
   <data name="Sheet.Outcome.Text.DebtorsFullDebtorsSingular" xml:space="preserve">
@@ -311,7 +336,16 @@
     <value><![CDATA[<strong>{value}</strong> para <u>{name}</u>]]></value>
   </data>
 
-  <!-- Evens -->
+  <!-- LeftOvers -->
+  <data name="Sheet.Outcome.Text.LeftOver.Surplus" xml:space="preserve">
+      <value><![CDATA[Notará que hay un sobrante de <strong>{leftOver}</strong>. Podrán decidir repartirlo entre los participantes como más les parezca.]]></value>
+  </data>
+  <data name="Sheet.Outcome.Text.LeftOver.Shortcoming" xml:space="preserve">
+    <value><![CDATA[Notará que hay un faltante de <strong>{leftOver}</strong>. Ustedes deberán decidir quiénes cubirarán esta diferencia.]]></value>
+  </data>
+
+
+<!-- Evens -->
   <data name="Sheet.Outcome.Text.Evens.Header" xml:space="preserve">
     <value><![CDATA[¿Qué hay del resto?]]></value>
   </data>

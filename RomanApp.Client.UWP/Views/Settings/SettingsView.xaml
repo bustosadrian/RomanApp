@@ -15,16 +15,22 @@
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" 
+            <TextBlock Grid.Row="0" Grid.Column="0" 
                        Text="Use whole numbers:" />
-            <CheckBox  Grid.Column="1" 
+            <CheckBox  Grid.Row="0" Grid.Column="1" 
                        IsChecked="{Binding IsUseWholeNumbers, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" 
+                       Text="Use whole numbers:" />
+            <CheckBox  Grid.Row="1" Grid.Column="1" 
+                       IsChecked="{Binding IsUseNumericKeyboard, Mode=TwoWay}" />
         </Grid>
 
         <Grid Grid.Row="1" Margin="0 30 0 0">

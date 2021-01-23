@@ -54,6 +54,12 @@ namespace RomanApp.Messages.Output.Sheet.Outcome
             set;
         }
 
+        public decimal LeftOver
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

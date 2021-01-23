@@ -210,14 +210,35 @@
                 <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
             </StackLayout.Resources>
             <!-- Summary -->
-            <Label Text="{x:Static res:Help.Sheet_Settings}" />
+            <Label Text="{x:Static res:Help.Settings}" />
 
             <!-- Options -->
-            <Label Text="{x:Static res:Help.Sheet_Settings_Options_Header}"
+            <Label Text="{x:Static res:Help.Settings_Options_Header}"
                    Style="{StaticResource ContentH1Style}" />
-            <Label Text="{x:Static res:Help.Sheet_Settings_Option_Whole_Label}" 
+            <Label Text="{x:Static res:Help.Settings_Option_Whole_Label}" 
                    Style="{StaticResource RemarkStyle}"/>
-            <Label Text="{x:Static res:Help.Sheet_Settings_Option_Whole_Line1}" 
+            <Label Text="{x:Static res:Help.Settings_Option_Whole_Line1}" 
+                   Style="{StaticResource PadLeftStyle}"/>
+            <Label Text="{x:Static res:Help.Settings_Option_Keyboard_Label}" 
+                   Style="{StaticResource RemarkStyle}"/>
+            <Label Text="{x:Static res:Help.Settings_Option_Keyboard_Line1}" 
+                   Style="{StaticResource PadLeftStyle}"/>
+        </StackLayout>
+    </ControlTemplate>
+
+
+    <ControlTemplate x:Key="template_help_troubleshooting">
+        <StackLayout>
+            <StackLayout.Resources>
+                <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource ContentParagraphStyle}" TargetType="Label" />
+            </StackLayout.Resources>
+            <!-- Summary -->
+            <Label Text="{x:Static res:Help.Troubleshooting}" />
+
+            <!-- Issues -->
+            <Label Text="{x:Static res:Help.Troubleshooting_Issue_Keyboard_Header}" 
+                   Style="{StaticResource IssueHeaderStyle}"/>
+            <Label Text="{x:Static res:Help.Troubleshooting_Issue_Keyboard}" 
                    Style="{StaticResource PadLeftStyle}"/>
         </StackLayout>
     </ControlTemplate>

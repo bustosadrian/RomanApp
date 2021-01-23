@@ -13,15 +13,25 @@ namespace RomanApp.Client.Mobile.Controls
     public partial class Repeat : StackLayout
     {
 
-        private ISoundService _soundService;
+        //private ISoundService _soundService;
 
         public Repeat()
         {
             InitializeComponent();
             
-            _soundService =  DependencyService.Get<ISoundService>();
-
             Resources.Add(new Pallete());
+        }
+
+        private void PlayTapSound()
+        {
+            try
+            {
+                DependencyService.Get<ISoundService>()?.Tap();
+            }
+            catch
+            {
+
+            }
         }
 
         private void ResetRows()
@@ -106,9 +116,9 @@ namespace RomanApp.Client.Mobile.Controls
                 var selectionBox = contentWrapper.Children.First();
                 selectionBox.Opacity = 1;
                 await selectionBox.FadeTo(0, 250);
-                
-                _soundService.Click();
-                
+
+                PlayTapSound();
+
                 Execute(SelectedCommand, contentWrapper.BindingContext);
             }
         }

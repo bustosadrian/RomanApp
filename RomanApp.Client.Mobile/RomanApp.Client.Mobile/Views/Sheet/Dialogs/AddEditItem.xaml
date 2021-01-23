@@ -7,6 +7,7 @@
              xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Dialogs"
              xmlns:t="clr-namespace:RomanApp.Client.Mobile.TriggerActions"
              xmlns:res="clr-namespace:RomanApp.Client.Mobile.Resx"
+             xmlns:p="clr-namespace:RomanApp.Client.Mobile.Platform"
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Dialogs.AddEditItem">
 
@@ -69,6 +70,7 @@
                               ItemTemplate="{StaticResource template_validation_message}"/>
                     <Label Text="{x:Static res:Views.Sheet_Input_Dialog_Add_Edit_Name}" />
                     <Entry Text="{Binding Name,Mode=TwoWay}" 
+                           MaxLength="30"
                            Keyboard="Chat">
                         <Entry.Triggers>
                             <EventTrigger Event="Focused">
@@ -83,7 +85,8 @@
                               ItemTemplate="{StaticResource template_validation_message}"/>
                     <Label Text="{Binding ItemType, Converter={StaticResource c_a}}" />
                     <Entry Text="{Binding Amount,Mode=TwoWay}"
-                           Keyboard="Numeric">
+                           MaxLength="10"
+                           Keyboard="{Binding KeyboardMode, Converter={StaticResource c_keyboard}}">
                         <Entry.Triggers>
                             <EventTrigger Event="Focused">
                                 <t:SelectAllTriggerAction />
@@ -92,37 +95,6 @@
                     </Entry>
                 </StackLayout>
             </Grid>
-
-            <!--<Frame Grid.Row="2" BackgroundColor="{DynamicResource main-color-super-dark}"
-                   HeightRequest="100">
-                <Grid VerticalOptions="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.Resources>
-                        <Style ApplyToDerivedTypes="True" TargetType="Label">
-                            <Setter Property="TextColor" Value="White" />
-                            <Setter Property="FontSize" Value="64" />
-                        </Style>
-                    </Grid.Resources>
-                    <c:IconButton Grid.Column="0" 
-                                  TextColor="Red"
-                                  Value="TrashAltSolid"
-                                  HorizontalOptions="Center" />
-                    <c:Icon Grid.Column="1" 
-                                  TextColor="White"
-                            HorizontalOptions="Center"
-                            Value="TimesCircleRegular" />
-                    <c:Icon Grid.Column="2" 
-                            TextColor="Lime"
-                            HorizontalOptions="Center"
-                            Value="CheckCircleRegular" />
-                </Grid>
-            </Frame>
-            <BoxView Grid.Row="2" Color="{DynamicResource main-color-normal}" 
-                     VerticalOptions="Start" HeightRequest="2"/>-->
         </Grid>
     </ContentView.Content>
 </ContentView>

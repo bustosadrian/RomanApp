@@ -26,7 +26,7 @@
             <TextBox Grid.Column="0" 
                      Text="{Binding Name,Mode=TwoWay}"/>
             <TextBox Grid.Column="1" 
-                     Text="{Binding Amount,Mode=TwoWay, Converter={StaticResource c_d}}"/>
+                     Text="{Binding Amount,Mode=TwoWay}"/>
         </Grid>
 
         <Grid Grid.Row="1" VerticalAlignment="Bottom">

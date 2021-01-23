@@ -139,8 +139,7 @@
     <value>
       <![CDATA[
       This help will guide you through the app, trying to clear any doubts you may have about its purpose, usage and development. <br /><br />
-      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the Help view at the section you are currently working on.<br /><br />
-      For example if you access the Help while you were in the <strong>Settings</strong> panel you will access the Settings section of the Help.<br /><br />
+      You can access the Help at any moment by tapping the three dot menu at the top right corner of the screen and then tapping "Help". This will open the overview as a starting point for you.<br /><br />
       But don't worry. You can access any section or topic you need by tapping the index button at the top right corner.<br /><br />
       One more thing that might be useful to know is the "See also" portion. You may spot it at the bottom of the view. This will list related topics to which you are currently reading about.
       ]]></value>
@@ -295,7 +294,7 @@
   <data name="Sheet.Input.Adding.Part2" xml:space="preserve">
     <value>
     <![CDATA[
-    In any case the <strong>Name</strong> field is required and the <strong>Contribution</strong> or <strong>Value</strong> can't have a negative number.<br /><br />
+    In any case the <strong>Name</strong> field is required and the <strong>Contribution</strong> or <strong>Value</strong> can't have a negative number and must be lower than 1 million.<br /><br />
     If you are adding an <strong>Expense</strong> the value must be greater than 0.<br /><br />
     Don't worry about remembering these rules. If you misfollow any of them a message will appear on top of the field guiding you to correct them.<br /><br />
     Once the fields are properly set you may tap in the green circular button with a "check" icon in it at the bottom of the window. Doing so the window will close and the item will appear in the corresponding box at the bottom of the list.
@@ -461,16 +460,18 @@
   <data name="Sheet.Outcome.Groups" xml:space="preserve">
     <value>
     <![CDATA[
-    Along with the <strong>Summary</strong> the outcome provides four different boxes which represent the event's guests or expenses sorted in four groups:<br /><br />
+    Along with the <strong>Summary</strong> the outcome provides five different boxes which represent the event's guests or expenses sorted in four groups along with any surplus or shortcomings:<br /><br />
     &nbsp;&nbsp;1. Those who owe<br />
     &nbsp;&nbsp;2. Those who must collect<br />
     &nbsp;&nbsp;3. Expenses to cover<br />
-    &nbsp;&nbsp;4. Those who broke even<br />
+    &nbsp;&nbsp;4. Surplus or shortcomings<br />
+    &nbsp;&nbsp;5. Those who broke even<br />
     <br />
     Each box has a header that describes, at its left side, what group of elements (<strong>guests</strong> or <strong>expenses</strong>, described above) contains and  the count of elements at its right side.<br />
     Each, also, has a footer that shows the total sum of all the elements in the box. This will only be visible when the box, or group, contains more than one element.<br /><br />
     Inside the box you can see the list of elements. On the left side the element's name and on the right side the amount that the it either owes, must collect or be payed, depending on which box you're looking at.<br /><br />
-    The fourth box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero and won't show the total at its footer, either.
+    The fourth box, surplus or shortcomings, will show any reamining difference as a result of rounding the figures. This result could be minimized by deactivating the <i>Use whole numbers</i> in the <strong>Settings</strong> panel.<br /><br />
+    The fifth box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero and won't show the total at its footer, either.
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Groups.Note.Visible" xml:space="preserve">
@@ -599,28 +600,31 @@
   <data name="Sheet.Outcome.Examples.Example3.Premise" xml:space="preserve">
     <value>
     <![CDATA[
-    In this example will try to get the use of all four groups of the outcome. <br /><br />
+    In this example will try to get the use of all groups of the outcome. <br /><br />
     Four people at this event: Myself, Ellen, Leo and Jo. <br /><br />
     <u>Contributions (4):</u><br />
     &#8226; <strong>Myself</strong>: 5 (snacks)<br />
     &#8226; <strong>Ellen</strong>: 30 (beverages)<br />
-    &#8226; <strong>Leo</strong>: 25 (more snacks)<br />
+    &#8226; <strong>Leo</strong>: 25.05 (more snacks)<br />
     &#8226; <strong>Jo</strong>: 0<br />
     <br />
     <u>Expenses (2):</u><br />
-    &#8226; <strong>Tennis court</strong>: 35<br />
-    &#8226; <strong>DVD recording of the match</strong>: 5
+    &#8226; <strong>Tennis court</strong>: 35.30<br />
+    &#8226; <strong>DVD recording of the match</strong>: 4.95
     ]]>
     </value>
   </data>
   <data name="Sheet.Outcome.Examples.Example3.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    The total cost of this event is <strong>100</strong>. That is <strong>25</strong> for each to pay (<strong>the Share</strong>). <br /><br />
+    The total cost of this event is <strong>100.30</strong>. That is <strong>25</strong> for each to pay (<strong>the Share</strong>). <br />
+    The real share is <strong>25.08</strong> but we are rounding down since we are using whole numbers only.<br /><br />
     Jo and I are the ones who should put money on the table. I should pay <strong>20</strong> since <strong>5</strong> were already covered for snacks and Jo should pay her full share.<br /><br />
     A total of <strong>45</strong> is now on the table. <strong>5</strong> goes to Ellen since she contributed with <strong>30</strong>.<br /><br />
-    We are now left with <strong>40</strong> on the table. <strong>35</strong> will go to pay for the Tennis Court and <strong>5</strong> for the DVD recording.<br /><br />
-    Leo should not pay or receive anything since his contribution matches the share of <strong>25</strong>.
+    We are now left with <strong>40</strong> on the table. <strong>35.30</strong> will go to pay for the Tennis Court and <strong>4.95</strong> for the DVD recording.<br /><br />
+    If you the math youserlf you'll notice that after paying the Tennis Court we are left with <strong>4.70</strong> and we are behind with <strong>0.25</strong> to pay for the DVD recording.<br />
+    This is unavoidable due to the fractions rounding and is left for the guests to decide who should cover this difference.</br></br>
+    Finally, Leo should not pay or receive anything since his contribution matches the share of <strong>25.05</strong>.
     ]]>
     </value>
   </data>
@@ -633,13 +637,13 @@
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <!-- Settings -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-  <data name="Sheet.Settings.Help.Topic" xml:space="preserve">
+  <data name="Settings.Help.Topic" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Sheet.Settings.Help.Topic.Quick.Summary" xml:space="preserve">
+  <data name="Settings.Help.Topic.Quick.Summary" xml:space="preserve">
     <value>Definition of each configuration property. Their purpose and their impact in the app.</value>
   </data>
-  <data name="Sheet.Settings" xml:space="preserve">
+  <data name="Settings" xml:space="preserve">
     <value>
       <![CDATA[This panel will allow you to configure different aspects and behaviours of the app. All changes will be immediately saved at the moment you change them and will remain even after the app is terminated or your device is restarted.]]>
     </value>
@@ -647,14 +651,55 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
-  <data name="Sheet.Settings.Options.Header" xml:space="preserve">
+  <data name="Settings.Options.Header" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="Sheet.Settings.Option.Whole.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; Use whole numbers?]]></value>
+  <data name="Settings.Option.Whole.Label" xml:space="preserve">
+    <value><![CDATA[&#8226; Use whole numbers]]></value>
   </data>
-  <data name="Sheet.Settings.Option.Whole.Line1" xml:space="preserve">
-    <value><![CDATA[Sets the app to use whole numbers or decimals. In case is set for the latter (<strong>Off</strong>) the app will round the decimals in intervals of 25, 50 and 75 to make it easier for the guests to pay their share.]]></value>
+  <data name="Settings.Option.Whole.Line1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closes interval.<br/>
+    i.e: <i>.136</i> will be rounded up to <strong>.14</strong>. <i>.902</i> will be rounded down to <strong>.90</strong>.
+    ]]></value>
+  </data>
+  <data name="Settings.Option.Keyboard.Label" xml:space="preserve">
+    <value><![CDATA[&#8226; Use numeric keyboard]]></value>
+  </data>
+  <data name="Settings.Option.Keyboard.Line1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Sets the app to use whole a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
+    ]]></value>
+  </data>
+
+
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+  <!-- Troubleshooting -->
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+  <data name="Troubleshooting.Help.Topic" xml:space="preserve">
+    <value>Troubleshooting</value>
+  </data>
+  <data name="Troubleshooting.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>Help and tips for known issues with the app.</value>
+  </data>
+  <data name="Troubleshooting" xml:space="preserve">
+    <value>
+      <![CDATA[Here you may find some answers and helpful tips to solve some issues you may have using the app.]]>
+    </value>
+  </data>
+  <!-- ............................... -->
+  <!-- ............................... -->
+  <data name="Troubleshooting.Issue.Keyboard.Header" xml:space="preserve">
+    <value>I can't use the decimal symbol in my keyboard</value>
+  </data>
+  <data name="Troubleshooting.Issue.Keyboard" xml:space="preserve">
+     <value>
+      <![CDATA[
+      Some devices may be incompatible using symbols like the decimal separator on the numeric keyboard mode. If this is your case you can deactivate the "Use numeric keyboard" option in the <strong>Settings</strong> panel and use the regular keyboard for entering the amounts.
+      ]]>
+    </value>
   </data>
 
 </root>

@@ -11,6 +11,8 @@ namespace RomanApp.Client.Mobile
 
             MainPage = new NavigationPage(new MainPage());
 
+            Bootstrap.Instance.Start();
+
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         }
 
@@ -19,19 +21,19 @@ namespace RomanApp.Client.Mobile
 
         }
 
-        protected override void OnStart()
-        {
-            StartBootstrap();
-        }
+        //protected override void OnStart()
+        //{
+        //    StartBootstrap();
+        //}
 
-        private void StartBootstrap()
-        {
-            Bootstrap bootstrap = new Bootstrap();
-            bootstrap.OnClientLoaded += (s, e) =>
-            {
-                e.Client.StealthMode = false;
-            };
-            bootstrap.Start();
-        }
+        //private void StartBootstrap()
+        //{
+        //    Bootstrap bootstrap = new Bootstrap();
+        //    bootstrap.OnClientLoaded += (s, e) =>
+        //    {
+        //        e.Client.StealthMode = false;
+        //    };
+        //    bootstrap.Start();
+        //}
     }
 }

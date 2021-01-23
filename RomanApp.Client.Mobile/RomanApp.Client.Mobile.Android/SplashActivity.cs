@@ -2,7 +2,6 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
-using System.Threading.Tasks;
 
 namespace RomanApp.Client.Mobile.Droid
 {
@@ -21,6 +20,7 @@ namespace RomanApp.Client.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
             //Task startupWork = new Task(() => { SimulateStartup(); });
             //startupWork.Start();
 
@@ -31,9 +31,31 @@ namespace RomanApp.Client.Mobile.Droid
 
         }
 
+
         protected override void OnResume()
         {
             base.OnResume();
+
+            if (!Bootstrap.Instance.IsLoaded)
+            {
+                Bootstrap.Instance.OnClientLoaded -= Bootstrap_OnClientLoaded;
+                Bootstrap.Instance.OnClientLoaded += Bootstrap_OnClientLoaded;
+                Bootstrap.Instance.Load();
+            }
+            else
+            {
+                MoveForward();
+            }
+        }
+
+        private void Bootstrap_OnClientLoaded(object sender, ClientLoadedEventArgs e)
+        {
+            Bootstrap.Instance.OnClientLoaded -= Bootstrap_OnClientLoaded;
+            MoveForward();
+        }
+
+        protected void MoveForward()
+        {
             RunOnUiThread(() =>
             {
                 StartActivity(new Intent(Application.Context, typeof(MainActivity)));

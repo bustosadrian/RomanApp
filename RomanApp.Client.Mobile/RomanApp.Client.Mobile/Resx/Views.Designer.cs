@@ -169,6 +169,24 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One moment please....
+        /// </summary>
+        internal static string MainPage_Loading {
+            get {
+                return ResourceManager.GetString("MainPage.Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use numeric keyboard.
+        /// </summary>
+        internal static string Settings_General_Numeric {
+            get {
+                return ResourceManager.GetString("Settings.General.Numeric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         internal static string Settings_General_Title {
@@ -421,6 +439,24 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Due to the figures being rounded  we are missing &lt;strong&gt;{leftOver}&lt;/strong&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_LeftOver_Shortcoming {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.LeftOver.Shortcoming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Due to the figures being rounded we are with a surplus of &lt;strong&gt;{leftOver}&lt;/strong&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_LeftOver_Surplus {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.LeftOver.Surplus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Summary.
         /// </summary>
         internal static string Sheet_Outcome_Summary_Header {
@@ -664,6 +700,24 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You&apos;ll notice there are &lt;strong&gt;{leftOver}&lt;/strong&gt; missing. You&apos;ll have to decide who should cover this difference..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_LeftOver_Shortcoming {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.LeftOver.Shortcoming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ll notice there are &lt;strong&gt;{leftOver}&lt;/strong&gt; left over. You can divide this between the guests as you see fit..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_LeftOver_Surplus {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.LeftOver.Surplus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to But not all guests should pay and not all guests should pay their full share..
         /// </summary>
         internal static string Sheet_Outcome_Text_ShareCreditorsAndPartialDebtors {
@@ -696,6 +750,42 @@ namespace RomanApp.Client.Mobile.Resx {
         internal static string Sheet_Outcome_Text_SharePartialDebtors {
             get {
                 return ResourceManager.GetString("Sheet.Outcome.Text.SharePartialDebtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;This is a rounded number from &lt;strong&gt;{realShare}&lt;/strong&gt;. So you might end up with a small difference at the end.&lt;/i&gt;.
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareRealShare {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareRealShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anyway, but not all guests should pay and not all guests should pay their full share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareRealShareCreditorsAndPartialDebtors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareRealShareCreditorsAndPartialDebtors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anyway, but not all guests should pay..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareRealShareNoCreditors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareRealShareNoCreditors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anyway, but not all guests should pay their full share..
+        /// </summary>
+        internal static string Sheet_Outcome_Text_ShareRealSharePartialDebtors {
+            get {
+                return ResourceManager.GetString("Sheet.Outcome.Text.ShareRealSharePartialDebtors", resourceCulture);
             }
         }
         

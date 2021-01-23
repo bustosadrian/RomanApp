@@ -38,6 +38,10 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             {
                 Convert(expenses, sb, culture);
             }
+            else if (viewModel is LeftOverTextViewModel leftOver)
+            {
+                Convert(leftOver, sb, culture);
+            }
             else if (viewModel is EvensGroupViewModel evens)
             {
                 Convert(evens, sb, culture);
@@ -74,23 +78,37 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
 
         protected virtual void Convert(ShareGroupViewModel viewModel, StringBuilder sb, CultureInfo culture)
         {
+            string share = viewModel.Share.ToMoney(culture);
+            string realShare = viewModel.RealShare.ToMoney(culture);
+            bool showRealShare = !share.Equals(realShare);
+
             sb.Append(ShareDivided.
                 Replace("{guestsCount}", viewModel.GuestsCount.ToString()).
-                Replace("{share}", viewModel.Share.ToMoney(culture)));
+                Replace("{share}", share));
+            if (showRealShare)
+            {
+                sb.Append("<br /><br />");
+                sb.Append(ShareRealShare
+                    .Replace("{realShare}", realShare));
+                sb.Append("<br />");
+            }
             sb.Append("<br />");
             if (viewModel.NotEveryOneOwesFullShare)
             {
+                string shareCreditorsAndPartialDebtors = showRealShare ? ShareRealShareCreditorsAndPartialDebtors : ShareCreditorsAndPartialDebtors;
+                string shareNoCreditors = showRealShare ? ShareRealShareNoCreditors : ShareNoCreditors;
+                string sharePartialDebtors = showRealShare ? ShareRealSharePartialDebtors : SharePartialDebtors;
                 sb.Append("<strong>");
                 switch (viewModel.Situation)
                 {
                     case GuestsSituation.CreditorsAndPartialDebtors:
-                        sb.Append(ShareCreditorsAndPartialDebtors);
+                        sb.Append(shareCreditorsAndPartialDebtors);
                         break;
                     case GuestsSituation.NoCreditors:
-                        sb.Append(ShareNoCreditors);
+                        sb.Append(shareNoCreditors);
                         break;
                     case GuestsSituation.PartialDebtors:
-                        sb.Append(SharePartialDebtors);
+                        sb.Append(sharePartialDebtors);
                         break;
                 }
             }
@@ -185,6 +203,13 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             sb.Append(ExpensesExpenses.Replace("{expenses}", expenses));
         }
 
+        protected void Convert(LeftOverTextViewModel viewModel, StringBuilder sb, CultureInfo culture)
+        {
+            string leftOver = viewModel.LeftOver > 0 ? LeftOverSurplus : LeftOverShortcoming;
+            sb.Append(leftOver
+                .Replace("{leftOver}", viewModel.AbsLeftOver.ToMoney(culture)));
+        }
+
         protected void Convert(EvensGroupViewModel viewModel, StringBuilder sb, CultureInfo culture)
         {
             string evensSingularPlural = viewModel.Evens.Count() == 1 ? EvensSingular : EvensPlural;
@@ -225,6 +250,23 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             get;
             set;
         }
+
+        protected string ShareRealShareCreditorsAndPartialDebtors
+        {
+            get;
+            set;
+        }
+        protected string ShareRealShareNoCreditors
+        {
+            get;
+            set;
+        }
+        protected string ShareRealSharePartialDebtors
+        {
+            get;
+            set;
+        }
+
         protected string ShareCreditorsAndPartialDebtors
         {
             get;
@@ -236,6 +278,12 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
             set;
         }
         protected string SharePartialDebtors
+        {
+            get;
+            set;
+        }
+
+        protected string ShareRealShare
         {
             get;
             set;
@@ -328,6 +376,18 @@ namespace RomanApp.Client.ViewModel.Sheet.Text.Converters
         }
 
         protected string ExpensesExpense
+        {
+            get;
+            set;
+        }
+
+        //LeftOver
+        protected string LeftOverSurplus
+        {
+            get;
+            set;
+        }
+        protected string LeftOverShortcoming
         {
             get;
             set;

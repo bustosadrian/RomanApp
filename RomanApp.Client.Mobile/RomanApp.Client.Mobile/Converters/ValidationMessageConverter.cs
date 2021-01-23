@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Reedoo.NET.Messages.Output.Validation;
+using RomanApp.Commons.Utils;
+using RomanApp.Messages.Output.Validation;
+using System;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace RomanApp.Client.Mobile.Converters
@@ -12,9 +13,27 @@ namespace RomanApp.Client.Mobile.Converters
         {
             string retval = null;
 
-            if(value is string key)
+            if (value is ValidationError error)
             {
-                retval = RomanApp.Client.Mobile.Resx.ValidationMessages.ResourceManager.GetString(key);
+                if (error is AmountValidationError amountError)
+                {
+                    switch (amountError.Reason)
+                    {
+                        case FailuireReason.NumberFormat:
+                            retval = Resx.ValidationMessages.sheet_add_edit_amount_format;
+                            break;
+                        case FailuireReason.OutOfRangeZero:
+                            retval = Resx.ValidationMessages.sheet_add_edit_guest_amount_range;
+                            break;
+                        case FailuireReason.OutOfRangeGreaterZero:
+                            retval = Resx.ValidationMessages.sheet_add_edit_expense_amount_range;
+                            break;
+                    }
+                }
+                else
+                {
+                    retval = RomanApp.Client.Mobile.Resx.ValidationMessages.ResourceManager.GetString(error.Message);
+                }
             }
 
             return retval;

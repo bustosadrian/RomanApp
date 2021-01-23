@@ -18,6 +18,12 @@ namespace RomanApp.Messages.Output.Settings
             set;
         }
 
+        public bool UseNumericKeyboard
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }

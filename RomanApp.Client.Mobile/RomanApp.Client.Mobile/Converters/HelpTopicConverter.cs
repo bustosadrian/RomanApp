@@ -26,7 +26,7 @@ namespace RomanApp.Client.Mobile.Converters
                             retval = RomanApp.Client.Mobile.Resx.Help.Overview_Help_Topic;
                             break;
                         case HelpTopic.Settings:
-                            retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Settings_Help_Topic;
+                            retval = RomanApp.Client.Mobile.Resx.Help.Settings_Help_Topic;
                             break;
                         case HelpTopic.SheetOverview:
                             retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Overview_Help_Topic;
@@ -36,6 +36,9 @@ namespace RomanApp.Client.Mobile.Converters
                             break;
                         case HelpTopic.SheetOutcomeOverview:
                             retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Outcome_Help_Topic;
+                            break;
+                        case HelpTopic.Troubleshooting:
+                            retval = RomanApp.Client.Mobile.Resx.Help.Troubleshooting_Help_Topic;
                             break;
                     }
                 }
@@ -47,7 +50,7 @@ namespace RomanApp.Client.Mobile.Converters
                             retval = RomanApp.Client.Mobile.Resx.Help.Overview_Help_Topic_Quick_Summary;
                             break;
                         case HelpTopic.Settings:
-                            retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Settings_Help_Topic_Quick_Summary;
+                            retval = RomanApp.Client.Mobile.Resx.Help.Settings_Help_Topic_Quick_Summary;
                             break;
                         case HelpTopic.SheetOverview:
                             retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Overview_Help_Topic_Quick_Summary;
@@ -57,6 +60,9 @@ namespace RomanApp.Client.Mobile.Converters
                             break;
                         case HelpTopic.SheetOutcomeOverview:
                             retval = RomanApp.Client.Mobile.Resx.Help.Sheet_Outcome_Help_Topic_Quick_Summary;
+                            break;
+                        case HelpTopic.Troubleshooting:
+                            retval = RomanApp.Client.Mobile.Resx.Help.Troubleshooting_Help_Topic_Quick_Summary;
                             break;
                     }
                 }

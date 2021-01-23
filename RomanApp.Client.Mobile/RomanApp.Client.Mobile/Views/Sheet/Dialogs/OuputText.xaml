@@ -51,6 +51,11 @@
                         <Label Text="{Binding Expenses, Converter={StaticResource c_otg}}" />
                     </StackLayout>
 
+                    <StackLayout IsVisible="{Binding LeftOver, Converter={StaticResource c_nb}}">
+                        <Label Text="{Binding LeftOver, Converter={StaticResource c_otg}}" 
+                               TextColor="{DynamicResource color-warning}" />
+                    </StackLayout>
+
                     <StackLayout IsVisible="{Binding Evens, Converter={StaticResource c_nb}}">
                         <Label Text="{x:Static res:Views.Sheet_Outcome_Text_Evens_Header}" 
                                Style="{StaticResource OutcomeTextParagraphHeaderStyle}" />

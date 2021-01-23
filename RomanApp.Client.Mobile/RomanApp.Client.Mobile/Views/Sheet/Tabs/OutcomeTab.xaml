@@ -7,6 +7,7 @@
              xmlns:c="clr-namespace:RomanApp.Client.Mobile.Controls"
              xmlns:sc="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Controls"
              xmlns:f="clr-namespace:RomanApp.Client.Mobile.Fonts"
+             xmlns:l="clr-namespace:RomanApp.Client.Mobile.Views.Sheet.Tabs"
              mc:Ignorable="d"
              x:Class="RomanApp.Client.Mobile.Views.Sheet.Tabs.OutcomeTab">
 
@@ -16,6 +17,8 @@
     </ContentPage.IconImageSource>
     
     <ContentPage.Resources>
+        <l:LeftOverConverter x:Key="LeftOverConverter" />
+
         <ResourceDictionary Source="/Styles/Sheet.xaml" />
     </ContentPage.Resources>
     
@@ -93,6 +96,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         
                         <sc:OutcomeItemsCard Grid.Row="0" ItemsSource="{Binding Path=Outcome.Debtors}" 
@@ -115,7 +119,16 @@
                                              IsVisible="{Binding Path=Outcome.IsShowExpenses}"
                                              ShowTotal="False" />
 
-                        <sc:OutcomeItemsCard Grid.Row="3" ItemsSource="{Binding Path=Outcome.Evens}" 
+                        <Frame Grid.Row="3"
+                               Style="{StaticResource OutcomeLeftOverBoxStyle}"
+                               IsVisible="{Binding Path=Outcome.IsShowLeftOver}">
+                            <Frame.Resources>
+                                <Style BasedOn="{StaticResource OutcomeLeftOverTextStyle}" TargetType="Label" />
+                            </Frame.Resources>
+                            <Label Text="{Binding Path=Outcome.LeftOver, Converter={StaticResource LeftOverConverter}}" />
+                        </Frame>
+
+                        <sc:OutcomeItemsCard Grid.Row="4" ItemsSource="{Binding Path=Outcome.Evens}" 
                                              GroupName="{x:Static res:Views.Sheet_Outcome_Group_Even_Header}"
                                              Count="{Binding Path=Outcome.EvensCount}"
                                              IsVisible="{Binding Path=Outcome.IsShowEvens}" 

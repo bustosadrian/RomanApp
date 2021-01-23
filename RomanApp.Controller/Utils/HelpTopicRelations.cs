@@ -17,6 +17,7 @@ namespace RomanApp.Controller.Utils
             {
                 retval.Add(HelpTopic.SheetOverview);
                 retval.Add(HelpTopic.Settings);
+                retval.Add(HelpTopic.Troubleshooting);
             }
             else
             {

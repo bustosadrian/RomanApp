@@ -19,6 +19,20 @@
             }
         }
 
+        private bool _useNumericKeyboard;
+        public bool UseNumericKeyboard
+        {
+            get
+            {
+                return _useNumericKeyboard;
+            }
+            set
+            {
+                _useNumericKeyboard = value;
+                OnPropertyChanged(nameof(UseNumericKeyboard));
+            }
+        }
+
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Reedoo.NET.Messages;
 using Reedoo.NET.Messages.Validations;
+using RomanApp.Messages.Validations;
 using System;
 
 namespace RomanApp.Messages.Input.Sheet
@@ -20,8 +21,9 @@ namespace RomanApp.Messages.Input.Sheet
         }
 
         [Required(ValidationMessage = "sheet.add.edit.guest.amount.required")]
-        [Range(GreaterThan = -1, ValidationMessage = "sheet.add.edit.guest.amount.range")]
-        public override decimal Amount
+        //[Range(GreaterThan = -1, ValidationMessage = "sheet.add.edit.guest.amount.range")]
+        [ItemAmountValidation(GreaterThanZero = false)]
+        public override string Amount
         {
             get;
             set;

@@ -7,5 +7,6 @@
         SheetInputOverview = 2,
         SheetOutcomeOverview = 3,
         Settings = 4,
+        Troubleshooting = 5,
     }
 }

@@ -1,7 +1,4 @@
 ﻿using RomanApp.Messages.Output.Sheet.Outcome.Text;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RomanApp.Client.ViewModel.Sheet.Text
 {
@@ -11,6 +8,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
         {
             GuestsCount = message.GuestsCount;
             Share = message.Share;
+            RealShare = message.RealShare;
+            
 
             NotEveryOneOwesFullShare = true;
             if (message.HasNoDebtors && message.HasPartialDebtors)
@@ -61,6 +60,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             }
         }
 
+        private decimal _realShare;
+        public decimal RealShare
+        {
+            get
+            {
+                return _realShare;
+            }
+            set
+            {
+                _realShare = value;
+                OnPropertyChanged(nameof(RealShare));
+            }
+        }
+        
         private GuestsSituation _situation;
         public GuestsSituation Situation
         {

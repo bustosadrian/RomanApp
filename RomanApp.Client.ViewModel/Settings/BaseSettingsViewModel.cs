@@ -23,8 +23,24 @@ namespace RomanApp.Client.ViewModel.Settings
             }
         }
 
+        private void SaveNumericKeyboard()
+        {
+            try
+            {
+                Send(new SaveSettingsInput()
+                {
+                    UseNumericKeyboardSet = true,
+                    UseNumericKeyboard = IsUseNumericKeyboard,
+                });
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
+        }
+
         #region Command
-       
+
         #endregion
 
 
@@ -35,6 +51,9 @@ namespace RomanApp.Client.ViewModel.Settings
         {
             _isUseWholeNumbers = message.UseWholeNumbers;
             OnPropertyChanged(nameof(IsUseWholeNumbers));
+
+            _isUseNumericKeyboard = message.UseNumericKeyboard;
+            OnPropertyChanged(nameof(IsUseNumericKeyboard));
 
             return true;
         }
@@ -58,6 +77,26 @@ namespace RomanApp.Client.ViewModel.Settings
                 if (changed)
                 {
                     SaveWholeNumbers();
+                }
+            }
+        }
+
+
+        private bool _isUseNumericKeyboard;
+        public bool IsUseNumericKeyboard
+        {
+            get
+            {
+                return _isUseNumericKeyboard;
+            }
+            set
+            {
+                bool changed = _isUseNumericKeyboard != value;
+                _isUseNumericKeyboard = value;
+                OnPropertyChanged(nameof(IsUseNumericKeyboard));
+                if (changed)
+                {
+                    SaveNumericKeyboard();
                 }
             }
         }

@@ -3,12 +3,13 @@ using Reedoo.NET.Messages.Output;
 using RomanApp.Client.Mobile.Utils;
 using RomanApp.Client.Mobile.ViewModels.Sheet.Dialogs;
 using RomanApp.Client.Mobile.Views.Sheet.Dialogs;
+using RomanApp.Client.ViewModel.Sheet;
 using RomanApp.Client.ViewModel.Sheet.Embeddeds;
 using RomanApp.Client.ViewModel.Sheet.Text;
-using RomanApp.Client.XAML.ViewModels.Sheet;
 using RomanApp.Messages;
 using RomanApp.Messages.Output.Sheet;
 using System;
+using System.Globalization;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -57,7 +58,7 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
         {
             if(_addEditItemDialog == null)
             {
-                _addEditItemDialog = new AddEditItemDialog(itemType, false);
+                _addEditItemDialog = new AddEditItemDialog(KeyboardMode, itemType, false);
                 _addEditItemDialog.OnError += AddEditItemDialog_OnError;
                 _addEditItemDialog.Show();
                 WaitForAddEditItemResult();
@@ -132,17 +133,24 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
 
         protected async override void ShowOutcomeText(OutcomeTextViewModel text)
         {
-            var dialog = new ContentDialog()
+            try
             {
-                Content = new OuputText()
+                var dialog = new ContentDialog()
                 {
-                    BindingContext = text,
-                }
-            };
-            dialog.AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel, IsBack = true, });
-            dialog.Show();
-            await dialog.Wait();
-            await Navigation.PopModalAsync();
+                    Content = new OuputText()
+                    {
+                        BindingContext = text,
+                    }
+                };
+                dialog.AddButton(new ContentDialogButton() { Icon = Icons.TimesCircleRegular, Color = Color.White, Result = AddEditItemResult.Cancel, IsBack = true, });
+                dialog.Show();
+                await dialog.Wait();
+                await Navigation.PopModalAsync();
+            }
+            catch (Exception e)
+            {
+                HandleError(e);
+            }
         }
 
         #region Command Methods
@@ -153,7 +161,7 @@ namespace RomanApp.Client.Mobile.ViewModels.Sheet
             {
                 if (_addEditItemDialog == null)
                 {
-                    _addEditItemDialog = new AddEditItemDialog(item.Id, item.Type, true, item.Name, item.Amount);
+                    _addEditItemDialog = new AddEditItemDialog(KeyboardMode, item.Id, item.Type, true, item.Name, item.Amount.ToString(CultureInfo.CurrentCulture));
                     _addEditItemDialog.OnError += AddEditItemDialog_OnError;
                     _addEditItemDialog.Show();
                     WaitForAddEditItemResult();

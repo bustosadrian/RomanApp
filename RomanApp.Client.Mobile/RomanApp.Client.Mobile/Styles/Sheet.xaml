@@ -180,6 +180,18 @@
         <Setter Property="Spacing" Value="10" />
     </Style>
 
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeLeftOverBoxStyle"  TargetType="Frame">
+        <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="BorderColor" Value="{DynamicResource color-warning}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" x:Key="OutcomeLeftOverTextStyle"  TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextType" Value="Html" />
+        <Setter Property="TextColor" Value="{DynamicResource color-warning}" />
+    </Style>
+
 
 
 

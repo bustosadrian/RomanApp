@@ -139,8 +139,7 @@
     <value>
       <![CDATA[
       Esta ayuda lo guiará a través de la app, intentando despejar cualquier duda que pueda tener acerca de su propósito, uso y su desarrollo.<br /><br />
-      Puede acceder a la Ayuda en cualquier momento presionando el botón de menu con los tres puntos en el marco superior derecho de la pantalla y luego presionando "Ayuda". Esto abrirá la Ayuda en la sección que actualmente está trabajando.<br /><br />
-      Por ejemplo, si usted accede a la Ayuda mientras esta en el panel de <strong>Configuración</strong>, accederá a la sección de Configuración de la ayuda.<br /><br />
+      Puede acceder a la Ayuda en cualquier momento presionando el botón de menu con los tres puntos en el marco superior derecho de la pantalla y luego presionando "Ayuda". Esto abrirá la Ayuda General como su punto de partida.<br /><br />
       Pero no se preocupe. Puede acceder a cualquier sección o tema que necesite presionando el botón de indice en el marco superior derecho.<br /><br />
       Una cosa más que puede serle útil saber es la parte de "Vea también". Puede encontrarla al final de la vista. Esta listará los temas relacionados con lo que actualmente esté leyendo.
       ]]></value>
@@ -296,7 +295,7 @@
   <data name="Sheet.Input.Adding.Part2" xml:space="preserve">
     <value>
     <![CDATA[
-    En cualquier caso el campos <strong>Nombre</strong> es requerido y su <strong>Aporte</strong> o <strong>Valor</strong> no puede ser un número negatisvo.<br /><br />
+    En cualquier caso el campos <strong>Nombre</strong> es requerido y su <strong>Aporte</strong> o <strong>Valor</strong> no puede ser un número negativo y debe ser menor a 1 millón.<br /><br />
     Si está agregando un <strong>Gasto</strong> el valor debe ser mayor a 0.<br /><br />
     No se preocupe por recordar estas reglas. Si se equivoca con cualquiera de ellas un mensaje aparecerá encima del campo, guiándolo a corregir su valor.<br /><br />
     Una vez que los campo hayan sido correctamente completados puede presionar el botón circular verde con un ícono de "chequeado" dentro, al fondo de la ventana. Haciéndolo la ventana se cerrará y el elemento aparecerá en la caja correspondiente, al final de la lista.
@@ -462,16 +461,18 @@
   <data name="Sheet.Outcome.Groups" xml:space="preserve">
     <value>
     <![CDATA[
-    Junto con el <strong>Resumen</strong> el resultado provee cuatro diferentes cajas las cuales representan a los participantes o gastos categorizados en cuatro grupos:<br /><br />
+    Junto con el <strong>Resumen</strong> el resultado provee cinco diferentes cajas las cuales representan a los participantes o gastos categorizados en cuatro grupos junto con los faltantes y sobrantes:<br /><br />
     &nbsp;&nbsp;1. Aquellos que deben dinero<br />
     &nbsp;&nbsp;2. Aquellos que deben cobrar<br />
     &nbsp;&nbsp;3. Los gastos a cubrir<br />
-    &nbsp;&nbsp;4. Aquellos que no deben nada<br />
+    &nbsp;&nbsp;4. Sobrantes y faltantes<br />
+    &nbsp;&nbsp;5. Aquellos que no deben nada<br />
     <br />
     Cada caja tiene un encabezado que describe, a su izquierda, qué grupo de elementos (<strong>participantes</strong> o <strong>gastos</strong>, descrito arriba) contiene y la cantidad de ellos a su derecha.<br />
     Cada caja, también, tiene un pié que muestra la suma total de todos los elementos dentro en ella. Este será visible solo cuando la caja, o grupo, contenga más de un elemento.<br /><br />
     Dentro de la caja puede ver la lista de elementos. A su izquierda el nombre del elemento y a su derecha la cantidad que, ya sea debe, debe cobrar o debe ser pagada, dependiendo de qué caja esté mirando.<br /><br />
-    La cuarta caja, el grupo de participantes que no deben nada, solo muestra los nombres sin las cantidades ya que se sobreentiende que la mismas siempre serán cero y tampoco mostrará el total en el pié.
+    La cuarta caja, sobrantes y faltantes, mostrará cualquier diferencia restante como producto del redondeo de cifras. Esta puede ser minimizada desactivando la opción de <i>Usar números enteros</i> en el panel de <strong>Configuración</strong>.<br /><br />
+    La quinta caja, el grupo de participantes que no deben nada, solo muestra los nombres sin las cantidades ya que se sobreentiende que la mismas siempre serán cero y tampoco mostrará el total en el pié.
     ]]></value>
   </data>
   <data name="Sheet.Outcome.Groups.Note.Visible" xml:space="preserve">
@@ -499,7 +500,7 @@
     <value><![CDATA[El costo total del evento (vea "Total" en la sección <strong>Resumen</strong>, arriba) resultó en 0. Por ende no hay nada que dividir.]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.Enough.Guests.Label" xml:space="preserve">
-    <value><![CDATA[&#8226; No se agregaron suficiente participantes:]]></value>
+    <value><![CDATA[&#8226; No se agregaron suficientes participantes:]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.Enough.Guests.Description" xml:space="preserve">
     <value><![CDATA[Necesita al menos dos participantes para poder dividir el costo del evento en partes.]]></value>
@@ -600,12 +601,12 @@
   <data name="Sheet.Outcome.Examples.Example3.Premise" xml:space="preserve">
     <value>
     <![CDATA[
-    En este ejemplo trataremos de usar los cuatro grupos del resultado. <br /><br />
+    En este ejemplo trataremos de usar todos los grupos del resultado. <br /><br />
     Cuatro personas en este evento: Elena, Leo, Josefina y yo.<br /><br />
     <u>Aportes (4):</u><br />
     &#8226; <strong>Yo</strong>: 5 (aperitivos)<br />
     &#8226; <strong>Elena</strong>: 30 (bebidas)<br />
-    &#8226; <strong>Leo</strong>: 25 (más aperitivos)<br />
+    &#8226; <strong>Leo</strong>: 25.05 (más aperitivos)<br />
     &#8226; <strong>Josefina</strong>: 0<br />
     <br />
     <u>Gastos (2):</u><br />
@@ -617,11 +618,14 @@
   <data name="Sheet.Outcome.Examples.Example3.Result" xml:space="preserve">
     <value>
     <![CDATA[
-    El costo total de este evento es de <strong>100</strong>. Eso es <strong>25</strong> a pagar por cada uno (<strong>la Parte</strong>). <br /><br />
+    El costo total de este evento es de <strong>100.30</strong>. Eso es <strong>25</strong> a pagar por cada uno (<strong>la Parte</strong>). <br />
+    La parte real es de <strong>25.08</strong> pero estamos redondeándola debido a que solo trabajamos con números enteros.<br /><br />
     Josefina y yo somos los que debemos poner dinero sobre la mesa. Yo debería poner <strong>20</strong> debido a que <strong>5</strong> ya fueron cubiertos por aperitivos y Josefina debería poner su parte completa.<br /><br />
     Un total de <strong>45</strong> se encuentra ahora sobre la mesa. <strong>5</strong> irán para Elena debido a que ella aportó con <strong>30</strong>.<br /><br />
-    Nos restan ahora <strong>40</strong> sobre la mesa. <strong>35</strong> serán para pagar por la cancha de tenis y <strong>5</strong> por la grabación del DVD.<br /><br />
-    Leo no debería pagar o cobrar nada debido a que su aporte equivale a su parte de <strong>25</strong>.
+    Nos restan ahora <strong>40</strong> sobre la mesa. <strong>35.30</strong> serán para pagar por la cancha de tenis y <strong>4.95</strong> por la grabación del DVD.<br /><br />
+    Si hace las cuentas notará que luego de pagar la cancha de tenis nos restan <strong>4.70</strong> y nos quedamos cortos por <strong>0.25</strong> para pagar por la grabación del DVD.<br />
+    Eso es inevitable debido al redondendo de las fracciones y le corresponde a los participantes decidir quiénes deben cubrir esta diferencia.</br></br>
+    Finalmente, Leo no debería pagar o cobrar nada debido a que su aporte equivale a su parte de <strong>25</strong>.
     ]]>
     </value>
   </data>
@@ -634,13 +638,13 @@
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
   <!-- Settings -->
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
-  <data name="Sheet.Settings.Help.Topic" xml:space="preserve">
+  <data name="Settings.Help.Topic" xml:space="preserve">
     <value>Configuración</value>
   </data>
-  <data name="Sheet.Settings.Help.Topic.Quick.Summary" xml:space="preserve">
+  <data name="Settings.Help.Topic.Quick.Summary" xml:space="preserve">
     <value>Definición de cada propiedad de la configuración. Su propósito y su impacto en la app.</value>
   </data>
-  <data name="Sheet.Settings" xml:space="preserve">
+  <data name="Settings" xml:space="preserve">
     <value>
       <![CDATA[Este panel le permitirá configurar diferentes aspectos y comportamientos de la app. Todos los cambios serán guardados inmediatamente al momento de ser efectuados y permanecerán aún luego de que la app se haya cerrado o su dispositivo reiniciado.]]>
     </value>
@@ -648,14 +652,54 @@
   <!-- ............................... -->
   <!-- ............................... -->
   <!-- ............................... -->
-  <data name="Sheet.Settings.Options.Header" xml:space="preserve">
+  <data name="Settings.Options.Header" xml:space="preserve">
     <value>Options</value>
   </data>
-  <data name="Sheet.Settings.Option.Whole.Label" xml:space="preserve">
+  <data name="Settings.Option.Whole.Label" xml:space="preserve">
     <value><![CDATA[&#8226; Usar números enteros]]></value>
   </data>
-  <data name="Sheet.Settings.Option.Whole.Line1" xml:space="preserve">
-    <value><![CDATA[Prepara a la app para usar números enteros o decimales. En el segundo caso (<strong>Opción apagada</strong>) la app redondeará los decimales en intervalos de 25, 50 y 75 para facilitar a los participantes a pagar su parte.]]></value>
+  <data name="Settings.Option.Whole.Line1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Prepara a la app para usar números enteros o decimales. Estos valores irán de .01 a .99. Cualquier cifra más pequeña se redondeará al intervalo más cercano.<br/>
+    ej: <i>.136</i> se redondeará a <strong>.14</strong>. <i>.902</i> se redondeará a <strong>.90</strong>.
+    ]]></value>
+  </data>
+  <data name="Settings.Option.Keyboard.Label" xml:space="preserve">
+    <value><![CDATA[&#8226; Usar teclado numérico]]></value>
+  </data>
+  <data name="Settings.Option.Keyboard.Line1" xml:space="preserve">
+    <value>
+    <![CDATA[
+    Prepara a la app para usar el teclado numérico cuando se ingresan las cantidades (aportes o valores). Al estar esta opción desactivada se mostrará el tradicional teclado alfanumérico.
+    ]]></value>
+  </data>
+
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+  <!-- Troubleshooting -->
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+  <data name="Troubleshooting.Help.Topic" xml:space="preserve">
+    <value>Solucionador de problemas</value>
+  </data>
+  <data name="Troubleshooting.Help.Topic.Quick.Summary" xml:space="preserve">
+    <value>Ayuda y consejos referidos a problemas detectados con la app.</value>
+  </data>
+  <data name="Troubleshooting" xml:space="preserve">
+    <value>
+      <![CDATA[Aquí podrá encontrar algunas respuestas y consejos útiles para resolver algunos problemas detectados en el uso de la app.]]>
+    </value>
+  </data>
+  <!-- ............................... -->
+  <!-- ............................... -->
+  <data name="Troubleshooting.Issue.Keyboard.Header" xml:space="preserve">
+    <value>No puedo usar el símbolo de decimal con mi teclado</value>
+  </data>
+  <data name="Troubleshooting.Issue.Keyboard" xml:space="preserve">
+     <value>
+      <![CDATA[
+      Algunos dispositivos podrían ser incompatibles usando símbolos como el separador de decimales con su teclado en modo numérico. Si este es su caso puede desactivar la opción de "Usar teclado númerico" en el panel de <strong>Configuración</strong> y usar el teclado tradicional para ingresar las cantidades.
+      ]]>
+    </value>
   </data>
 
 </root>

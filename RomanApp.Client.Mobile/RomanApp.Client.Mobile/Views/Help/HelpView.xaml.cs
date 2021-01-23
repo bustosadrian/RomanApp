@@ -61,6 +61,9 @@ namespace RomanApp.Client.Mobile.Views.Help
                     case HelpTopic.Settings:
                         retval = (ControlTemplate)_helpTopics["template_help_settings"];
                         break;
+                    case HelpTopic.Troubleshooting:
+                        retval = (ControlTemplate)_helpTopics["template_help_troubleshooting"];
+                        break;
                     default:
                         retval = (ControlTemplate)_helpTopics["template_help_no_help"];
                         break;

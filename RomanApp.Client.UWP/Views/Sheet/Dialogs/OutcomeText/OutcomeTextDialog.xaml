@@ -76,6 +76,12 @@
                         NavigationCompleted="WebView_NavigationCompleted"
                         Visibility="{Binding Expenses,Converter={StaticResource c_nv}}"/>
 
+            <!-- LeftOver -->
+            <WebView e:WebViewExtensions.HtmlSource="{Binding Path=LeftOver, Converter={StaticResource TextGroupConverter}}" 
+                        DefaultBackgroundColor="Transparent" 
+                        NavigationCompleted="WebView_NavigationCompleted"
+                        Visibility="{Binding LeftOver,Converter={StaticResource c_nv}}"/>
+
             <!-- Evens -->
             <WebView e:WebViewExtensions.HtmlSource="{Binding Path=Evens, Converter={StaticResource TextGroupConverter}}" 
                         DefaultBackgroundColor="Transparent" 

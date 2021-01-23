@@ -9,17 +9,18 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
 {
     public class AddEditItemViewModel : BaseViewModel
     {
-        public AddEditItemViewModel(ItemType itemType, bool isEditing)
-            : this(null, itemType, isEditing)
+        public AddEditItemViewModel(KeyboardMode keyboardMode, ItemType itemType, bool isEditing)
+            : this(keyboardMode, null, itemType, isEditing)
         {
 
         }
 
-        public AddEditItemViewModel(string id, ItemType itemType, bool isEditing)
+        public AddEditItemViewModel(KeyboardMode keyboardMode, string id, ItemType itemType, bool isEditing)
         {
             NameValidationErrors = new ObservableCollection<ValidationError>();
             AmountValidationErrors = new ObservableCollection<ValidationError>();
 
+            KeyboardMode = keyboardMode;
             Id = id;
             ItemType = itemType;
             IsEditing = isEditing;
@@ -121,8 +122,8 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
             }
         }
 
-        private decimal _amount;
-        public decimal Amount
+        private string _amount;
+        public string Amount
         {
             get
             {
@@ -146,6 +147,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Dialogs
             {
                 _isEditing = value;
                 OnPropertyChanged(nameof(IsEditing));
+            }
+        }
+
+        private KeyboardMode _keyboardMode;
+        public KeyboardMode KeyboardMode
+        {
+            get
+            {
+                return _keyboardMode;
+            }
+            set
+            {
+                _keyboardMode = value;
+                OnPropertyChanged(nameof(KeyboardMode));
             }
         }
 

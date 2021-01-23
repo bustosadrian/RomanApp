@@ -54,6 +54,13 @@ namespace RomanApp.Service.Entities
             set;
         }
 
+        public decimal RealShare
+        {
+            get;
+            set;
+        }
+
+
         public IEnumerable<GuestOutcome> Debtors
         {
             get;
@@ -73,6 +80,12 @@ namespace RomanApp.Service.Entities
         }
 
         public IEnumerable<ExpenseOutcome> Expenses
+        {
+            get;
+            set;
+        }
+
+        public decimal LeftOver
         {
             get;
             set;

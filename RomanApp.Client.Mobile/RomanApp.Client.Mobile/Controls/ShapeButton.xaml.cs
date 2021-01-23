@@ -13,15 +13,24 @@ namespace RomanApp.Client.Mobile.Controls
     {
         private const int MINIMUM_SPACING = 10;
 
-        private ISoundService _soundService;
-
         public ShapeButton()
         {
             InitializeComponent();
 
-            _soundService = DependencyService.Get<ISoundService>();
-
             AddTapGesture();
+        }
+
+
+        private void PlayTapSound()
+        {
+            try
+            {
+                DependencyService.Get<ISoundService>()?.Tap();
+            }
+            catch
+            {
+
+            }
         }
 
         private void AddTapGesture()
@@ -36,7 +45,8 @@ namespace RomanApp.Client.Mobile.Controls
             await Shape.ScaleTo(.75, 10);
             await Shape.ScaleTo(1, 10);
 
-            _soundService?.Click();
+            PlayTapSound();
+
             RaiseTapped();
             if (Command != null)
             {

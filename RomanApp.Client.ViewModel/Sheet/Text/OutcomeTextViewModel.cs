@@ -23,6 +23,11 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
                 Expenses = new ExpensesGroupViewModel(message.Expenses);
             }
 
+            if(message.LeftOver != null)
+            {
+                LeftOver = new LeftOverTextViewModel(message.LeftOver);
+            }
+
             if (message.Evens != null)
             {
                 Evens = new EvensGroupViewModel(message.Evens);
@@ -101,6 +106,20 @@ namespace RomanApp.Client.ViewModel.Sheet.Text
             {
                 _expenses = value;
                 OnPropertyChanged(nameof(Expenses));
+            }
+        }
+
+        private LeftOverTextViewModel _leftOver;
+        public LeftOverTextViewModel LeftOver
+        {
+            get
+            {
+                return _leftOver;
+            }
+            set
+            {
+                _leftOver = value;
+                OnPropertyChanged(nameof(LeftOver));
             }
         }
 

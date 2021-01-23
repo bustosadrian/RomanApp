@@ -7,18 +7,6 @@ namespace RomanApp.Controller.MemberStates
 {
     public abstract class BasicMemberState : BaseMemberState
     {
-        private HelpTopic? _defaultHelpTopic;
-
-        public BasicMemberState()
-            : this (null)
-        {
-
-        }
-
-        public BasicMemberState(HelpTopic? defaultHelpTopic)
-        {
-            _defaultHelpTopic = defaultHelpTopic;
-        }
 
         protected virtual void OnBack()
         {
@@ -39,7 +27,7 @@ namespace RomanApp.Controller.MemberStates
             ChangeState(typeof(HelpMemberState), new HelpParameters()
             {
                 PreviousState = GetType(),
-                Topic = message.Topic ?? _defaultHelpTopic.Value,
+                Topic = message.Topic ?? HelpTopic.Overview,
             });
         }
 

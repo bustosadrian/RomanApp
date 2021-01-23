@@ -4,7 +4,14 @@
     {
 
         #region Properties
+
         public decimal Debt
+        {
+            get;
+            set;
+        }
+
+        public GuestDebtorStatus DebtorStatus
         {
             get;
             set;

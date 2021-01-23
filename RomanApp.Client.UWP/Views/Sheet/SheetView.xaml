@@ -156,6 +156,20 @@
                                 <c:OutcomeGuestsList ItemsSource="{Binding Path=Outcome.Expenses}" Foreground="Black" />
                             </StackPanel>
 
+                            <StackPanel Visibility="{Binding Path=Outcome.IsShowLeftOver, Converter={StaticResource c_bv}}" 
+                                        Margin="0 0 0 20">
+                                <TextBlock FontWeight="Bold" FontSize="20"
+                                           Visibility="{Binding Path=Outcome.IsSurplus, Converter={StaticResource c_bv}}">
+                                    <Run Text="{Binding Path=Outcome.Surplus}" />
+                                    <Run Text="left over" />
+                                </TextBlock>
+                                <TextBlock FontWeight="Bold" FontSize="20"
+                                           Visibility="{Binding Path=Outcome.IsMissing, Converter={StaticResource c_bv}}">
+                                    <Run Text="{Binding Path=Outcome.Missing}" />
+                                    <Run Text="missing" />
+                                </TextBlock>
+                            </StackPanel>
+
                             <StackPanel Visibility="{Binding Path=Outcome.IsShowEvens, Converter={StaticResource c_bv}}" 
                                         Margin="0 0 0 20">
                                 <TextBlock FontWeight="Bold" FontSize="20">

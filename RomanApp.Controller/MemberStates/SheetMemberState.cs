@@ -1,6 +1,7 @@
 ﻿using Reedoo.NET.Controller;
 using Reedoo.NET.Messages;
 using RomanApp.Commons;
+using RomanApp.Commons.Utils;
 using RomanApp.Controller.Model.Event;
 using RomanApp.Messages;
 using RomanApp.Messages.Input;
@@ -18,12 +19,6 @@ namespace RomanApp.Controller.MemberStates
     public class SheetMemberState : BasicMemberState
     {
         private Outcome _outcome;
-
-        public SheetMemberState()
-            : base(HelpTopic.SheetOverview)
-        {
-
-        }
 
         public override void OnLoad()
         {
@@ -50,11 +45,20 @@ namespace RomanApp.Controller.MemberStates
             QueueOutcomeSummary();
             QueueOutcomeGuests();
             QueueEnableReset();
+            QueueSettings();
         }
 
         private void CalculateOutcome()
         {
             _outcome = EventService.Calculate(null, RoomSettings.UseWholeNumbers);
+        }
+
+        private void CheckItemInput(AddItemInput message)
+        {
+            if(message.Name.Length > 30)
+            {
+                message.Name = message.Name.Substring(0, 30);
+            }
         }
 
         #region Queues
@@ -71,6 +75,7 @@ namespace RomanApp.Controller.MemberStates
             {
                 Value = (RomanApp.Messages.Output.Sheet.Outcome.OutcomeResult)
                 Enum.Parse(typeof(RomanApp.Messages.Output.Sheet.Outcome.OutcomeResult), _outcome.Result.ToString()),
+                IsUseWholeNumbers = RoomSettings.UseWholeNumbers,
             });
         }
 
@@ -102,8 +107,6 @@ namespace RomanApp.Controller.MemberStates
             });
         }
 
-        
-
         private void QueueGuests()
         {
             foreach (var o in CurrentEvent.Guests)
@@ -130,6 +133,7 @@ namespace RomanApp.Controller.MemberStates
                 Total = _outcome.Total,
                 Share = _outcome.Share,
                 UseWholeNumbers = RoomSettings.UseWholeNumbers,
+                LeftOver = _outcome.LeftOver,
             }); ;
         }
 
@@ -167,6 +171,14 @@ namespace RomanApp.Controller.MemberStates
             });
         }
 
+        private void QueueSettings()
+        {
+            Queue(new UseNumericKeyboardOutput()
+            {
+                UseNumericKeyboard = RoomSettings.UseNumericKeyboard,
+            });
+        }
+
         private void QueueOutcomeAsText()
         {
             OutcomeTextOutput text = new OutcomeTextOutput();
@@ -190,17 +202,19 @@ namespace RomanApp.Controller.MemberStates
             {
                 GuestsCount = _outcome.GuestsCount,
                 Share = _outcome.Share,
+                RealShare = _outcome.RealShare,
                 HasNoDebtors = (_outcome.GuestsCount - _outcome.Debtors.Count()) > 0,
                 HasPartialDebtors = _outcome.Debtors.Any(x => x.Debt < _outcome.Share),
             };
+
 
 
             //Debtors
             text.Debtors = new DebtorsGroupOutput()
             {
                 Share = _outcome.Share,
-                FullDebtors = _outcome.Debtors.Where(x => x.Debt == _outcome.Share).Select(x => x.Name).ToList(),
-                PartialDebtors = _outcome.Debtors.Where(x => x.Debt < _outcome.Share).Select(x => new NameAmountOutput(x.Name, x.Debt, x.Amount)).ToList(),
+                FullDebtors = _outcome.Debtors.Where(x => x.DebtorStatus == GuestDebtorStatus.Full).Select(x => x.Name).ToList(),
+                PartialDebtors = _outcome.Debtors.Where(x => x.DebtorStatus == GuestDebtorStatus.Partial).Select(x => new NameAmountOutput(x.Name, x.Debt, x.Amount)).ToList(),
             };
 
             //Collected
@@ -221,9 +235,18 @@ namespace RomanApp.Controller.MemberStates
                 text.Expenses = new ExpensesGroupOutput()
                 {
                     HasCreditors = _outcome.Creditors.Any(),
-                    Remaining = _outcome.Total - _outcome.TotalGuests,
+                    Remaining = _outcome.Total - _outcome.TotalGuests + _outcome.LeftOver,
                     Debtors = _outcome.Debtors.Select(x => x.Name).ToList(),
                     Expenses = _outcome.Expenses.Select(x => new NameAmountOutput(x.Name, x.Amount)).ToList(),
+                };
+            }
+
+            //Expenses
+            if (_outcome.LeftOver != 0)
+            {
+                text.LeftOver = new LeftOverGroupOutput()
+                {
+                    LeftOver = _outcome.LeftOver,
                 };
             }
 
@@ -295,17 +318,20 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(AddItemInput message)
         {
+            CheckItemInput(message);
             ItemModel item = null;
             if(message is AddGuestInput)
             {
-                item = new GuestModel(EventService.AddGuest(CurrentEvent.Id, null, message.Name, message.Amount));
+                decimal amount = AmountConverter.Convert(message.Amount, false);
+                item = new GuestModel(EventService.AddGuest(CurrentEvent.Id, null, message.Name, amount));
                 CurrentEvent.Guests.Add((GuestModel)item);
                 Queue(ToItemOutput(item, ItemType.Guest));
 
             }
             else if (message is AddExpenseInput)
             {
-                item = new ExpenseModel(EventService.AddExpense(CurrentEvent.Id, null, message.Name, message.Amount));
+                decimal amount = AmountConverter.Convert(message.Amount, true);
+                item = new ExpenseModel(EventService.AddExpense(CurrentEvent.Id, null, message.Name, amount));
                 CurrentEvent.Expenses.Add((ExpenseModel)item);
                 Queue(ToItemOutput(item, ItemType.Expense));
             }
@@ -327,19 +353,22 @@ namespace RomanApp.Controller.MemberStates
         [Reader]
         public void Action(EditItemInput message)
         {
+            CheckItemInput(message);
             ItemModel modelItem = null;
             Item updatedItem = null;
             if (message is EditGuestInput)
             {
+                decimal amount = AmountConverter.Convert(message.Amount, false);
                 modelItem = CurrentEvent.Guests.Single(x => x.Id == message.ItemId);
-                updatedItem = EventService.UpdateGuest(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                updatedItem = EventService.UpdateGuest(CurrentEvent.Id, modelItem.Id, message.Name, amount);
                 modelItem.Map(updatedItem);
                 Queue(ToItemOutput(modelItem, ItemType.Guest));
             }
             else if (message is EditExpenseInput)
             {
+                decimal amount = AmountConverter.Convert(message.Amount, false);
                 modelItem = CurrentEvent.Expenses.Single(x => x.Id == message.ItemId);
-                updatedItem = EventService.UpdateExpense(CurrentEvent.Id, modelItem.Id, message.Name, message.Amount);
+                updatedItem = EventService.UpdateExpense(CurrentEvent.Id, modelItem.Id, message.Name, amount);
                 modelItem.Map(updatedItem);
                 Queue(ToItemOutput(modelItem, ItemType.Expense));
             }
