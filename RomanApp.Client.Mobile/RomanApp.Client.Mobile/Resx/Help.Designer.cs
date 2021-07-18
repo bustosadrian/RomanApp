@@ -100,7 +100,7 @@ namespace RomanApp.Client.Mobile.Resx {
         ///   Looks up a localized string similar to 
         ///    
         ///    RomanApp is a tool to divide the expenses between all the guests in a current event.&lt;br /&gt;&lt;br /&gt;
-        ///    In a scenario where some guests have contributed money for the event and some didn&apos;t, RomanApp will display the amounts of money that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
+        ///    In a scenario where some guests have contributed money for the event and some didn&apos;t, RomanApp will display the amounts of money that every guests, the ones who did not contribute enough, owe and the amount every guest should collect, the ones that contributed more than they had to.
         ///    .
         /// </summary>
         internal static string Overview_About_What {
@@ -231,7 +231,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Sets the app to use whole a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
+        ///    Sets the app to use a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
         ///    .
         /// </summary>
         internal static string Settings_Option_Keyboard_Line1 {
@@ -252,8 +252,8 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closes interval.&lt;br/&gt;
-        ///    i.e: &lt;i&gt;.136&lt;/i&gt; will be rounded up to &lt;strong&gt;.14&lt;/strong&gt;. &lt;i&gt;.902&lt;/i&gt; will be rounded down to &lt;strong&gt;.90&lt;/strong&gt;.
+        ///    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closest interval.&lt;br/&gt;
+        ///    i.e: &lt;i&gt;0.136&lt;/i&gt; will be rounded up to &lt;strong&gt;0.14&lt;/strong&gt;. &lt;i&gt;0.902&lt;/i&gt; will be rounded down to &lt;strong&gt;0.90&lt;/strong&gt;.
         ///    .
         /// </summary>
         internal static string Settings_Option_Whole_Line1 {
@@ -283,7 +283,7 @@ namespace RomanApp.Client.Mobile.Resx {
         /// <summary>
         ///   Looks up a localized string similar to 
         ///    
-        ///    Notice that the second field will display a different label depending of the type of element that you are adding:&lt;br /&gt;
+        ///    Notice that the second field will display a different label depending on the type of element that you are adding:&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Contribution&quot; if you are adding a &lt;strong&gt;Guest&lt;/strong&gt;.&lt;br /&gt;
         ///    &amp;nbsp;&amp;nbsp;&amp;#8226; &quot;Value&quot; if you are adding an &lt;strong&gt;Expense&lt;/strong&gt;.&lt;br /&gt;
         ///    .
@@ -561,7 +561,7 @@ namespace RomanApp.Client.Mobile.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You need at least two guests to have the  cost of the event cost divided in shares..
+        ///   Looks up a localized string similar to You need at least two guests to have the  cost of the event divided in shares..
         /// </summary>
         internal static string Sheet_Outcome_Empty_Enough_Guests_Description {
             get {

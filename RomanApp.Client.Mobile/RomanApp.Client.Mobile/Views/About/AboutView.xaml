@@ -62,9 +62,9 @@
                                 <StackLayout.Resources>
                                     <Style ApplyToDerivedTypes="True" BasedOn="{StaticResource LibrariesStyle}" TargetType="Label" />
                                 </StackLayout.Resources>
-                                <Label Text="NETSTandard.Library" />
+                                <Label Text="NETStandard.Library" />
                                 <Label Text="Serilog (2.10.0)" />
-                                <Label Text="Serilog (2.10.0)" />
+                                <Label Text="Serilog.Extensions.Logging (3.0.1)" />
                                 <Label Text="Serilog.Sinks.Debug (1.0.1)" />
                                 <Label Text="Xamarin.Forms (4.8.0.1687)" />
                                 <Label Text="Reedoo (0.1)" />

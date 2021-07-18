@@ -220,7 +220,7 @@ namespace RomanApp.Service
             int floating = Math.Abs((int)((value % 1) * 100));
             if (floating == 0)
             {
-                retval = value;
+                retval = Math.Truncate(value);
             }
             else
             {

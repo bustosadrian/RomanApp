@@ -154,7 +154,7 @@
     <value>
     <![CDATA[
     RomanApp is a tool to divide the expenses between all the guests in a current event.<br /><br />
-    In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts of money that every guests, the ones who did not contributed enough, owe and the amount every guest should collect, the ones that contributed more than they have to.
+    In a scenario where some guests have contributed money for the event and some didn't, RomanApp will display the amounts of money that every guests, the ones who did not contribute enough, owe and the amount every guest should collect, the ones that contributed more than they had to.
     ]]></value>
   </data>
   <!-- ............................... -->
@@ -286,7 +286,7 @@
   <data name="Sheet.Input.Adding.Note.Amount.Label" xml:space="preserve">
     <value>
     <![CDATA[
-    Notice that the second field will display a different label depending of the type of element that you are adding:<br />
+    Notice that the second field will display a different label depending on the type of element that you are adding:<br />
     &nbsp;&nbsp;&#8226; "Contribution" if you are adding a <strong>Guest</strong>.<br />
     &nbsp;&nbsp;&#8226; "Value" if you are adding an <strong>Expense</strong>.<br />
     ]]></value>
@@ -470,7 +470,7 @@
     Each box has a header that describes, at its left side, what group of elements (<strong>guests</strong> or <strong>expenses</strong>, described above) contains and  the count of elements at its right side.<br />
     Each, also, has a footer that shows the total sum of all the elements in the box. This will only be visible when the box, or group, contains more than one element.<br /><br />
     Inside the box you can see the list of elements. On the left side the element's name and on the right side the amount that the it either owes, must collect or be payed, depending on which box you're looking at.<br /><br />
-    The fourth box, surplus or shortcomings, will show any reamining difference as a result of rounding the figures. This result could be minimized by deactivating the <i>Use whole numbers</i> in the <strong>Settings</strong> panel.<br /><br />
+    The fourth box, surplus or shortcomings, will show any reamining difference as a result of rounding the figures. This difference could be minimized by deactivating the <i>Use whole numbers</i> in the <strong>Settings</strong> panel.<br /><br />
     The fifth box, the group of guests that broke even, only shows the names not the amounts since it's understood that said amount is zero and won't show the total at its footer, either.
     ]]></value>
   </data>
@@ -502,7 +502,7 @@
     <value><![CDATA[&#8226; Not enough guests:]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.Enough.Guests.Description" xml:space="preserve">
-    <value><![CDATA[You need at least two guests to have the  cost of the event cost divided in shares.]]></value>
+    <value><![CDATA[You need at least two guests to have the  cost of the event divided in shares.]]></value>
   </data>
   <data name="Sheet.Outcome.Empty.No.Debt.Label" xml:space="preserve">
     <value><![CDATA[&#8226; Nobody owes anything:]]></value>
@@ -622,8 +622,8 @@
     Jo and I are the ones who should put money on the table. I should pay <strong>20</strong> since <strong>5</strong> were already covered for snacks and Jo should pay her full share.<br /><br />
     A total of <strong>45</strong> is now on the table. <strong>5</strong> goes to Ellen since she contributed with <strong>30</strong>.<br /><br />
     We are now left with <strong>40</strong> on the table. <strong>35.30</strong> will go to pay for the Tennis Court and <strong>4.95</strong> for the DVD recording.<br /><br />
-    If you the math youserlf you'll notice that after paying the Tennis Court we are left with <strong>4.70</strong> and we are behind with <strong>0.25</strong> to pay for the DVD recording.<br />
-    This is unavoidable due to the fractions rounding and is left for the guests to decide who should cover this difference.</br></br>
+    If you do the math yourself you'll notice that after paying the Tennis Court we are left with <strong>4.70</strong> and we are behind with <strong>0.25</strong> to pay for the DVD recording.<br />
+    This is unavoidable due to the fractions rounding and is left for the guests to decide who should cover this difference.<br /><br />
     Finally, Leo should not pay or receive anything since his contribution matches the share of <strong>25.05</strong>.
     ]]>
     </value>
@@ -660,8 +660,8 @@
   <data name="Settings.Option.Whole.Line1" xml:space="preserve">
     <value>
     <![CDATA[
-    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closes interval.<br/>
-    i.e: <i>.136</i> will be rounded up to <strong>.14</strong>. <i>.902</i> will be rounded down to <strong>.90</strong>.
+    Sets the app to use whole numbers or decimals. These values will go from .01 to .99. Anything smaller than that will be rounded to the closest interval.<br/>
+    i.e: <i>0.136</i> will be rounded up to <strong>0.14</strong>. <i>0.902</i> will be rounded down to <strong>0.90</strong>.
     ]]></value>
   </data>
   <data name="Settings.Option.Keyboard.Label" xml:space="preserve">
@@ -670,7 +670,7 @@
   <data name="Settings.Option.Keyboard.Line1" xml:space="preserve">
     <value>
     <![CDATA[
-    Sets the app to use whole a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
+    Sets the app to use a numeric keyboard when entering the amounts (contributions or values). When deactivated the alphabetic traditional keyboard whill show up.
     ]]></value>
   </data>
 

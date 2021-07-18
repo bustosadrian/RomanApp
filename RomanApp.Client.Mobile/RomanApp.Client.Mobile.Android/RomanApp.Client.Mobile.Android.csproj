@@ -177,6 +177,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Art\abacus-vector-icon.jpg" />
+    <Content Include="Art\feature1.jpg" />
+    <Content Include="Art\romanApp white transparent.png" />
+    <Content Include="Art\splash_logo_romanApp.png" />
+    <Content Include="Art\web_hi_res_512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
